@@ -138,6 +138,30 @@ a {
 .navbar-top .navbar-nav li.active a:focus {
   background: rgba(255, 255, 255, 0.15);
 }
+.infoblocks {
+  background: #fff;
+  box-shadow: 1px 1px 2px 0px #999;
+  border: #CCC;
+  border-radius: 8px;
+  padding: 7px 15px 17px 15px;
+  margin-bottom: 20px;
+}
+.infoblocks .infoblock-title {
+  border-bottom: 1px solid #34859a;
+  color: #34859a;
+  font-size: 16px;
+  line-height: 24px;
+}
+.site-index .index-banner img {
+  max-width: 1100px;
+}
+.site-index .index-content {
+  padding: 20px 0;
+}
+.site-index .index-content .index-infoblocks {
+  width: 350px;
+  float: right;
+}
 .footer {
   height: 60px;
 }
