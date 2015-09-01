@@ -1,0 +1,29 @@
+@page-width: 1100px;
+@blue-color: #34859a;
+
+@top-actions-height: 64px;
+
+// mixins
+.transition(@property:all, @score:400ms, @style:ease-in-out) {
+
+    -webkit-transition: @property @score @style 0s;
+    -moz-transition: @property @score @style 0s;
+    -ms-transition: @property @score @style 0s;
+    -o-transition: @property @score @style 0s;
+    transition: @property @score @style 0s;
+}
+
+.opacity(@value:100) {
+
+    filter: alpha(opacity=@value);
+    opacity: @value/100;
+}
+
+.border-radius(@radius: 2px) {
+
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    -html-border-radius: @radius;
+    -ms-border-radius: @radius;
+    border-radius: @radius;
+}

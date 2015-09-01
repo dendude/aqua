@@ -1,14 +1,39 @@
-@page-width: 1100px;
-@blue-color: #34859a;
+@import 'vars.less';
 
 html,
 body {
     height: 100%;
+    background: transparent;
+}
+html {
+    background: url('/img/bg.jpg') no-repeat center top;
 }
 
 a {
     outline: none!important;
     cursor: pointer;
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.layout-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 400px;
+    width: 100%;
+    z-index: 0;
+
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&amp;1+28,0+100 */
+    background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,1) 28%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(28%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 28%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 28%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 28%,rgba(255,255,255,0) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 28%,rgba(255,255,255,0) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
 }
 
 .wrap {
@@ -16,8 +41,8 @@ a {
     height: auto;
     margin: 0 auto -60px;
     padding: 0 0 60px;
-
-    background: url('/img/bg.jpg') no-repeat center top;
+    position: relative;
+    z-index: 1;
 }
 
 .wrap > .container,
@@ -28,7 +53,89 @@ a {
 }
 
 .top-actions {
-    height: 55px;
+    height: @top-actions-height;
+    width: (@page-width + 40);
+    margin: 0 auto 20px auto;
+
+    .top-logo {
+        height: @top-actions-height;
+        float: left;
+        a {
+            display: block;
+        }
+    }
+    .top-words {
+        height: @top-actions-height;
+        float: left;
+        margin-left: 15px;
+        text-align: right;
+        white-space: nowrap;
+        overflow: hidden;
+        line-height: 20px;
+        padding-top: 12px;
+    }
+    .top-search {
+        height: 34px;
+        float: left;
+        margin: 15px 0 0 15px;
+        padding: 2px 34px 2px 6px;
+        width: 250px;
+        position: relative;
+        overflow: hidden;
+        border: 2px solid #b3b5b4;
+        .border-radius(6px);
+
+        input {
+            height: 26px;
+            line-height: 26px;
+            width: 100%;
+            border: none;
+            padding: 0;
+        }
+        button {
+            border: none;
+            background: #F8F8F8;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 32px;
+            height: 30px;
+            text-align: center;
+            i {
+                color: @blue-color;
+                font-size: 14px;
+            }
+
+            &:hover {
+                background: #EAEAEA;
+            }
+        }
+    }
+    .top-buttons {
+        height: @top-actions-height;
+        .top-acts {
+            display: block;
+            float: left;
+            height: @top-actions-height;
+            font-size: 12px;
+            line-height: 16px;
+            padding-top: 8px;
+            margin-left: 25px;
+
+            &.act-specialist {
+                background: url('/img/specialist.png') no-repeat left center;
+                padding-left: 80px;
+            }
+            &.act-counting {
+                background: url('/img/counting.png') no-repeat left center;
+                padding-left: 57px;
+            }
+            &.act-callback {
+                background: url('/img/callback.png') no-repeat left center;
+                padding-left: 62px;
+            }
+        }
+    }
 }
 
 .navbar-main {

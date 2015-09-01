@@ -42,7 +42,26 @@ AppAsset::register($this);
         </div>
     </nav>
 
-    <div class="top-actions"></div>
+    <div class="top-actions">
+        <div class="top-logo">
+            <a href="<?= Yii::$app->homeUrl ?>"><img src="/img/logo.png" alt=""/></a>
+        </div>
+        <div class="top-words">
+            Собственное производство!<br/>20 лет на рынке!
+        </div>
+        <div class="top-search">
+            <input type="text" placeholder="Поиск по сайту"/>
+            <button>
+                <i class="glyphicon glyphicon-search"></i>
+            </button>
+        </div>
+        <div class="top-buttons">
+            <a class="top-acts act-specialist" href="#">Бесплатный<br/>выезд<br/>специалиста</a>
+            <a class="top-acts act-counting" href="#">Расчитать<br/>стоимость<br/>аквариума</a>
+            <a class="top-acts act-callback" href="#">Заказать<br/>обратный<br/>звонок</a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
 
     <nav class="navbar-main">
         <table>
@@ -69,6 +88,8 @@ AppAsset::register($this);
 </footer>
 
 <?php $this->endBody() ?>
+
+<div class="layout-gradient"></div>
 </body>
 </html>
 <?php $this->endPage() ?>
