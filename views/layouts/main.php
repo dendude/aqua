@@ -28,8 +28,8 @@ AppAsset::register($this);
                 <ul class="navbar-nav navbar-right nav">
                     <li>
                         <span>
-                            +7 (495) 123-45-78, +7 (495) 123-45-78<br/>
-                            <small>г.Москва, Енисейская область, дом 7 кв 56</small>
+                            +7(495) 755-7874,  (495) 921-5206 <br/>
+                            <small>г. Москва, ул. Енисейская, 1, оф. 32</small>
                         </span>
                     </li>
                 </ul>
@@ -85,10 +85,10 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="footer-container">
-        Компания "Альфаро"<br/>
-        Адрес<br/>
-        Телефон/факс<br/>
-        e-mail
+        Компания «Альфаро» <br/>
+        г. Москва, ул. Енисейская, 1, оф. 32<br/>
+        тел./факс (495) 755-7874, (985) 921-5206<br/>
+        e-mal: alfaro@alfaro.ru
     </div>
 </footer>
 
