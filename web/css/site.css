@@ -14,11 +14,29 @@ a {
 a:hover {
   text-decoration: none;
 }
+h1 {
+  font-size: 22px;
+  color: #238091;
+  line-height: 36px;
+  padding: 0;
+  margin: 0 0 12px 0;
+}
+h1.line-title {
+  border-bottom: 2px solid #34859a;
+}
+p {
+  color: #414042;
+  line-height: 22px;
+  font-size: 16px;
+}
+p big {
+  font-size: 22px;
+}
 .layout-gradient {
   position: absolute;
   top: 0;
   left: 0;
-  height: 400px;
+  height: 700px;
   width: 100%;
   z-index: 0;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&amp;1+28,0+100 */
@@ -40,8 +58,7 @@ a:hover {
 .wrap {
   min-height: 100%;
   height: auto;
-  margin: 0 auto -60px;
-  padding: 0 0 60px;
+  margin: 0 auto 50px auto;
   position: relative;
   z-index: 1;
 }
@@ -106,7 +123,7 @@ a:hover {
   text-align: center;
 }
 .top-actions .top-search button i {
-  color: #34859a;
+  color: #238091;
   font-size: 14px;
 }
 .top-actions .top-search button:hover {
@@ -261,10 +278,11 @@ a:hover {
   margin-bottom: 20px;
 }
 .infoblocks .infoblock-title {
-  border-bottom: 1px solid #34859a;
-  color: #34859a;
+  border-bottom: 2px solid #34859a;
+  color: #238091;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 26px;
+  padding-bottom: 3px;
 }
 .site-index .index-banner img {
   max-width: 1100px;
@@ -276,8 +294,182 @@ a:hover {
   width: 350px;
   float: right;
 }
+.site-index .index-content .info-partners {
+  margin-top: 8px;
+  text-align: center;
+}
+.site-index .index-text {
+  margin-right: 365px;
+}
+.site-index .infoblock-faq {
+  height: 574px;
+}
+.site-index .why-us {
+  font-size: 22px;
+  color: #231f20;
+  font-weight: normal;
+  margin: 41px 0 0 0;
+  text-align: center;
+}
+.site-index .why-us-items {
+  padding-top: 7px;
+}
+.site-index .why-us-items .why-us-point {
+  width: 240px;
+  height: 290px;
+  background: url('/img/why-us.png') no-repeat center bottom;
+  float: left;
+  margin: 10px 7px 0 0;
+  position: relative;
+}
+.site-index .why-us-items .why-us-point.mr0 {
+  margin-right: 0;
+}
+.site-index .why-us-items .why-us-point .why-us-title {
+  position: absolute;
+  left: 22px;
+  top: 5px;
+  width: 220px;
+  height: 50px;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 22px;
+  color: #005463;
+  font-weight: bold;
+  text-shadow: 0 0 2px #fff;
+}
+.site-index .why-us-items .why-us-point .why-us-text {
+  display: block;
+  padding: 70px 15px 15px 22px;
+  font-size: 11px;
+  line-height: 15px;
+  color: #000;
+}
+.site-index .why-us-items .why-us-point .why-us-icons {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  width: 100px;
+  height: 150px;
+  background: no-repeat right bottom;
+}
+.site-index .why-us-items .why-us-point .why-us-icons.why-us-icon-1 {
+  background-image: url('/img/why-us-1.png');
+}
+.site-index .why-us-items .why-us-point .why-us-icons.why-us-icon-2 {
+  background-image: url('/img/why-us-2.png');
+}
+.site-index .why-us-items .why-us-point .why-us-icons.why-us-icon-3 {
+  background-image: url('/img/why-us-3.png');
+}
+.site-index .why-us-items .why-us-point .why-us-icons.why-us-icon-4 {
+  background-image: url('/img/why-us-4.png');
+}
+.site-index .why-us-items .why-us-point .why-us-icons.why-us-icon-5 {
+  background-image: url('/img/why-us-5.png');
+}
+.site-index .why-us-items .why-us-point .why-us-icons.why-us-icon-6 {
+  background-image: url('/img/why-us-6.png');
+}
+.site-index .index-our-job {
+  height: 460px;
+  width: 1100px;
+  margin: 20px auto;
+  background: url('/img/our-job.png') no-repeat center center;
+  position: relative;
+}
+.site-index .index-our-job .our-job-title {
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  position: absolute;
+  bottom: 54px;
+  left: 100px;
+  height: 40px;
+  line-height: 40px;
+  width: 256px;
+  overflow: hidden;
+}
+.site-index .index-our-job-slider {
+  height: 179px;
+  width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  background: url('/img/our-job-slider.png') no-repeat center center;
+}
+.site-index .index-our-job-slider .job-slide-acts {
+  display: block;
+  position: absolute;
+  top: 59px;
+  width: 29px;
+  height: 62px;
+  background: no-repeat center center;
+}
+.site-index .index-our-job-slider .job-slide-acts.job-slide-left {
+  left: 10px;
+  background-image: url('/img/our-job-slide-left.png');
+}
+.site-index .index-our-job-slider .job-slide-acts.job-slide-right {
+  right: 10px;
+  background-image: url('/img/our-job-slide-right.png');
+}
+.site-index .index-other-job {
+  width: 1100px;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+.site-index .index-other-job .other-job-title {
+  font-size: 24px;
+  color: #000;
+  text-align: center;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+.site-index .index-other-job .other-job-items {
+  width: 930px;
+  margin: 0 auto;
+}
+.site-index .index-other-job .other-job-items .other-job-point {
+  float: left;
+  margin: 0 5px;
+  width: 455px;
+  height: 385px;
+  background: no-repeat center top;
+}
+.site-index .index-other-job .other-job-items .other-job-point.other-job-1 {
+  background-image: url('/img/other-job-1.png');
+}
+.site-index .index-other-job .other-job-items .other-job-point.other-job-2 {
+  background-image: url('/img/other-job-2.png');
+}
+.site-index .index-other-job .other-job-items .other-job-point .other-job-subtitle {
+  display: block;
+  margin: 255px 30px 2px 30px;
+  text-align: left;
+  font-size: 16px;
+  line-height: 20px;
+  overflow: hidden;
+}
+.site-index .index-other-job .other-job-items .other-job-point .other-job-text {
+  display: block;
+  margin: 0 30px;
+  text-align: left;
+  font-size: 14px;
+  line-height: 18px;
+  max-height: 54px;
+  overflow: hidden;
+}
 .footer {
-  height: 60px;
+  background: #0074bc;
+  padding: 12px 0;
+}
+.footer .footer-container {
+  width: 1100px;
+  margin: 0 auto;
+  text-align: right;
+  color: #fff;
+  line-height: 18px;
+  font-size: 12px;
 }
 .jumbotron {
   text-align: center;

@@ -84,7 +84,12 @@ AppAsset::register($this);
 </div>
 
 <footer class="footer">
-    <div class="footer-container"></div>
+    <div class="footer-container">
+        Компания "Альфаро"<br/>
+        Адрес<br/>
+        Телефон/факс<br/>
+        e-mail
+    </div>
 </footer>
 
 <?php $this->endBody() ?>
