@@ -18,12 +18,21 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
+        'css/main.css',
         'css/site.css',
+        'css/modal.css',
+        'css/sm_slider.css',
+        'css/colorbox.css',
     ];
     public $js = [
+        'js/main.js',
+        'js/share42/share42.js',
+        'js/jquery.smslider.js',
+        'js/jquery.colorbox.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
+        'yii\glyphicons\GlyphiconsAsset',
     ];
 }

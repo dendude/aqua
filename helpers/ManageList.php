@@ -1,4 +1,10 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: dendude
+ * Date: 15.03.15
+ * Time: 20:45
+ */
 
 namespace app\helpers;
 
@@ -29,11 +35,19 @@ class ManageList {
                 case 'show':
                     $actions[$btn_name] = ['icon' => 'search', 'class' => 'default', 'title' => 'Просмотр'];
                     break;
+                case 'template-edit':
+                case 'section-edit':
+                    $actions[$btn_name] = ['icon' => 'pencil', 'class' => 'info', 'title' => 'Редактировать'];
+                    break;
+                case 'template-delete':
+                case 'section-delete':
+                    $actions[$btn_name] = ['icon' => 'trash', 'class' => 'danger', 'title' => 'Удалить'];
+                    break;
             }
         }
 
         $actions['edit'] = ['icon' => 'pencil', 'class' => 'info', 'title' => 'Редактировать'];
-        $actions['remove'] = ['icon' => 'trash', 'class' => 'danger', 'title' => 'Удалить'];
+        $actions['delete'] = ['icon' => 'trash', 'class' => 'danger', 'title' => 'Удалить'];
 
         foreach ($except_buttons AS $bnt_name) {
             // удаляем кнопки
@@ -45,11 +59,9 @@ class ManageList {
             $act_url = Yii::$app->controller->id . '/' . $ak;  // пример: users/edit
 
             $return[] = Html::tag('a', '<i class="glyphicon glyphicon-' . $av['icon'] . '"></i>', [
-
-                'href' => isset($av['href']) ? Url::to($av['href']) : Url::to([$act_url, 'id' => $model->id]),
+                'href' => Url::to([$act_url, 'id' => $model->id]),
                 'class' => 'btn btn-sm btn-' . $av['class'],
                 'title' => $av['title'],
-                'target' => isset($av['target']) ? $av['target'] : '',
             ]);
         }
 

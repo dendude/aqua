@@ -4,24 +4,50 @@ $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'basic',
+    'name' => 'MakeBody',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'language' => 'ru',
     'modules' => [
+        'manager' => [
+            'class' => 'app\modules\manager\ManagerModule',
+        ],
         'admin' => [
             'class' => 'app\modules\admin\AdminModule',
         ],
     ],
     'components' => [
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+        ],
+
+        'postman' => [
+            'class' => 'rmrevin\yii\postman\Component',
+            'driver' => 'smtp',
+            'default_from' => ['noreply@lechenie-ozhirenia.ru', 'Норма-веса.рф'],
+            'subject_prefix' => null,
+            'subject_suffix' => null,
+            'table' => '{{%email_sent}}',
+            'view_path' => '/email',
+            // smtp_config sets in SmtpEmail.php
+        ],
+
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '98reherhOHe7UHFy64JKNngth3g0e9w',
+            'enableCookieValidation' => true,
+            'enableCsrfCookie' => true,
+            'enableCsrfValidation' => true,
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'identityClass' => 'app\models\Users',
             'enableAutoLogin' => true,
+        ],
+        'vars' => [
+            'class' => '\app\models\Vars',
         ],
         'session' => [
             //'class' => 'yii\web\DbSession',
@@ -38,28 +64,41 @@ $config = [
             'suffix' => '.html',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'enableStrictParsing' => true,
             'rules' => [
+                [
+                    'pattern' => 'sitemap',
+                    'route' => 'site/sitemap',
+                    'suffix' => '.xml',
+                ],
+
                 '' => 'site/index',
 
-                '<action:[\w\-]+>/<id:\d+>' => 'site/<action>',
-                '<action:[\w\-]+>' => 'site/<action>',
+                '<controller:(ajax|auth)>/<action:>/<id:\d+>' => '<controller>/<action>',
+                '<controller:(ajax|auth)>/<action:>' => '<controller>/<action>',
 
-                '<controller:[\w\-]+>/<action:>/<id:\d+>' => '<controller>/<action>',
-                '<controller:[\w\-]+>/<action:>' => '<controller>/<action>',
+                '<module:(admin|manager)>/<controller:[\w\-]+>/<action:>/<id:\d+>' => '<module>/<controller>/<action>',
+                '<module:(admin|manager)>/<controller:[\w\-]+>/<action:>' => '<module>/<controller>/<action>',
 
-                '<module:[\w\-]+>/<controller:[\w\-]+>/<action:>/<id:\d+>' => '<module>/<controller>/<action>',
-                '<module:[\w\-]+>/<controller:[\w\-]+>/<action:>' => '<module>/<controller>/<action>',
+                'news/<section:\d+>' => 'site/news',
+                'new/<alias:[\w\-\/]+>' => 'site/new',
+
+                'results/<section:\d+>' => 'site/results',
+                'result/<alias:[\w\-\/]+>' => 'site/result',
+
+                'actions/<section:\d+>' => 'site/actions',
+                'action/<alias:[\w\-\/]+>' => 'site/action',
+
+                'faq/<section:\d+>' => 'site/faq',
+                'answer/<id:[\w\-\/]+>' => 'site/answer',
+
+                'album/<id:[\w\-\/]+>' => 'site/album',
+
+                '<alias:[\w\-\/]+>' => 'site/page',
             ],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
-        ],
-        'mailer' => [
-            'class' => 'yii\swiftmailer\Mailer',
-            // send all mails to a file by default. You have to set
-            // 'useFileTransport' to false and configure a transport
-            // for the mailer to send real emails.
-            'useFileTransport' => true,
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -115,12 +154,20 @@ if (YII_ENV_DEV) {
     'message' => 'Обязательно для заполнения',
 ]);
 
+\Yii::$container->set('yii\validators\EmailValidator', [
+    'message' => '{attribute} содержит некорректное значение',
+]);
+
 \Yii::$container->set('yii\validators\StringValidator', [
     'tooShort' => 'Введите не менее {min} символов',
 ]);
 
 \Yii::$container->set('yii\validators\StringValidator', [
     'tooLong' => 'Введите не более {max} символов',
+]);
+
+\Yii::$container->set('yii\validators\UniqueValidator', [
+    'message' => 'Такой {attribute} уже существует',
 ]);
 
 return $config;

@@ -17,7 +17,9 @@
         "php": ">=5.4.0",
         "yiisoft/yii2": ">=2.0.5",
         "yiisoft/yii2-bootstrap": "*",
-        "yiisoft/yii2-swiftmailer": "*"
+        "yiisoft/yii2-swiftmailer": "*",
+        "asofter/yii2-imperavi-redactor": "*",
+        "rmrevin/yii2-postman": "~2.2"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

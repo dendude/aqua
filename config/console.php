@@ -26,6 +26,7 @@ return [
             ],
         ],
         'db' => $db,
+        'postman' => $params['postman'],
     ],
     'params' => $params,
 ];
