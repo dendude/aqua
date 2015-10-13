@@ -11,6 +11,13 @@ a:link,
 a:visited {
   text-decoration: none;
 }
+ul,
+ol {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 /* add sorting icons to gridview sort links */
 a.asc:after,
 a.desc:after {

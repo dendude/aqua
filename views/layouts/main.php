@@ -21,21 +21,27 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
-    <nav class="navbar-top navbar">
-        <div class="container">
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav navbar-right nav">
-                    <li>
-                        <span>
-                            +7(495) 755-7874,  (495) 921-5206 <br/>
-                            <small>г. Москва, ул. Енисейская, 1, оф. 32</small>
-                        </span>
-                    </li>
-                </ul>
-                <ul class="navbar-nav navbar-right nav">
+<div class="layout">
+    <nav class="top-nav">
+        <div class="top-container">
+            <div class="top-search">
+                <div class="input-search">
+                    <input type="text" placeholder="Поиск по сайту"/>
+                </div>
+                <button>
+                    <i class="glyphicon glyphicon-search"></i>
+                </button>
+            </div>
+            <div class="top-info">
+                <span class="top-contacts">
+                    +7(495) 755-7874,  (495) 921-5206 <br/>
+                    <small>г. Москва, ул. Енисейская, 1, оф. 32</small>
+                </span>
+                <ul class="top-menu">
                     <li><a href="#">О компании</a></li>
+                    <li>|</li>
                     <li><a href="#">Контакты</a></li>
+                    <li>|</li>
                     <li><a href="#">Вопрос-ответ</a></li>
                 </ul>
             </div>
@@ -44,23 +50,27 @@ AppAsset::register($this);
 
     <div class="top-actions">
         <div class="top-logo">
-            <a href="<?= Yii::$app->homeUrl ?>"><img src="/img/logo.png" alt=""/></a>
+            <a href="<?= Yii::$app->homeUrl ?>">&nbsp;</a>
         </div>
         <div class="top-words">
-            Собственное производство!<br/>20 лет на рынке!
-        </div>
-        <div class="top-search">
-            <input type="text" placeholder="Поиск по сайту"/>
-            <button>
-                <i class="glyphicon glyphicon-search"></i>
-            </button>
+            <div class="cell">
+                Собственное производство!<br/>20 лет на рынке!
+            </div>
         </div>
         <div class="top-buttons">
-            <a class="top-acts act-specialist" href="#">Бесплатный<br/>выезд<br/>специалиста</a>
-            <a class="top-acts act-counting" href="#">Расчитать<br/>стоимость<br/>аквариума</a>
-            <a class="top-acts act-callback" href="#">Заказать<br/>обратный<br/>звонок</a>
+            <a class="top-acts act-specialist" href="#">
+                Бесплатный выезд<br/>специалиста
+                <i></i>
+            </a>
+            <a class="top-acts act-counting" href="#">
+                Расчитать<br/>аквариум
+                <i></i>
+            </a>
+            <a class="top-acts act-callback" href="#">
+                Заказать<br/>звонок
+                <i></i>
+            </a>
         </div>
-        <div class="clearfix"></div>
     </div>
 
     <nav class="navbar-main">
@@ -75,7 +85,7 @@ AppAsset::register($this);
         </table>
     </nav>
 
-    <div class="container">
+    <div class="main-container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
