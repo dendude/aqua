@@ -21,6 +21,7 @@ use app\models\forms\LoginForm;
 class AuthController extends Controller
 {
     public $breadcrumbs = [];
+    public $layout = 'auth';
 
     public function beforeAction($action)
     {
@@ -35,12 +36,18 @@ class AuthController extends Controller
     public function actionLogin() {
 
         $model = new LoginForm();
-        $model->attributes = Yii::$app->request->post('LoginForm');
-        if ($model->validate() && $model->login()) {
-            echo Json::encode(['role' => Yii::$app->user->identity->role, 'url' => Url::to(['/admin/default/index'])]);
-        } else {
-            echo Json::encode(['content' => ModalLogin::widget(['model' => $model])]);
+
+        if (Yii::$app->request->post('LoginForm')) {
+            $model->load(Yii::$app->request->post());
+
+            if ($model->validate() && $model->login()) {
+                $this->redirect(['/admin/default/index'])->send();
+            }
         }
+
+        return $this->render('login',[
+            'model' => $model
+        ]);
     }
 
     public function actionRegister() {

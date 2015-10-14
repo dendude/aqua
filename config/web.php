@@ -4,7 +4,7 @@ $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'basic',
-    'name' => 'MakeBody',
+    'name' => 'Alfaro',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'language' => 'ru',
@@ -24,7 +24,7 @@ $config = [
         'postman' => [
             'class' => 'rmrevin\yii\postman\Component',
             'driver' => 'smtp',
-            'default_from' => ['noreply@lechenie-ozhirenia.ru', 'Норма-веса.рф'],
+            'default_from' => ['noreply@alfaro.ru', 'alfaro.ru'],
             'subject_prefix' => null,
             'subject_suffix' => null,
             'table' => '{{%email_sent}}',
@@ -34,7 +34,7 @@ $config = [
 
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => '98reherhOHe7UHFy64JKNngth3g0e9w',
+            'cookieValidationKey' => 'ewrgn349gb34go93bgio39gblo3i4geigkn',
             'enableCookieValidation' => true,
             'enableCsrfCookie' => true,
             'enableCsrfValidation' => true,

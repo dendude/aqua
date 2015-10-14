@@ -62,6 +62,13 @@ p big {
   position: relative;
   z-index: 1;
 }
+.layout.layout-auth {
+  padding-top: 200px;
+}
+.layout.layout-auth .top-logo-auth {
+  float: none;
+  margin: 0 auto;
+}
 .layout .main-container {
   width: 1100px;
   margin: 0 auto;
