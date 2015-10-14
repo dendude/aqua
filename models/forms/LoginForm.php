@@ -56,7 +56,7 @@ class LoginForm extends Model
             $user = $this->getUser();
             $user->setVisit();
 
-            return Yii::$app->user->login($this->getUser(), 3600*24*30);
+            return Yii::$app->user->login($user, 3600*24*30);
         }
         return false;
     }

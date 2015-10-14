@@ -38,7 +38,7 @@ class AuthController extends Controller
         $model = new LoginForm();
 
         if (Yii::$app->request->post('LoginForm')) {
-            $model->load(Yii::$app->request->post());
+            $model->attributes = Yii::$app->request->post('LoginForm');
 
             if ($model->validate() && $model->login()) {
                 $this->redirect(['/admin/default/index'])->send();
