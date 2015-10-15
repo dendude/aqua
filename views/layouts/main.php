@@ -1,12 +1,20 @@
 <?php
 
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use app\models\Menu;
+use yii\helpers\Url;
+use app\helpers\Normalize;
 
 AppAsset::register($this);
+
+$top_menu1 = Menu::find()->active()->top1()->all();
+$top_menu2 = Menu::find()->active()->top2()->all();
+$top_menu3 = Menu::find()->active()->top3()->all();
+
+$footer_menu = Menu::find()->active()->footer()->all();
+
 ?>
 <?php $this->beginPage() ?>
     <!DOCTYPE html>
@@ -26,24 +34,26 @@ AppAsset::register($this);
             <div class="top-container">
                 <div class="top-search">
                     <div class="input-search">
-                        <input type="text" placeholder="Поиск по сайту"/>
+                        <input type="text" placeholder="<?= Yii::$app->vars->val(78, true) ?>"/>
                     </div>
                     <button>
                         <i class="glyphicon glyphicon-search"></i>
                     </button>
                 </div>
                 <div class="top-info">
-                <span class="top-contacts">
-                    +7(495) 755-7874,  (495) 921-5206 <br/>
-                    <small>г. Москва, ул. Енисейская, 1, оф. 32</small>
-                </span>
+                    <span class="top-contacts">
+                        <?= Yii::$app->vars->val(1) ?><br/>
+                        <small><?= Yii::$app->vars->val(2) ?></small>
+                    </span>
+                    <? if ($top_menu1): ?>
                     <ul class="top-menu">
-                        <li><a href="#">О компании</a></li>
-                        <li>|</li>
-                        <li><a href="#">Контакты</a></li>
-                        <li>|</li>
-                        <li><a href="#">Вопрос-ответ</a></li>
+                        <? foreach ($top_menu1 AS $mk => $menu_item): ?>
+                            <? $link = $menu_item->page ? Url::to([Normalize::fixAlias($menu_item->page->alias)]) : '#'; ?>
+                            <li><a href="<?= $link ?>"><?= Html::encode($menu_item->menu_name) ?></a></li>
+                            <? if (($mk+1) < count($top_menu1)): ?><li>|</li><? endif; ?>
+                        <? endforeach; ?>
                     </ul>
+                    <? endif; ?>
                 </div>
             </div>
         </nav>
@@ -53,34 +63,32 @@ AppAsset::register($this);
                 <a href="<?= Yii::$app->homeUrl ?>">&nbsp;</a>
             </div>
             <div class="top-words">
-                <div class="cell">
-                    Собственное производство!<br/>20 лет на рынке!
-                </div>
+                <div class="cell"><?= Yii::$app->vars->val(79) ?></div>
             </div>
             <div class="top-buttons">
-                <a class="top-acts act-specialist" href="#">
-                    Бесплатный выезд<br/>специалиста
-                    <i></i>
-                </a>
-                <a class="top-acts act-counting" href="#">
-                    Расчитать<br/>аквариум
-                    <i></i>
-                </a>
-                <a class="top-acts act-callback" href="#">
-                    Заказать<br/>звонок
-                    <i></i>
-                </a>
+            <? if ($top_menu2): ?>
+                <? foreach ($top_menu2 AS $mk => $menu_item): ?>
+                    <? $link = $menu_item->page ? Url::to([Normalize::fixAlias($menu_item->page->alias)]) : '#'; ?>
+                    <a class="top-acts" href="<?= $link ?>">
+                        <?= $menu_item->menu_name ?>
+                        <i></i>
+                    </a>
+                <? endforeach; ?>
+            <? endif; ?>
             </div>
         </div>
 
         <nav class="navbar-main">
             <table>
                 <tr>
-                    <td><a href="#">Изготовление аквариумов</a></td>
-                    <td><a href="#">Оформление и обслуживание</a></td>
-                    <td><a href="#">Наше производство</a></td>
-                    <td><a href="#">Цены</a></td>
-                    <td><a href="#">Полезная информация</a></td>
+                <? if ($top_menu3): ?>
+                    <? foreach ($top_menu3 AS $mk => $menu_item): ?>
+                        <? $link = $menu_item->page ? Url::to([Normalize::fixAlias($menu_item->page->alias)]) : '#'; ?>
+                        <td>
+                            <a href="<?= $link ?>"><?= Html::encode($menu_item->menu_name) ?></a>
+                        </td>
+                    <? endforeach; ?>
+                <? endif; ?>
                 </tr>
             </table>
         </nav>
@@ -94,11 +102,17 @@ AppAsset::register($this);
     </div>
 
     <footer class="footer">
+        <? if ($footer_menu): ?>
+            <ul class="footer-menu">
+                <? foreach ($footer_menu AS $mk => $menu_item): ?>
+                    <? $link = $menu_item->page ? Url::to([Normalize::fixAlias($menu_item->page->alias)]) : '#'; ?>
+                    <li><a href="<?= $link ?>"><?= Html::encode($menu_item->menu_name) ?></a></li>
+                    <? if (($mk+1) < count($footer_menu)): ?><li>|</li><? endif; ?>
+                <? endforeach; ?>
+            </ul>
+        <? endif; ?>
         <div class="footer-container">
-            Компания «Альфаро» <br/>
-            г. Москва, ул. Енисейская, 1, оф. 32<br/>
-            тел./факс (495) 755-7874, (985) 921-5206<br/>
-            e-mal: alfaro@alfaro.ru
+            <?= Yii::$app->vars->val(80) ?>
         </div>
     </footer>
 

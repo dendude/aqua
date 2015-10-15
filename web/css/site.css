@@ -32,6 +32,18 @@ p {
 p big {
   font-size: 22px;
 }
+.breadcrumb {
+  background: none;
+  margin: 20px 0;
+}
+.breadcrumb li {
+  color: #6d6e71;
+}
+.breadcrumb li a {
+  text-decoration: underline;
+  font-weight: bold;
+  color: inherit;
+}
 .layout-gradient {
   position: absolute;
   top: 0;
@@ -58,7 +70,7 @@ p big {
 .layout {
   min-height: 100%;
   height: auto;
-  margin: 0 auto 50px auto;
+  margin: 0 auto;
   position: relative;
   z-index: 1;
 }
@@ -156,21 +168,21 @@ p big {
   right: -24px;
   bottom: -10px;
 }
-.top-actions .top-buttons .top-acts.act-specialist {
+.top-actions .top-buttons .top-acts:nth-child(1) {
   margin-right: 50px;
 }
-.top-actions .top-buttons .top-acts.act-specialist i {
+.top-actions .top-buttons .top-acts:nth-child(1) i {
   width: 81px;
   height: 54px;
   right: -39px;
   background-image: url('/img/specialist.png');
 }
-.top-actions .top-buttons .top-acts.act-counting i {
+.top-actions .top-buttons .top-acts:nth-child(2) i {
   width: 60px;
   height: 58px;
   background-image: url('/img/counting.png');
 }
-.top-actions .top-buttons .top-acts.act-callback i {
+.top-actions .top-buttons .top-acts:nth-child(3) i {
   width: 61px;
   height: 58px;
   background-image: url('/img/callback.png');
@@ -194,8 +206,8 @@ p big {
 }
 .navbar-main table td a {
   display: block;
-  height: inherit;
-  line-height: inherit;
+  height: 34px;
+  line-height: 30px;
   text-align: center;
   color: #fff;
   margin-right: 10px;
@@ -529,11 +541,60 @@ p big {
   max-height: 54px;
   overflow: hidden;
 }
+.page-content {
+  min-height: 1000px;
+  background: #fff;
+  padding: 15px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -html-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+}
+.page-content .page-menu {
+  float: left;
+  width: 250px;
+  min-height: 100%;
+  background: #e5f5fe;
+  position: relative;
+  left: -15px;
+  top: -15px;
+  padding: 3px 0 13px 0;
+  -webkit-border-radius: 10px 0 10px 0;
+  -moz-border-radius: 10px 0 10px 0;
+  -html-border-radius: 10px 0 10px 0;
+  -ms-border-radius: 10px 0 10px 0;
+  border-radius: 10px 0 10px 0;
+}
+.page-content .page-menu li {
+  display: block;
+  padding: 0 12px;
+}
+.page-content .page-menu li a {
+  display: block;
+  color: #005463;
+  padding: 16px 0;
+  line-height: 18px;
+  font-size: 14px;
+  font-weight: bold;
+  border-bottom: 2px solid #35859a;
+}
+.page-content .page-menu li a:hover {
+  color: #0095b0;
+}
+.page-content .page-container {
+  margin-left: 270px;
+}
+.page-content .page-container .page-title {
+  color: #b65626;
+}
 .footer {
   width: 1200px;
   background: #0074bc;
   margin: 0 auto;
   padding: 12px 0;
+  position: relative;
+  margin-top: 50px;
 }
 .footer .footer-container {
   width: 1100px;
@@ -542,6 +603,31 @@ p big {
   color: #fff;
   line-height: 18px;
   font-size: 12px;
+}
+.footer .footer-menu {
+  position: absolute;
+  top: -56px;
+  right: 42px;
+  list-style: none;
+  height: 24px;
+  padding-top: 18px;
+}
+.footer .footer-menu li {
+  display: block;
+  float: left;
+  height: 24px;
+  line-height: 24px;
+  color: #000;
+  padding: 0 3px;
+}
+.footer .footer-menu li a {
+  display: block;
+  height: 24px;
+  line-height: 24px;
+  padding: 0 5px;
+  color: #000;
+  text-decoration: underline;
+  cursor: pointer;
 }
 .jumbotron {
   text-align: center;

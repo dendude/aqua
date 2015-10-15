@@ -19,11 +19,11 @@ $inputMiddle = ['inputOptions' => ['class' => 'form-control input-middle']];
 ?>
 <div class="clearfix"></div>
 <div class="row">
-    <div class="col-xs-12 col-md-10 col-lg-8">
+    <div class="col-xs-12 col-md-10">
         <?= $form->errorSummary($model, ['class' => 'alert alert-danger']); ?>
         <? \app\helpers\MHtml::alertMsg(); ?>
         <div class="well">
-            <?= $form->field($model, 'value', $inputMiddle)->textarea(['rows' => 3]) ?>
+            <?= $form->field($model, 'value', $inputMiddle)->textarea(['rows' => 10]) ?>
             <div class="separator"></div>
             <div class="form-group">
                 <div class="col-xs-offset-4 col-xs-2">

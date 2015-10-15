@@ -21,7 +21,7 @@ class MenuController extends Controller
         return $this->render('list');
     }
 
-    public function actionAdd($id)
+    public function actionAdd($id = 0)
     {
         $model = new Menu();
 

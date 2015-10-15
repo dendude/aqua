@@ -12,8 +12,16 @@ $this->params['breadcrumbs'] = [
 ];
 
 $menu = Menu::find()->root()->orderBy('ordering ASC')->all();
-
+echo Html::a('Добавить', ['add'], ['class' => 'btn btn-primary btn-add']);
 echo '<div class="clearfix"></div>';
+
+?>
+    <div class="alert alert-info">
+        Для вставки меню на страницу, необходимо скопировать указатель на меню, например <strong>{menu_94}</strong>, и вставить его в контент страницы.<br/>
+        Меню будет стилизовано и выровнено автоматически согласно дизайна.
+    </div>
+<?
+
 // вывод сообщений если имеются
 \app\helpers\MHtml::alertMsg();
 
@@ -24,6 +32,9 @@ foreach ($menu AS $menu_item) {
     echo '<li>';
 
         echo '<span class="menu-item">';
+
+            echo '<span class="text-muted pull-right normal">&nbsp;&nbsp;{menu_' . $menu_item->id . '}</span>';
+
             echo '<a class="btn btn-default btn-xs btn-act-up" href="' . Url::to(['up', 'id' => $menu_item->id]) . '" title="Переместить вверх"><i class="glyphicon glyphicon-chevron-up"></i></a>';
             echo '<a class="btn btn-default btn-xs btn-act-down" href="' . Url::to(['down', 'id' => $menu_item->id]) . '" title="Переместить вниз"><i class="glyphicon glyphicon-chevron-down"></i></a>';
 

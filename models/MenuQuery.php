@@ -10,7 +10,6 @@ class MenuQuery extends ActiveQuery
 {
     public function active() {
         $this->andWhere(['status' => Statuses::STATUS_ACTIVE]);
-        $this->andWhere('page_id != 0');
         $this->orderBy('ordering ASC');
         return $this;
     }
@@ -20,13 +19,26 @@ class MenuQuery extends ActiveQuery
         return $this;
     }
 
-    public function top() {
-        $this->andWhere(['parent_id' => 1]);
+    public function top1() {
+        $this->andWhere(['parent_id' => Menu::TOP_MENU_1]);
+        return $this;
+    }
+    public function top2() {
+        $this->andWhere(['parent_id' => Menu::TOP_MENU_2]);
+        return $this;
+    }
+    public function top3() {
+        $this->andWhere(['parent_id' => Menu::TOP_MENU_3]);
         return $this;
     }
 
-    public function sidebar() {
-        $this->andWhere(['parent_id' => 3]);
+    public function sidebar($parent_id) {
+        $this->andWhere(['parent_id' => $parent_id]);
+        return $this;
+    }
+
+    public function footer() {
+        $this->andWhere(['parent_id' => Menu::FOOTER_MENU]);
         return $this;
     }
 }

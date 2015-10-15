@@ -18,6 +18,11 @@ use Yii;
  */
 class Menu extends \yii\db\ActiveRecord
 {
+    const TOP_MENU_1 = 91;
+    const TOP_MENU_2 = 92;
+    const TOP_MENU_3 = 93;
+
+    const FOOTER_MENU = 113;
     /**
      * @inheritdoc
      */
@@ -32,7 +37,7 @@ class Menu extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_author', 'parent_id', 'menu_name', 'created'], 'required'],
+            [['id_author', 'menu_name', 'created'], 'required'],
             [['id_author', 'parent_id', 'page_id', 'ordering', 'status', 'created'], 'integer'],
             [['id_author', 'parent_id', 'page_id', 'ordering', 'status', 'created'], 'default', 'value' => 0],
             [['menu_name', 'menu_title'], 'string', 'max' => 100]
@@ -79,7 +84,6 @@ class Menu extends \yii\db\ActiveRecord
 
         return parent::beforeSave($insert);
     }
-
 
     public static function getFilterList($only_parents = false) {
         $list = [];

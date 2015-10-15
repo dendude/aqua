@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Html;
 
 /**
  * This is the model class for table "{{%vars}}".
@@ -57,7 +58,7 @@ class Vars extends \yii\db\ActiveRecord
         parent::afterSave($insert, $changedAttributes);
     }
 
-    public static function val($id) {
+    public static function val($id, $encode = false) {
 
         if (empty(self::$cache_list)) {
             // получаем кеш
@@ -76,8 +77,12 @@ class Vars extends \yii\db\ActiveRecord
             self::$cache_list = $vars;
         }
 
+        $value = self::$cache_list[$id];
+
+        if ($encode) $value = Html::encode($value);
+
         // учитывается режим показа названий переменных
-        return Yii::$app->session->get(self::SESSION_NAME) ? 'Msg_' . sprintf('%04d', $id) : nl2br(self::$cache_list[$id]);
+        return Yii::$app->session->get(self::SESSION_NAME) ? 'Msg_' . sprintf('%04d', $id) : nl2br($value);
     }
 
     /**
