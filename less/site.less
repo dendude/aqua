@@ -574,7 +574,7 @@ p {
 .page-content {
     min-height: 1000px;
     background: #fff;
-    padding: 15px;
+    padding: 15px 20px;
     .border-radius(10px);
 
     .page-menu {
@@ -583,7 +583,7 @@ p {
         min-height: 100%;
         background: #e5f5fe;
         position: relative;
-        left: -15px;
+        left: -20px;
         top: -15px;
         padding: 3px 0 13px 0;
         .border-radius(10px 0 10px 0);
@@ -607,7 +607,11 @@ p {
     }
 
     .page-container {
-        margin-left: 270px;
+        margin-left: 260px;
+
+        &.page-simple {
+            margin-left: 0;
+        }
 
         .page-title {
             color: #b65626;

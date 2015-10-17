@@ -425,6 +425,9 @@ div.required label:after {
 div.help-block {
   margin-bottom: 0;
 }
+.cur-help {
+  cursor: help;
+}
 .input-small {
   width: 50%;
 }

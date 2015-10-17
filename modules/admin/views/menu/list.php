@@ -73,7 +73,7 @@ foreach ($menu AS $menu_item) {
 
                         echo Html::tag('span', $child_item->menu_name, ['class' => 'active-' . $child_item->status]);
                         if ($child_item->page_id) {
-                            echo '&nbsp;&nbsp;' . Html::tag('i','',['class' => 'text-muted glyphicon glyphicon-ok', 'title' => 'Прикреплена страница']);
+                            echo '&nbsp;&nbsp;' . Html::tag('i','',['class' => 'text-muted glyphicon glyphicon-ok cur-help', 'title' => 'Прикреплена страница']);
                         }
                     echo '</span>';
 

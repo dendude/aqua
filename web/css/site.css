@@ -544,7 +544,7 @@ p big {
 .page-content {
   min-height: 1000px;
   background: #fff;
-  padding: 15px;
+  padding: 15px 20px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -html-border-radius: 10px;
@@ -557,7 +557,7 @@ p big {
   min-height: 100%;
   background: #e5f5fe;
   position: relative;
-  left: -15px;
+  left: -20px;
   top: -15px;
   padding: 3px 0 13px 0;
   -webkit-border-radius: 10px 0 10px 0;
@@ -583,7 +583,10 @@ p big {
   color: #0095b0;
 }
 .page-content .page-container {
-  margin-left: 270px;
+  margin-left: 260px;
+}
+.page-content .page-container.page-simple {
+  margin-left: 0;
 }
 .page-content .page-container .page-title {
   color: #b65626;

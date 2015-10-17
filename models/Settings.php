@@ -49,7 +49,7 @@ class Settings extends \yii\db\ActiveRecord
     }
 
     public static function lastSettings() {
-        return self::find()->orderBy(['id' => SORT_DESC])->one();
+        return self::find()->count() ? self::find()->orderBy(['id' => SORT_DESC])->one() : new Settings();
     }
 
 

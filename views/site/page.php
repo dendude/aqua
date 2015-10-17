@@ -38,7 +38,7 @@ if (isset($matches[1])) {
         </ul>
     <? endif; ?>
 
-    <div class="page-container">
+    <div class="page-container <?= empty($page_menu) ? 'page-simple' : '' ?>">
         <h1 class="page-title"><?= $this->title ?></h1>
         <div class="page-article">
             <?= $content ?>

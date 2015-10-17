@@ -25,8 +25,10 @@ class AuthController extends Controller
 
     public function beforeAction($action)
     {
-        if (!Yii::$app->user->isGuest) {
+        if (Yii::$app->user->isGuest) {
             $this->redirect(Yii::$app->homeUrl)->send();
+        } else {
+            $this->redirect(['/admin/default/index'])->send();
         }
 
         return parent::beforeAction($action);

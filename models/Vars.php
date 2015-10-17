@@ -92,9 +92,9 @@ class Vars extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'value' => 'Value',
-            'created' => 'Value',
-            'modified' => 'Value',
+            'value' => 'Значение',
+            'created' => 'Создан',
+            'modified' => 'Изменен',
         ];
     }
 }
