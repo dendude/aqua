@@ -29,16 +29,16 @@ if (isset($matches[1])) {
         </a>
     <? endif; ?>
 
-    <? if (!empty($page_menu)): ?>
+    <? if ($model->menu_id): ?>
         <ul class="page-menu">
-            <? foreach ($page_menu AS $menu_item): ?>
+            <? foreach (Menu::find()->sidebar($model->menu_id)->active()->all() AS $menu_item): ?>
                 <? $link = $menu_item->page ? Url::to([Normalize::fixAlias($menu_item->page->alias)]) : '#'; ?>
                 <li><a href="<?= $link ?>"><?= Html::encode($menu_item->menu_name) ?></a></li>
             <? endforeach; ?>
         </ul>
     <? endif; ?>
 
-    <div class="page-container <?= empty($page_menu) ? 'page-simple' : '' ?>">
+    <div class="page-container <?= $model->menu_id ? '' : 'page-simple' ?>">
         <h1 class="page-title"><?= $this->title ?></h1>
         <div class="page-article">
             <?= $content ?>

@@ -2,6 +2,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\modules\admin\controllers\PagesController;
+use app\models\Menu;
 
 $action = $model->id ? 'Редактирование страницы' : 'Создание страницы';
 $this->title = $action;
@@ -31,6 +32,9 @@ $readonly_alias = in_array($model->id, [\app\models\News::PAGE_ID,
                                         \app\models\Faq::PAGE_ID,
                                         \app\models\Actions::PAGE_ID]);
 
+$root_menu = Menu::find()->root()->all();
+$menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'menu_name') : [];
+
 ?>
 <div class="clearfix"></div>
 <div class="row">
@@ -44,6 +48,13 @@ $readonly_alias = in_array($model->id, [\app\models\News::PAGE_ID,
                 <div class="col-xs-offset-4 col-xs-8 text-muted small">
                     Пример: вводим "справочник/раздел/статья1", клик "Получить URL" покажет "spravochnik/razdel/statya1".<br/>
                     После сохранения ссылка из меню на страницу будет такой: "spravochnik/razdel/statya1.html".
+                </div>
+            </div>
+            <div class="separator"></div>
+            <?= $form->field($model, 'menu_id')->dropDownList($menu_filter, ['prompt' => '']) ?>
+            <div class="form-group">
+                <div class="col-xs-offset-4 col-xs-8">
+                    <small class="text-muted">Подключенное меню стилизуется согласно дизайна</small>
                 </div>
             </div>
             <div class="separator"></div>
@@ -181,7 +192,6 @@ $readonly_alias = in_array($model->id, [\app\models\News::PAGE_ID,
                     ]
                 ]); ?>
                 <ul>
-                    <li><strong>{menu_94}​</strong> - пример вставки меню (стилизуется автоматически согласно дизайна);</li>
                     <li><strong>Enter</strong> - перенос строки с отступом (новый параграф);</li>
                     <li><strong>Shift+Enter</strong> - перенос без отступа (обычный перенос строки);</li>
                     <li>Между текстом и фото переносов строк не делаем - проставляются автоматически на сайте;</li>

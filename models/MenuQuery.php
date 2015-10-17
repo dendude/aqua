@@ -16,6 +16,7 @@ class MenuQuery extends ActiveQuery
 
     public function root() {
         $this->andWhere(['parent_id' => 0]);
+        $this->orderBy('ordering ASC');
         return $this;
     }
 

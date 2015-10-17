@@ -32,9 +32,6 @@ foreach ($menu AS $menu_item) {
     echo '<li>';
 
         echo '<span class="menu-item">';
-
-            echo '<span class="text-muted pull-right normal">&nbsp;&nbsp;{menu_' . $menu_item->id . '}</span>';
-
             echo '<a class="btn btn-default btn-xs btn-act-up" href="' . Url::to(['up', 'id' => $menu_item->id]) . '" title="Переместить вверх"><i class="glyphicon glyphicon-chevron-up"></i></a>';
             echo '<a class="btn btn-default btn-xs btn-act-down" href="' . Url::to(['down', 'id' => $menu_item->id]) . '" title="Переместить вниз"><i class="glyphicon glyphicon-chevron-down"></i></a>';
 

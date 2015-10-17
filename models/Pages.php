@@ -59,8 +59,8 @@ class Pages extends \yii\db\ActiveRecord
 
             [['alias'], 'unique', 'message' => 'Такая ссылка уже занята'],
 
-            [['id_author', 'created', 'modified', 'views', 'status', 'is_sitemap', 'is_auto', 'is_shared'], 'integer'],
-            [['id_author', 'created', 'modified', 'views', 'status', 'is_sitemap', 'is_auto', 'is_shared'], 'default', 'value' => 0],
+            [['id_author', 'created', 'modified', 'views', 'status', 'is_sitemap', 'is_auto', 'is_shared', 'menu_id'], 'integer'],
+            [['id_author', 'created', 'modified', 'views', 'status', 'is_sitemap', 'is_auto', 'is_shared', 'menu_id'], 'default', 'value' => 0],
             [['is_shared'], 'default', 'value' => 1], // по умолчанию есть кнопки "поделиться"
 
             [['content'], 'string'],
@@ -212,6 +212,7 @@ class Pages extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'menu_id' => 'Подключенное меню',
             'id_author' => 'Менеджер',
             'title' => 'Заголовок (Н1)',
             'alias' => 'Alias (URL)',
