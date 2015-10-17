@@ -3,7 +3,7 @@ $this->title = 'Альфаро';
 ?>
 <div class="site-index">
     <div class="index-banner">
-        <img src="/img/banner.jpg" alt="" width="1100" />
+        <img lowsrc="/img/banner_low.jpg" src="/img/banner.jpg" alt="" width="1100" />
     </div>
     <div class="index-content">
         <div class="index-infoblocks">
