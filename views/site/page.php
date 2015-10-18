@@ -24,7 +24,7 @@ if (isset($matches[1])) {
 <div class="page-content">
 
     <? if (\app\models\Users::isManager()): ?>
-        <a class="btn btn-info btn-sm pull-right" title="Редактировать" href="<?= Url::to(['admin/pages/edit','id' => $model->id]) ?>" target="_blank">
+        <a class="act-btn btn btn-info btn-sm" title="Редактировать" href="<?= Url::to(['admin/pages/edit','id' => $model->id]) ?>" target="_blank">
             <i class="glyphicon glyphicon-pencil"></i>
         </a>
     <? endif; ?>

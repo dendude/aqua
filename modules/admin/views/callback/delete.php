@@ -1,11 +1,10 @@
 <?php
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
-use app\modules\admin\controllers\ReviewsController;
+use app\modules\admin\controllers\CallbackController;
 
-$this->title = 'Удаление отзыва';
+$this->title = 'Удаление обратного звонка';
 $this->params['breadcrumbs'] = [
-    ['label' => ReviewsController::LIST_NAME, 'url' => ['list']],
+    ['label' => CallbackController::LIST_NAME, 'url' => ['list']],
     ['label' => $this->title]
 ];
 ?>
@@ -29,11 +28,23 @@ $this->params['breadcrumbs'] = [
                 <label class="col-xs-6 text-right"><?= $model->getAttributeLabel('email') ?></label>
                 <div class="col-xs-6"><?= $model->email ?></div>
             </div>
+            <? if ($model->phone): ?>
+                <div class="row">
+                    <label class="col-xs-6 text-right"><?= $model->getAttributeLabel('phone') ?></label>
+                    <div class="col-xs-6"><?= \app\helpers\Normalize::formatPhone($model->phone) ?></div>
+                </div>
+            <? endif; ?>
             <div class="separator"></div>
             <div class="row">
-                <label class="col-xs-6 text-right"><?= $model->getAttributeLabel('message') ?></label>
-                <div class="col-xs-6"><?= $model->message ?></div>
+                <label class="col-xs-6 text-right"><?= $model->getAttributeLabel('subject') ?></label>
+                <div class="col-xs-6"><?= $model->subject ?></div>
             </div>
+            <? if ($model->comment): ?>
+            <div class="row">
+                <label class="col-xs-6 text-right"><?= $model->getAttributeLabel('comment') ?></label>
+                <div class="col-xs-6"><?= $model->comment ?></div>
+            </div>
+            <? endif; ?>
             <div class="separator"></div>
             <div class="row">
                 <label class="col-xs-6 text-right"><?= $model->getAttributeLabel('created') ?></label>

@@ -2,23 +2,24 @@
 
 namespace app\modules\admin\controllers;
 
-use app\models\Reviews;
-use app\models\search\ReviewsSearch;
+use app\helpers\Statuses;
+use app\models\Callback;
+use app\models\search\CallbackSearch;
 use Yii;
 use yii\web\Controller;
 
-class ReviewsController extends Controller
+class CallbackController extends Controller
 {
-    const LIST_NAME = 'Отзывы';
+    const LIST_NAME = 'Заказы звонков';
 
     protected function notFound() {
-        Yii::$app->session->setFlash('error', 'Отзыв не найден');
+        Yii::$app->session->setFlash('error', 'Заявка не найдена');
         $this->redirect(['list'])->send();
     }
 
     public function actionList() {
 
-        $searchModel = new ReviewsSearch();
+        $searchModel = new CallbackSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->get());
 
         return $this->render(
@@ -31,9 +32,9 @@ class ReviewsController extends Controller
 
     public function actionAdd() {
 
-        $model = new Reviews();
+        $model = new Callback();
 
-        if (Yii::$app->request->post('Reviews')) {
+        if (Yii::$app->request->post('Callback')) {
             $model->load(Yii::$app->request->post());
             if ($model->save()) {
                 Yii::$app->session->setFlash('success', 'Запись успешно добавлена');
@@ -50,11 +51,16 @@ class ReviewsController extends Controller
 
     public function actionEdit($id) {
 
-        $model = Reviews::findOne($id);
+        $model = Callback::findOne($id);
 
         if (!$model) $this->notFound();
 
-        if (Yii::$app->request->post('Reviews')) {
+        if ($model->status == Statuses::STATUS_DISABLED) {
+            $model->status = Statuses::STATUS_USED;
+            $model->save();
+        }
+
+        if (Yii::$app->request->post('Callback')) {
             $model->load(Yii::$app->request->post());
             if ($model->save()) {
                 Yii::$app->session->setFlash('success', 'Запись успешно изменена');
@@ -71,7 +77,7 @@ class ReviewsController extends Controller
 
     public function actionDelete($id)
     {
-        $model = Reviews::findOne($id);
+        $model = Callback::findOne($id);
 
         if (!$model) $this->notFound();
 
@@ -84,11 +90,11 @@ class ReviewsController extends Controller
 
     public function actionTrash($id)
     {
-        $model = Reviews::findOne($id);
+        $model = Callback::findOne($id);
 
         if (!$model) $this->notFound();
 
-        Yii::$app->session->setFlash('success', 'Отзыв успешно удален');
+        Yii::$app->session->setFlash('success', 'Запись успешно удалена');
 
         $model->delete();
         $this->redirect(['list'])->send();

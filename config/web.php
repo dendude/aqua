@@ -151,7 +151,7 @@ if (YII_ENV_DEV) {
 ]);
 
 \Yii::$container->set('yii\validators\RequiredValidator', [
-    'message' => 'Обязательно для заполнения',
+    'message' => 'Поле {attribute} обязательно для заполнения',
 ]);
 
 \Yii::$container->set('yii\validators\EmailValidator', [

@@ -7,27 +7,26 @@ use app\helpers\Statuses;
 use Yii;
 
 /**
- * This is the model class for table "{{%reviews}}".
+ * This is the model class for table "{{%feedback}}".
  *
  * @property integer $id
  * @property integer $id_user
  * @property string $name
  * @property string $email
- * @property string $comment
+ * @property string $phone
+ * @property string $subject
+ * @property string $message
  * @property integer $created
  * @property integer $status
  */
-class Reviews extends \yii\db\ActiveRecord
+class Calculate extends \yii\db\ActiveRecord
 {
-    const PAGE_ID = 164;
-    const PAGE_ADD_ID = 178;
-
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return '{{%reviews}}';
+        return '{{%calculate}}';
     }
 
     /**
@@ -36,15 +35,24 @@ class Reviews extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'email', 'comment'], 'required'],
+            [['name', 'email', 'phone', 'message'], 'required'],
+            [['answer'], 'required', 'when' => function($model){
+                return $model->status == Statuses::STATUS_ACTIVE;
+            }, 'message' => 'Чтобы отправить {attribute}, необходимо заполнить его'],
+
+            [['manager_id', 'created', 'modified', 'answered', 'status'], 'integer'],
+            [['manager_id', 'created', 'modified', 'answered', 'status'], 'default', 'value' => 0],
 
             [['email'], 'email'],
 
-            [['manager_id', 'user_id', 'created', 'modified', 'status', 'ordering', 'published', 'send_mail'], 'integer'],
-            [['manager_id', 'user_id', 'created', 'modified', 'status', 'ordering', 'published', 'send_mail'], 'default', 'value' => 0],
+            [['message', 'answer'], 'string'],
+            [['message', 'answer'], 'default', 'value' => ''],
 
-            [['comment'], 'string'],
-            [['name', 'email'], 'string', 'max' => 100]
+            [['name', 'email'], 'string', 'max' => 100],
+            [['name', 'email'], 'default', 'value' => ''],
+
+            [['phone'], 'string', 'max' => 20],
+            [['phone'], 'default', 'value' => ''],
         ];
     }
 
@@ -56,12 +64,12 @@ class Reviews extends \yii\db\ActiveRecord
     {
         if ($this->isNewRecord) {
             $this->created = time();
-            if (!Yii::$app->user->isGuest) {
-                $this->user_id = Yii::$app->user->id;
-            }
         } else {
             $this->manager_id = Yii::$app->user->id;
             $this->modified = time();
+            if ($this->status == Statuses::STATUS_ACTIVE) {
+                $this->answered = time();
+            }
         }
 
         return parent::beforeValidate();
@@ -70,25 +78,23 @@ class Reviews extends \yii\db\ActiveRecord
     public function save($runValidation = true, $attributeNames = null)
     {
         if ($this->isNewRecord) {
-            // просто сохраняем
+
         } else {
             $self = self::findOne($this->id);
             // отправляем письмо один раз
-            if ($this->send_mail && $self->send_mail == Statuses::STATUS_DISABLED) {
+            if ($this->status == Statuses::STATUS_ACTIVE) {
                 $smtp = new SmtpEmail();
-                $smtp->sendEmailByType(SmtpEmail::TYPE_REVIEW_NOTIFICATION, $this->email, $this->name, ['{review_text}' => $this->comment]);
+                $smtp->sendEmailByType(SmtpEmail::TYPE_ANSWER_QUESTION, $this->email, $this->name, [
+                    '{question_text}' => $this->message,
+                    '{answer_text}' => $this->answer,
+                ]);
             } else {
-                $this->send_mail = $self->send_mail;
-            }
-
-            if ($this->status && !$this->published) {
-                $this->published = time();
+                $this->status = $self->status;
             }
         }
 
         return parent::save($runValidation, $attributeNames);
     }
-
 
     /**
      * @inheritdoc
@@ -98,16 +104,15 @@ class Reviews extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'manager_id' => 'Менеджер',
-            'user_id' => 'Id User',
             'name' => 'Имя',
             'email' => 'Email',
-            'comment' => 'Отзыв',
+            'phone' => 'Телефон',
+            'message' => 'Сообщение',
+            'answer' => 'Ответ',
             'created' => 'Создан',
             'modified' => 'Изменен',
-            'published' => 'Опубликован',
-            'ordering' => 'Порядок',
+            'answered' => 'Отвечен',
             'status' => 'Статус',
-            'send_mail' => 'Уведомлен',
         ];
     }
 }

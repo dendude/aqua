@@ -1,11 +1,12 @@
 <?php
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use app\modules\admin\controllers\FaqController;
+use app\modules\admin\controllers\FreeTravelController;
+use app\helpers\Statuses;
 
-$this->title = $model->id ? 'Редактирование вопроса' : 'Добавление вопроса';
+$this->title = $model->id ? 'Редактирование бесплатного выезда' : 'Добавление бесплатного выезда';
 $this->params['breadcrumbs'] = [
-    ['label' => FaqController::LIST_NAME, 'url' => ['list']],
+    ['label' => FreeTravelController::LIST_NAME, 'url' => ['list']],
     ['label' => $this->title]
 ];
 
@@ -25,17 +26,16 @@ $inputMiddle = ['inputOptions' => ['class' => 'form-control input-middle']];
         <div class="well">
             <?= $form->field($model, 'name', $inputMiddle) ?>
             <?= $form->field($model, 'email', $inputMiddle) ?>
+            <?= $form->field($model, 'phone', $inputMiddle) ?>
             <div class="separator"></div>
-            <?= $form->field($model, 'section_id')->dropDownList(\app\models\FaqSections::getFilterList()) ?>
+            <?= $form->field($model, 'comment')->textarea(['rows' => 5]) ?>
             <div class="separator"></div>
-            <?= $form->field($model, 'question_text')->textarea(['rows' => 3]) ?>
-            <?= $form->field($model, 'answer_text')->textarea(['rows' => 5]) ?>
+            <? if ($model->id): ?>
+            <?= $form->field($model, 'status')->checkbox(['label' => 'Отметить как обработанный',
+                                                          'value' => Statuses::STATUS_ACTIVE,
+                                                        'uncheck' => Statuses::STATUS_USED]) ?>
             <div class="separator"></div>
-            <?= $form->field($model, 'ordering', $inputSmall) ?>
-            <div class="separator"></div>
-            <?= $form->field($model, 'send_answer')->checkbox(['label' => 'Отправить ответ на Email автору вопроса']) ?>
-            <?= $form->field($model, 'status')->checkbox(['label' => 'Опубликовать на сайте']) ?>
-            <div class="separator"></div>
+            <? endif; ?>
             <div class="form-group">
                 <div class="col-xs-offset-4 col-xs-2">
                     <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary']) ?>

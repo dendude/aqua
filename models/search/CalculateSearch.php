@@ -2,18 +2,18 @@
 
 namespace app\models\search;
 
-use app\models\Feedback;
+use app\models\Calculate;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
-class FeedbackSearch extends Feedback {
+class CalculateSearch extends Calculate {
 
     public function rules()
     {
         return [
             [['id', 'manager_id', 'status'], 'integer'],
-            [['name', 'email', 'phone', 'subject', 'message'], 'string'],
+            [['name', 'email', 'phone', 'message'], 'string'],
         ];
     }
 
@@ -25,7 +25,7 @@ class FeedbackSearch extends Feedback {
 
     public function search($params)
     {
-        $query = Feedback::find();
+        $query = Calculate::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -51,7 +51,6 @@ class FeedbackSearch extends Feedback {
         $query->andFilterWhere(['like', 'name', $this->name]);
         $query->andFilterWhere(['like', 'email', $this->email]);
         $query->andFilterWhere(['like', 'phone', $this->phone]);
-        $query->andFilterWhere(['like', 'subject', $this->subject]);
         $query->andFilterWhere(['like', 'message', $this->message]);
 
         return $dataProvider;

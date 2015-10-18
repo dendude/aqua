@@ -3,6 +3,7 @@
 namespace app\models;
 
 use app\components\SmtpEmail;
+use app\helpers\Normalize;
 use app\helpers\Statuses;
 use Yii;
 use yii\helpers\ArrayHelper;
@@ -37,7 +38,7 @@ class Users extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface {
             [['role', 'name', 'email', 'pass', 'code', 'phone'], 'string'],
             [['created', 'modified', 'last_visit', 'status'], 'integer'],
 
-            [['role'], 'default', 'value' => self::ROLE_USER],
+            [['role'], 'default', 'value' => self::ROLE_MANAGER],
             [['name', 'email', 'pass', 'code', 'phone'], 'default', 'value' => ''],
             [['created', 'modified', 'last_visit', 'status'], 'default', 'value' => 0],
 
@@ -46,7 +47,7 @@ class Users extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface {
     }
 
     public function cleanPhone($attribute, $params){
-        $this->$attribute = preg_replace('/[^0-9]+/','',$this->$attribute);
+        $this->$attribute = Normalize::cleanPhone($this->$attribute);
     }
 
     public static function getRoles() {
@@ -97,7 +98,7 @@ class Users extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface {
     public function beforeValidate()
     {
         if ($this->isNewRecord) {
-            $this->role = self::ROLE_USER;
+            if (empty($this->role)) $this->role = self::ROLE_USER;
             $this->code = Yii::$app->security->generateRandomString(50);
             $this->created = time();
         } else {

@@ -25,6 +25,11 @@ $(document).ready(function(){
             })
         });
     }
+
+    // отправка формы
+    $('form').on('submit', function(){
+        loader.show($('.well', this));
+    })
 });
 
 function add_breadcrumb(selector, dest) {

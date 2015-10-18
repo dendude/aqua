@@ -1,12 +1,12 @@
 <?php
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use app\modules\admin\controllers\FeedbackController;
+use app\modules\admin\controllers\CallbackController;
 use app\helpers\Statuses;
 
-$this->title = $model->id ? 'Редактирование сообщения обратной связи' : 'Добавление сообщения обратной связи';
+$this->title = $model->id ? 'Редактирование заявки на обратный звонок' : 'Добавление заявки на обратный звонок';
 $this->params['breadcrumbs'] = [
-    ['label' => FeedbackController::LIST_NAME, 'url' => ['list']],
+    ['label' => CallbackController::LIST_NAME, 'url' => ['list']],
     ['label' => $this->title]
 ];
 
@@ -29,14 +29,12 @@ $inputMiddle = ['inputOptions' => ['class' => 'form-control input-middle']];
             <?= $form->field($model, 'phone', $inputMiddle) ?>
             <div class="separator"></div>
             <?= $form->field($model, 'subject') ?>
-            <?= $form->field($model, 'message')->textarea(['rows' => 5]) ?>
+            <?= $form->field($model, 'comment')->textarea(['rows' => 5]) ?>
             <div class="separator"></div>
             <? if ($model->id): ?>
-            <?= $form->field($model, 'answer')->textarea(['rows' => 5]) ?>
-            <div class="separator"></div>
-            <?= $form->field($model, 'status')->checkbox(['label' => 'Отправить ответ на Email пользователю',
-                                                          'value' => Statuses::STATUS_ACTIVE,
-                                                        'uncheck' => null]) ?>
+                <?= $form->field($model, 'status')->checkbox(['label' => 'Отметить как обработанный',
+                                                              'value' => Statuses::STATUS_ACTIVE,
+                                                            'uncheck' => Statuses::STATUS_USED]) ?>
             <div class="separator"></div>
             <? endif; ?>
             <div class="form-group">

@@ -3,23 +3,23 @@
 namespace app\modules\admin\controllers;
 
 use app\helpers\Statuses;
-use app\models\Feedback;
-use app\models\search\FeedbackSearch;
+use app\models\Calculate;
+use app\models\search\CalculateSearch;
 use Yii;
 use yii\web\Controller;
 
-class FeedbackController extends Controller
+class CalculateController extends Controller
 {
-    const LIST_NAME = 'Обратная связь';
+    const LIST_NAME = 'Расчеты аквариумов';
 
     protected function notFound() {
-        Yii::$app->session->setFlash('error', 'Сообщение не найдено');
+        Yii::$app->session->setFlash('error', 'Заявка не найдена');
         $this->redirect(['list'])->send();
     }
 
     public function actionList() {
 
-        $searchModel = new FeedbackSearch();
+        $searchModel = new CalculateSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->get());
 
         return $this->render(
@@ -32,9 +32,9 @@ class FeedbackController extends Controller
 
     public function actionAdd() {
 
-        $model = new Feedback();
+        $model = new Calculate();
 
-        if (Yii::$app->request->post('Feedback')) {
+        if (Yii::$app->request->post('Calculate')) {
             $model->load(Yii::$app->request->post());
             if ($model->save()) {
                 Yii::$app->session->setFlash('success', 'Запись успешно добавлена');
@@ -51,7 +51,7 @@ class FeedbackController extends Controller
 
     public function actionEdit($id) {
 
-        $model = Feedback::findOne($id);
+        $model = Calculate::findOne($id);
 
         if (!$model) $this->notFound();
 
@@ -60,7 +60,7 @@ class FeedbackController extends Controller
             $model->save();
         }
 
-        if (Yii::$app->request->post('Feedback')) {
+        if (Yii::$app->request->post('Calculate')) {
             $model->load(Yii::$app->request->post());
             if ($model->save()) {
                 Yii::$app->session->setFlash('success', 'Запись успешно изменена');
@@ -77,7 +77,7 @@ class FeedbackController extends Controller
 
     public function actionDelete($id)
     {
-        $model = Feedback::findOne($id);
+        $model = Calculate::findOne($id);
 
         if (!$model) $this->notFound();
 
@@ -90,11 +90,11 @@ class FeedbackController extends Controller
 
     public function actionTrash($id)
     {
-        $model = Feedback::findOne($id);
+        $model = Calculate::findOne($id);
 
         if (!$model) $this->notFound();
 
-        Yii::$app->session->setFlash('success', 'Сообщение обратной связи успешно удалено');
+        Yii::$app->session->setFlash('success', 'Запись успешно удалена');
 
         $model->delete();
         $this->redirect(['list'])->send();

@@ -43,9 +43,9 @@ class Faq extends \yii\db\ActiveRecord
     {
         return [
             [['section_id', 'name', 'email', 'question_text'], 'required'],
-            [['answer_text'], 'required', 'when' => function($model) {
-                return $model->send_answer;
-            }],
+            [['answer_text'], 'required', 'when' => function($model){
+                return $model->status == Statuses::STATUS_ACTIVE;
+            }, 'message' => 'Чтобы отправить {attribute}, необходимо заполнить его'],
 
             [['email'], 'email'],
             [['section_id', 'manager_id', 'user_id', 'created', 'modified', 'published', 'ordering', 'status', 'views'], 'integer'],
@@ -108,7 +108,7 @@ class Faq extends \yii\db\ActiveRecord
         } else {
             $self = self::findOne($this->id);
             // отправляем письмо один раз
-            if ($this->send_answer && $self->send_answer == Statuses::STATUS_DISABLED) {
+            if ($this->send_answer) {
                 $smtp = new SmtpEmail();
                 $smtp->sendEmailByType(SmtpEmail::TYPE_ANSWER_QUESTION, $this->email, $this->name, [
                     '{question_text}' => $this->question_text,

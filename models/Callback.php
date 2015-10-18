@@ -6,26 +6,26 @@ use app\helpers\Statuses;
 use Yii;
 
 /**
- * This is the model class for table "{{%feedback}}".
+ * This is the model class for table "{{%reviews}}".
  *
  * @property integer $id
  * @property integer $id_user
  * @property string $name
  * @property string $email
- * @property string $phone
- * @property string $subject
- * @property string $message
+ * @property string $comment
  * @property integer $created
  * @property integer $status
  */
-class Feedback extends \yii\db\ActiveRecord
+class Callback extends \yii\db\ActiveRecord
 {
+    const PAGE_ID = 182;
+
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return '{{%feedback}}';
+        return '{{%callback}}';
     }
 
     /**
@@ -34,23 +34,18 @@ class Feedback extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'email', 'phone', 'subject', 'message'], 'required'],
-            [['manager_id', 'user_id', 'created', 'modified', 'answered', 'status'], 'integer'],
+            [['name', 'email', 'phone', 'subject'], 'required'],
 
             [['email'], 'email'],
 
-            [['message', 'answer'], 'string'],
-            [['name', 'email', 'subject'], 'string', 'max' => 100],
-            [['phone'], 'string', 'max' => 20],
+            [['manager_id', 'created', 'modified', 'processed', 'status'], 'integer'],
+            [['manager_id', 'created', 'modified', 'processed', 'status'], 'default', 'value' => 0],
 
-            ['answer', 'checkAnswer'],
+            [['comment'], 'string'],
+            [['comment'], 'default', 'value' => ''],
+
+            [['name', 'email', 'phone', 'subject'], 'string', 'max' => 100]
         ];
-    }
-
-    public function checkAnswer($attribute, $params) {
-        if ($this->status == Statuses::STATUS_ACTIVE && empty($this->answer)) {
-            $this->addError($attribute, 'Чтобы отправить Ответ пользователю, необходимо заполнить его');
-        }
     }
 
     public function getManager() {
@@ -61,19 +56,20 @@ class Feedback extends \yii\db\ActiveRecord
     {
         if ($this->isNewRecord) {
             $this->created = time();
-            if (!Yii::$app->user->isGuest) {
-                $this->user_id = Yii::$app->user->id;
-            }
         } else {
             $this->manager_id = Yii::$app->user->id;
             $this->modified = time();
+
             if ($this->status == Statuses::STATUS_ACTIVE) {
-                $this->answered = time();
+                $this->processed = time();
+            } else {
+                $this->processed = 0;
             }
         }
 
         return parent::beforeValidate();
     }
+
 
     /**
      * @inheritdoc
@@ -82,17 +78,15 @@ class Feedback extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'user_id' => 'User Id',
             'manager_id' => 'Менеджер',
             'name' => 'Имя',
             'email' => 'Email',
             'phone' => 'Телефон',
             'subject' => 'Тема',
-            'message' => 'Сообщение',
-            'answer' => 'Ответ',
+            'comment' => 'Комментарий',
             'created' => 'Создан',
             'modified' => 'Изменен',
-            'answered' => 'Отвечен',
+            'processed' => 'Обработан',
             'status' => 'Статус',
         ];
     }

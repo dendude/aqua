@@ -18,6 +18,7 @@ class Statuses {
     const STATUS_REMOVED = 10;
 
     const TYPE_FEEDBACK = 'feedback';
+    const TYPE_PROCESSED = 'processed';
     const TYPE_YESNO = 'yesno';
     const TYPE_ACTREM = 'actrem';
     const TYPE_ACTIVE = 'active';
@@ -32,6 +33,14 @@ class Statuses {
                     self::STATUS_DISABLED => 'Новый',
                     self::STATUS_USED => 'Просмотрен',
                     self::STATUS_ACTIVE => 'Отвечен',
+                );
+                break;
+
+            case self::TYPE_PROCESSED:
+                $statuses = array(
+                    self::STATUS_DISABLED => 'Новый',
+                    self::STATUS_USED => 'Просмотрен',
+                    self::STATUS_ACTIVE => 'Обработан',
                 );
                 break;
 

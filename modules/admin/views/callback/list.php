@@ -2,10 +2,10 @@
 
 use yii\grid\GridView;
 use yii\helpers\Html;
-use \app\modules\admin\controllers\ReviewsController;
+use \app\modules\admin\controllers\CallbackController;
 use app\helpers\Statuses;
 
-$action = ReviewsController::LIST_NAME;
+$action = CallbackController::LIST_NAME;
 $this->title = $action;
 $this->params['breadcrumbs'] = [
     ['label' => $action]
@@ -59,6 +59,15 @@ echo GridView::widget([
             ],
         ],
         [
+            'attribute' => 'phone',
+            'contentOptions' => [
+                'class' => 'text-center'
+            ],
+            'value' => function($model){
+                return \app\helpers\Normalize::formatPhone($model->phone);
+            },
+        ],
+        [
             'attribute' => 'subject',
             'headerOptions' => [
                 'class' => 'text-left'
@@ -68,9 +77,9 @@ echo GridView::widget([
             'attribute' => 'status',
             'format' => 'html',
             'value' => function($model){
-                return Statuses::getFull($model->status, Statuses::TYPE_FEEDBACK);
+                return Statuses::getFull($model->status, Statuses::TYPE_PROCESSED);
             },
-            'filter' => Statuses::statuses(Statuses::TYPE_FEEDBACK),
+            'filter' => Statuses::statuses(Statuses::TYPE_PROCESSED),
             'headerOptions' => [
                 'width' => 100,
                 'class' => 'text-center'
@@ -95,11 +104,26 @@ echo GridView::widget([
             ]
         ],
         [
-            'attribute' => 'answered',
+            'attribute' => 'modified',
             'format' => 'html',
             'filter' => false,
             'value' => function($model){
-                return \app\helpers\Normalize::getFullDateByTime($model->answered, '<br/>');
+                return \app\helpers\Normalize::getFullDateByTime($model->modified, '<br/>');
+            },
+            'headerOptions' => [
+                'width' => 120,
+                'class' => 'text-center'
+            ],
+            'contentOptions' => [
+                'class' => 'text-center'
+            ]
+        ],
+        [
+            'attribute' => 'processed',
+            'format' => 'html',
+            'filter' => false,
+            'value' => function($model){
+                return \app\helpers\Normalize::getFullDateByTime($model->processed, '<br/>');
             },
             'headerOptions' => [
                 'width' => 120,

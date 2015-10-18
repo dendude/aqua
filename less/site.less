@@ -21,9 +21,9 @@ a {
 h1 {
     font-size: 22px;
     color: @title-color;
-    line-height: 36px;
-    padding: 0;
-    margin: 0 0 12px 0;
+    line-height: 26px;
+    padding: 5px 0;
+    margin: 0 0 8px 0;
 
     &.line-title {
         border-bottom: 2px solid @line-color;
@@ -572,21 +572,27 @@ p {
 }
 
 .page-content {
-    min-height: 1000px;
+    min-height: 800px;
     background: #fff;
     padding: 15px 20px;
-    .border-radius(10px);
+    box-shadow: 0 0 2px #b7deff;
+    position: relative;
+
+    .act-btn {
+        float: right;
+        position: relative;
+        z-index: 5;
+    }
 
     .page-menu {
-        float: left;
         width: 250px;
         min-height: 100%;
         background: #e5f5fe;
-        position: relative;
-        left: -20px;
-        top: -15px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
         padding: 3px 0 13px 0;
-        .border-radius(10px 0 10px 0);
 
         li {
             display: block;
@@ -610,6 +616,7 @@ p {
         margin-left: 260px;
         position: relative;
         padding-bottom: 50px;
+        text-align: justify;
 
         &.page-simple {
             margin-left: 0;
