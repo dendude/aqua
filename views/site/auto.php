@@ -6,9 +6,12 @@ $this->params['meta_d'] = $model->meta_d;
 $this->params['meta_k'] = $model->meta_k;
 $this->params['breadcrumbs'] = $model->getBreadcrumbs();
 
+$content = '';
+
 ?>
-<div class="site-page">
-    <div class="page-content page-auto transparent"><?= $content ?></div>
-    <?= \app\widgets\MainWidgets::widget() ?>
-    <div class="clearfix"></div>
+<div class="page-content">
+    <div class="page-container page-simple">
+        <h1 class="page-title"><?= $model->title ?></h1>
+        <?= $content ?>
+    </div>
 </div>

@@ -6,9 +6,12 @@ use app\components\DSitemap;
 use app\helpers\Normalize;
 use app\helpers\Statuses;
 use app\models\Actions;
+use app\models\Calculate;
+use app\models\Callback;
 use app\models\Faq;
 use app\models\forms\QuestionForm;
 use app\models\forms\ReviewForm;
+use app\models\FreeTravel;
 use app\models\News;
 use app\models\Pages;
 use app\models\PhotoAlbums;
@@ -306,11 +309,10 @@ class SiteController extends Controller
                         return $this->actionFaq($id);
                         break;
 
-                    case Reviews::PAGE_ADD_ID:
-                        return $this->actionReviewAdd();
-                        break;
-                    case Reviews::PAGE_ID:
-                        return $this->actionReviews($id);
+                    case FreeTravel::PAGE_ID:
+                    case Callback::PAGE_ID:
+                    case Calculate::PAGE_ID:
+                        $render_page = 'reviews';
                         break;
                 }
 

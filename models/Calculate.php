@@ -21,6 +21,7 @@ use Yii;
  */
 class Calculate extends \yii\db\ActiveRecord
 {
+    const PAGE_ID = 183;
     /**
      * @inheritdoc
      */
