@@ -279,11 +279,12 @@ class SiteController extends Controller
                     case 141:
                         $render_page = 'cosmetics';
                         break;
-                    case 142:
-                        $render_page = 'search';
-                        break;
                     case 176:
                         return $this->actionCalculator($id);
+                        break;
+
+                    case Pages::SEARCH_ID :
+                        $render_page = 'search';
                         break;
 
                     case PhotoAlbums::PAGE_ID :

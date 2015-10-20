@@ -33,6 +33,8 @@ use yii\helpers\Url;
  */
 class Pages extends \yii\db\ActiveRecord
 {
+    const SEARCH_ID = 191;
+
     public $aliases = [];
 
     /**

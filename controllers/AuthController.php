@@ -26,7 +26,7 @@ class AuthController extends Controller
     public function beforeAction($action)
     {
         if (Yii::$app->user->isGuest) {
-            $this->redirect(Yii::$app->homeUrl)->send();
+            if ($action->id != 'login') $this->redirect(['login'])->send();
         } else {
             $this->redirect(['/admin/default/index'])->send();
         }

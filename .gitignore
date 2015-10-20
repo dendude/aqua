@@ -23,5 +23,5 @@ phpunit.phar
 # local phpunit config
 /phpunit.xml
 
-
-.htaccess
+# access, passwd etc
+.ht*

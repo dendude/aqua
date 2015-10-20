@@ -25,9 +25,7 @@ $inputOptions = ['inputOptions' => ['class' => 'form-control']];
                     <button class="btn btn-info btn-block" type="submit"><?= Yii::$app->vars->val(28) ?></button>
                 </div>
                 <div class="col-xs-6">
-                    <a href="<?= \yii\helpers\Url::to(['/auth/forgot']) ?>" class="btn btn-link btn-block">
-                        <?= Yii::$app->vars->val(29) ?>
-                    </a>
+                    <a href="<?= Yii::$app->homeUrl ?>" class="btn btn-link btn-block">На сайт</a>
                 </div>
             </div>
         </div>

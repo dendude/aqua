@@ -6,6 +6,7 @@ use app\assets\AppAsset;
 use app\models\Menu;
 use yii\helpers\Url;
 use app\helpers\Normalize;
+use app\models\Pages;
 
 AppAsset::register($this);
 
@@ -32,14 +33,14 @@ $footer_menu = Menu::find()->active()->footer()->all();
     <div class="layout">
         <nav class="top-nav">
             <div class="top-container">
-                <div class="top-search">
+                <form class="top-search" action="<?= Url::to([Normalize::fixAlias(Pages::aliasById(Pages::SEARCH_ID))]) ?>">
                     <div class="input-search">
-                        <input type="text" placeholder="<?= Yii::$app->vars->val(78, true) ?>"/>
+                        <input name="q" type="text" placeholder="<?= Yii::$app->vars->val(78, true) ?>" value="<?= Yii::$app->request->get('q','') ?>" />
                     </div>
                     <button>
                         <i class="glyphicon glyphicon-search"></i>
                     </button>
-                </div>
+                </form>
                 <div class="top-info">
                     <span class="top-contacts">
                         <?= Yii::$app->vars->val(1) ?><br/>

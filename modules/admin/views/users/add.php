@@ -2,6 +2,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\modules\admin\controllers\UsersController;
+use app\models\Users;
 
 $this->title = $model->id ? 'Редактирование пользователя' : 'Добавление пользователя';
 $this->params['breadcrumbs'] = [
@@ -23,7 +24,7 @@ $inputMiddle = ['inputOptions' => ['class' => 'form-control input-middle']];
             <?= $form->errorSummary($model, ['class' => 'alert alert-danger']); ?>
             <? \app\helpers\MHtml::alertMsg(); ?>
             <div class="well">
-                <?= $form->field($model, 'role', $inputMiddle)->dropDownList(\app\models\Users::getRolesNames(), ['disabled' => !\app\models\Users::isAdmin()]) ?>
+                <?= $form->field($model, 'role', $inputMiddle)->dropDownList(Users::getRolesNames()) ?>
                 <div class="separator"></div>
                 <?= $form->field($model, 'name', $inputMiddle) ?>
                 <?= $form->field($model, 'phone', $inputMiddle) ?>
