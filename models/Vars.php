@@ -77,7 +77,7 @@ class Vars extends \yii\db\ActiveRecord
             self::$cache_list = $vars;
         }
 
-        $value = self::$cache_list[$id];
+        $value = isset(self::$cache_list[$id]) ? self::$cache_list[$id] : 'Var not found';
 
         if ($encode) $value = Html::encode($value);
 
