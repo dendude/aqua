@@ -47,7 +47,7 @@ class PhotoAlbums extends \yii\db\ActiveRecord
     }
 
     public function getPhotos() {
-        return $this->hasMany(Photos::className(), ['section_id' => 'id']);
+        return $this->hasMany(Photos::className(), ['section_id' => 'id'])->orderBy(['ordering' => SORT_ASC]);
     }
 
     public static function getFilterList() {

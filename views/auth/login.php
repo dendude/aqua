@@ -3,8 +3,6 @@ use yii\widgets\ActiveForm;
 
 $form = ActiveForm::begin([
     'id' => 'login_form',
-    'enableClientScript' => true,
-    'enableClientValidation' => true,
     'options' => [
         'class' => 'form-horizontal',
         'onsubmit' => 'loader.show(this)',

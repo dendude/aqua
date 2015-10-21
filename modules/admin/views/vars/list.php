@@ -14,10 +14,10 @@ echo Html::a('Добавить', ['add'], ['class' => 'btn btn-primary btn-add']
 
 if (Yii::$app->session->get('show_vars')) {
     echo Html::a('Показать тексты на сайте', ['switch', 'vars' => 0], ['class' => 'btn btn-default btn-add']);
-    echo Html::tag('div', 'Сейчас на сайте отображаются названия переменных', ['class' => 'pull-right']);
+    echo Html::tag('div', 'Сейчас на сайте отображаются названия переменных', ['class' => 'pull-right text-danger']);
 } else {
     echo Html::a('Показать переменные на сайте', ['switch', 'vars' => 1], ['class' => 'btn btn-default btn-add']);
-    echo Html::tag('div', 'Сейчас на сайте отображаются тексты', ['class' => 'pull-right']);
+    echo Html::tag('div', 'Сейчас на сайте отображаются тексты', ['class' => 'pull-right text-success']);
 }
 
 echo '<div class="clearfix"></div>';

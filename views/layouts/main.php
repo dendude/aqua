@@ -96,6 +96,7 @@ $footer_menu = Menu::find()->active()->footer()->all();
 
         <div class="main-container">
             <?= Breadcrumbs::widget([
+                'homeLink' => ['url' => Yii::$app->homeUrl, 'label' => Yii::$app->vars->val(100)],
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
             ]) ?>
             <?= $content ?>

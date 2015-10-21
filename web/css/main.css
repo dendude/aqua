@@ -1,8 +1,35 @@
-/* font-family: "HelveticaRegular"; */
+@font-face {
+  font-family: "ALSStoryRegular";
+  src: url("/fonts/ALSStory/als_story_regular-webfont.eot");
+  src: url("/fonts/ALSStory/als_story_regular-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/ALSStory/als_story_regular-webfont.woff") format("woff"), url("/fonts/ALSStory/als_story_regular-webfont.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "ALSStoryBold";
+  src: url("/fonts/ALSStory/als_story_bold-webfont.eot");
+  src: url("/fonts/ALSStory/als_story_bold-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/ALSStory/als_story_bold-webfont.woff") format("woff"), url("/fonts/ALSStory/als_story_bold-webfont.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "ALSStoryItalic";
+  src: url("/fonts/ALSStory/als_story_italic-webfont.eot");
+  src: url("/fonts/ALSStory/als_story_italic-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/ALSStory/als_story_italic-webfont.woff") format("woff"), url("/fonts/ALSStory/als_story_italic-webfont.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "ALSStoryBoldItalic";
+  src: url("/fonts/ALSStory/als_story_bold_italic-webfont.eot");
+  src: url("/fonts/ALSStory/als_story_bold_italic-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/ALSStory/als_story_bold_italic-webfont.woff") format("woff"), url("/fonts/ALSStory/als_story_bold_italic-webfont.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
 html,
 body {
   height: 100%;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "ALSStoryRegular", Helvetica, Arial, sans-serif;
 }
 a,
 a:hover,
@@ -31,10 +58,10 @@ a.desc:after {
   padding-left: 5px;
 }
 a.asc:after {
-  content: "\e151";
+  content: /*"\e113"*/ "\e151";
 }
 a.desc:after {
-  content: "\e152";
+  content: /*"\e114"*/ "\e152";
 }
 .sort-numerical a.asc:after {
   content: "\e153";

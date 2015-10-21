@@ -44,7 +44,9 @@ p {
     background: none;
     margin: 20px 0;
     li {
-        color: #6d6e71;
+        &, &.active {
+            color: #444548;
+        }
         a {
             text-decoration: underline;
             font-weight: bold;
@@ -160,6 +162,9 @@ p {
             &:last-child {
                 margin-right: 0;
             }
+            &:active {
+                background: rgba(215,215,215,1);
+            }
 
             i {
                 display: block;
@@ -225,6 +230,7 @@ p {
                 font-weight: normal;
                 border-radius: 3px;
                 border: 1px solid #009de1;
+                font-family: 'ALSStoryBold';
                 .border-radius(4px);
 
                 /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#66d1ff+0,66d1ff+33,66d1ff+44,25b2ed+56,25b2ed+67,029de0+100 */
@@ -327,7 +333,7 @@ p {
                 display: block;
                 padding: 8px 0;
                 line-height: 22px;
-                font-size: 18px;
+                font-size: 22px;
                 text-align: right;
                 small {
                     font-size: 14px;
@@ -355,6 +361,7 @@ p {
                         color: #fff;
                         text-decoration: underline;
                         cursor: pointer;
+                        font-size: 16px;
 
                         &:hover {
                             background: none;
@@ -494,27 +501,72 @@ p {
     }
 
     .index-our-job-slider {
-        height: 179px;
+        height: 178px;
         width: @content-width;
-        margin: 0 auto;
+        margin: 0 auto 70px auto;
         position: relative;
-        background: url('/img/our-job-slider.png') no-repeat center center;
+        background: url('/img/our-job-slider.png') no-repeat center -1px;
 
-        .job-slide-acts {
+        a {
             display: block;
-            position: absolute;
-            top: 59px;
-            width: 29px;
-            height: 62px;
-            background: no-repeat center center;
+            float: left;
+            height: 164px;
+            width: 220px;
+            margin: 0 6px;
+            position: relative;
+            overflow: hidden;
 
-            &.job-slide-left {
-                left: 10px;
-                background-image: url('/img/our-job-slide-left.png');
+            span {
+                display: block;
+                position: absolute;
+                width: 270px;
+                height: 250px;
+                left: -25px;
+                top: -43px;
+                text-align: center;
+                font-size: 0;
+                line-height: 250px;
+                background: #EAEAEA;
+
+                img {
+                    max-width: 270px;
+                    max-height: 250px;
+                }
             }
-            &.job-slide-right {
-                right: 10px;
-                background-image: url('/img/our-job-slide-right.png');
+
+            i {
+                display: block;
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0,0,0,0.45);
+                color: #fff;
+                line-height: 14px;
+                font-size: 12px;
+                padding: 5px 5px 3px 5px;
+                font-style: normal;
+                font-family: 'ALSStoryItalic';
+                .transition();
+
+                em {
+                    display: none;
+                }
+
+                strong {
+                    display: block;
+                    padding-bottom: 2px;
+                }
+            }
+
+            &:hover {
+                i {
+                    background: rgba(0,0,0,0.65);
+                    em {
+                        display: block;
+                        font-style: normal;
+                    }
+                }
             }
         }
     }
@@ -576,7 +628,7 @@ p {
     min-height: 800px;
     background: #fff;
     padding: 15px 20px;
-    box-shadow: 0 0 2px #b7deff;
+    box-shadow: 0 0 2px #8eb0d0;
     position: relative;
 
     .act-btn {

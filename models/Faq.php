@@ -25,8 +25,8 @@ use yii\helpers\Url;
 class Faq extends \yii\db\ActiveRecord
 {
     const ALIAS_PREFIX = '/answer/';
-    const PAGE_ID = 139;
-    const PAGE_ADD_ID = 161;
+    const PAGE_ID = 181;
+    const PAGE_ADD_ID = 192;
 
     /**
      * @inheritdoc

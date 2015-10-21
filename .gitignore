@@ -23,5 +23,7 @@ phpunit.phar
 # local phpunit config
 /phpunit.xml
 
+/web/images/*/
+
 # access, passwd etc
 .ht*

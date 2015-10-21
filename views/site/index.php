@@ -1,5 +1,29 @@
 <?php
+use app\helpers\Statuses;
+use app\models\forms\UploadForm;
+use yii\helpers\Html;
+
 $this->title = 'Альфаро';
+
+$slider_photos = [];
+$slider_albums = \app\models\PhotoAlbums::find()
+    ->where(['status' => Statuses::STATUS_ACTIVE])
+    ->orderBy(['ordering' => SORT_ASC])
+    ->all();
+
+if ($slider_albums) {
+    foreach ($slider_albums AS $s_album) {
+        if ($s_album->photos) {
+            foreach ($s_album->photos AS $photo) {
+                if ($photo->status == Statuses::STATUS_ACTIVE) $slider_photos[] = $photo;
+            }
+        }
+    }
+}
+
+$this->registerJs("
+    $('#sm_slider').smSlider({autoPlay : true, delay: 8000});
+");
 ?>
 <div class="site-index">
     <div class="index-banner">
@@ -63,10 +87,28 @@ $this->title = 'Альфаро';
             <span class="our-job-title"><?= Yii::$app->vars->val(98) ?></span>
         </div>
 
+        <? if (count($slider_photos)): ?>
         <div class="index-our-job-slider">
-            <a class="job-slide-acts job-slide-left" href="#"></a>
-            <a class="job-slide-acts job-slide-right" href="#"></a>
+            <div id="sm_slider">
+                <ul>
+                    <? foreach ($slider_photos AS $pk => $photo_info): ?>
+                        <? if ($pk%4 == 0): ?><li><? endif; ?>
+                            <a href="#" title="">
+                                <span>
+                                    <img src="<?= UploadForm::getSrc($photo_info->img_small, UploadForm::TYPE_GALLERY) ?>" alt="<?= Html::encode($photo_info->title) ?>"/>
+                                </span>
+                                <? if ($photo_info->title || $photo_info->about): ?>
+                                    <i><strong><?= Html::encode($photo_info->title) ?></strong><em><?= nl2br(Html::encode($photo_info->about)) ?></em></i>
+                                <? endif; ?>
+                            </a>
+                        <? if ($pk%4 == 3): ?></li><? endif; ?>
+                    <? endforeach; ?>
+                    <? if (count($slider_photos) % 4 != 0): ?></li><? endif; ?>
+                </ul>
+            </div>
         </div>
+        <div class="clearfix"></div>
+        <? endif; ?>
 
         <div class="index-other-job">
             <h2 class="other-job-title"><?= Yii::$app->vars->val(99) ?></h2>
