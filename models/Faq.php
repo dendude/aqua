@@ -44,8 +44,8 @@ class Faq extends \yii\db\ActiveRecord
         return [
             [['section_id', 'name', 'email', 'question_text'], 'required'],
             [['answer_text'], 'required', 'when' => function($model){
-                return $model->status == Statuses::STATUS_ACTIVE;
-            }, 'message' => 'Чтобы отправить {attribute}, необходимо заполнить его'],
+                return ($model->status == Statuses::STATUS_ACTIVE || $model->send_answer);
+            }, 'message' => 'Чтобы отправить/опубликовать {attribute}, необходимо заполнить его'],
 
             [['email'], 'email'],
             [['section_id', 'manager_id', 'user_id', 'created', 'modified', 'published', 'ordering', 'status', 'views'], 'integer'],

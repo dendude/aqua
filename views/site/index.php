@@ -3,7 +3,7 @@ use app\helpers\Statuses;
 use app\models\forms\UploadForm;
 use yii\helpers\Html;
 
-$this->title = 'Альфаро';
+$this->title = $model->title;
 
 $slider_photos = [];
 $slider_albums = \app\models\PhotoAlbums::find()
@@ -24,6 +24,12 @@ if ($slider_albums) {
 $this->registerJs("
     $('#sm_slider').smSlider({autoPlay : true, delay: 8000});
 ");
+
+$faq = \app\models\Faq::find()
+    ->where(['status' => Statuses::STATUS_ACTIVE])
+    ->orderBy(['ordering' => SORT_ASC, 'id' => SORT_DESC])
+    ->limit(9)
+    ->all();
 ?>
 <div class="site-index">
     <div class="index-banner">
@@ -38,13 +44,32 @@ $this->registerJs("
                 </div>
             </div>
             <div class="infoblocks infoblock-faq">
-                <div class="infoblock-title"><?= Yii::$app->vars->val(82) ?></div>
-                <div class="infoblock-content"></div>
+                <div class="infoblock-title">
+                    <a class="faq-add" href=""><?= Yii::$app->vars->val(103) ?></a>
+                    <?= Yii::$app->vars->val(82) ?>
+                </div>
+                <div class="infoblock-content">
+                <? if ($faq): ?>
+                    <ul class="faq-list">
+                    <? foreach ($faq AS $faq_item): ?>
+                        <li>
+                            <a href="">
+                                <span class="faq-item-question"><?= Html::encode($faq_item->question_text) ?></span>
+                                <span class="faq-item-answer"><?= nl2br(Html::encode($faq_item->answer_text)) ?></span>
+                            </a>
+                        </li>
+                    <? endforeach; ?>
+                    </ul>
+                    <a class="faq-all" href=""><?= Yii::$app->vars->val(101) ?></a>
+                <? else: ?>
+                    <p class="faq-empty"><?= Yii::$app->vars->val(102) ?></p>
+                <? endif; ?>
+                </div>
             </div>
         </div>
         <div class="index-text">
             <h1 class="line-title text-center"><?= Yii::$app->vars->val(83) ?></h1>
-            <p><?= Yii::$app->vars->val(84) ?></p>
+            <p class="index-ob"><?= Yii::$app->vars->val(84) ?></p>
             <h2 class="why-us"><?= Yii::$app->vars->val(85) ?></h2>
             <div class="why-us-items">
                 <div class="why-us-point">
@@ -83,23 +108,28 @@ $this->registerJs("
             </div>
         </div>
 
-        <div class="index-our-job">
-            <span class="our-job-title"><?= Yii::$app->vars->val(98) ?></span>
-        </div>
-
         <? if (count($slider_photos)): ?>
+        <h2 class="why-us"><?= Yii::$app->vars->val(98) ?></h2>
+        <div class="index-our-job">
+            <img src="<?= UploadForm::getSrc($slider_photos[0]->img_big, UploadForm::TYPE_GALLERY) ?>" alt="<?= Html::encode($slider_photos[0]->title) ?>"/>
+            <? if($slider_photos[0]->title || $slider_photos[0]->about): ?>
+            <span class="our-job-title">
+                <strong class="our-job-name"><?= Html::encode($slider_photos[0]->title) ?></strong>
+                <span class="our-job-about"><?= nl2br(Html::encode($slider_photos[0]->about)) ?></span>
+            </span>
+            <? endif; ?>
+        </div>
         <div class="index-our-job-slider">
             <div id="sm_slider">
                 <ul>
                     <? foreach ($slider_photos AS $pk => $photo_info): ?>
                         <? if ($pk%4 == 0): ?><li><? endif; ?>
-                            <a href="#" title="">
+                            <a onclick="set_job_img(this)" data-img="<?= UploadForm::getSrc($photo_info->img_big, UploadForm::TYPE_GALLERY) ?>">
                                 <span>
                                     <img src="<?= UploadForm::getSrc($photo_info->img_small, UploadForm::TYPE_GALLERY) ?>" alt="<?= Html::encode($photo_info->title) ?>"/>
                                 </span>
-                                <? if ($photo_info->title || $photo_info->about): ?>
-                                    <i><strong><?= Html::encode($photo_info->title) ?></strong><em><?= nl2br(Html::encode($photo_info->about)) ?></em></i>
-                                <? endif; ?>
+                                <strong class="img-title"><?= Html::encode($photo_info->title) ?></strong>
+                                <strong class="img-about hidden"><?= nl2br(Html::encode($photo_info->about)) ?></strong>
                             </a>
                         <? if ($pk%4 == 3): ?></li><? endif; ?>
                     <? endforeach; ?>

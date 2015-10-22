@@ -47,7 +47,7 @@ class UploadForm extends Model
                 // миниатюры для галереи
                 $this->imageFile->saveAs($result_path);
 
-                $this->resize($result_path, $result_path, 1000, 800);
+                $this->resize($result_path, $result_path, 1100, 800);
                 $this->resize($result_path, $path_img_mini, 400, 300);
             } else {
                 $this->imageFile->saveAs($result_path);

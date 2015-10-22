@@ -411,17 +411,73 @@ p {
 
     .index-text {
         margin-right: 365px;
+
+        .index-ob {
+            height: 132px;
+            overflow: hidden;
+            margin: 0;
+            text-align: justify;
+        }
     }
 
     .infoblock-faq {
         height: 574px;
+
+        .faq-add {
+            display: block;
+            float: right;
+            text-decoration: underline;
+            font-family: 'ALSStoryBold';
+        }
+
+        .faq-list {
+            margin: 7px 0;
+
+            li {
+                display: block;
+                padding-bottom: 8px;
+                margin-bottom: 7px;
+                border-bottom: 1px dashed #DEDEDE;
+
+                a {
+                    display: block;
+                    color: inherit;
+                    line-height: 18px;
+                    font-size: 12px;
+                    &:hover {
+                        color: @link-color
+                    }
+
+                    .faq-item-question {
+                        display: block;
+                        font-family: 'ALSStoryBold';
+                        max-height: 18px;
+                        overflow: hidden;
+                    }
+                    .faq-item-answer {
+                        display: block;
+                        max-height: 18px;
+                        overflow: hidden;
+                    }
+                }
+            }
+        }
+
+        .faq-empty {
+            margin: 10px 0 7px 0;
+        }
+
+        .faq-all {
+            display: block;
+            line-height: 32px;
+        }
     }
 
     .why-us {
         font-size: 22px;
         color: #231f20;
         font-weight: normal;
-        margin: 41px 0 0 0;
+        margin: 48px 0 0 0;
         text-align: center;
     }
 
@@ -480,23 +536,38 @@ p {
     }
 
     .index-our-job {
-        height: 460px;
         width: @content-width;
         margin: 20px auto;
-        background: url('/img/our-job.png') no-repeat center center;
         position: relative;
+        text-align: center;
+        background: #EAEAEA url('/img/loader.gif') no-repeat center center;
+        height: 500px;
+        overflow: hidden;
+        .border-radius(6px);
 
         .our-job-title {
             color: #fff;
-            font-size: 24px;
-            text-align: center;
+            text-align: left;
             position: absolute;
-            bottom: 54px;
-            left: 100px;
-            height: 40px;
-            line-height: 40px;
-            width: 256px;
-            overflow: hidden;
+            bottom: 50px;
+            left: 0;
+            padding: 10px 15px;
+            background: rgba(0,0,0,0.65);
+            font-size: 16px;
+            line-height: 18px;
+            .border-radius(0 6px 6px 0);
+
+            strong {
+                font-weight: normal;
+                display: block;
+                padding-bottom: 7px;
+                font-size: 24px;
+                line-height: 24px;
+            }
+        }
+
+        img {
+            max-width: @content-width;
         }
     }
 
@@ -534,7 +605,7 @@ p {
                 }
             }
 
-            i {
+            strong {
                 display: block;
                 position: absolute;
                 left: 0;
@@ -542,30 +613,18 @@ p {
                 bottom: 0;
                 background: rgba(0,0,0,0.45);
                 color: #fff;
-                line-height: 14px;
+                height: 24px;
+                line-height: 24px;
                 font-size: 12px;
-                padding: 5px 5px 3px 5px;
                 font-style: normal;
+                overflow: hidden;
                 font-family: 'ALSStoryItalic';
                 .transition();
-
-                em {
-                    display: none;
-                }
-
-                strong {
-                    display: block;
-                    padding-bottom: 2px;
-                }
             }
 
             &:hover {
-                i {
+                strong {
                     background: rgba(0,0,0,0.65);
-                    em {
-                        display: block;
-                        font-style: normal;
-                    }
                 }
             }
         }

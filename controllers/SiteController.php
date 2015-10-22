@@ -338,8 +338,7 @@ class SiteController extends Controller
         throw new NotFoundHttpException('Страница не найдена', 404);
     }
 
-    public function actionIndex()
-    {
+    public function actionIndex() {
         $model = Pages::find()->where(['alias' => 'index'])->one();
         return $this->render('index', [
             'model' => $model

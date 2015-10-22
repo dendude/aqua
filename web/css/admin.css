@@ -378,16 +378,20 @@ a.btn-add {
 }
 .photo-item .photo-title {
   display: block;
-  padding: 4px 7px;
-  line-height: 16px;
+  padding: 0 7px;
   font-size: 12px;
   font-weight: bold;
+  height: 24px;
+  line-height: 24px;
+  overflow: hidden;
 }
 .photo-item .photo-about {
   display: block;
   font-size: 11px;
-  line-height: 13px;
-  padding: 0 7px 4px 7px;
+  height: 17px;
+  line-height: 17px;
+  padding: 0 0 0 7px;
+  overflow: hidden;
 }
 .photo-item .photo-status {
   position: absolute;

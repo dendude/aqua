@@ -42,6 +42,10 @@ $inputMiddle = ['inputOptions' => ['class' => 'form-control input-middle']];
 
 <div class="alert alert-danger hidden" id="upload_status" style="margin-bottom: 20px"></div>
 
+<div class="alert alert-success">
+    Рекомендуемый размер фото: 1100х500
+</div>
+
 <div class="row">
     <div class="col-xs-12">
         <?= $form->errorSummary($model, ['class' => 'alert alert-danger']); ?>
