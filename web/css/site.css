@@ -198,17 +198,20 @@ p big {
   line-height: 34px;
   margin: 0 auto 10px auto;
 }
-.navbar-main table {
+.navbar-main > ul {
+  display: table;
   width: 100%;
   height: inherit;
   line-height: inherit;
 }
-.navbar-main table td {
+.navbar-main > ul > li {
+  display: table-cell;
   height: inherit;
   line-height: inherit;
   min-width: 15%;
+  position: relative;
 }
-.navbar-main table td a {
+.navbar-main > ul > li > a {
   display: block;
   height: 34px;
   line-height: 30px;
@@ -244,12 +247,53 @@ p big {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#66d1ff', endColorstr='#029de0', GradientType=0);
   /* IE6-9 */
 }
-.navbar-main table td a:active {
+.navbar-main > ul > li > a:active {
   background: #25b2ed;
   text-decoration: none;
 }
-.navbar-main table td:last-child a {
+.navbar-main > ul > li:last-child a {
   margin-right: 0;
+}
+.navbar-main > ul > li > ul {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  top: 34px;
+  padding-top: 2px;
+  overflow: hidden;
+  background: none;
+  box-shadow: 0 2px 2px #fff;
+  -webkit-border-radius: 0 0 4px 4px;
+  -moz-border-radius: 0 0 4px 4px;
+  -html-border-radius: 0 0 4px 4px;
+  -ms-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
+}
+.navbar-main > ul > li > ul > li {
+  display: block;
+  color: #fff;
+  background: #66D1FF;
+  border-bottom: 1px solid #b3e8ff;
+}
+.navbar-main > ul > li > ul > li:first-child {
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  -html-border-radius: 4px 4px 0 0;
+  -ms-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+}
+.navbar-main > ul > li > ul > li > a {
+  display: block;
+  color: #fff;
+  padding: 8px 15px;
+  line-height: 18px;
+}
+.navbar-main > ul > li > ul > li > a:hover {
+  color: #006699;
+}
+.navbar-main > ul > li:hover > ul {
+  display: block;
 }
 .top-nav {
   background: #0074bc;

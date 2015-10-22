@@ -80,18 +80,26 @@ $footer_menu = Menu::find()->active()->footer()->all();
         </div>
 
         <nav class="navbar-main">
-            <table>
-                <tr>
-                <? if ($top_menu3): ?>
-                    <? foreach ($top_menu3 AS $mk => $menu_item): ?>
-                        <? $link = $menu_item->page ? Url::to([Normalize::fixAlias($menu_item->page->alias)]) : '#'; ?>
-                        <td>
-                            <a href="<?= $link ?>"><?= Html::encode($menu_item->menu_name) ?></a>
-                        </td>
-                    <? endforeach; ?>
-                <? endif; ?>
-                </tr>
-            </table>
+            <ul>
+            <? if ($top_menu3): ?>
+                <? foreach ($top_menu3 AS $menu_item): ?>
+                    <? $link = $menu_item->page ? Url::to([Normalize::fixAlias($menu_item->page->alias)]) : '#'; ?>
+                    <li>
+                        <a href="<?= $link ?>"><?= Html::encode($menu_item->menu_name) ?></a>
+                        <? if ($menu_item->childs): ?>
+                            <ul>
+                            <? foreach ($menu_item->childs AS $submenu_item): ?>
+                                <? $link = $submenu_item->page ? Url::to([Normalize::fixAlias($submenu_item->page->alias)]) : '#'; ?>
+                                <li>
+                                    <a href="<?= $link ?>"><?= Html::encode($submenu_item->menu_name) ?></a>
+                                </li>
+                            <? endforeach; ?>
+                            </ul>
+                        <? endif; ?>
+                    </li>
+                <? endforeach; ?>
+            <? endif; ?>
+            </ul>
         </nav>
 
         <div class="main-container">

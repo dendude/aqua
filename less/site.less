@@ -208,17 +208,20 @@ p {
     line-height: 34px;
     margin: 0 auto 10px auto;
 
-    table {
+    &>ul {
+        display: table;
         width: 100%;
         height: inherit;
         line-height: inherit;
 
-        td {
+        &>li {
+            display: table-cell;
             height: inherit;
             line-height: inherit;
             min-width: 15%;
+            position: relative;
 
-            a {
+            &>a {
                 display: block;
                 height: 34px;
                 line-height: 30px;
@@ -251,6 +254,46 @@ p {
 
             &:last-child a {
                 margin-right: 0;
+            }
+
+            &>ul {
+                display: none;
+                position: absolute;
+                z-index: 10;
+                left: 0;
+                top: 34px;
+                padding-top: 2px;
+                overflow: hidden;
+                background: none;
+                box-shadow: 0 2px 2px #fff;
+                .border-radius(0 0 4px 4px);
+
+                &>li {
+                    display: block;
+                    color: #fff;
+                    background: #66D1FF;
+                    border-bottom: 1px solid lighten(#66D1FF, 15%);
+
+                    &:first-child {
+                        .border-radius(4px 4px 0 0);
+                    }
+
+                    &>a {
+                        display: block;
+                        color: #fff;
+                        padding: 8px 15px;
+                        line-height: 18px;
+                        &:hover {
+                            color: @link-color
+                        }
+                    }
+                }
+            }
+
+            &:hover {
+                &>ul {
+                    display: block;
+                }
             }
         }
     }
