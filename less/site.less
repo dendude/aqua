@@ -253,7 +253,6 @@ p {
             }
 
             &>ul {
-                display: none;
                 position: absolute;
                 z-index: 10;
                 left: 0;
@@ -263,7 +262,10 @@ p {
                 overflow: hidden;
                 background: none;
                 box-shadow: 0 2px 2px #fff;
+                height: 0;
+                .opacity(0);
                 .border-radius(0 0 4px 4px);
+                .transition();
 
                 &>li {
                     display: block;
@@ -295,7 +297,8 @@ p {
 
             &:hover {
                 &>ul {
-                    display: block;
+                    .opacity(100);
+                    height: auto;
                 }
             }
         }

@@ -252,7 +252,6 @@ p big {
   text-decoration: none;
 }
 .navbar-main > ul > li > ul {
-  display: none;
   position: absolute;
   z-index: 10;
   left: 0;
@@ -262,11 +261,19 @@ p big {
   overflow: hidden;
   background: none;
   box-shadow: 0 2px 2px #fff;
+  height: 0;
+  filter: alpha(opacity=0);
+  opacity: 0;
   -webkit-border-radius: 0 0 4px 4px;
   -moz-border-radius: 0 0 4px 4px;
   -html-border-radius: 0 0 4px 4px;
   -ms-border-radius: 0 0 4px 4px;
   border-radius: 0 0 4px 4px;
+  -webkit-transition: all 400ms ease-in-out 0s;
+  -moz-transition: all 400ms ease-in-out 0s;
+  -ms-transition: all 400ms ease-in-out 0s;
+  -o-transition: all 400ms ease-in-out 0s;
+  transition: all 400ms ease-in-out 0s;
 }
 .navbar-main > ul > li > ul > li {
   display: block;
@@ -295,7 +302,9 @@ p big {
   margin-right: 0;
 }
 .navbar-main > ul > li:hover > ul {
-  display: block;
+  filter: alpha(opacity=100);
+  opacity: 1;
+  height: auto;
 }
 .top-nav {
   background: #0074bc;
