@@ -89,6 +89,7 @@ $footer_menu = Menu::find()->active()->footer()->all();
                         <? if ($menu_item->childs): ?>
                             <ul>
                             <? foreach ($menu_item->childs AS $submenu_item): ?>
+                                <? if ($submenu_item->status != \app\helpers\Statuses::STATUS_ACTIVE) continue; ?>
                                 <? $link = $submenu_item->page ? Url::to([Normalize::fixAlias($submenu_item->page->alias)]) : '#'; ?>
                                 <li>
                                     <a href="<?= $link ?>"><?= Html::encode($submenu_item->menu_name) ?></a>
