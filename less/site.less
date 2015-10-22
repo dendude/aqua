@@ -262,10 +262,11 @@ p {
     height: @top-menu-height;
     line-height: @top-menu-height;
     border: none;
-    border-radius: 0;
     width: @page-width;
     margin: 0 auto;
     padding: 0;
+    overflow: hidden;
+    .border-radius(0 0 6px 6px);
 
     .top-container {
         width: @content-width;
@@ -392,6 +393,9 @@ p {
 
 .site-index {
     .index-banner {
+        overflow: hidden;
+        .border-radius(3px);
+
         img {
             max-width: @content-width;
         }
@@ -759,6 +763,8 @@ p {
     padding: 12px 0;
     position: relative;
     margin-top: 50px;
+    overflow: hidden;
+    .border-radius(6px 6px 0 0);
 
     .footer-container {
         width: @content-width;
