@@ -252,10 +252,6 @@ p {
                 }
             }
 
-            &:last-child a {
-                margin-right: 0;
-            }
-
             &>ul {
                 display: none;
                 position: absolute;
@@ -263,6 +259,7 @@ p {
                 left: 0;
                 top: 34px;
                 padding-top: 2px;
+                margin-right: 10px;
                 overflow: hidden;
                 background: none;
                 box-shadow: 0 2px 2px #fff;
@@ -287,6 +284,12 @@ p {
                             color: @link-color
                         }
                     }
+                }
+            }
+
+            &:last-child {
+                &>a, &>ul {
+                    margin-right: 0;
                 }
             }
 

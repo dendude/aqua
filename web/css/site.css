@@ -251,9 +251,6 @@ p big {
   background: #25b2ed;
   text-decoration: none;
 }
-.navbar-main > ul > li:last-child a {
-  margin-right: 0;
-}
 .navbar-main > ul > li > ul {
   display: none;
   position: absolute;
@@ -261,6 +258,7 @@ p big {
   left: 0;
   top: 34px;
   padding-top: 2px;
+  margin-right: 10px;
   overflow: hidden;
   background: none;
   box-shadow: 0 2px 2px #fff;
@@ -291,6 +289,10 @@ p big {
 }
 .navbar-main > ul > li > ul > li > a:hover {
   color: #006699;
+}
+.navbar-main > ul > li:last-child > a,
+.navbar-main > ul > li:last-child > ul {
+  margin-right: 0;
 }
 .navbar-main > ul > li:hover > ul {
   display: block;
