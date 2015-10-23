@@ -109,7 +109,7 @@ echo $form->field($model, 'phone')->label(Yii::$app->vars->val(131));
     </div>
 </div>
 <?
-echo $form->field($model, 'message')->textarea()->label(Yii::$app->vars->val(132));
+echo $form->field($model, 'message')->textarea(['placeholder' => Yii::$app->vars->val(144)])->label(Yii::$app->vars->val(132));
 echo '<div class="form-group">';
 echo Html::tag('div', Html::button(Yii::$app->vars->val(108), ['class' => 'btn btn-primary']), ['class' => 'col-xs-offset-4 col-xs-7']);
 echo '</div>';
