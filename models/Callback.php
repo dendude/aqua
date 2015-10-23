@@ -34,15 +34,15 @@ class Callback extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'email', 'phone', 'subject'], 'required'],
+            [['name', 'phone'], 'required'],
 
             [['email'], 'email'],
 
             [['manager_id', 'created', 'modified', 'processed', 'status'], 'integer'],
             [['manager_id', 'created', 'modified', 'processed', 'status'], 'default', 'value' => 0],
 
-            [['comment'], 'string'],
-            [['comment'], 'default', 'value' => ''],
+            [['comment', 'subject'], 'string'],
+            [['comment', 'subject'], 'default', 'value' => ''],
 
             [['name', 'email', 'phone', 'subject'], 'string', 'max' => 100]
         ];

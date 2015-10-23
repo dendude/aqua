@@ -21,6 +21,15 @@ use Yii;
  */
 class Calculate extends \yii\db\ActiveRecord
 {
+    public $param_length;
+    public $param_width;
+    public $param_height;
+
+    public $param_has_krishka;
+    public $param_has_tumba;
+    public $param_has_oborud;
+    public $param_oform_type;
+
     const PAGE_ID = 183;
     /**
      * @inheritdoc
@@ -36,7 +45,7 @@ class Calculate extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'email', 'phone', 'message'], 'required'],
+            [['name', 'email'], 'required'],
             [['answer'], 'required', 'when' => function($model){
                 return $model->status == Statuses::STATUS_ACTIVE;
             }, 'message' => 'Чтобы отправить {attribute}, необходимо заполнить его'],
@@ -46,8 +55,14 @@ class Calculate extends \yii\db\ActiveRecord
 
             [['email'], 'email'],
 
-            [['message', 'answer'], 'string'],
-            [['message', 'answer'], 'default', 'value' => ''],
+            [['param_length', 'param_width', 'param_height'], 'required'],
+            [['param_length', 'param_width', 'param_height'], 'number'],
+            [['param_has_krishka', 'param_has_tumba', 'param_has_oborud'], 'boolean'],
+            [['param_oform_type'], 'integer'],
+
+
+            [['message', 'answer', 'params'], 'string'],
+            [['message', 'answer', 'params'], 'default', 'value' => ''],
 
             [['name', 'email'], 'string', 'max' => 100],
             [['name', 'email'], 'default', 'value' => ''],
@@ -55,6 +70,21 @@ class Calculate extends \yii\db\ActiveRecord
             [['phone'], 'string', 'max' => 20],
             [['phone'], 'default', 'value' => ''],
         ];
+    }
+
+    public static function getOformTypes() {
+        return [
+            1 => 'Пресноводное простое',
+            2 => 'С живыми растениями',
+            3 => 'Псевдоморе',
+            4 => 'Морское',
+            5 => 'Голландское',
+            6 => 'Рифовое',
+        ];
+    }
+    public static function getOformName($oform_type) {
+        $list = self::getOformTypes();
+        return isset($list[$oform_type]) ? $list[$oform_type] : 'not found';
     }
 
     public function getManager() {
@@ -78,6 +108,20 @@ class Calculate extends \yii\db\ActiveRecord
 
     public function save($runValidation = true, $attributeNames = null)
     {
+        $params = ['param_length', 'param_width', 'param_height', 'param_has_krishka', 'param_has_tumba', 'param_has_oborud', 'param_oform_type'];
+        $params_values = [];
+        foreach ($params AS $name) {
+            if (!empty($this->$name)) {
+                if ($name == 'param_oform_type') {
+                    $params_values[$name] = self::getOformName($this->$name);
+                } else {
+                    $params_values[$name] = $this->$name;
+                }
+            }
+        }
+
+        if (count($params_values)) $this->params = serialize($params_values);
+
         if ($this->isNewRecord) {
 
         } else {
@@ -108,12 +152,21 @@ class Calculate extends \yii\db\ActiveRecord
             'name' => 'Имя',
             'email' => 'Email',
             'phone' => 'Телефон',
-            'message' => 'Сообщение',
+            'message' => 'Комментарий',
             'answer' => 'Ответ',
             'created' => 'Создан',
             'modified' => 'Изменен',
             'answered' => 'Отвечен',
             'status' => 'Статус',
+
+            'param_length' => 'Длина',
+            'param_width' => 'Ширина',
+            'param_height' => 'Высота',
+
+            'param_has_krishka' => 'Крышка',
+            'param_has_tumba' => 'Тумба',
+            'param_has_oborud' => 'Оборудование',
+            'param_oform_type' => 'Оформление',
         ];
     }
 }
