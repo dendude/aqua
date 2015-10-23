@@ -21,8 +21,9 @@ $footer_menu = Menu::find()->active()->footer()->all();
     <!DOCTYPE html>
     <html lang="<?= Yii::$app->language ?>">
     <head>
-        <meta charset="<?= Yii::$app->charset ?>">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="/favicon.ico?2" rel="shortcut icon" type="image/x-icon"/>
+        <meta charset="<?= Yii::$app->charset ?>"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
@@ -124,8 +125,10 @@ $footer_menu = Menu::find()->active()->footer()->all();
         <div class="footer-container"><?= Yii::$app->vars->val(80) ?></div>
     </footer>
 
-    <div class="layout-gradient"></div>
-    <?= \app\widgets\ModalForms::widget(); ?>
+    <noindex>
+        <div class="layout-gradient"></div>
+        <?= \app\widgets\ModalForms::widget(); ?>
+    </noindex>
 
     <?php $this->endBody() ?>
 

@@ -852,6 +852,10 @@ p big {
   line-height: 18px;
   font-size: 12px;
 }
+.footer .footer-container a {
+  color: inherit;
+  text-decoration: underline;
+}
 .footer .footer-menu {
   position: absolute;
   top: -56px;
