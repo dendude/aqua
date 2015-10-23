@@ -57,7 +57,7 @@ echo '<div class="form-group">';
 echo Html::tag('div', '<label></label> - поля, обязательные для заполнения', ['class' => 'required col-xs-offset-4 col-xs-7']);
 echo '</div>';
 echo $form->field($model, 'name')->label(Yii::$app->vars->val(129));
-echo $form->field($model, 'email')->label(Yii::$app->vars->val(130));
+echo $form->field($model, 'email')->textInput(['placeholder' => Yii::$app->vars->val(143)])->label(Yii::$app->vars->val(130));
 echo $form->field($model, 'phone')->label(Yii::$app->vars->val(131));
 ?>
 <div class="form-group required">
