@@ -45,7 +45,7 @@ class Calculate extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'email'], 'required'],
+            [['name', 'email', 'param_oform_type'], 'required'],
             [['answer'], 'required', 'when' => function($model){
                 return $model->status == Statuses::STATUS_ACTIVE;
             }, 'message' => 'Чтобы отправить {attribute}, необходимо заполнить его'],
