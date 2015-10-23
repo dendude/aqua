@@ -69,7 +69,7 @@ $footer_menu = Menu::find()->active()->footer()->all();
             <div class="top-buttons">
             <? if ($top_menu2): ?>
                 <? foreach ($top_menu2 AS $menu_item): ?>
-                    <a class="top-acts" data-target="#modal_form_<?= $menu_item->id ?>" data-toggle="modal">
+                    <a class="top-acts top-act-<?= $menu_item->id ?>" data-target="#modal_form_<?= $menu_item->id ?>" data-toggle="modal">
                         <?= $menu_item->menu_name ?>
                         <i></i>
                     </a>
@@ -124,11 +124,10 @@ $footer_menu = Menu::find()->active()->footer()->all();
         <div class="footer-container"><?= Yii::$app->vars->val(80) ?></div>
     </footer>
 
-    <?php $this->endBody() ?>
-
     <div class="layout-gradient"></div>
-
     <?= \app\widgets\ModalForms::widget(); ?>
+
+    <?php $this->endBody() ?>
 
     </body>
     </html>

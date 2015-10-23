@@ -143,14 +143,20 @@ $faq = \app\models\Faq::find()
         <div class="index-other-job">
             <h2 class="other-job-title"><?= Yii::$app->vars->val(99) ?></h2>
             <div class="other-job-items">
-                <div class="other-job-point other-job-1">
-                    <span class="other-job-subtitle">Горки, водопады</span>
-                    <span class="other-job-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aperiam beatae doloribus dolorum, excepturi, fuga fugit ipsum, iure laudantium non nostrum officia perspiciatis porro quo quod quos sint velit? Doloremque!</span>
-                </div>
-                <div class="other-job-point other-job-2">
-                    <span class="other-job-subtitle">Ландшафтный дизайн</span>
-                    <span class="other-job-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet animi aspernatur consequuntur cumque deleniti eaque est eveniet fugit inventore minus, neque, nobis officiis praesentium similique ullam voluptatem? Beatae, porro?</span>
-                </div>
+                <a href="<?= Yii::$app->vars->val(119) ?>" class="other-job-point other-job-1" title="<?= Yii::$app->vars->val(118,true) ?>" target="_blank">
+                    <span class="other-job-subtitle"><?= Yii::$app->vars->val(114) ?></span>
+                    <span class="other-job-text"><?= Yii::$app->vars->val(115) ?></span>
+                    <span class="other-job-arrow">
+                        <i class="glyphicons glyphicons-share"></i>
+                    </span>
+                </a>
+                <a href="<?= Yii::$app->vars->val(120) ?>" class="other-job-point other-job-2" title="<?= Yii::$app->vars->val(118,true) ?>" target="_blank">
+                    <span class="other-job-subtitle"><?= Yii::$app->vars->val(116) ?></span>
+                    <span class="other-job-text"><?= Yii::$app->vars->val(117) ?></span>
+                    <span class="other-job-arrow">
+                        <i class="glyphicons glyphicons-share"></i>
+                    </span>
+                </a>
                 <div class="clearfix"></div>
             </div>
         </div>

@@ -52,6 +52,8 @@ foreach ($menu AS $menu_item) {
             echo '<ul>';
             foreach ($childs AS $child_item) {
 
+                $menu_name = str_replace('<br/>', ' ', $child_item->menu_name);
+
                 echo '<li>';
 
                     echo '<span class="menu-item">';
@@ -66,9 +68,9 @@ foreach ($menu AS $menu_item) {
                         echo '<a class="btn btn-info btn-xs btn-act" title="Редактировать" href="' . Url::to(['edit', 'id' => $child_item->id]) . '"><i class="glyphicon glyphicon-pencil"></i></a>';
 
                         echo Html::a('<i class="glyphicon glyphicon-plus"></i>', ['add', 'id' => $child_item->id], ['class' => 'btn btn-success btn-xs btn-act',
-                                                                                                                    'title' => 'Добавить подпункт меню "' . $child_item->menu_name . '"']);
+                                                                                                                    'title' => 'Добавить подпункт меню "' . $menu_name . '"']);
 
-                        echo Html::tag('span', $child_item->menu_name, ['class' => 'active-' . $child_item->status]);
+                        echo Html::tag('span', $menu_name, ['class' => 'active-' . $child_item->status]);
                         if ($child_item->page_id) {
                             echo '&nbsp;&nbsp;' . Html::tag('i','',['class' => 'text-muted glyphicon glyphicon-ok cur-help', 'title' => 'Прикреплена страница']);
                         }

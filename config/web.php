@@ -151,11 +151,11 @@ if (YII_ENV_DEV) {
 ]);
 
 \Yii::$container->set('yii\validators\RequiredValidator', [
-    'message' => 'Поле {attribute} обязательно для заполнения',
+    'message' => 'Поле «{attribute}» обязательно для заполнения',
 ]);
 
 \Yii::$container->set('yii\validators\EmailValidator', [
-    'message' => '{attribute} содержит некорректное значение',
+    'message' => '«{attribute}» содержит некорректное значение',
 ]);
 
 \Yii::$container->set('yii\validators\StringValidator', [

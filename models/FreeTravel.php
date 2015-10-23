@@ -3,6 +3,7 @@
 namespace app\models;
 
 use app\components\SmtpEmail;
+use app\helpers\Normalize;
 use app\helpers\Statuses;
 use Yii;
 
@@ -35,7 +36,7 @@ class FreeTravel extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'email', 'phone'], 'required'],
+            [['name', 'phone', 'email'], 'required'],
 
             [['email'], 'email'],
 
@@ -43,6 +44,7 @@ class FreeTravel extends \yii\db\ActiveRecord
             [['manager_id', 'created', 'modified', 'processed', 'status'], 'default', 'value' => 0],
 
             [['comment'], 'string'],
+            [['phone'], 'string', 'min' => 10, 'tooShort' => 'Введите не менее {min} символов'],
             [['name', 'email', 'phone'], 'string', 'max' => 100]
         ];
     }

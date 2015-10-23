@@ -190,6 +190,6 @@ class Normalize {
     }
 
     public static function cleanPhone($phone){
-        return preg_replace('/[^0-9]+/', '', $phone);
+        return preg_replace('/[^0-9,]+/', '', $phone);
     }
 }

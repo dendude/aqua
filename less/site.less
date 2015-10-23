@@ -40,6 +40,18 @@ p {
     }
 }
 
+.modal {
+    label {
+        font-weight: normal;
+        font-family: 'ALSStoryBold';
+    }
+    textarea {
+        resize: vertical;
+        min-height: 50px;
+        max-height: 250px;
+    }
+}
+
 .breadcrumb {
     background: none;
     margin: 20px 0;
@@ -174,7 +186,7 @@ p {
                 bottom: -10px;
             }
 
-            &:nth-child(1) {
+            &.top-act-98 {
                 margin-right: 50px;
                 i {
                     width: 81px;
@@ -183,14 +195,14 @@ p {
                     background-image: url('/img/specialist.png');
                 }
             }
-            &:nth-child(2) {
+            &.top-act-99 {
                 i {
                     width: 60px;
                     height: 58px;
                     background-image: url('/img/counting.png');
                 }
             }
-            &:nth-child(3) {
+            &.top-act-100 {
                 i {
                     width: 61px;
                     height: 58px;
@@ -705,7 +717,9 @@ p {
                 margin: 0 5px;
                 width: 455px;
                 height: 385px;
-                background:  no-repeat center top;
+                background: no-repeat center top;
+                color: #333;
+                position: relative;
 
                 &.other-job-1 {
                     background-image: url('/img/other-job-1.png');
@@ -721,15 +735,31 @@ p {
                     font-size: 16px;
                     line-height: 20px;
                     overflow: hidden;
+                    color: inherit;
                 }
                 .other-job-text {
                     display: block;
-                    margin: 0 30px;
+                    margin: 0 65px 0 30px;
                     text-align: left;
                     font-size: 14px;
                     line-height: 18px;
                     max-height: 54px;
                     overflow: hidden;
+                    color: inherit;
+                }
+                .other-job-arrow {
+                    display: block;
+                    position: absolute;
+                    right: 30px;
+                    bottom: 55px;
+                    height: 20px;
+                    width: 20px;
+                    i {
+                        height: 20px;
+                        width: 20px;
+                        font-size: 20px;
+                        color: @link-color;
+                    }
                 }
             }
         }

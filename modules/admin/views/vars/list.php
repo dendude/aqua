@@ -83,7 +83,7 @@ echo GridView::widget([
             'header' => 'Действия',
             'format' => 'raw',
             'value' => function($model) {
-                return \app\helpers\ManageList::get($model, [], ['remove']);
+                return \app\helpers\ManageList::get($model, [], ['delete']);
             },
             'headerOptions' => [
                 'width' => 80,
