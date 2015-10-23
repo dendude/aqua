@@ -68,9 +68,8 @@ $footer_menu = Menu::find()->active()->footer()->all();
             </div>
             <div class="top-buttons">
             <? if ($top_menu2): ?>
-                <? foreach ($top_menu2 AS $mk => $menu_item): ?>
-                    <? $link = $menu_item->page ? Url::to([Normalize::fixAlias($menu_item->page->alias)]) : '#'; ?>
-                    <a class="top-acts" href="<?= $link ?>">
+                <? foreach ($top_menu2 AS $menu_item): ?>
+                    <a class="top-acts" data-target="#modal_form_<?= $menu_item->id ?>" data-toggle="modal">
                         <?= $menu_item->menu_name ?>
                         <i></i>
                     </a>
@@ -122,14 +121,15 @@ $footer_menu = Menu::find()->active()->footer()->all();
                 <? endforeach; ?>
             </ul>
         <? endif; ?>
-        <div class="footer-container">
-            <?= Yii::$app->vars->val(80) ?>
-        </div>
+        <div class="footer-container"><?= Yii::$app->vars->val(80) ?></div>
     </footer>
 
     <?php $this->endBody() ?>
 
     <div class="layout-gradient"></div>
+
+    <?= \app\widgets\ModalForms::widget(); ?>
+
     </body>
     </html>
 <?php $this->endPage() ?>
