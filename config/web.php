@@ -94,6 +94,7 @@ $config = [
 
                 'album/<id:[\w\-\/]+>' => 'site/album',
 
+                '<alias:[\w\-\/]+>/<id:\d+>' => 'site/page',
                 '<alias:[\w\-\/]+>' => 'site/page',
             ],
         ],

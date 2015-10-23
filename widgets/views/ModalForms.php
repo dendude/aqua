@@ -3,12 +3,10 @@ use yii\bootstrap\Modal;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-use app\models\FreeTravel;
-use app\models\Calculate;
-use app\models\Callback;
 
 /** бесплатный выезд специалиста */
-$model = new FreeTravel();
+
+$model = new \app\models\FreeTravel();
 Modal::begin([
     'id' => 'modal_form_98',
     'header' => Html::tag('div', Yii::$app->vars->val(104), ['class' => 'modal-title']),
@@ -16,7 +14,7 @@ Modal::begin([
     'closeButton' => ['label' => '&times;'],
     'toggleButton' => false,
 ]);
-echo Html::tag('div', '', ['class' => 'hidden']);
+echo Html::tag('div', '', ['class' => 'alert hidden']);
 $form = ActiveForm::begin([
     'enableClientScript' => true,
     'enableClientValidation' => true,
@@ -37,7 +35,8 @@ Modal::end();
 
 
 /** расчитать аквариум */
-$model = new Calculate();
+
+$model = new \app\models\Calculate();
 Modal::begin([
     'id' => 'modal_form_99',
     //'size' => Modal::SIZE_LARGE,
@@ -51,7 +50,8 @@ Modal::end();
 
 
 /** заказать звонок */
-$model = new Callback();
+
+$model = new \app\models\Calculate();
 Modal::begin([
     'id' => 'modal_form_100',
     'header' => Html::tag('div', Yii::$app->vars->val(107), ['class' => 'modal-title']),
@@ -59,7 +59,34 @@ Modal::begin([
     'closeButton' => ['label' => '&times;'],
     'toggleButton' => false,
 ]);
-
 echo 1;
+Modal::end();
 
+
+/** задать вопрос */
+
+$model = new \app\models\forms\QuestionForm();
+Modal::begin([
+    'id' => 'modal_form_' . \app\models\Faq::PAGE_ADD_ID,
+    'header' => Html::tag('div', Yii::$app->vars->val(121), ['class' => 'modal-title']),
+    'footer' => Html::tag('button', Yii::$app->vars->val(105), ['class' => 'btn btn-default', 'data-dismiss' => 'modal']),
+    'closeButton' => ['label' => '&times;'],
+    'toggleButton' => false,
+]);
+echo Html::tag('div', '', ['class' => 'alert hidden']);
+$form = ActiveForm::begin([
+    'enableClientScript' => true,
+    'enableClientValidation' => true,
+]);
+echo '<div class="form-group">';
+echo Html::tag('div', '<label></label> - поля, обязательные для заполнения', ['class' => 'required col-xs-offset-4 col-xs-8']);
+echo '</div>';
+echo $form->field($model, 'name')->label(Yii::$app->vars->val(122));
+echo $form->field($model, 'email')->label(Yii::$app->vars->val(123));
+echo $form->field($model, 'section_id')->dropDownList(\app\models\FaqSections::getFilterList(true))->label(Yii::$app->vars->val(125));
+echo $form->field($model, 'question_text')->textarea()->label(Yii::$app->vars->val(124));
+echo '<div class="form-group">';
+echo Html::tag('div', Html::button(Yii::$app->vars->val(108), ['class' => 'btn btn-primary']), ['class' => 'col-xs-offset-4 col-xs-8']);
+echo '</div>';
+ActiveForm::end();
 Modal::end();

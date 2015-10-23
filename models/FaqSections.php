@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\helpers\Statuses;
 use Yii;
 use yii\helpers\ArrayHelper;
 
@@ -57,8 +58,10 @@ class FaqSections extends \yii\db\ActiveRecord
         return parent::beforeValidate();
     }
 
-    public static function getFilterList() {
-        $list = self::find()->orderBy(['ordering' => SORT_ASC])->all();
+    public static function getFilterList($use_status = false) {
+        $query = self::find()->orderBy(['ordering' => SORT_ASC]);
+        if ($use_status) $query->andWhere(['status' => Statuses::STATUS_ACTIVE]);
+        $list = $query->all();
         return $list ? ArrayHelper::map($list, 'id', 'name') : [];
     }
 

@@ -1,7 +1,11 @@
 <?php
 use app\helpers\Statuses;
 use app\models\forms\UploadForm;
+use app\models\Pages;
+use app\models\Faq;
+use app\helpers\Normalize;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 $this->title = $model->title;
 
@@ -45,7 +49,7 @@ $faq = \app\models\Faq::find()
             </div>
             <div class="infoblocks infoblock-faq">
                 <div class="infoblock-title">
-                    <a class="faq-add" href=""><?= Yii::$app->vars->val(103) ?></a>
+                    <a class="faq-add"  data-target="#modal_form_<?= Faq::PAGE_ADD_ID ?>" data-toggle="modal"><?= Yii::$app->vars->val(103) ?></a>
                     <?= Yii::$app->vars->val(82) ?>
                 </div>
                 <div class="infoblock-content">
@@ -53,14 +57,14 @@ $faq = \app\models\Faq::find()
                     <ul class="faq-list">
                     <? foreach ($faq AS $faq_item): ?>
                         <li>
-                            <a href="">
+                            <a href="№">
                                 <span class="faq-item-question"><?= Html::encode($faq_item->question_text) ?></span>
                                 <span class="faq-item-answer"><?= nl2br(Html::encode($faq_item->answer_text)) ?></span>
                             </a>
                         </li>
                     <? endforeach; ?>
                     </ul>
-                    <a class="faq-all" href=""><?= Yii::$app->vars->val(101) ?></a>
+                    <a class="faq-all" href="<?= Url::to([Normalize::fixAlias(Pages::aliasById(Faq::PAGE_ID))]) ?>"><?= Yii::$app->vars->val(101) ?></a>
                 <? else: ?>
                     <p class="faq-empty"><?= Yii::$app->vars->val(102) ?></p>
                 <? endif; ?>
