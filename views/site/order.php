@@ -6,3 +6,16 @@ use yii\captcha\Captcha;
 
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = $this->title;
+?>
+
+
+
+
+
+
+
+
+
+
+
+
