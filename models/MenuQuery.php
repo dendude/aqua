@@ -10,7 +10,7 @@ class MenuQuery extends ActiveQuery
 {
     public function active() {
         $this->andWhere(['status' => Statuses::STATUS_ACTIVE]);
-        $this->orderBy('ordering ASC');
+        $this->orderBy(['ordering' => SORT_ASC]);
         return $this;
     }
 

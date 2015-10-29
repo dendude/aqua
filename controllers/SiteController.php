@@ -282,6 +282,9 @@ class SiteController extends Controller
                     case 176:
                         return $this->actionCalculator($id);
                         break;
+                    case 212:
+                        $render_page = 'order';
+                        break;
 
                     case Pages::SEARCH_ID :
                         $render_page = 'search';
