@@ -57,7 +57,7 @@ $faq = \app\models\Faq::find()
                     <ul class="faq-list">
                     <? foreach ($faq AS $faq_item): ?>
                         <li>
-                            <a href="№">
+                            <a href="<?= Url::to(['answer', 'id' => $faq_item->id]) ?>">
                                 <span class="faq-item-question"><?= Html::encode($faq_item->question_text) ?></span>
                                 <span class="faq-item-answer"><?= nl2br(Html::encode($faq_item->answer_text)) ?></span>
                             </a>
