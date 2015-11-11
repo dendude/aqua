@@ -52,11 +52,9 @@ if (!empty($check_section)) {
                                 <a href="<?= Url::to([Faq::ALIAS_PREFIX, 'id' => $question->id]) ?>" onclick="show_answer(this, event)">
                                     <?= nl2br(Html::encode($question->question_text)) ?>
                                 </a>
-                                <? if (!empty($check_section)): ?>
                                 <p class="faq-answer">
                                     <span><?= nl2br(Html::encode($question->answer_text)) ?></span>
                                 </p>
-                                <? endif; ?>
                             </li>
                         <? endforeach; ?>
                     </ul>
