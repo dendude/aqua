@@ -58,7 +58,7 @@ p big {
 }
 .faq-section .faq-questions .faq-answer span {
   display: block;
-  margin-top: 6px;
+  margin: 6px 0 0 10px;
   font-size: 14px;
   line-height: 18px;
 }
