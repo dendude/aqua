@@ -58,7 +58,9 @@ p big {
 }
 .faq-section .faq-questions .faq-answer span {
   display: block;
-  margin-top: 3px;
+  margin: 3px 0 8px 0;
+  font-size: 14px;
+  line-height: 18px;
 }
 .modal label {
   font-weight: normal;
