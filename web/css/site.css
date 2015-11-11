@@ -41,10 +41,14 @@ p big {
   padding: 5px 8px;
   font-family: 'ALSStoryRegular';
 }
-.faq-section .faq-questions a {
+.faq-section .faq-questions li {
+  display: block;
+  margin-bottom: 3px;
+}
+.faq-section .faq-questions li a {
   border-bottom: 1px dashed #006699;
 }
-.faq-section .faq-questions a:hover {
+.faq-section .faq-questions li a:hover {
   border-bottom-style: solid;
 }
 .faq-section .faq-questions .faq-answer {
