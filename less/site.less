@@ -40,6 +40,35 @@ p {
     }
 }
 
+.faq-section {
+    padding: 0;
+    margin: 0 20px 12px 10px;
+    font-family: 'ALSStoryBold';
+
+    .faq-questions {
+        padding: 5px 8px;
+        font-family: 'ALSStoryRegular';
+
+        a {
+            border-bottom: 1px dashed @link-color;
+            &:hover {
+                border-bottom-style: solid;
+            }
+        }
+
+        .faq-answer {
+            display: none;
+            margin: 0;
+            padding: 0;
+
+            span {
+                display: block;
+                margin-top: 3px;
+            }
+        }
+    }
+}
+
 .modal {
     label {
         font-weight: normal;

@@ -44,7 +44,7 @@ class FaqSections extends \yii\db\ActiveRecord
     }
 
     public function getQuestions() {
-        return $this->hasMany(Faq::className(), ['section_id' => 'id']);
+        return $this->hasMany(Faq::className(), ['section_id' => 'id'])->orderBy('ordering ASC');
     }
 
     public function beforeValidate()

@@ -32,6 +32,30 @@ p {
 p big {
   font-size: 22px;
 }
+.faq-section {
+  padding: 0;
+  margin: 0 20px 12px 10px;
+  font-family: 'ALSStoryBold';
+}
+.faq-section .faq-questions {
+  padding: 5px 8px;
+  font-family: 'ALSStoryRegular';
+}
+.faq-section .faq-questions a {
+  border-bottom: 1px dashed #006699;
+}
+.faq-section .faq-questions a:hover {
+  border-bottom-style: solid;
+}
+.faq-section .faq-questions .faq-answer {
+  display: none;
+  margin: 0;
+  padding: 0;
+}
+.faq-section .faq-questions .faq-answer span {
+  display: block;
+  margin-top: 3px;
+}
 .modal label {
   font-weight: normal;
   font-family: 'ALSStoryBold';

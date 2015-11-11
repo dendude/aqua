@@ -82,3 +82,12 @@ function set_job_img(obj) {
         $(this).animate({opacity: 1},'fast');
     });
 }
+
+function show_answer(obj, event) {
+    event.preventDefault();
+
+    var $obj = $(obj);
+    var $answer = $obj.next('p');
+
+    $answer.slideToggle();
+}

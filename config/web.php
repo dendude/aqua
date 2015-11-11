@@ -80,19 +80,11 @@ $config = [
                 '<module:(admin|manager)>/<controller:[\w\-]+>/<action:>/<id:\d+>' => '<module>/<controller>/<action>',
                 '<module:(admin|manager)>/<controller:[\w\-]+>/<action:>' => '<module>/<controller>/<action>',
 
-                'news/<section:\d+>' => 'site/news',
-                'new/<alias:[\w\-\/]+>' => 'site/new',
-
-                'results/<section:\d+>' => 'site/results',
-                'result/<alias:[\w\-\/]+>' => 'site/result',
-
-                'actions/<section:\d+>' => 'site/actions',
-                'action/<alias:[\w\-\/]+>' => 'site/action',
-
-                'faq/<section:\d+>' => 'site/faq',
-                'answer/<id:[\w\-\/]+>' => 'site/answer',
+                //'news/<section:\d+>' => 'site/news',
+                //'new/<alias:[\w\-\/]+>' => 'site/new',
 
                 'album/<id:[\w\-\/]+>' => 'site/album',
+                'answer/<id:[\w\-\/]+>' => 'site/answer',
 
                 '<alias:[\w\-\/]+>/<id:\d+>' => 'site/page',
                 '<alias:[\w\-\/]+>' => 'site/page',
