@@ -34,12 +34,12 @@ $faq = \app\models\Faq::find()
     ->orderBy(['ordering' => SORT_ASC, 'id' => SORT_DESC])
     ->limit(9)
     ->all();
+
+$banners = range(1,5);
 ?>
 <div class="site-index">
     <div class="index-banner">
-        <? for ($i = 1; $i <= 5; $i++): ?>
-            <img lowsrc="/img/banner_low.jpg" src="/img/banners/<?= $i ?>.jpg" alt="" width="1100" height="600" />
-        <? endfor; ?>
+        <img lowsrc="/img/banner_low.jpg" src="/img/banners/<?= $banners[array_rand($banners)] ?>.jpg" alt="" width="1100" height="600" />
     </div>
     <div class="index-content">
         <div class="index-infoblocks">
