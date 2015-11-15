@@ -2,15 +2,14 @@
 
 namespace app\modules\admin\controllers;
 
+use app\models\forms\UploadFileForm;
 use app\models\forms\UploadForm;
 use app\models\Pages;
 use app\models\search\PagesSearch;
 use Yii;
 use yii\helpers\Json;
-use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\UploadedFile;
-use yii\widgets\Menu;
 
 class PagesController extends Controller
 {
@@ -18,7 +17,7 @@ class PagesController extends Controller
 
     public function beforeAction($action)
     {
-        if ($action->id == 'upload') {
+        if (in_array($action->id, ['upload','upload-file'])) {
             Yii::$app->request->enableCsrfValidation = false;
         }
         return parent::beforeAction($action);
@@ -130,6 +129,17 @@ class PagesController extends Controller
         $upload_form->imageFile = UploadedFile::getInstance($upload_form, 'imageFile');
         if ($upload_form->upload()) {
             echo Json::encode(['filelink' => $upload_form->getImagePath()]);
+        } else {
+            echo Json::encode($upload_form->getErrors());
+        }
+    }
+
+    public function actionUploadFile() {
+
+        $upload_form = new UploadFileForm();
+        $upload_form->docFile = UploadedFile::getInstance($upload_form, 'docFile');
+        if ($upload_form->upload()) {
+            echo Json::encode(['filelink' => $upload_form->getDocPath()]);
         } else {
             echo Json::encode($upload_form->getErrors());
         }

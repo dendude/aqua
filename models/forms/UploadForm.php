@@ -37,7 +37,7 @@ class UploadForm extends Model
             $ext = $this->imageFile->extension;
 
             $name = uniqid($type . '_') . '.' . $ext;
-            $path = \Yii::$app->basePath . '/' . UploadForm::UPLOAD_DIR . '/' . $type;
+            $path = \Yii::$app->basePath . '/' . self::UPLOAD_DIR . '/' . $type;
             $result_path = $path . '/' . $name;
 
             if ($type == self::TYPE_GALLERY) {

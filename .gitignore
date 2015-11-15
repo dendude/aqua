@@ -24,6 +24,7 @@ phpunit.phar
 /phpunit.xml
 
 /web/images/*/
+/web/docs/
 
 # access, passwd etc
 .ht*
