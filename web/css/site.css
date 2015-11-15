@@ -833,6 +833,56 @@ p big {
   margin-top: 0 !important;
   margin-left: 0;
 }
+.page-content .page-container .blue-block,
+.page-content .page-container .orange-block {
+  display: block;
+  border: 2px solid #35859a;
+  padding: 7px 10px;
+  margin: 20px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -html-border-radius: 6px;
+  -ms-border-radius: 6px;
+  border-radius: 6px;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d9effc+0,7db9e8+100&amp;1+0,0+100 */
+  background: -moz-linear-gradient(top, #d9effc 0%, rgba(125, 185, 232, 0) 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #d9effc 0%, rgba(125, 185, 232, 0) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #d9effc 0%, rgba(125, 185, 232, 0) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d9effc', endColorstr='#007db9e8', GradientType=0);
+  /* IE6-9 */
+}
+.page-content .page-container .blue-block.left,
+.page-content .page-container .orange-block.left {
+  float: left;
+  margin: 20px 20px 20px 0;
+}
+.page-content .page-container .blue-block.right,
+.page-content .page-container .orange-block.right {
+  float: right;
+  margin: 20px 0 20px 20px;
+}
+.page-content .page-container .blue-block:first-child,
+.page-content .page-container .orange-block:first-child {
+  margin-top: 0 !important;
+}
+.page-content .page-container .orange-block {
+  padding: 15px 20px;
+  border-color: rgba(220, 190, 143, 0.5);
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dcbe8f+0,f7ead4+30,f7ead4+70,dcbe8f+100 */
+  background: #dcbe8f;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #dcbe8f 0%, #f7ead4 30%, #f7ead4 70%, #dcbe8f 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #dcbe8f 0%, #f7ead4 30%, #f7ead4 70%, #dcbe8f 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #dcbe8f 0%, #f7ead4 30%, #f7ead4 70%, #dcbe8f 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dcbe8f', endColorstr='#dcbe8f', GradientType=0);
+  /* IE6-9 */
+}
 .page-content .page-container .share42init {
   display: block;
   height: 24px;

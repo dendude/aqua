@@ -189,6 +189,13 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
                     ]
                 ]); ?>
                 <ul>
+                    <li>Стилизация блоков через код</li>
+                    <li><strong><?= htmlspecialchars('<p class="blue-block">какой-то текст</p>'); ?></strong> - пример стилизации синего блока через правку кода;</li>
+                    <li><strong><?= htmlspecialchars('<p class="orange-block">какой-то текст</p>'); ?></strong> - пример стилизации оранжевого блока;</li>
+                    <li><strong><?= htmlspecialchars('<p class="blue-block left">какой-то текст</p>'); ?></strong> - пример стилизации синего блока с выравниванием слева, right - справа;</li>
+                    <li><strong><?= htmlspecialchars('<p class="orange-block right">какой-то текст</p>'); ?></strong> - пример стилизации оранжевого блока с выравниванием справа, left - слева;</li>
+                </ul>
+                <ul>
                     <li><strong>Enter</strong> - перенос строки с отступом (новый параграф);</li>
                     <li><strong>Shift+Enter</strong> - перенос без отступа (обычный перенос строки);</li>
                     <li>Между текстом и фото переносов строк не делаем - проставляются автоматически на сайте;</li>

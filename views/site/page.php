@@ -43,6 +43,7 @@ if (isset($matches[1])) {
         <div class="page-article">
             <?= $content ?>
             <? if ($model->is_shared): ?>
+            <div class="clearfix"></div>
             <div class="share42init" data-title="<?= Html::encode($model->meta_t ? $model->meta_t : $this->title) ?>"
                                      data-description="<?= Html::encode($model->meta_d) ?>"
                                      data-image="<?= $model->getFirstImage() ?>"></div>

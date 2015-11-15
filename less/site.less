@@ -868,6 +868,45 @@ p {
             }
         }
 
+        .blue-block,
+        .orange-block {
+            display: block;
+            border: 2px solid #35859a;
+            padding: 7px 10px;
+            margin: 20px;
+            .border-radius(6px);
+
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d9effc+0,7db9e8+100&amp;1+0,0+100 */
+            background: -moz-linear-gradient(top,  rgba(217,239,252,1) 0%, rgba(125,185,232,0) 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(top,  rgba(217,239,252,1) 0%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom,  rgba(217,239,252,1) 0%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9effc', endColorstr='#007db9e8',GradientType=0 ); /* IE6-9 */
+
+
+            &.left {
+                float: left;
+                margin: 20px 20px 20px 0;
+            }
+            &.right {
+                float: right;
+                margin: 20px 0 20px 20px;
+            }
+            &:first-child {
+                margin-top: 0 !important;
+            }
+        }
+
+        .orange-block {
+            padding: 15px 20px;
+            border-color: rgba(220,190,143, 0.5);
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dcbe8f+0,f7ead4+30,f7ead4+70,dcbe8f+100 */
+            background: rgb(220,190,143); /* Old browsers */
+            background: -moz-linear-gradient(top,  rgba(220,190,143,1) 0%, rgba(247,234,212,1) 30%, rgba(247,234,212,1) 70%, rgba(220,190,143,1) 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(top,  rgba(220,190,143,1) 0%,rgba(247,234,212,1) 30%,rgba(247,234,212,1) 70%,rgba(220,190,143,1) 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom,  rgba(220,190,143,1) 0%,rgba(247,234,212,1) 30%,rgba(247,234,212,1) 70%,rgba(220,190,143,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dcbe8f', endColorstr='#dcbe8f',GradientType=0 ); /* IE6-9 */
+        }
+
         .share42init {
             display: block;
             height: 24px;
