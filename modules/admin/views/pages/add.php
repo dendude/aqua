@@ -3,6 +3,9 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\modules\admin\controllers\PagesController;
 use app\models\Menu;
+use yii\tinymce\TinyMceAsset;
+
+TinyMceAsset::register($this);
 
 $action = $model->id ? 'Редактирование страницы' : 'Создание страницы';
 $this->title = $action;
@@ -161,7 +164,7 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
             <div id="pages_content" <?= $model->is_auto ? 'class="hidden"' : '' ?>>
                 <div class="separator"></div>
 
-                <?= $form->field($model, 'content', ['template' => '<div class="col-xs-4 text-left">{label}</div><div class="col-xs-8">{error}</div>']) ?>
+                <?= $form->field($model, 'content', ['template' => '<div class="col-xs-12 text-left">{label}</div><br/><div class="col-xs-12">{error}</div>'])->textarea() ?>
 
                 <?= yii\imperavi\Widget::widget([
                     // You can either use it for model attribute
@@ -171,13 +174,15 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
                     // Some options, see http://imperavi.com/redactor/docs/
                     'options' => [
                         'lang' => 'ru',
+                        'iframe' => true,
+                        'css' => '/css/site.css',
                         'toolbar' => true,
                         'fileUpload' => \yii\helpers\Url::to(['upload-file']),
                         'fileUploadParam' => 'UploadFileForm[docFile]',
                         'imageUpload' => \yii\helpers\Url::to(['upload']),
                         'imageUploadParam' => 'UploadForm[imageFile]',
                         'imageResizable' => true,
-                        'imageFloatMargin' => '20px'
+                        'imageFloatMargin' => '20px',
                     ],
                     'plugins' => [
                         'myplugins',
@@ -185,6 +190,7 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
                         'video',
                         'fontcolor',
                         'fontsize',
+                        'clips',
                         'fullscreen',
 
                     ]
@@ -214,3 +220,19 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
     </div>
 </div>
 <?php ActiveForm::end() ?>
+<?
+/*$this->registerJs('
+tinymce.init({
+    selector: "#' . Html::getInputId($model, 'content') . '",
+    //language: "ru",
+    content_css : "/css/site.css",
+    plugins: [
+        "advlist autolink lists link image charmap print preview anchor",
+        "searchreplace visualblocks code fullscreen fullpage",
+        "insertdatetime media table contextmenu paste"
+    ],
+    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+});
+
+');*/
+?>

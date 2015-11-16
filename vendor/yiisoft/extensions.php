@@ -93,4 +93,13 @@ return array (
       '@yii/bootstrap' => $vendorDir . '/yiisoft/yii2-bootstrap',
     ),
   ),
+    'yiisoft/yii2-tinymce' =>
+        array (
+            'name' => 'yiisoft/yii2-tinymce',
+            'version' => '4.2.8',
+            'alias' =>
+                array (
+                    '@yii/tinymce' => $vendorDir . '/yiisoft/yii2-tinymce',
+                ),
+        ),
 );

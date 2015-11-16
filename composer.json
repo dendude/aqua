@@ -19,7 +19,8 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "asofter/yii2-imperavi-redactor": "*",
-        "rmrevin/yii2-postman": "~2.2"
+        "rmrevin/yii2-postman": "~2.2",
+        "tinymce/tinymce": "4.2.8"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
