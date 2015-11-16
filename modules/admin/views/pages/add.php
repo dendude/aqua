@@ -164,9 +164,9 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
             <div id="pages_content" <?= $model->is_auto ? 'class="hidden"' : '' ?>>
                 <div class="separator"></div>
 
-                <?= $form->field($model, 'content', ['template' => '<div class="col-xs-12 text-left">{label}</div><br/><div class="col-xs-12">{error}</div>'])->textarea() ?>
+                <?= $form->field($model, 'content', ['template' => '<div class="col-xs-12 text-left">{label}</div><br/><div class="col-xs-12">{input}{error}</div>'])->textarea() ?>
 
-                <?= yii\imperavi\Widget::widget([
+                <?/*= yii\imperavi\Widget::widget([
                     // You can either use it for model attribute
                     'model' => $model,
                     'attribute' => 'content',
@@ -194,7 +194,7 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
                         'fullscreen',
 
                     ]
-                ]); ?>
+                ]); */?>
                 <ul>
                     <li>Стилизация блоков через код</li>
                     <li><strong><?= htmlspecialchars('<p class="blue-block">какой-то текст</p>'); ?></strong> - пример стилизации синего блока через правку кода;</li>
@@ -221,18 +221,19 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
 </div>
 <?php ActiveForm::end() ?>
 <?
-/*$this->registerJs('
+$this->registerJs('
 tinymce.init({
     selector: "#' . Html::getInputId($model, 'content') . '",
-    //language: "ru",
+    language_url: "/js/langs/ru.js",
     content_css : "/css/site.css",
+    document_base_url: "/",
     plugins: [
         "advlist autolink lists link image charmap print preview anchor",
-        "searchreplace visualblocks code fullscreen fullpage",
+        "searchreplace visualblocks code fullscreen",
         "insertdatetime media table contextmenu paste"
     ],
     toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
 });
 
-');*/
+');
 ?>
