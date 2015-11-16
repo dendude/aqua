@@ -228,11 +228,12 @@ tinymce.init({
     content_css : "/css/site.css",
     document_base_url: "/",
     plugins: [
+        "autoresize",
         "advlist autolink lists link image charmap print preview anchor",
-        "searchreplace visualblocks code fullscreen",
+        "searchreplace visualblocks code",
         "insertdatetime media table contextmenu paste"
     ],
-    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+    toolbar: "code | insertfile undo redo | styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | anchor link image video"
 });
 
 ');
