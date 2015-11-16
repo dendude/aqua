@@ -59,7 +59,7 @@ class Pages extends \yii\db\ActiveRecord
                 return !$model->is_auto;
             }],
 
-            [['alias'], 'unique', 'message' => 'Такая ссылка уже занята'],
+            [['alias', 'alias_new'], 'unique', 'message' => 'Такая ссылка уже занята'],
 
             [['id_author', 'created', 'modified', 'views', 'status', 'is_sitemap', 'is_auto', 'is_shared', 'menu_id'], 'integer'],
             [['id_author', 'created', 'modified', 'views', 'status', 'is_sitemap', 'is_auto', 'is_shared', 'menu_id'], 'default', 'value' => 0],
@@ -218,6 +218,7 @@ class Pages extends \yii\db\ActiveRecord
             'id_author' => 'Менеджер',
             'title' => 'Заголовок (Н1)',
             'alias' => 'Alias (URL)',
+            'alias_new' => 'Новый Alias (301 Redirect)',
             'crumb' => 'Название в хлебной крошке',
             'breadcrumbs' => 'Основные хлебные крошки',
             'vcrumbs' => 'Дополнительные хлебные крошки',

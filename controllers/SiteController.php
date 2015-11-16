@@ -246,7 +246,17 @@ class SiteController extends Controller
 
         $page = Pages::find()->where(['alias' => $alias])->one();
 
+        if (!$page) {
+            $page = Pages::find()->where(['alias_new' => $alias])->one();
+        }
+
         if ($page) {
+            // редирект на новую страницу
+            if ($page->alias_new) {
+                $this->redirect([Normalize::fixAlias($page->alias_new)], 301);
+                Yii::$app->end();
+            }
+
             $page->updateCounters(['views' => 1]);
 
             $render_page = null;

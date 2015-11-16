@@ -166,7 +166,7 @@ class MHtml {
      * @param $field_to
      * @return string
      */
-    public static function aliasField(ActiveRecord $model, $field_from, $field_to, $readonly = false) {
+    public static function aliasField(ActiveRecord $model, $field_from, $field_to, $readonly = false, $placeholder = '') {
 
         $classes = [];
         $classes[] = 'form-group';
@@ -177,7 +177,7 @@ class MHtml {
         $label = Html::activeLabel($model, $field_to, ['class' => 'control-label']);
         $label_content = Html::tag('div', $label, ['class' => 'col-xs-4 text-right']);
 
-        $input = Html::activeTextInput($model, $field_to, ['class' => 'form-control', 'readonly' => $readonly]);
+        $input = Html::activeTextInput($model, $field_to, ['class' => 'form-control', 'readonly' => $readonly, 'placeholder' => $placeholder]);
 
         $button = Html::tag('a', 'Получить URL', [
             'href' => \yii\helpers\Url::to(['/ajax/alias']),

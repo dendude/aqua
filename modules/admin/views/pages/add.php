@@ -39,6 +39,7 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
         <div class="well">
             <?= $form->field($model, 'title') ?>
             <?= \app\helpers\MHtml::aliasField($model, 'alias', 'alias') ?>
+            <?= \app\helpers\MHtml::aliasField($model, 'alias_new', 'alias_new', false, 'Если заполнено - сюда будет происходить 301 редирект') ?>
             <div class="form-group">
                 <div class="col-xs-offset-4 col-xs-8 text-muted small">
                     Пример: вводим "справочник/раздел/статья1", клик "Получить URL" покажет "spravochnik/razdel/statya1".<br/>
