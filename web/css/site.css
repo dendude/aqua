@@ -893,6 +893,15 @@ p big {
 .page-content .page-container .share42init .share42-item {
   margin-bottom: 0 !important;
 }
+.page-content .page-container ul,
+.page-content .page-container ol {
+  list-style: disc;
+  padding: 0 0 0 10px;
+  margin: 10px;
+}
+.page-content .page-container ol {
+  list-style: decimal;
+}
 .footer {
   width: 1200px;
   background: #0074bc;
