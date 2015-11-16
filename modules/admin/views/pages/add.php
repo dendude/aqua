@@ -165,8 +165,8 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
                 <div class="separator"></div>
 
                 <div id="mytoolbar"></div>
-                    <textarea name="<?= Html::getInputName($model, 'content') ?>" id="<?= Html::getInputId($model, 'content') ?>" cols="30" rows="10"></textarea>
-                    <?/*= $form->field($model, 'content', ['template' => '<div class="col-xs-12 text-left">{label}</div><br/><div class="col-xs-12">{input}{error}</div>'])->textarea() */?>
+                <!--<textarea name="<?/*= Html::getInputName($model, 'content') */?>" id="<?/*= Html::getInputId($model, 'content') */?>" cols="30" rows="10"></textarea>-->
+                <?= $form->field($model, 'content', ['template' => '<div class="col-xs-12 text-left">{label}</div><br/><div class="col-xs-12">{input}{error}</div>'])->textarea() ?>
 
 
                 <?/*= yii\imperavi\Widget::widget([
@@ -230,7 +230,7 @@ tinymce.init({
     language_url: "/js/langs/ru.js",
     content_css : "/css/site.css",
     document_base_url: "/",
-    inline: true,
+    /*inline: true,*/
     fixed_toolbar_container: "#mytoolbar",
     plugins: [
         "autoresize",
