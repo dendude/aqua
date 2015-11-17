@@ -222,7 +222,7 @@ $this->registerJs('
         },
         table_class_list: [
             {title: "Без форматирования", value: ""},
-            {title: "С полной разметкой", value: "table table-bordered table-striped table-condensed table-hover"},
+            {title: "С полной разметкой", value: "table table-bordered table-striped table-condensed table-hover table-auto"},
             {title: "С внутренними отступами", value: "table-padding5"},
             {title: "С внутренними отступами и центрирование в ячейках", value: "table-center table-padding5"},
         ],
