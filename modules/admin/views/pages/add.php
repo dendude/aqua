@@ -163,41 +163,7 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
 
             <div id="pages_content" <?= $model->is_auto ? 'class="hidden"' : '' ?>>
                 <div class="separator"></div>
-
-                <div id="mytoolbar"></div>
-                <!--<textarea name="<?/*= Html::getInputName($model, 'content') */?>" id="<?/*= Html::getInputId($model, 'content') */?>" cols="30" rows="10"></textarea>-->
                 <?= $form->field($model, 'content', ['template' => '<div class="col-xs-12 text-left">{label}</div><br/><div class="col-xs-12">{input}{error}</div>'])->textarea() ?>
-
-
-                <?/*= yii\imperavi\Widget::widget([
-                    // You can either use it for model attribute
-                    'model' => $model,
-                    'attribute' => 'content',
-
-                    // Some options, see http://imperavi.com/redactor/docs/
-                    'options' => [
-                        'lang' => 'ru',
-                        'iframe' => true,
-                        'css' => '/css/site.css',
-                        'toolbar' => true,
-                        'fileUpload' => \yii\helpers\Url::to(['upload-file']),
-                        'fileUploadParam' => 'UploadFileForm[docFile]',
-                        'imageUpload' => \yii\helpers\Url::to(['upload']),
-                        'imageUploadParam' => 'UploadForm[imageFile]',
-                        'imageResizable' => true,
-                        'imageFloatMargin' => '20px',
-                    ],
-                    'plugins' => [
-                        'myplugins',
-                        'table',
-                        'video',
-                        'fontcolor',
-                        'fontsize',
-                        'clips',
-                        'fullscreen',
-
-                    ]
-                ]); */?>
                 <ul>
                     <li>Стилизация блоков через код</li>
                     <li><strong><?= htmlspecialchars('<p class="blue-block">какой-то текст</p>'); ?></strong> - пример стилизации синего блока через правку кода;</li>
@@ -225,21 +191,39 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
 <?php ActiveForm::end() ?>
 <?
 $this->registerJs('
-tinymce.init({
-    selector: "#' . Html::getInputId($model, 'content') . '",
-    language_url: "/js/langs/ru.js",
-    content_css : "/css/site.css",
-    document_base_url: "/",
-    /*inline: true,*/
-    fixed_toolbar_container: "#mytoolbar",
-    plugins: [
-        "autoresize",
-        "advlist autolink lists link image charmap print preview anchor",
-        "searchreplace visualblocks code",
-        "insertdatetime media table contextmenu paste"
-    ],
-    toolbar: "code | insertfile undo redo | styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | anchor link image video"
-});
-
+    tinymce.init({
+        selector: "#' . Html::getInputId($model, 'content') . '",
+        language_url: "/js/langs/ru.js",
+        convert_urls: false,
+        relative_urls: true,
+        document_base_url: "/",
+        content_css : "/css/site_mod.css?20151117,/lib/bootstrap/dist/css/bootstrap.min.css",
+        image_advtab: true,
+        /*images_upload_url: "' . \yii\helpers\Url::to(['upload']) . '",
+        images_upload_base_path: "' . \yii\helpers\Url::to(['upload']) . '",*/
+        preview_styles: true,
+        plugin_preview_width: 1100,
+        plugin_preview_height: 700,
+        table_default_attributes: {
+            class: "table table-bordered table-striped table-condensed table-hover"
+        },
+        templates: [
+            {title: "Blue Block", description: "Синий блок", content: "<p class=\"blue-block\"></p>"},
+            {title: "Blue Block Left", description: "Синий блок слева", content: "<p class=\"blue-block left\"></p>"},
+            {title: "Blue Block Right", description: "Синий блок справа", content: "<p class=\"blue-block right\"></p>"},
+            {title: "Orange Block", description: "Оранжевый блок", content: "<p class=\"orange-block\"></p>"},
+            {title: "Orange Block Left", description: "Оранжевый блок слева", content: "<p class=\"orange-block left\"></p>"},
+            {title: "Orange Block Right", description: "Оранжевый блок справа", content: "<p class=\"orange-block right\"></p>"},
+        ],
+        plugins: [
+            "autoresize",
+            "advlist autolink lists link image charmap hr print preview anchor",
+            "searchreplace visualblocks code fullscreen wordcount",
+            "insertdatetime media table contextmenu paste media contextmenu directionality",
+            "emoticons template paste textcolor colorpicker textpattern imagetools"
+        ],
+        toolbar1: "code | insertfile undo redo | copy cut paste | styleselect | fullscreen",
+        toolbar2: "preview | bold italic underline | forecolor backcolor | anchor link image video | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent"
+    });
 ');
 ?>

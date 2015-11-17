@@ -1002,3 +1002,9 @@ p big {
   color: #c55;
   font-style: italic;
 }
+html {
+  background: none;
+}
+#tinymce {
+  padding: 20px !important;
+}
