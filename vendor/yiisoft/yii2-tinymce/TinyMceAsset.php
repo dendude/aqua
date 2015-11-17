@@ -11,6 +11,7 @@ class TinyMceAsset extends AssetBundle
     ];
     public $js = [
         'tinymce.min.js',
+        'themes/modern/theme.min.js',
     ];
     public $depends = [
         'app\assets\AdminAsset',

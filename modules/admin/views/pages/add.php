@@ -191,6 +191,8 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
 <?php ActiveForm::end() ?>
 <?
 $this->registerJs('
+
+
     tinymce.init({
         selector: "#' . Html::getInputId($model, 'content') . '",
 
@@ -198,6 +200,8 @@ $this->registerJs('
 
         convert_urls: false,
         relative_urls: true,
+
+        theme: "modern",
 
         document_base_url: "/",
 
@@ -223,10 +227,10 @@ $this->registerJs('
             {title: "С внутренними отступами и центрирование в ячейках", value: "table-center table-padding5"},
         ],
 
-        image_advtab: true,
         images_upload_url: "' . \yii\helpers\Url::to(['upload']) . '",
-        images_upload_base_path: "' . \yii\helpers\Url::to(['upload']) . '",
-        image_dimensions: true,
+        images_upload_base_path: "/images",
+        images_upload_credentials: true,
+        image_advtab: true,
         image_class_list: [
             {title: "Без выравнивания", value: ""},
             {title: "Влево", value: "pull-left"},
@@ -256,7 +260,7 @@ $this->registerJs('
         ],
 
         toolbar1: "code | insertfile undo redo | copy cut paste searchreplace | alignleft aligncenter alignright alignjustify | indent outdent | bullist numlist | styleselect | fullscreen",
-        toolbar2: "preview | bold italic underline strikethrough | removeformat | forecolor backcolor | anchor link image media"
+        toolbar2: "preview | bold italic underline strikethrough | removeformat | forecolor backcolor | anchor link insertfile image media"
     });
 ');
 ?>
