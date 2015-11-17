@@ -223,6 +223,7 @@ $this->registerJs('
         table_class_list: [
             {title: "Без форматирования", value: ""},
             {title: "С полной разметкой", value: "table table-bordered table-striped table-condensed table-hover table-auto"},
+            {title: "С полной разметкой 100% ширина", value: "table table-bordered table-striped table-condensed table-hover"},
             {title: "С внутренними отступами", value: "table-padding5"},
             {title: "С внутренними отступами и центрирование в ячейках", value: "table-center table-padding5"},
         ],
@@ -255,11 +256,11 @@ $this->registerJs('
         plugins: [
             "advlist autolink lists link charmap hr print preview anchor",
             "searchreplace visualblocks code fullscreen wordcount",
-            "insertdatetime media table contextmenu paste media directionality",
-            "template paste textcolor colorpicker textpattern image imagetools"
+            "insertdatetime media table contextmenu media directionality",
+            "template textcolor colorpicker textpattern image imagetools"
         ],
 
-        toolbar1: "code | insertfile undo redo | copy cut paste searchreplace | alignleft aligncenter alignright alignjustify | indent outdent | bullist numlist | styleselect | fullscreen",
+        toolbar1: "code | insertfile undo redo | searchreplace | alignleft aligncenter alignright alignjustify | indent outdent | bullist numlist | styleselect | fullscreen",
         toolbar2: "preview | bold italic underline strikethrough | removeformat | forecolor backcolor | anchor link insertfile image media"
     });
 ');
