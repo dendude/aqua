@@ -26,5 +26,7 @@ phpunit.phar
 /web/images/*/
 /web/docs/
 
+/web/lib
+
 # access, passwd etc
 .ht*

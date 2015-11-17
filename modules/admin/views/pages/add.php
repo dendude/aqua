@@ -163,7 +163,7 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
 
             <div id="pages_content" <?= $model->is_auto ? 'class="hidden"' : '' ?>>
                 <div class="separator"></div>
-                <?= $form->field($model, 'content', ['template' => '<div class="col-xs-12 text-left">{label}</div><br/><div class="col-xs-12">{input}{error}</div>'])->textarea() ?>
+                <?= $form->field($model, 'content', ['template' => '<div class="col-xs-12 text-left">{label}</div><br/><br/><div class="col-xs-12">{input}{error}</div>'])->textarea() ?>
                 <ul>
                     <li>Стилизация блоков через код</li>
                     <li><strong><?= htmlspecialchars('<p class="blue-block">какой-то текст</p>'); ?></strong> - пример стилизации синего блока через правку кода;</li>
@@ -193,20 +193,45 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
 $this->registerJs('
     tinymce.init({
         selector: "#' . Html::getInputId($model, 'content') . '",
+
         language_url: "/js/langs/ru.js",
+
         convert_urls: false,
         relative_urls: true,
+
         document_base_url: "/",
-        content_css : "/css/site_mod.css?20151117,/lib/bootstrap/dist/css/bootstrap.min.css",
-        image_advtab: true,
-        /*images_upload_url: "' . \yii\helpers\Url::to(['upload']) . '",
-        images_upload_base_path: "' . \yii\helpers\Url::to(['upload']) . '",*/
-        preview_styles: true,
-        plugin_preview_width: 1100,
-        plugin_preview_height: 700,
+
+        content_css: [
+            "/css/site_mod.css?20151117",
+            "/lib/bootstrap/dist/css/bootstrap.min.css"
+        ],
+
+        plugin_preview_width: 1050,
+        plugin_preview_height: 600,
+
+        code_dialog_width: 1050,
+        code_dialog_height: 600,
+
         table_default_attributes: {
             class: "table table-bordered table-striped table-condensed table-hover"
         },
+
+        image_advtab: true,
+        images_upload_url: "' . \yii\helpers\Url::to(['upload']) . '",
+        images_upload_base_path: "' . \yii\helpers\Url::to(['upload']) . '",
+        image_dimensions: true,
+        image_class_list: [
+            {title: "Без выравнивания", value: ""},
+            {title: "Влево", value: "pull-left"},
+            {title: "Вправо", value: "pull-right"},
+            {title: "По центру", value: "pull-center"},
+        ],
+        image_list: [
+            {title: "Рыбка синяя", value: "/images/fish2.gif"}
+        ],
+
+        contextmenu: "anchor link | inserttable cell row column deletetable",
+
         templates: [
             {title: "Blue Block", description: "Синий блок", content: "<p class=\"blue-block\"></p>"},
             {title: "Blue Block Left", description: "Синий блок слева", content: "<p class=\"blue-block left\"></p>"},
@@ -215,15 +240,16 @@ $this->registerJs('
             {title: "Orange Block Left", description: "Оранжевый блок слева", content: "<p class=\"orange-block left\"></p>"},
             {title: "Orange Block Right", description: "Оранжевый блок справа", content: "<p class=\"orange-block right\"></p>"},
         ],
+
         plugins: [
-            "autoresize",
-            "advlist autolink lists link image charmap hr print preview anchor",
+            "autoresize advlist autolink lists link charmap hr print preview anchor",
             "searchreplace visualblocks code fullscreen wordcount",
-            "insertdatetime media table contextmenu paste media contextmenu directionality",
-            "emoticons template paste textcolor colorpicker textpattern imagetools"
+            "insertdatetime media table contextmenu paste media directionality",
+            "template paste textcolor colorpicker textpattern image imagetools"
         ],
-        toolbar1: "code | insertfile undo redo | copy cut paste | styleselect | fullscreen",
-        toolbar2: "preview | bold italic underline | forecolor backcolor | anchor link image video | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent"
+
+        toolbar1: "code | insertfile undo redo | copy cut paste searchreplace | alignleft aligncenter alignright alignjustify | indent outdent | bullist numlist | styleselect | fullscreen",
+        toolbar2: "preview | bold italic underline strikethrough | removeformat | forecolor backcolor | anchor link image media"
     });
 ');
 ?>

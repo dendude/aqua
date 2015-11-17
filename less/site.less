@@ -857,17 +857,6 @@ p {
             color: #b65626;
         }
 
-        img {
-            margin: 20px;
-            margin-top: 20px !important;
-            margin-bottom: 20px !important;
-
-            &:first-child {
-                margin-top: 0 !important;
-                margin-left: 0;
-            }
-        }
-
         .share42init {
             display: block;
             height: 24px;
@@ -928,6 +917,25 @@ p {
     background: -webkit-linear-gradient(top,  rgba(220,190,143,1) 0%,rgba(247,234,212,1) 30%,rgba(247,234,212,1) 70%,rgba(220,190,143,1) 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom,  rgba(220,190,143,1) 0%,rgba(247,234,212,1) 30%,rgba(247,234,212,1) 70%,rgba(220,190,143,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dcbe8f', endColorstr='#dcbe8f',GradientType=0 ); /* IE6-9 */
+}
+
+img {
+    float: none;
+    margin: 5px;
+
+    &.pull-left {
+        float: left;
+        margin: 0 20px 20px 0;
+    }
+    &.pull-right {
+        float: right;
+        margin: 0 0 20px 20px;
+    }
+    &.pull-center {
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+    }
 }
 
 .footer {
