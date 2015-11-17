@@ -198,10 +198,10 @@ $this->registerJs('
 
         language_url: "/js/langs/ru.js",
 
+        min_height: 500,
+
         convert_urls: false,
         relative_urls: true,
-
-        theme: "modern",
 
         document_base_url: "/",
 
@@ -253,7 +253,7 @@ $this->registerJs('
         ],
 
         plugins: [
-            "autoresize advlist autolink lists link charmap hr print preview anchor",
+            "advlist autolink lists link charmap hr print preview anchor",
             "searchreplace visualblocks code fullscreen wordcount",
             "insertdatetime media table contextmenu paste media directionality",
             "template paste textcolor colorpicker textpattern image imagetools"
