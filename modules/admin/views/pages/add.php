@@ -212,9 +212,16 @@ $this->registerJs('
         code_dialog_width: 1050,
         code_dialog_height: 600,
 
+        table_advtab: true,
         table_default_attributes: {
             class: "table table-bordered table-striped table-condensed table-hover"
         },
+        table_class_list: [
+            {title: "Без форматирования", value: ""},
+            {title: "С полной разметкой", value: "table table-bordered table-striped table-condensed table-hover"},
+            {title: "С внутренними отступами", value: "table-padding5"},
+            {title: "С внутренними отступами и центрирование в ячейках", value: "table-center table-padding5"},
+        ],
 
         image_advtab: true,
         images_upload_url: "' . \yii\helpers\Url::to(['upload']) . '",

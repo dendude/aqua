@@ -910,6 +910,12 @@ img.pull-center {
   margin: 20px auto;
   text-align: center;
 }
+.table-center td {
+  text-align: center;
+}
+.table-padding5 td {
+  padding: 5px;
+}
 .footer {
   width: 1200px;
   background: #0074bc;
