@@ -86,9 +86,11 @@ $this->registerJs('
         $(".aqua-slider").colorbox({
             rel: "group",
             initWidth: 800,
-            initHeight: 800,
+            initHeight: 600,
             width: 800,
-            height: 800,
+            height: 600,
+            maxWidth: "80%",
+            maxHeight: "90%",
             photo: true,
 
             current: "Фото {current} из {total}",
