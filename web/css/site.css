@@ -4,7 +4,7 @@ body {
   background: transparent;
 }
 html {
-  background: url('/img/bg.jpg') no-repeat left top;
+  background: url('/img/bg.jpg') repeat-y left top;
 }
 * {
   font-size: 14px;
@@ -25,6 +25,7 @@ h3 {
   line-height: 26px;
   padding: 5px 0;
   margin: 0 0 8px 0;
+  font-family: 'ALSStoryBold';
 }
 h1.line-title,
 h2.line-title,
@@ -45,9 +46,15 @@ h2 {
   font-size: 18px;
   line-height: 22px;
 }
+h2:last-child {
+  margin-bottom: 0;
+}
 h3 {
   font-size: 16px;
   line-height: 20px;
+}
+h3:last-child {
+  margin-bottom: 0;
 }
 p {
   color: #414042;
