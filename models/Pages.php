@@ -114,18 +114,23 @@ class Pages extends \yii\db\ActiveRecord
 
     public function getFixLinksContent() {
 
+        $suffixes = [Yii::$app->urlManager->suffix,'.html','.php'];
+
         if (!empty($this->content)) {
             // преобразование ссылок в контенте, вдруг сохранены неправильно
             $dom = new simple_html_dom();
             $dom->load($this->content);
             foreach ($dom->find('a') AS $a) {
+
+                // если не найдены определенные суффиксы - значит файлы или якоря - пропускаем
+                if (!preg_match('/' . implode('|', $suffixes) . '$/', $a->href)) continue;
+                // якоря пропускаем
+                if (strpos($a->href, '#') === 0) continue;
+
                 // убираем суффикс
-                $a->href = trim(str_replace([Yii::$app->urlManager->suffix,'.html','.php'], '', $a->href), '/');
-                // якоря не обрабатываем
-                if (strpos($a->href, '#') === false) {
-                    // получаем полную ссылку
-                    $a->href = Url::to([Normalize::fixAlias($a->href)]);
-                }
+                $a->href = trim(str_replace($suffixes, '', $a->href), '/');
+                // получаем полную ссылку
+                $a->href = Url::to([Normalize::fixAlias($a->href)]);
             }
 
             $this->content = $dom->outertext;
