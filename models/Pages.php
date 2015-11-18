@@ -125,8 +125,8 @@ class Pages extends \yii\db\ActiveRecord
             $dom->load($this->content);
             foreach ($dom->find('a') AS $a) {
 
-                // если не найдены определенные суффиксы - значит файлы или якоря - пропускаем
-                if (!preg_match('/' . implode('|', $suffixes) . '$/', $a->href)) continue;
+                // документы пропускаем
+                if (preg_match('/(\.xlsx?|\.docx?|\.pdf|\.xml)$/', $a->href)) continue;
                 // якоря пропускаем
                 if (strpos($a->href, '#') === 0) continue;
 
