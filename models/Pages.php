@@ -4,9 +4,12 @@ namespace app\models;
 
 use app\components\simple_html_dom;
 use app\helpers\Normalize;
+use app\models\forms\UploadForm;
 use Yii;
+use yii\bootstrap\Html;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "{{%pages}}".
@@ -131,6 +134,20 @@ class Pages extends \yii\db\ActiveRecord
                 $a->href = trim(str_replace($suffixes, '', $a->href), '/');
                 // получаем полную ссылку
                 $a->href = Url::to([Normalize::fixAlias($a->href)]);
+            }
+
+            // обработка фоток для увеличения по клику
+            foreach ($dom->find('img') AS $img) {
+                
+                // не обрабатываем фото, которые не должны увеличиваться
+                if (strpos($img->src, 'lowfoto') === false) continue;
+
+                $big_photo = str_replace('lowfoto', 'bigfoto', $img->src);
+
+                // фото физически не найдено
+                if (!file_exists(Yii::getAlias('@app/web' . $big_photo))) continue;
+
+                $img->outertext = '<a title="' . Html::encode($img->alt) . '" class="aqua-slider" href="' . $big_photo . '">' . $img->outertext . '</a>';
             }
 
             $this->content = $dom->outertext;

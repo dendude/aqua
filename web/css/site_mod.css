@@ -2,12 +2,13 @@ html,
 body {
   height: 100%;
   background: transparent;
+  font-size: 14px;
 }
 html {
   background: url('/img/bg.jpg') repeat-y left top;
 }
 * {
-  font-size: 14px;
+  font-size: inherit;
 }
 a {
   outline: none!important;

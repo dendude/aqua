@@ -78,3 +78,25 @@ if (isset($matches[1])) {
     <div class="clearfix"></div>
 
 </div>
+<?
+$this->registerJsFile('/lib/colorbox/jquery.colorbox.js');
+$this->registerCssFile('/lib/colorbox/example3/colorbox.css');
+$this->registerJs('
+    if ($(".aqua-slider").length) {
+        $(".aqua-slider").colorbox({
+            rel: "group",
+            initWidth: 800,
+            initHeight: 800,
+            width: 800,
+            height: 800,
+            photo: true,
+
+            current: "Фото {current} из {total}",
+            previous: "Пред",
+            next: "След",
+            close: "Закрыть",
+            imgError: "Фото не найдено"
+        });
+    }
+');
+?>
