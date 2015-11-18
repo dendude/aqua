@@ -138,7 +138,7 @@ class Pages extends \yii\db\ActiveRecord
 
             // обработка фоток для увеличения по клику
             foreach ($dom->find('img') AS $img) {
-                
+
                 // не обрабатываем фото, которые не должны увеличиваться
                 if (strpos($img->src, 'lowfoto') === false) continue;
 
@@ -147,6 +147,7 @@ class Pages extends \yii\db\ActiveRecord
                 // фото физически не найдено
                 if (!file_exists(Yii::getAlias('@app/web' . $big_photo))) continue;
 
+                $img->alt = str_replace('"', '', $img->alt);
                 $img->outertext = '<a title="' . Html::encode($img->alt) . '" class="aqua-slider" href="' . $big_photo . '">' . $img->outertext . '</a>';
             }
 
