@@ -1,74 +1,109 @@
-<p><strong><img style="line-height: 1.6em; float: left; margin: 0px 20px 20px 0px;" src="/images/pages/pages_5649e7f30faba.jpg" alt="" data-pin-nopin="true" />Аквариумы португальской компании "Aquatlantis"</strong> - характеризуются высоким качеством и современным дизайном.</p>
-<ul>
-    <li>Отличительная черта практически всех моделей - алюминиевый профиль по периметру крышки и нижнего канта. Между ними &ndash; вставки различных цветов, что дает возможность подбирать аквариум под интерьер.</li>
-    <li>Крышки аквариумов снабжены удобными, функциональными задвижками для кормления рыб.</li>
-    <li>Дверцы тумб из ДСП выполняются как с отделкой под дерево, так и из матового стекла.</li>
+<table class="table-padding5" style="width: 100%;">
+    <tbody>
+    <tr>
+        <td style="text-align: center; vertical-align: top;"><img style="line-height: 1.6em; float: left; margin: 0px 20px 20px 0px;" src="/images/pages/pages_5649e7f30faba.jpg" alt="" width="130" height="195" data-pin-nopin="true" /></td>
+        <td style="vertical-align: top;">
+            <p><strong>Аквариумы португальской компании "Aquatlantis"</strong> - характеризуются высоким качеством и современным дизайном.</p>
+            <ul>
+                <li>Отличительная черта практически всех моделей - алюминиевый профиль по периметру крышки и нижнего канта. Между ними &ndash; вставки различных цветов, что дает возможность подбирать аквариум под интерьер.</li>
+                <li>Крышки аквариумов снабжены удобными, функциональными задвижками для кормления рыб.</li>
+                <li>Дверцы тумб из ДСП выполняются как с отделкой под дерево, так и из матового стекла.</li>
+            </ul>
+            <p><strong>В прайсе указаны цены на тумбы с дверками под дерево.</strong></p>
+            <p>Гарантия на аквариумы "Aquatlantis" - 1 год. Срок исполнения заказа - от 5-ти рабочих дней (в зависимости от наличия на складе). Доставка - в соответствии с нашим прайсом на сервисное обслуживание либо самовывозом. <strong>На стоимость оформления</strong> аквариума FERPLAST, купленного в компании " Альфаро", действует <strong>10% скидка</strong>. Наши менеджеры с удовольствием ответят на все Ваши вопросы по телефонам: тел. +7(985)921-5206, тел-факс +7(495)755-7874.</p>
+            <p><u><strong><img class="" src="/images/fish2.gif" alt="Рыбка синяя" width="32" height="22" />Весь прайс в формате Excel</strong></u></p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h2>&nbsp;</h2>
+<h2><img src="/ferplast/lowfoto/atlantismini.jpg" alt="" width="71" height="35" align="absmiddle" hspace="18" data-pin-nopin="true" /><br />Аквариумы AQUATLANTIS</h2>
+<ul class="fish-list bg-blue">
+    <li><a href="#evasion"><u>Evasion</u></a></li>
+    <li><a href="#atl2"><u>Evasion Horizon</u></a></li>
+    <li><a href="#atl3"><u>EvasionCorner</u></a></li>
+    <li><a href="#atl4"><u>Ambiance</u></a></li>
+    <li><a href="#atl5"><u>AmbianceHorizon</u></a></li>
+    <li><a href="#atl6"><u>AmbianceCorner</u></a></li>
+    <li><a href="#atl7"><u>Aquaplasma</u></a></li>
+    <li><a href="#atl8"><u>Aquatable</u></a></li>
+    <li><a href="#atl9"><u>Aquadeco</u></a></li>
 </ul>
-<p><strong>В прайсе указаны цены на тумбы с дверками под дерево.</strong></p>
-<p>Гарантия на аквариумы "Aquatlantis" - 1 год. Срок исполнения заказа - от 5-ти рабочих дней (в зависимости от наличия на складе). Доставка - в соответствии с нашим прайсом на сервисное обслуживание либо самовывозом. <strong>На стоимость оформления</strong> аквариума FERPLAST, купленного в компании " Альфаро", действует <strong>10% скидка</strong>. Наши менеджеры с удовольствием ответят на все Ваши вопросы по телефонам: тел. +7(985)921-5206, тел-факс +7(495)755-7874.</p>
-<p class="in129text" align="right"><a href="libreq/dokword/alfaro-price.xls"><img src="/images/labelza9.gif" alt="" border="0" data-pin-nopin="true" /> <u><strong>Весь прайс в формате Excel</strong></u></a></p>
-<p id="table_syn" style="position: relative; visibility: visible; width: 100%; text-align: justify; z-index: 69; padding-top: 52px;">Аквариумы AQUATLANTIS</p>
-<table border="0" width="100%" align="center" bgcolor="#EAFFFF">
+<h3><a id="evasion"></a>&nbsp;</h3>
+<h3>Аквариумы EVASION</h3>
+<p>Выбор цветов отделки тумбы и крышки аквариумов EVASION</p>
+<table class="table table-bordered table-striped table-condensed table-auto valign-top" cellspacing="0" cellpadding="0">
     <tbody>
-    <tr align="center" valign="middle">
-        <td class="stylblue12"><a href="#atl1"><img src="/images/labelza9.gif" alt="" border="0" data-pin-nopin="true" /><u>Evasion</u></a> <a href="#atl2"><img src="/images/labelza9.gif" alt="" border="0" /><u>Evasion Horizon</u></a> <a href="#atl3"><img src="/images/labelza9.gif" alt="" border="0" /><u>EvasionCorner </u></a> <a href="#atl4"><img src="/images/labelza9.gif" alt="" border="0" data-pin-nopin="true" /><u>Ambiance</u></a> <a href="#atl5"><img src="/images/labelza9.gif" alt="" border="0" /><u>AmbianceHorizon </u></a> <a href="#atl6"><img src="/images/labelza9.gif" alt="" border="0" /><u>AmbianceCorner</u></a> <a href="#atl7"><img src="/images/labelza9.gif" alt="" border="0" /><u>Aquaplasma</u></a> <a href="#atl8"><img src="/images/labelza9.gif" alt="" border="0" /><u>Aquatable</u></a> <a href="#atl9"><img src="/images/labelza9.gif" alt="" border="0" /><u>Aquadeco</u></a></td>
+    <tr>
+        <td style="padding: 5px; text-align: center;"><span style="color: #366092;">черный </span></td>
+        <td style="padding: 5px; text-align: center;"><span style="color: #366092;">серебристый </span></td>
+        <td style="padding: 5px; text-align: center;"><span style="color: #366092;">бук </span></td>
+        <td style="padding: 5px; text-align: center;"><span style="color: #366092;">венге </span></td>
+        <td style="padding: 5px; text-align: center;"><span style="color: #366092;">бел. венге </span></td>
+        <td style="padding: 5px; text-align: center;"><span style="color: #366092;">дуб </span></td>
+        <td style="padding: 5px; text-align: center;"><span style="color: #366092;">вишня </span></td>
+        <td style="padding: 5px; text-align: center;"><span style="color: #366092;">груша</span></td>
+    </tr>
+    <tr>
+        <td style="padding: 5px; text-align: center;"><img src="/images/pages/pages_5647a2554aeb6.jpg" alt="" data-pin-nopin="true" /></td>
+        <td style="padding: 5px; text-align: center;"><img src="/images/pages/pages_5647a25dc6319.jpg" alt="" data-pin-nopin="true" /></td>
+        <td style="padding: 5px; text-align: center;"><img src="/images/pages/pages_5647a26646a25.jpg" alt="" data-pin-nopin="true" /></td>
+        <td style="padding: 5px; text-align: center;"><img src="/images/pages/pages_5647a2709fcd8.jpg" alt="" data-pin-nopin="true" /></td>
+        <td style="padding: 5px; text-align: center;"><img src="/images/pages/pages_5647a285b9ea1.jpg" alt="" data-pin-nopin="true" /></td>
+        <td style="padding: 5px; text-align: center;"><img src="/images/pages/pages_5647a2a1e8893.jpg" alt="" data-pin-nopin="true" /></td>
+        <td style="padding: 5px; text-align: center;"><img src="/images/pages/pages_5647a2a98e381.jpg" alt="" data-pin-nopin="true" /></td>
+        <td style="padding: 5px; text-align: center;"><img src="/images/pages/pages_5647a2b2caa49.jpg" alt="" data-pin-nopin="true" /></td>
     </tr>
     </tbody>
 </table>
-<p id="in129text">&nbsp;</p>
-<p id="in129text"><img src="/ferplast/lowfoto/atlantismini.jpg" alt="" width="71" height="35" align="absmiddle" hspace="18" data-pin-nopin="true" /><a name="atl1"></a> <span style="font-size: 20px;"><span style="color: #1f497d;">Аквариумы EVASION</span></span></p>
-<p class="in129text"><span style="color: #5f497a;"><span style="font-size: 18px;"><span style="color: #5f497a;">Выбор цветов отделки тумбы и крышки аквариумов EVASION</span></span></span></p>
-<table style="margin-left: auto; margin-right: auto;">
+<p>&nbsp;</p>
+<table class="table table-bordered table-striped table-condensed valign-top">
     <tbody>
     <tr>
-        <td style="text-align: center;"><span style="color: #366092;">черный </span></td>
-        <td><span style="color: #366092;">серебристый </span></td>
-        <td><span style="color: #366092;">бук </span></td>
-        <td><span style="color: #366092;">венге </span></td>
-        <td><span style="color: #366092;">бел. венге </span></td>
-        <td><span style="color: #366092;">дуб </span></td>
-        <td><span style="color: #366092;">вишня </span></td>
-        <td><span style="color: #366092;">груша</span></td>
-    </tr>
-    <tr>
-        <td><img src="/images/pages/pages_5647a2554aeb6.jpg" alt="" data-pin-nopin="true" /></td>
-        <td><img src="/images/pages/pages_5647a25dc6319.jpg" alt="" data-pin-nopin="true" /></td>
-        <td><img src="/images/pages/pages_5647a26646a25.jpg" alt="" data-pin-nopin="true" /></td>
-        <td><img src="/images/pages/pages_5647a2709fcd8.jpg" alt="" data-pin-nopin="true" /></td>
-        <td><img src="/images/pages/pages_5647a285b9ea1.jpg" alt="" data-pin-nopin="true" /></td>
-        <td><img src="/images/pages/pages_5647a2a1e8893.jpg" alt="" data-pin-nopin="true" /></td>
-        <td><img src="/images/pages/pages_5647a2a98e381.jpg" alt="" data-pin-nopin="true" /></td>
-        <td><img src="/images/pages/pages_5647a2b2caa49.jpg" alt="" data-pin-nopin="true" /></td>
-    </tr>
-    </tbody>
-</table>
-<table style="width: 100%;">
-    <tbody>
-    <tr>
-        <td style="width: 50%;" width="50%"><strong><span style="color: #366092;">№1 </span></strong><span class="stylblue12"><span class="stylblue12"><strong><span style="color: #366092;">EVASION 50</span></strong><br /><img style="float: left; width: 201px; height: 205px; margin: 0px 20px 20px 0px;" src="/images/pages/pages_5649d0790a6fe.jpg" alt="" width="201" height="205" data-pin-nopin="true" /></span></span>
-            <p><strong>Цена</strong> (аквариум+тумба): <strong>32 000р.</strong></p>
-            <p><em><span style="color: #5f497a;"><strong>Объем</strong></span></em> <strong>140</strong>л.</p>
-            <p><strong><span style="color: #5f497a;"><em>Габариты аквариума</em>:</span></strong> длина - <strong>50</strong>см, ширина - <strong>50</strong>см, высота - <strong>60</strong>см.</p>
-            <p><em><strong><span style="color: #5f497a;">Высота тумбы</span></strong></em> - <strong>70</strong>см.</p>
-            <p><em><strong><span style="color: #5f497a;">Комплектация:</span></strong></em> 2 лампы дневного света (Т5) мощностью по 24вт, 2-а накладных отражателя света для ламп.</p>
+        <td colspan="2">
+            <h3>№1 EVASION 50</h3>
         </td>
-        <td><strong><span style="color: #366092;">№2 </span></strong><span class="stylblue12"><strong><span style="color: #366092;">EVASION 67</span></strong> </span>
-            <p><img style="font-size: 1em; line-height: 1.6em; float: left; margin: 0px 20px 20px 0px; background-color: initial;" src="/images/pages/pages_5649d0e1524a8.jpg" alt="" data-pin-nopin="true" /><strong>Цена</strong> (аквариум+тумба): <strong>58 900р</strong>.</p>
-            <p><strong><em><span style="color: #5f497a;">Объем</span></em> 270</strong>л.</p>
-            <p><em><strong><span style="color: #5f497a;">Габариты аквариума:</span></strong></em> длина - <strong>67</strong>см, ширина - <strong>67</strong>см, высота - <strong>67</strong>см.</p>
-            <p><em><strong><span style="color: #5f497a;">Высота тумбы</span></strong></em> - <strong>80</strong> см.</p>
-            <p><em><strong><span style="color: #5f497a;">Комплектация:</span></strong></em> 2 лампы дневного света (Т5) мощностью по 24вт, 2-а накладных отражателя света для ламп.</p>
+        <td colspan="2">
+            <h3>№2 EVASION 67</h3>
         </td>
     </tr>
     <tr>
-        <td><span style="color: #366092;"><strong>№3 </strong></span><span style="color: #366092;"><strong>EVASION 80</strong></span><br /><span class="darktext14bold"><span class="darktext14bold"><img style="float: left; margin: 0px 20px 20px 0px;" src="/images/pages/pages_5649d179031df.jpg" alt="" data-pin-nopin="true" /></span></span>
+        <td style="width: 160px;"><img style="float: left; width: 201px; height: 205px; margin: 0px 20px 20px 0px;" src="/images/pages/pages_5649d0790a6fe.jpg" alt="" width="160" height="163" data-pin-nopin="true" /></td>
+        <td>
+            <p>Цена (аквариум+тумба): <strong>32 000 р.</strong></p>
+            <p>Объем: <strong>140л</strong></p>
+            <p>Габариты аквариума: <strong>длина - 50см, ширина - 50см, высота - 60см.</strong></p>
+            <p>Высота тумбы: <strong>70см.</strong></p>
+            <p>Комплектация: <strong>2 лампы дневного света (Т5) мощностью по 24вт, 2-а накладных отражателя света для ламп</strong></p>
+        </td>
+        <td style="width: 160px;"><img style="font-size: 1em; line-height: 1.6em; float: left; margin: 0px 20px 20px 0px; background-color: initial;" src="/images/pages/pages_5649d0e1524a8.jpg" alt="" data-pin-nopin="true" /></td>
+        <td>
+            <p>Цена (аквариум+тумба): <strong>58 900р.</strong></p>
+            <p>Объем <strong>270л.</strong></p>
+            <p>Габариты аквариума: <strong>длина - 67см, ширина - 67см, высота - 67см.</strong></p>
+            <p>Высота тумбы - <strong>80 см.</strong></p>
+            <p>Комплектация: <strong>2 лампы дневного света (Т5) мощностью по 24вт, 2-а накладных отражателя света для ламп.</strong></p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <h3>&nbsp;№3 EVASION 80&nbsp;</h3>
+        </td>
+        <td colspan="2">
+            <h3>&nbsp;№4 EVASION 101x40&nbsp;</h3>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;<span class="darktext14bold"><span class="darktext14bold"><img style="float: left; margin: 0px 20px 20px 0px;" src="/images/pages/pages_5649d179031df.jpg" alt="" data-pin-nopin="true" /></span></span></td>
+        <td>&nbsp;
             <p><strong>Цена</strong> (аквариум+тумба): <strong>28 200р.</strong></p>
             <p><strong><em><span style="color: #5f497a;">Объем</span></em></strong> <strong>135</strong>л.</p>
             <p><strong><em><span style="color: #5f497a;">Габариты аквариума:</span></em></strong> длина - <strong>80</strong>см, ширина - <strong>40</strong>см, высота - <strong>50</strong>см.</p>
             <p><em><strong><span style="color: #5f497a;">Высота тумбы</span></strong></em> - <strong>70</strong>см.</p>
             <p><span style="color: #5f497a;"><em><strong>Комплектация:</strong></em></span> 2 лампы дневного света Т5 мощностью по 28вт или 2 лампы T8 по 18вт; 2-а накладных отражателя света для ламп.</p>
         </td>
-        <td><strong><span style="color: #366092;">№4 </span></strong><span class="stylblue12"><strong><span style="color: #366092;">EVASION 101x40<br /></span></strong></span><span class="darktext14bold"><span class="darktext14bold"><img style="float: left; margin: 0px 20px 20px 0px;" src="/images/pages/pages_5649d1b274b4e.jpg" alt="" data-pin-nopin="true" /></span></span>
+        <td>&nbsp;<span class="darktext14bold"><span class="darktext14bold"><img style="float: left; margin: 0px 20px 20px 0px;" src="/images/pages/pages_5649d1b274b4e.jpg" alt="" data-pin-nopin="true" /></span></span></td>
+        <td>&nbsp;
             <p><strong>Цена</strong> (аквариум+тумба): <strong>36 850р.</strong></p>
             <p><em><strong><span style="color: #5f497a;">Объем</span></strong></em> <strong>190</strong>л.</p>
             <p><span style="color: #5f497a;"><em><strong>Габариты аквариума:</strong></em></span> длина - <strong>101</strong>см, ширина - <strong>40</strong>см, высота - <strong>55</strong>см.</p>
@@ -77,14 +112,22 @@
         </td>
     </tr>
     <tr>
-        <td><strong><span style="color: #366092;">№5 </span></strong><span class="stylblue12"><strong><span style="color: #366092;">EVASION 101x50<br /></span></strong></span><span class="darktext14bold"><span class="darktext14bold"><img style="float: left; margin: 0px 20px 20px 0px;" src="/images/pages/pages_5649d1ee1c700.jpg" alt="" data-pin-nopin="true" /></span></span>
+        <td><strong><span style="color: #366092;">№5 </span></strong><span class="stylblue12"><strong><span style="color: #366092;">EVASION 101x50</span></strong></span></td>
+        <td>&nbsp;</td>
+        <td><strong><span style="color: #366092;">№6 </span></strong><span class="stylblue12"><strong><span style="color: #366092;">EVASION 120x40</span></strong></span></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td><span class="darktext14bold"><span class="darktext14bold"><img style="float: left; margin: 0px 20px 20px 0px;" src="/images/pages/pages_5649d1ee1c700.jpg" alt="" data-pin-nopin="true" /></span></span></td>
+        <td>
             <p><strong>Цена</strong> (аквариум+тумба): <strong>51 400р.</strong></p>
             <p><strong><em><span style="color: #5f497a;">Объем</span></em></strong> <strong>315</strong>л.</p>
             <p><strong><em><span style="color: #5f497a;">Габариты аквариума:</span></em></strong> длина - <strong>101</strong>см, ширина - <strong>5</strong><strong>0</strong>см, высота - <strong>7</strong><strong>0</strong>см.</p>
             <p><em><strong><span style="color: #5f497a;">Высота тумбы</span></strong></em> - <strong>70</strong>см.</p>
             <p><span style="color: #5f497a;"><em><strong>Комплектация:</strong></em></span> 2 лампы дневного света Т5 мощностью по 45вт или 2 лампы T8 по 30вт; 2-а накладных отражателя света для ламп.</p>
         </td>
-        <td><strong><span style="color: #366092;">№6 </span></strong><span class="stylblue12"><strong><span style="color: #366092;">EVASION 120x40</span></strong><br /></span><span class="darktext14bold"><span class="darktext14bold"><img style="float: left; margin: 0px 20px 20px 0px;" src="/images/pages/pages_5649d223164c5.jpg" alt="" data-pin-nopin="true" /></span></span>
+        <td><span class="darktext14bold"><span class="darktext14bold"><img style="float: left; margin: 0px 20px 20px 0px;" src="/images/pages/pages_5649d223164c5.jpg" alt="" data-pin-nopin="true" /></span></span></td>
+        <td>
             <p><strong>Цена</strong> (аквариум+тумба): <strong>48 100р.</strong></p>
             <p><strong><em><span style="color: #5f497a;">Объем</span></em></strong> <strong>230</strong>л.</p>
             <p><strong><em><span style="color: #5f497a;">Габариты аквариума:</span></em></strong> длина - <strong>120</strong>см, ширина - <strong>4</strong><strong>0</strong>см, высота - <strong>55</strong>см.</p>
@@ -93,14 +136,22 @@
         </td>
     </tr>
     <tr>
-        <td><strong><span style="color: #366092;">№7 </span></strong><span class="stylblue12"><strong><span style="color: #366092;">EVASION 120x50</span></strong><br /></span><span class="darktext14bold"><span class="darktext14bold"><img style="float: left; margin: 0px 20px 20px 0px;" src="/images/pages/pages_5649d24f310bd.jpg" alt="" data-pin-nopin="true" /></span></span>
+        <td><strong><span style="color: #366092;">№7 </span></strong><span class="stylblue12"><strong><span style="color: #366092;">EVASION 120x50</span></strong></span></td>
+        <td>&nbsp;</td>
+        <td><span style="color: #366092;"><strong>№8 </strong></span><span style="color: #366092;"><strong>EVASION 120x60</strong></span></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td><span class="darktext14bold"><span class="darktext14bold"><img style="float: left; margin: 0px 20px 20px 0px;" src="/images/pages/pages_5649d24f310bd.jpg" alt="" data-pin-nopin="true" /></span></span></td>
+        <td>
             <p><strong>Цена</strong> (аквариум+тумба): <strong>64 600р.</strong></p>
             <p><strong><em><span style="color: #5f497a;">Объем</span></em></strong> <strong>375</strong>л.</p>
             <p><strong><em><span style="color: #5f497a;">Габариты аквариума:</span></em></strong> длина - <strong>120</strong>см, ширина - <strong>5</strong><strong>0</strong>см, высота - <strong>7</strong><strong>0</strong>см.</p>
             <p><em><strong><span style="color: #5f497a;">Высота тумбы</span></strong></em> - <strong>70</strong>см.</p>
             <p><span style="color: #5f497a;"><em><strong>Комплектация:</strong></em></span> 4 лампы дневного света Т5 мощностью по 54вт или 4 лампы T8 по 30вт; 4 накладных отражателя света для ламп.</p>
         </td>
-        <td><span style="color: #366092;"><strong>№8 </strong></span><span style="color: #366092;"><strong>EVASION 120x60</strong></span><br /><span class="darktext14bold"><span class="darktext14bold"><img style="float: left; margin: 0px 20px 20px 0px;" src="/images/pages/pages_5649d2786ab46.jpg" alt="" data-pin-nopin="true" /></span></span>
+        <td><span class="darktext14bold"><span class="darktext14bold"><img style="float: left; margin: 0px 20px 20px 0px;" src="/images/pages/pages_5649d2786ab46.jpg" alt="" data-pin-nopin="true" /></span></span></td>
+        <td>
             <p><strong>Цена</strong> (аквариум+тумба): <strong>95 450р.</strong></p>
             <p><strong><em><span style="color: #5f497a;">Объем</span></em></strong> <strong>485</strong>л.</p>
             <p><strong><em><span style="color: #5f497a;">Габариты аквариума:</span></em></strong> длина - <strong>120</strong>см, ширина - <strong>6</strong><strong>0</strong>см, высота - <strong>75</strong>см.</p>
@@ -108,6 +159,10 @@
             <p><span style="color: #5f497a;"><em><strong>Комплектация:</strong></em></span> 4 лампы дневного света Т5 мощностью по 45вт или 4 лампы T8 по 30вт; 4 накладных отражателя света для ламп.</p>
         </td>
     </tr>
+    </tbody>
+</table>
+<table style="width: 100%;">
+    <tbody>
     <tr>
         <td><strong><span style="color: #366092;">№9 </span></strong><span class="stylblue12"><strong><span style="color: #366092;">EVASION 150x45</span></strong><br /></span><span class="darktext14bold"><span class="darktext14bold"><img style="float: left; margin: 0px 20px 20px 0px;" src="/images/pages/pages_5649d2a50e72c.jpg" alt="" data-pin-nopin="true" /></span></span>
             <p><strong>Цена</strong> (аквариум+тумба): <strong>65 400р.</strong></p>
@@ -378,4 +433,3 @@
     </tr>
     </tbody>
 </table>
-<p>&nbsp;</p>

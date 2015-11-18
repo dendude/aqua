@@ -203,11 +203,11 @@ $this->registerJs('
         convert_urls: false,
         relative_urls: true,
 
-        document_base_url: "/",
+        document_base_url: "",
 
         content_css: [
-            "/css/site_mod.css?20151117",
-            "/lib/bootstrap/dist/css/bootstrap.min.css"
+            "/lib/bootstrap/dist/css/bootstrap.min.css",
+            "/css/site_mod.css?' . time() . '"
         ],
 
         plugin_preview_width: 1050,
@@ -218,12 +218,12 @@ $this->registerJs('
 
         table_advtab: true,
         table_default_attributes: {
-            class: "table table-bordered table-striped table-condensed table-hover"
+            class: "table table-bordered table-striped table-condensed valign-top"
         },
         table_class_list: [
             {title: "Без форматирования", value: ""},
-            {title: "С полной разметкой", value: "table table-bordered table-striped table-condensed table-hover table-auto"},
-            {title: "С полной разметкой 100% ширина", value: "table table-bordered table-striped table-condensed table-hover"},
+            {title: "С полной разметкой", value: "table table-bordered table-striped table-condensed table-auto valign-top"},
+            {title: "С полной разметкой 100% ширина", value: "table table-bordered table-striped table-condensed valign-top"},
             {title: "С внутренними отступами", value: "table-padding5"},
             {title: "С внутренними отступами и центрирование в ячейках", value: "table-center table-padding5"},
         ],
@@ -239,22 +239,32 @@ $this->registerJs('
             {title: "По центру", value: "pull-center"},
         ],
         image_list: [
-            {title: "Рыбка синяя", value: "/images/fish2.gif"}
+            {title: "Рыбка синяя мал", value: "/images/labelza9.gif"},
+            {title: "Рыбка синяя средняя", value: "/images/fish2.gif"}
         ],
 
-        contextmenu: "anchor link | inserttable cell row column deletetable",
+        contextmenu: "anchor link image | inserttable cell row column deletetable",
+
+        fontsize_formats: "8px 10px 11px 12px 13px 14px 16px 18px 24px 36px",
+        fullpage_default_fontsize: "14px",
 
         templates: [
+            {title: "Page H1", description: "Основной заголовок Н1 для статьи", content: "<h1 class=\"page-title\">Page H1</h1>"},
+            {title: "Blue H1", description: "Синий заголовок Н1", content: "<h1 class=\"page-title blue-title\">Blue H1</h1>"},
+            {title: "Blue H2", description: "Синий заголовок Н2", content: "<h2 class=\"page-title blue-title\">Blue H2</h2>"},
+            {title: "Blue H3", description: "Синий заголовок Н3", content: "<h3 class=\"page-title blue-title\">Blue H3</h3>"},
             {title: "Blue Block", description: "Синий блок", content: "<p class=\"blue-block\"></p>"},
             {title: "Blue Block Left", description: "Синий блок слева", content: "<p class=\"blue-block left\"></p>"},
             {title: "Blue Block Right", description: "Синий блок справа", content: "<p class=\"blue-block right\"></p>"},
+            {title: "Fish List", description: "Список, маркированный рыбками, в одну строку", content: "<ul class=\"fish-list bg-blue\"><li>item1</li><li>item2</li></ul>"},
+            {title: "Fish List Block", description: "Список, маркированный рыбками, построчно", content: "<ul class=\"fish-list block\"><li>item1</li><li>item2</li></ul>"},
             {title: "Orange Block", description: "Оранжевый блок", content: "<p class=\"orange-block\"></p>"},
             {title: "Orange Block Left", description: "Оранжевый блок слева", content: "<p class=\"orange-block left\"></p>"},
             {title: "Orange Block Right", description: "Оранжевый блок справа", content: "<p class=\"orange-block right\"></p>"},
         ],
 
         plugins: [
-            "advlist autolink lists link charmap hr print preview anchor",
+            "advlist autolink lists link charmap hr print preview anchor autoresize",
             "searchreplace visualblocks code fullscreen wordcount",
             "insertdatetime media table contextmenu media directionality",
             "template textcolor colorpicker textpattern image imagetools"

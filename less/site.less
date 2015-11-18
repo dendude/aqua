@@ -9,6 +9,10 @@ html {
     background: url('/img/bg.jpg') no-repeat left top; // выравниваем влево чтобы не было багов при показе модальных окон
 }
 
+* {
+    font-size: 14px;
+}
+
 a {
     outline: none!important;
     cursor: pointer;
@@ -18,7 +22,7 @@ a {
     }
 }
 
-h1 {
+h1, h2, h3 {
     font-size: 22px;
     color: @title-color;
     line-height: 26px;
@@ -28,6 +32,20 @@ h1 {
     &.line-title {
         border-bottom: 2px solid @line-color;
     }
+    &.page-title {
+        color: #b65626;
+    }
+    &.blue-title {
+        color: @panel-color;
+    }
+}
+h2 {
+    font-size: 18px;
+    line-height: 22px;
+}
+h3 {
+    font-size: 16px;
+    line-height: 20px;
 }
 
 p {
@@ -37,6 +55,42 @@ p {
 
     big {
         font-size: 22px;
+    }
+}
+
+.fish-list {
+    padding: 0!important;
+    margin: 10px 0!important;
+    list-style: none;
+    display: block;
+    min-height: 14px;
+    clear: both;
+
+    li {
+        display: block;
+        font-size: 14px;
+        line-height: 14px;
+        float: left;
+        background: url("/images/labelza9.gif") no-repeat left 3px;
+        padding: 0 20px 0 15px;
+        &:last-child {
+            padding-right: 5px;
+        }
+    }
+    &.bg-blue {
+        display: block;
+        background: #EAFFFF;
+        padding: 9px 13px!important;
+        min-height: 32px;
+    }
+    &.block {
+        li {
+            float: none;
+            margin-bottom: 6px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
     }
 }
 
@@ -853,10 +907,6 @@ p {
             margin-left: 0;
         }
 
-        .page-title {
-            color: #b65626;
-        }
-
         .share42init {
             display: block;
             height: 24px;
@@ -935,13 +985,23 @@ img {
         display: block;
         margin: 20px auto;
         text-align: center;
+        &:first-child {
+            margin-top: 0;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 }
 
+.valign-top {
+    td {
+        vertical-align: top;
+        text-align: left;
+    }
+}
 .table-auto {
     width: auto!important;
-    margin-left: auto;
-    margin-right: auto;
 }
 .table-center {
     td {

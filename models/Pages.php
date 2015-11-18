@@ -121,8 +121,11 @@ class Pages extends \yii\db\ActiveRecord
             foreach ($dom->find('a') AS $a) {
                 // убираем суффикс
                 $a->href = trim(str_replace([Yii::$app->urlManager->suffix,'.html','.php'], '', $a->href), '/');
-                // получаем полную ссылку
-                $a->href = Url::to([Normalize::fixAlias($a->href)]);
+                // якоря не обрабатываем
+                if (strpos($a->href, '#') === false) {
+                    // получаем полную ссылку
+                    $a->href = Url::to([Normalize::fixAlias($a->href)]);
+                }
             }
 
             $this->content = $dom->outertext;
