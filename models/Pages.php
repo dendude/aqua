@@ -147,7 +147,7 @@ class Pages extends \yii\db\ActiveRecord
                 // фото физически не найдено
                 if (!file_exists(Yii::getAlias('@app/web' . $big_photo))) continue;
 
-                $img->alt = str_replace('"', '', $img->alt);
+                $img->alt = str_replace('&quot;', '\\\"', $img->alt);
                 $img->outertext = '<a title="' . Html::encode($img->alt) . '" class="aqua-slider" href="' . $big_photo . '">' . $img->outertext . '</a>';
             }
 
