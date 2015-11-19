@@ -100,5 +100,42 @@ $this->registerJs('
             imgError: "Фото не найдено"
         });
     }
+
+    var si = 0;
+    var $fish_list = $(".fish-list");
+    var pos = $fish_list.offset().top;
+    var wid = $fish_list.outerWidth();
+    var set = false;
+
+    $(document).on("scroll", function(){
+
+        if (++si % 3) return;
+
+        if ($(this).scrollTop() >= (pos - 10)) {
+            if (!set) {
+                $fish_list.addClass("fixed").css("width", wid);
+                set = true;
+            }
+        } else {
+            if (set) {
+                $fish_list.removeClass("fixed");
+                set = false;
+            }
+        }
+    });
+    $(document).scroll();
+
+    if ($("a[href^=#]").length) {
+        $("a[href^=#]").on("click", function(e){
+            e.preventDefault();
+            var anchor_id = $(this).attr("href");
+            if ($(anchor_id).length) {
+                var ot = $(anchor_id).offset().top;
+                $("html,body").stop().animate({
+                    scrollTop: (ot - 30) + "px"
+                }, 1000);
+            }
+        });
+    }
 ');
 ?>

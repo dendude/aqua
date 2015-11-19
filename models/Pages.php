@@ -128,7 +128,7 @@ class Pages extends \yii\db\ActiveRecord
                 // документы пропускаем
                 if (preg_match('/(\.xlsx?|\.docx?|\.pdf|\.xml)$/', $a->href)) continue;
                 // якоря пропускаем
-                if (strpos($a->href, '#') === 0) continue;
+                if (empty($a->href) || strpos($a->href, '#') === 0) continue;
 
                 // убираем суффикс
                 $a->href = trim(str_replace($suffixes, '', $a->href), '/');
