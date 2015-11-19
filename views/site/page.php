@@ -79,16 +79,16 @@ if (isset($matches[1])) {
 
 </div>
 <?
-$this->registerJsFile('/lib/colorbox/jquery.colorbox.js');
+$this->registerJsFile('/lib/colorbox/jquery.colorbox.js', ['depends' => [\app\assets\AppAsset::className()]]);
 $this->registerCssFile('/lib/colorbox/example3/colorbox.css');
 $this->registerJs('
     if ($(".aqua-slider").length) {
         $(".aqua-slider").colorbox({
             rel: "group",
             initWidth: 800,
-            initHeight: 600,
+            initHeight: 680,
             width: 800,
-            height: 600,
+            height: 680,
             maxWidth: "80%",
             maxHeight: "90%",
             photo: true,

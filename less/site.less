@@ -23,6 +23,31 @@ a {
     }
 }
 
+a.aqua-slider {
+    display: block;
+    position: relative;
+
+    i {
+        .opacity(50);
+        display: block;
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
+        width: 32px;
+        height: 32px;
+        z-index: 9;
+        background: url('https://cdn3.iconfinder.com/data/icons/musthave/32/Zoom%20In.png') no-repeat right bottom;
+    }
+    img {
+        margin: 0;
+    }
+    &:hover {
+        i {
+            .opacity(100);
+        }
+    }
+}
+
 h1, h2, h3 {
     font-size: 22px;
     color: @title-color;
@@ -58,11 +83,12 @@ h3 {
 
 p {
     color: #414042;
-    line-height: 22px;
-    font-size: 16px;
+    line-height: 20px;
+    font-size: 14px;
+    margin-bottom: 8px;
 
     big {
-        font-size: 22px;
+        font-size: 20px;
     }
 }
 
