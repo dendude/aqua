@@ -226,6 +226,8 @@ $this->registerJs('
             {title: "С полной разметкой 100% ширина", value: "table table-bordered table-striped table-condensed valign-top"},
             {title: "С внутренними отступами", value: "table-padding5"},
             {title: "С внутренними отступами и центрирование в ячейках", value: "table-center table-padding5"},
+            {title: "Голубой фон с внутренними отступами", value: "table-padding5 table-blue"},
+            {title: "Голубой фон с внутренними отступами и центрирование в ячейках", value: "table-center table-padding5 table-blue"},
         ],
 
         images_upload_url: "' . \yii\helpers\Url::to(['upload']) . '",
@@ -250,6 +252,7 @@ $this->registerJs('
 
         templates: [
             {title: "Order button", description: "Стилизованная кнопка заказа", content: "<a href=\"#\" class=\"btn btn-primary btn-xs btn-order\">ЗАКАЗАТЬ</a>"},
+            {title: "Separator line", description: "Разделительная линия", content: "<hr class=\"separator-line\" />"},
             {title: "Page H1", description: "Основной заголовок Н1 для статьи", content: "<h1 class=\"page-title\">Page H1</h1>"},
             {title: "Blue H1", description: "Синий заголовок Н1", content: "<h1 class=\"page-title blue-title\">Blue H1</h1>"},
             {title: "Blue H2", description: "Синий заголовок Н2", content: "<h2 class=\"page-title blue-title\">Blue H2</h2>"},
