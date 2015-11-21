@@ -144,6 +144,11 @@ class Pages extends \yii\db\ActiveRecord
 
                 $big_photo = str_replace('lowfoto', 'bigfoto', $img->src);
 
+                if (substr($img->src, -4) == 'gif') {
+                    // для гифок большая фотка имеет формат jpg
+                    $big_photo = str_replace('.gif', '.jpg', $big_photo);
+                }
+
                 // фото физически не найдено
                 if (!file_exists(Yii::getAlias('@app/web' . $big_photo))) continue;
 
