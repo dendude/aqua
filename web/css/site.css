@@ -47,6 +47,7 @@ a.aqua-slider:hover i {
   -html-border-radius: 6px;
   -ms-border-radius: 6px;
   border-radius: 6px;
+  border-color: #008dd2;
   padding-left: 10px;
   padding-right: 10px;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6bd3ff+0,6bd3ff+40,36baf1+60,00a0e3+100 */
@@ -60,6 +61,9 @@ a.aqua-slider:hover i {
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6bd3ff', endColorstr='#00a0e3', GradientType=0);
   /* IE6-9 */
+}
+.btn-order:active {
+  background: #36baf1 !important;
 }
 .separator-line {
   display: block;
