@@ -65,6 +65,9 @@ a.aqua-slider:hover i {
 .btn-order:active {
   background: #36baf1 !important;
 }
+table td > p:last-child {
+  margin-bottom: 0;
+}
 .separator-line {
   display: block;
   margin: 15px 0;
