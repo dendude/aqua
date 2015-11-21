@@ -103,27 +103,29 @@ $this->registerJs('
 
     var si = 0;
     var $fish_list = $(".fish-list");
-    var pos = $fish_list.offset().top;
-    var wid = $fish_list.outerWidth();
-    var set = false;
+    if ($fish_list.length) {
+        var pos = $fish_list.offset().top;
+        var wid = $fish_list.outerWidth();
+        var set = false;
 
-    $(document).on("scroll", function(){
+        $(document).on("scroll", function(){
 
-        if (++si % 3) return;
+            if (++si % 3) return;
 
-        if ($(this).scrollTop() >= (pos - 10)) {
-            if (!set) {
-                $fish_list.addClass("fixed").css("width", wid);
-                set = true;
+            if ($(this).scrollTop() >= (pos - 10)) {
+                if (!set) {
+                    $fish_list.addClass("fixed").css("width", wid);
+                    set = true;
+                }
+            } else {
+                if (set) {
+                    $fish_list.removeClass("fixed");
+                    set = false;
+                }
             }
-        } else {
-            if (set) {
-                $fish_list.removeClass("fixed");
-                set = false;
-            }
-        }
-    });
-    $(document).scroll();
+        });
+        $(document).scroll();
+    }
 
     if ($("a[href^=#]").length) {
         $("a[href^=#]").on("click", function(e){
