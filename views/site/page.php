@@ -109,9 +109,6 @@ $this->registerJs('
         var set = false;
 
         $(document).on("scroll", function(){
-
-            if (++si % 3 == 1) return;
-
             if ($(this).scrollTop() >= (pos - 10)) {
                 if (!set) {
                     $fish_list.addClass("fixed").css("width", wid);
