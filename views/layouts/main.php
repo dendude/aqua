@@ -21,11 +21,16 @@ $footer_menu = Menu::find()->active()->footer()->all();
     <!DOCTYPE html>
     <html lang="<?= Yii::$app->language ?>">
     <head>
-        <link href="/favicon.ico?2" rel="shortcut icon" type="image/x-icon"/>
         <meta charset="<?= Yii::$app->charset ?>"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <link href="/favicon.ico?2" rel="shortcut icon" type="image/x-icon"/>
+
+        <title><?= Html::encode(!empty($this->params['meta_t']) ? $this->params['meta_t'] : $this->title) ?></title>
+        <? if (!empty($this->params['meta_d'])): ?><meta name="description" content="<?= Html::encode($this->params['meta_d']) ?>"/><? endif; ?>
+        <? if (!empty($this->params['meta_k'])): ?><meta name="keywords" content="<?= Html::encode($this->params['meta_k']) ?>"/><? endif; ?>
+
         <?= Html::csrfMetaTags() ?>
-        <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
     </head>
     <body>
