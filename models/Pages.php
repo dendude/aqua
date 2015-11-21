@@ -144,7 +144,7 @@ class Pages extends \yii\db\ActiveRecord
 
                 $big_photo = str_replace('lowfoto', 'bigfoto', $img->src);
 
-                if (substr($img->src, -4) == 'gif') {
+                if (substr($big_photo, -4) == '.gif') {
                     // для гифок большая фотка имеет формат jpg
                     $big_photo = str_replace('.gif', '.jpg', $big_photo);
                 }
