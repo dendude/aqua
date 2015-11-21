@@ -112,11 +112,13 @@ $this->registerJs('
             if ($(this).scrollTop() >= (pos - 10)) {
                 if (!set) {
                     $fish_list.addClass("fixed").css("width", wid);
+                    $("<div class=\"werwer\" style=\"height:42px;\"></div>").insertAfter($fish_list);
                     set = true;
                 }
             } else {
                 if (set) {
                     $fish_list.removeClass("fixed");
+                    $(".werwer").remove();
                     set = false;
                 }
             }
