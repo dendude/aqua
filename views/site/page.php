@@ -110,7 +110,7 @@ $this->registerJs('
 
         $(document).on("scroll", function(){
 
-            if (++si % 3) return;
+            if (++si % 3 == 1) return;
 
             if ($(this).scrollTop() >= (pos - 10)) {
                 if (!set) {
