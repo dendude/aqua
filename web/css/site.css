@@ -657,10 +657,10 @@ p big {
 }
 .site-index .index-text .index-ob {
   position: relative;
-  min-height: 132px;
+  min-height: 154px;
 }
 .site-index .index-text .index-ob .index-ob-cont {
-  height: 110px;
+  height: 132px;
   overflow: hidden;
 }
 .site-index .index-text .index-ob .index-ob-cont .index-ob-inside {
@@ -671,11 +671,12 @@ p big {
 }
 .site-index .index-text .index-ob .index-ob-more {
   display: none;
-  text-align: center;
+  text-align: right;
   cursor: pointer;
   color: #006699;
   height: 22px;
   line-height: 22px;
+  text-decoration: underline;
 }
 .site-index .infoblock-faq {
   height: 574px;
@@ -726,7 +727,7 @@ p big {
   font-size: 22px;
   color: #231f20;
   font-weight: normal;
-  margin: 48px 0 0 0;
+  margin: 27px 0 0 0;
   text-align: center;
 }
 .site-index .why-us-items {
