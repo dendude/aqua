@@ -112,13 +112,13 @@ $this->registerJs('
             if ($(this).scrollTop() >= (pos - 10)) {
                 if (!set) {
                     $fish_list.addClass("fixed").css("width", wid);
-                    $("<div class=\"werwer\" style=\"height:42px;\"></div>").insertAfter($fish_list);
+                    $("<div style=\"height:42px;\"></div>").insertAfter($fish_list);
                     set = true;
                 }
             } else {
                 if (set) {
                     $fish_list.removeClass("fixed");
-                    $(".werwer").remove();
+                    $fish_list.next().remove();
                     set = false;
                 }
             }
@@ -128,15 +128,20 @@ $this->registerJs('
 
     if ($("a[href^=#]").length) {
         $("a[href^=#]").on("click", function(e){
-            e.preventDefault();
-            var anchor_id = $(this).attr("href");
-            if ($(anchor_id).length) {
-                var ot = $(anchor_id).offset().top;
+            var anchor_id = $(this).attr("href").replace("#", "");
+
+            if ($("#" + anchor_id).length) {
+                var ot = $("#" + anchor_id).offset().top;
                 $("html,body").stop().animate({
                     scrollTop: (ot - 30) + "px"
                 }, 1000);
             }
         });
+
+        // переход при обновлении страницы с якорем
+        var hash = location.hash.replace("#","");
+        if (hash != "" && $("a[href=#" + hash + "]").length) {
+            $("a[href=#" + hash + "]").click();
+        }
     }
 ');
-?>
