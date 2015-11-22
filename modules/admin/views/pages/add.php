@@ -165,13 +165,6 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
                 <div class="separator"></div>
                 <?= $form->field($model, 'content', ['template' => '<div class="col-xs-12 text-left">{label}</div><br/><br/><div class="col-xs-12">{input}{error}</div>'])->textarea() ?>
                 <ul>
-                    <li>Стилизация блоков через код</li>
-                    <li><strong><?= htmlspecialchars('<p class="blue-block">какой-то текст</p>'); ?></strong> - пример стилизации синего блока через правку кода;</li>
-                    <li><strong><?= htmlspecialchars('<p class="orange-block">какой-то текст</p>'); ?></strong> - пример стилизации оранжевого блока;</li>
-                    <li><strong><?= htmlspecialchars('<p class="blue-block left">какой-то текст</p>'); ?></strong> - пример стилизации синего блока с выравниванием слева, right - справа;</li>
-                    <li><strong><?= htmlspecialchars('<p class="orange-block right">какой-то текст</p>'); ?></strong> - пример стилизации оранжевого блока с выравниванием справа, left - слева;</li>
-                </ul>
-                <ul>
                     <li><strong>Enter</strong> - перенос строки с отступом (новый параграф);</li>
                     <li><strong>Shift+Enter</strong> - перенос без отступа (обычный перенос строки);</li>
                     <li>Между текстом и фото переносов строк не делаем - проставляются автоматически на сайте;</li>
@@ -254,17 +247,23 @@ $this->registerJs('
             {title: "Order button", description: "Стилизованная кнопка заказа", content: "<a href=\"#\" class=\"btn btn-primary btn-xs btn-order\">ЗАКАЗАТЬ</a>"},
             {title: "Separator line", description: "Разделительная линия", content: "<hr class=\"separator-line\" />"},
             {title: "Page H1", description: "Основной заголовок Н1 для статьи", content: "<h1 class=\"page-title\">Page H1</h1>"},
+
             {title: "Blue H1", description: "Синий заголовок Н1", content: "<h1 class=\"page-title blue-title\">Blue H1</h1>"},
             {title: "Blue H2", description: "Синий заголовок Н2", content: "<h2 class=\"page-title blue-title\">Blue H2</h2>"},
             {title: "Blue H3", description: "Синий заголовок Н3", content: "<h3 class=\"page-title blue-title\">Blue H3</h3>"},
-            {title: "Blue Block", description: "Синий блок", content: "<p class=\"blue-block\"></p>"},
-            {title: "Blue Block Left", description: "Синий блок слева", content: "<p class=\"blue-block left\"></p>"},
-            {title: "Blue Block Right", description: "Синий блок справа", content: "<p class=\"blue-block right\"></p>"},
+
+            {title: "Blue Block", description: "Синий блок 100%", content: "<div class=\"blue-block\">text</div>"},
+            {title: "Blue Block Left", description: "Синий блок слева", content: "<div class=\"blue-block left\">text</div>"},
+            {title: "Blue Block Left 40%", description: "Синий блок слева 40% ширины", content: "<div class=\"blue-block left width40\">text</div>"},
+            {title: "Blue Block Right", description: "Синий блок справа", content: "<div class=\"blue-block right\">text</div>"},
+            {title: "Blue Block Right 40%", description: "Синий блок справа 40% ширины", content: "<div class=\"blue-block right width40\">text</div>"},
+
+            {title: "Orange Block", description: "Оранжевый блок", content: "<div class=\"orange-block\">text</div>"},
+            {title: "Orange Block Left", description: "Оранжевый блок слева", content: "<div class=\"orange-block left\">text</div>"},
+            {title: "Orange Block Right", description: "Оранжевый блок справа", content: "<div class=\"orange-block right\">text</div>"},
+
             {title: "Fish List", description: "Список, маркированный рыбками, в одну строку", content: "<ul class=\"fish-list bg-blue\"><li>item1</li><li>item2</li></ul>"},
             {title: "Fish List Block", description: "Список, маркированный рыбками, построчно", content: "<ul class=\"fish-list block\"><li>item1</li><li>item2</li></ul>"},
-            {title: "Orange Block", description: "Оранжевый блок", content: "<p class=\"orange-block\"></p>"},
-            {title: "Orange Block Left", description: "Оранжевый блок слева", content: "<p class=\"orange-block left\"></p>"},
-            {title: "Orange Block Right", description: "Оранжевый блок справа", content: "<p class=\"orange-block right\"></p>"},
         ],
 
         plugins: [

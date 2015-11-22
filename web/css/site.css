@@ -1006,6 +1006,10 @@ p big {
   float: right;
   margin: 20px 0 20px 20px;
 }
+.blue-block.width40,
+.orange-block.width40 {
+  width: 40%;
+}
 .blue-block:first-child,
 .orange-block:first-child {
   margin-top: 0 !important;
