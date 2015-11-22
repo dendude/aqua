@@ -27,6 +27,7 @@ if ($slider_albums) {
 
 $this->registerJs("
     $('#sm_slider').smSlider({autoPlay : true, delay: 8000});
+    $('#sm_slider2').smSlider({autoPlay : true, delay: 7000});
 ");
 
 $faq = \app\models\Faq::find()
@@ -39,7 +40,15 @@ $banners = range(1,5);
 ?>
 <div class="site-index">
     <div class="index-banner">
-        <img lowsrc="/img/banner_low.jpg" src="/img/banners/<?= $banners[array_rand($banners)] ?>.jpg" alt="" width="1100" height="600" />
+        <div id="sm_slider2">
+            <ul>
+                <? for ($i =1; $i <= 5; $i++): ?>
+                <li>
+                    <img lowsrc="/img/banners/<?= $i ?>_low.jpg" src="/img/banners/<?= $i ?>.jpg" alt="<?= Html::encode($this->title) ?>" width="1100" height="600" />
+                </li>
+                <? endfor; ?>
+            </ul>
+        </div>
     </div>
     <div class="index-content">
         <div class="index-infoblocks">
@@ -78,37 +87,37 @@ $banners = range(1,5);
             <p class="index-ob"><?= Yii::$app->vars->val(84) ?></p>
             <h2 class="why-us"><?= Yii::$app->vars->val(85) ?></h2>
             <div class="why-us-items">
-                <div class="why-us-point">
+                <a href="<?= Yii::$app->vars->val(145, false, true) ?>" title="<?= Yii::$app->vars->val(151, true) ?>" class="why-us-point">
                     <span class="why-us-title"><?= Yii::$app->vars->val(86) ?></span>
                     <span class="why-us-text"><?= Yii::$app->vars->val(87) ?></span>
-                    <div class="why-us-icons why-us-icon-1"></div>
-                </div>
-                <div class="why-us-point">
+                    <span class="why-us-icons why-us-icon-1"></span>
+                </a>
+                <a href="<?= Yii::$app->vars->val(146, false, true) ?>" title="<?= Yii::$app->vars->val(152, true) ?>" class="why-us-point">
                     <span class="why-us-title"><?= Yii::$app->vars->val(88) ?></span>
                     <span class="why-us-text"><?= Yii::$app->vars->val(89) ?></span>
-                    <div class="why-us-icons why-us-icon-2"></div>
-                </div>
-                <div class="why-us-point mr0">
+                    <span class="why-us-icons why-us-icon-2"></span>
+                </a>
+                <a href="<?= Yii::$app->vars->val(147, false, true) ?>" title="<?= Yii::$app->vars->val(153, true) ?>" class="why-us-point mr0">
                     <span class="why-us-title"><?= Yii::$app->vars->val(90) ?></span>
                     <span class="why-us-text"><?= Yii::$app->vars->val(91) ?></span>
-                    <div class="why-us-icons why-us-icon-3"></div>
-                </div>
+                    <span class="why-us-icons why-us-icon-3"></span>
+                </a>
 
-                <div class="why-us-point">
+                <a href="<?= Yii::$app->vars->val(148, false, true) ?>" title="<?= Yii::$app->vars->val(154, true) ?>" class="why-us-point">
                     <span class="why-us-title"><?= Yii::$app->vars->val(92) ?></span>
                     <span class="why-us-text"><?= Yii::$app->vars->val(93) ?></span>
-                    <div class="why-us-icons why-us-icon-4"></div>
-                </div>
-                <div class="why-us-point">
+                    <span class="why-us-icons why-us-icon-4"></span>
+                </a>
+                <a href="<?= Yii::$app->vars->val(149, false, true) ?>" title="<?= Yii::$app->vars->val(155, true) ?>" class="why-us-point">
                     <span class="why-us-title"><?= Yii::$app->vars->val(94) ?></span>
                     <span class="why-us-text"><?= Yii::$app->vars->val(95) ?></span>
-                    <div class="why-us-icons why-us-icon-5"></div>
-                </div>
-                <div class="why-us-point mr0">
+                    <span class="why-us-icons why-us-icon-5"></span>
+                </a>
+                <a href="<?= Yii::$app->vars->val(150, false, true) ?>" title="<?= Yii::$app->vars->val(156, true) ?>" class="why-us-point mr0">
                     <span class="why-us-title"><?= Yii::$app->vars->val(96) ?></span>
                     <span class="why-us-text"><?= Yii::$app->vars->val(97) ?></span>
-                    <div class="why-us-icons why-us-icon-6"></div>
-                </div>
+                    <span class="why-us-icons why-us-icon-6"></span>
+                </a>
 
                 <div class="clearfix"></div>
             </div>

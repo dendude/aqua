@@ -608,6 +608,27 @@ p big {
   padding-bottom: 3px;
 }
 .site-index .index-banner {
+  padding-bottom: 40px;
+  position: relative;
+}
+.site-index .index-banner #sm_slider2 {
+  width: 1100px;
+  height: 600px;
+  overflow: hidden;
+}
+.site-index .index-banner #sm_slider2 .sm_prev,
+.site-index .index-banner #sm_slider2 .sm_next {
+  display: none;
+}
+.site-index .index-banner #sm_slider2 .sm_nav {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  left: auto;
+}
+.site-index .index-banner #sm_slider2 .sm_slide {
+  width: 1100px;
+  height: 600px;
   overflow: hidden;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -615,8 +636,10 @@ p big {
   -ms-border-radius: 3px;
   border-radius: 3px;
 }
-.site-index .index-banner img {
+.site-index .index-banner #sm_slider2 .sm_slide img {
   max-width: 1100px;
+  max-height: 600px;
+  margin: 0;
 }
 .site-index .index-content {
   padding: 20px 0;
@@ -637,6 +660,8 @@ p big {
   overflow: hidden;
   margin: 0;
   text-align: justify;
+  font-size: 16px;
+  line-height: 22px;
 }
 .site-index .infoblock-faq {
   height: 574px;

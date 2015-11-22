@@ -2,9 +2,11 @@
 
 namespace app\models;
 
+use app\helpers\Normalize;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /**
  * This is the model class for table "{{%vars}}".
@@ -58,7 +60,7 @@ class Vars extends \yii\db\ActiveRecord
         parent::afterSave($insert, $changedAttributes);
     }
 
-    public static function val($id, $encode = false) {
+    public static function val($id, $encode = false, $url = false) {
 
         if (empty(self::$cache_list)) {
             // получаем кеш
@@ -80,6 +82,7 @@ class Vars extends \yii\db\ActiveRecord
         $value = isset(self::$cache_list[$id]) ? self::$cache_list[$id] : 'Var not found';
 
         if ($encode) $value = Html::encode($value);
+        if ($url && strpos($value, '#') === false) $value = Url::to([Normalize::fixAlias(preg_replace('/(\.[a-z]+)$/', '', $value))]);
 
         // учитывается режим показа названий переменных
         return Yii::$app->session->get(self::SESSION_NAME) ? 'Msg_' . sprintf('%04d', $id) : nl2br($value);

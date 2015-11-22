@@ -618,11 +618,39 @@ p {
 
 .site-index {
     .index-banner {
-        overflow: hidden;
-        .border-radius(3px);
+        padding-bottom: 40px;
+        position: relative;
 
-        img {
-            max-width: @content-width;
+        @slider-width: 1100px;
+        @slider-height: 600px;
+        #sm_slider2 {
+            width: @slider-width;
+            height: @slider-height;
+            overflow: hidden;
+
+            .sm_prev,
+            .sm_next {
+                display: none;
+            }
+            .sm_nav {
+                position: absolute;
+                right: 10px;
+                bottom: 10px;
+                left: auto;
+            }
+
+            .sm_slide {
+                width: @slider-width;
+                height: @slider-height;
+                overflow: hidden;
+                .border-radius(3px);
+
+                img {
+                    max-width: @slider-width;
+                    max-height: @slider-height;
+                    margin: 0;
+                }
+            }
         }
     }
 
@@ -646,6 +674,8 @@ p {
             overflow: hidden;
             margin: 0;
             text-align: justify;
+            font-size: 16px;
+            line-height: 22px;
         }
     }
 
