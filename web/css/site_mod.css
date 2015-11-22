@@ -656,11 +656,25 @@ p big {
   margin-right: 365px;
 }
 .site-index .index-text .index-ob {
-  height: 132px;
+  position: relative;
+  min-height: 132px;
+}
+.site-index .index-text .index-ob .index-ob-cont {
+  height: 110px;
   overflow: hidden;
+}
+.site-index .index-text .index-ob .index-ob-cont .index-ob-inside {
   margin: 0;
   text-align: justify;
   font-size: 16px;
+  line-height: 22px;
+}
+.site-index .index-text .index-ob .index-ob-more {
+  display: none;
+  text-align: center;
+  cursor: pointer;
+  color: #006699;
+  height: 22px;
   line-height: 22px;
 }
 .site-index .infoblock-faq {

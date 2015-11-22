@@ -35,8 +35,6 @@ $faq = \app\models\Faq::find()
     ->orderBy(['ordering' => SORT_ASC, 'id' => SORT_DESC])
     ->limit(9)
     ->all();
-
-$banners = range(1,5);
 ?>
 <div class="site-index">
     <div class="index-banner">
@@ -84,7 +82,15 @@ $banners = range(1,5);
         </div>
         <div class="index-text">
             <h1 class="line-title text-center"><?= Yii::$app->vars->val(83) ?></h1>
-            <p class="index-ob"><?= Yii::$app->vars->val(84) ?></p>
+            <div class="index-ob">
+                <div class="index-ob-cont">
+                    <p class="index-ob-inside">
+                        <?= Yii::$app->vars->val(84) ?>
+                    </p>
+                </div>
+                <span class="index-ob-more"><?= Yii::$app->vars->val(157) ?></span>
+            </div>
+
             <h2 class="why-us"><?= Yii::$app->vars->val(85) ?></h2>
             <div class="why-us-items">
                 <a href="<?= Yii::$app->vars->val(145, false, true) ?>" title="<?= Yii::$app->vars->val(151, true) ?>" class="why-us-point">
@@ -177,3 +183,17 @@ $banners = range(1,5);
         </div>
     </div>
 </div>
+<?
+$this->registerJs('
+var $ob_cont = $(".index-ob-cont");
+var $ob_inside = $(".index-ob-inside");
+
+if ($ob_inside.height() > $ob_cont.height()) {
+    $(".index-ob-more").css("display", "block").on("click", function(){
+        $(this).remove();
+        $ob_cont.animate({
+            height: $ob_inside.height() + "px"
+        });
+    });
+}
+');

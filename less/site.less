@@ -670,12 +670,28 @@ p {
         margin-right: 365px;
 
         .index-ob {
-            height: 132px;
-            overflow: hidden;
-            margin: 0;
-            text-align: justify;
-            font-size: 16px;
-            line-height: 22px;
+            position: relative;
+            min-height: 132px;
+
+            .index-ob-cont {
+                height: 110px;
+                overflow: hidden;
+
+                .index-ob-inside {
+                    margin: 0;
+                    text-align: justify;
+                    font-size: 16px;
+                    line-height: 22px;
+                }
+            }
+            .index-ob-more {
+                display: none;
+                text-align: center;
+                cursor: pointer;
+                color: @link-color;
+                height: 22px;
+                line-height: 22px;
+            }
         }
     }
 
