@@ -165,13 +165,6 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
                 <div class="separator"></div>
                 <?= $form->field($model, 'content', ['template' => '<div class="col-xs-12 text-left">{label}</div><br/><br/><div class="col-xs-12">{input}{error}</div>'])->textarea() ?>
                 <ul>
-                    <li>Стилизация блоков через код</li>
-                    <li><strong><?= htmlspecialchars('<p class="blue-block">какой-то текст</p>'); ?></strong> - пример стилизации синего блока через правку кода;</li>
-                    <li><strong><?= htmlspecialchars('<p class="orange-block">какой-то текст</p>'); ?></strong> - пример стилизации оранжевого блока;</li>
-                    <li><strong><?= htmlspecialchars('<p class="blue-block left">какой-то текст</p>'); ?></strong> - пример стилизации синего блока с выравниванием слева, right - справа;</li>
-                    <li><strong><?= htmlspecialchars('<p class="orange-block right">какой-то текст</p>'); ?></strong> - пример стилизации оранжевого блока с выравниванием справа, left - слева;</li>
-                </ul>
-                <ul>
                     <li><strong>Enter</strong> - перенос строки с отступом (новый параграф);</li>
                     <li><strong>Shift+Enter</strong> - перенос без отступа (обычный перенос строки);</li>
                     <li>Между текстом и фото переносов строк не делаем - проставляются автоматически на сайте;</li>
@@ -221,10 +214,12 @@ $this->registerJs('
             class: "table table-bordered table-striped table-condensed valign-top"
         },
         table_class_list: [
-            {title: "Без форматирования", value: ""},
+            {title: "Без форматирования", value: "table-auto"},
+            {title: "Без форматирования с нижним подчеркиванием", value: "table-auto table-bottom-line"},
             {title: "С полной разметкой", value: "table table-bordered table-striped table-condensed table-auto valign-top"},
             {title: "С полной разметкой 100% ширина", value: "table table-bordered table-striped table-condensed valign-top"},
             {title: "С внутренними отступами", value: "table-padding5"},
+            {title: "С внутренними отступами и нижним подчеркиванием", value: "table-padding5 table-bottom-line"},
             {title: "С внутренними отступами и центрирование в ячейках", value: "table-center table-padding5"},
             {title: "Стилизованная таблица для характеристик", value: "table-characters table-padding5"},
             {title: "Стилизованная таблица для характеристик 100% ширина", value: "table-characters table-padding5 table-full"},
@@ -236,6 +231,7 @@ $this->registerJs('
         image_advtab: true,
         image_class_list: [
             {title: "Без выравнивания", value: ""},
+            {title: "Без выравнивания с границей", value: "image-bordered"},
             {title: "Влево", value: "pull-left"},
             {title: "Вправо", value: "pull-right"},
             {title: "По центру", value: "pull-center"},
@@ -254,6 +250,8 @@ $this->registerJs('
             {title: "Order button", description: "Стилизованная кнопка заказа", content: "<a href=\"#\" class=\"btn btn-primary btn-xs btn-order\">ЗАКАЗАТЬ</a>"},
             {title: "Separator line", description: "Разделительная линия", content: "<hr class=\"separator-line\" />"},
             {title: "Page H1", description: "Основной заголовок Н1 для статьи", content: "<h1 class=\"page-title\">Page H1</h1>"},
+
+            {title: "Table Characters", description: "Заготовка таблицы для характеристик", url: "' . \yii\helpers\Url::to(['templates/table-characters']) . '"},
 
             {title: "Blue H1", description: "Синий заголовок Н1", content: "<h1 class=\"page-title blue-title\">Blue H1</h1>"},
             {title: "Blue H2", description: "Синий заголовок Н2", content: "<h2 class=\"page-title blue-title\">Blue H2</h2>"},

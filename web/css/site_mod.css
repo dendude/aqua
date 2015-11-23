@@ -119,6 +119,14 @@ h3 {
 h3:last-child {
   margin-bottom: 0;
 }
+h4,
+h5,
+h6 {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000;
+  margin: 4px 0;
+}
 p {
   color: #414042;
   line-height: 20px;
@@ -1160,16 +1168,21 @@ li {
 .table-center td {
   text-align: center;
 }
-.table-padding5 td {
+.table-padding5 > tbody > tr > td,
+.table-padding5 > tr > td {
   padding: 5px;
 }
 .table-full {
   width: 100%;
 }
+.table-characters {
+  margin: 10px 0;
+}
 .table-characters tr > td {
   border: 1px solid #fff;
   border-collapse: collapse;
   color: #222;
+  padding: 5px;
 }
 .table-characters tr:nth-child(odd) {
   background: #ebecec;
@@ -1180,8 +1193,24 @@ li {
 .table-characters tr:first-child {
   background: #80aac0;
 }
-.table-characters tr:first-child td {
-  color: #fff;
+.table-characters tr:first-child td,
+.table-characters tr:first-child td > p {
+  font-weight: bold;
+  color: #fff !important;
+}
+.table-bottom-line {
+  border-bottom: 2px solid #35859a;
+}
+.table-bottom-line tr:last-child > td {
+  padding-bottom: 10px;
+}
+.image-bordered {
+  box-shadow: 0 0 2px 1px #CECECE;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -html-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
 }
 .fish-list.fixed {
   position: fixed;

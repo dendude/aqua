@@ -12,8 +12,6 @@ $this->params['meta_k'] = $model->meta_k;
 $this->params['breadcrumbs'] = $model->getBreadcrumbs();
 
 $content = $model->getFixLinksContent();
-$content = str_replace('<table>', '<table class="table table-bordered table-striped table-condensed">', $content);
-
 preg_match('/{menu_(\d+)}/', $content, $matches);
 if (isset($matches[1])) {
     $page_menu = Menu::find()->active()->sidebar($matches[1])->all();
@@ -141,7 +139,9 @@ $this->registerJs('
         // переход при обновлении страницы с якорем
         var hash = location.hash.replace("#","");
         if (hash != "" && $("a[href=#" + hash + "]").length) {
-            $("a[href=#" + hash + "]").click();
+            setTimeout(function(){
+                $("a[href=#" + hash + "]").click();
+            },1000);
         }
     }
 ');
