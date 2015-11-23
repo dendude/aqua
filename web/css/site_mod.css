@@ -1205,6 +1205,7 @@ li {
   padding-bottom: 10px;
 }
 .image-bordered {
+  padding: 2px;
   box-shadow: 0 0 2px 1px #CECECE;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
