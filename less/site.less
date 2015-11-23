@@ -1119,6 +1119,9 @@ img {
     }
 }
 
+table, tr, td, ul, ol ,li {
+    font-size: inherit;
+}
 .valign-top {
     td {
         vertical-align: top;
@@ -1136,6 +1139,28 @@ img {
 .table-padding5 {
     td {
         padding: 5px;
+    }
+}
+.table-full {
+    width: 100%;
+}
+.table-characters {
+    tr>td {
+        border: 1px solid #fff;
+        border-collapse: collapse;
+        color: #222;
+    }
+    tr:nth-child(odd) {
+        background: #ebecec;
+    }
+    tr:nth-child(even) {
+        background: #b7cbd8;
+    }
+    tr:first-child {
+        background: #80aac0;
+        td {
+            color: #fff;
+        }
     }
 }
 
