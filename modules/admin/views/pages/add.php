@@ -251,21 +251,24 @@ $this->registerJs('
             {title: "Separator line", description: "Разделительная линия", content: "<hr class=\"separator-line\" />"},
             {title: "Page H1", description: "Основной заголовок Н1 для статьи", content: "<h1 class=\"page-title\">Page H1</h1>"},
 
+            {title: "Blue Block Left 200px", description: "Синий вертикальный блок слева", content: "<div class=\"v-block v-left\">Text</div><p></p>"},
+            {title: "Blue Block Right 200px", description: "Синий вертикальный блок справа", content: "<div class=\"v-block v-right\">Text</div><p></p>"},
+
             {title: "Table Characters", description: "Заготовка таблицы для характеристик", url: "' . \yii\helpers\Url::to(['templates/table-characters']) . '"},
 
             {title: "Blue H1", description: "Синий заголовок Н1", content: "<h1 class=\"page-title blue-title\">Blue H1</h1>"},
             {title: "Blue H2", description: "Синий заголовок Н2", content: "<h2 class=\"page-title blue-title\">Blue H2</h2>"},
             {title: "Blue H3", description: "Синий заголовок Н3", content: "<h3 class=\"page-title blue-title\">Blue H3</h3>"},
 
-            {title: "Blue Block", description: "Синий блок 100%", content: "<div class=\"blue-block\">text</div>"},
-            {title: "Blue Block Left", description: "Синий блок слева", content: "<div class=\"blue-block left\">text</div>"},
-            {title: "Blue Block Left 40%", description: "Синий блок слева 40% ширины", content: "<div class=\"blue-block left width40\">text</div>"},
-            {title: "Blue Block Right", description: "Синий блок справа", content: "<div class=\"blue-block right\">text</div>"},
-            {title: "Blue Block Right 40%", description: "Синий блок справа 40% ширины", content: "<div class=\"blue-block right width40\">text</div>"},
+            {title: "Blue Message", description: "Синий блок-сообщение 100%", content: "<div class=\"blue-block\">text</div>"},
+            {title: "Blue Message Left", description: "Синий блок-сообщение слева", content: "<div class=\"blue-block left\">text</div>"},
+            {title: "Blue Message Left 40%", description: "Синий блок-сообщение слева 40% ширины", content: "<div class=\"blue-block left width40\">text</div>"},
+            {title: "Blue Message Right", description: "Синий блок-сообщение справа", content: "<div class=\"blue-block right\">text</div>"},
+            {title: "Blue Message Right 40%", description: "Синий блок-сообщение справа 40% ширины", content: "<div class=\"blue-block right width40\">text</div>"},
 
-            {title: "Orange Block", description: "Оранжевый блок", content: "<div class=\"orange-block\">text</div>"},
-            {title: "Orange Block Left", description: "Оранжевый блок слева", content: "<div class=\"orange-block left\">text</div>"},
-            {title: "Orange Block Right", description: "Оранжевый блок справа", content: "<div class=\"orange-block right\">text</div>"},
+            {title: "Orange Message", description: "Оранжевый блок-сообщение", content: "<div class=\"orange-block\">text</div>"},
+            {title: "Orange Message Left", description: "Оранжевый блок-сообщение слева", content: "<div class=\"orange-block left\">text</div>"},
+            {title: "Orange Message Right", description: "Оранжевый блок-сообщение справа", content: "<div class=\"orange-block right\">text</div>"},
 
             {title: "Fish List", description: "Список, маркированный рыбками, в одну строку", content: "<ul class=\"fish-list bg-blue\"><li>item1</li><li>item2</li></ul>"},
             {title: "Fish List Block", description: "Список, маркированный рыбками, построчно", content: "<ul class=\"fish-list block\"><li>item1</li><li>item2</li></ul>"},
