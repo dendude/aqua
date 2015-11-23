@@ -252,17 +252,21 @@ $this->registerJs('
 
         templates: [
             {title: "Page H1", description: "Основной заголовок Н1 для статьи", content: "<h1 class=\"page-title\">Page H1</h1>"},
+            {title: "Separate Line", description: "Разделительная линия", content: "<hr class=\"separator-line\"/>"},
+            {title: "Order Button", description: "Кнопка заказа", content: "<button class=\"btn btn-primary btn-order btn-xs\">ЗАКАЗАТЬ</button>"},
             {title: "Blue H1", description: "Синий заголовок Н1", content: "<h1 class=\"page-title blue-title\">Blue H1</h1>"},
             {title: "Blue H2", description: "Синий заголовок Н2", content: "<h2 class=\"page-title blue-title\">Blue H2</h2>"},
             {title: "Blue H3", description: "Синий заголовок Н3", content: "<h3 class=\"page-title blue-title\">Blue H3</h3>"},
-            {title: "Blue Block", description: "Синий блок", content: "<p class=\"blue-block\"></p>"},
-            {title: "Blue Block Left", description: "Синий блок слева", content: "<p class=\"blue-block left\"></p>"},
-            {title: "Blue Block Right", description: "Синий блок справа", content: "<p class=\"blue-block right\"></p>"},
+            {title: "Blue Block", description: "Синий блок", content: "<div class=\"blue-block\"></div>"},
+            {title: "Blue Block Left", description: "Синий блок слева", content: "<div class=\"blue-block left\"></div>"},
+            {title: "Blue Block Right", description: "Синий блок справа", content: "<div class=\"blue-block right\"></div>"},
+            {title: "Blue Block Left 40%", description: "Синий блок слева", content: "<div class=\"blue-block width40 left\"></div>"},
+            {title: "Blue Block Right 40%", description: "Синий блок справа", content: "<div class=\"blue-block width40 right\"></div>"},
             {title: "Fish List", description: "Список, маркированный рыбками, в одну строку", content: "<ul class=\"fish-list bg-blue\"><li>item1</li><li>item2</li></ul>"},
             {title: "Fish List Block", description: "Список, маркированный рыбками, построчно", content: "<ul class=\"fish-list block\"><li>item1</li><li>item2</li></ul>"},
-            {title: "Orange Block", description: "Оранжевый блок", content: "<p class=\"orange-block\"></p>"},
-            {title: "Orange Block Left", description: "Оранжевый блок слева", content: "<p class=\"orange-block left\"></p>"},
-            {title: "Orange Block Right", description: "Оранжевый блок справа", content: "<p class=\"orange-block right\"></p>"},
+            {title: "Orange Block", description: "Оранжевый блок", content: "<div class=\"orange-block\"></div>"},
+            {title: "Orange Block Left", description: "Оранжевый блок слева", content: "<div class=\"orange-block left\"></div>"},
+            {title: "Orange Block Right", description: "Оранжевый блок справа", content: "<div class=\"orange-block right\"></div>"},
         ],
 
         plugins: [

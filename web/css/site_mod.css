@@ -1142,14 +1142,6 @@ img.pull-center:first-child {
 img.pull-center:last-child {
   margin-bottom: 0;
 }
-table,
-tr,
-td,
-ul,
-ol,
-li {
-  font-size: inherit;
-}
 .valign-top td {
   vertical-align: top;
   text-align: left;
@@ -1162,26 +1154,6 @@ li {
 }
 .table-padding5 td {
   padding: 5px;
-}
-.table-full {
-  width: 100%;
-}
-.table-characters tr > td {
-  border: 1px solid #fff;
-  border-collapse: collapse;
-  color: #222;
-}
-.table-characters tr:nth-child(odd) {
-  background: #ebecec;
-}
-.table-characters tr:nth-child(even) {
-  background: #b7cbd8;
-}
-.table-characters tr:first-child {
-  background: #80aac0;
-}
-.table-characters tr:first-child td {
-  color: #fff;
 }
 .fish-list.fixed {
   position: fixed;
