@@ -9,4 +9,8 @@ class TemplatesController extends Controller
     public function actionTableCharacters() {
         return $this->renderPartial('table-characters');
     }
+
+    public function actionTableAqua() {
+        return $this->renderPartial('table-aqua');
+    }
 }
