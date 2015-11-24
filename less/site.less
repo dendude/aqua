@@ -123,7 +123,9 @@ p {
     line-height: 20px;
     font-size: 14px;
     margin-bottom: 8px;
-
+    &+table {
+        margin-bottom: 8px;
+    }
     big {
         font-size: 20px;
     }
@@ -1033,6 +1035,10 @@ p {
 
         &.page-simple {
             margin-left: 0;
+            p {
+                font-size: 15px;
+                line-height: 21px;
+            }
         }
 
         .share42init {
@@ -1103,6 +1109,11 @@ p {
     &.v-right {
         float: right;
         margin: 0 0 20px 20px;
+    }
+    small {
+        display: block;
+        line-height: 16px;
+        margin: 5px 0;
     }
 }
 
@@ -1201,6 +1212,12 @@ table, tr, td, ul, ol ,li {
     padding: 2px;
     box-shadow: 0 0 2px 1px #CECECE;
     .border-radius(5px);
+}
+.image-relative {
+    position: relative;
+    top: -25px;
+    margin-bottom: -25px !important;
+    box-shadow: 0 0 1px 1px #fff;
 }
 
 .fish-list {

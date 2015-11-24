@@ -100,7 +100,7 @@ $this->registerJs('
     }
 
     var si = 0;
-    var $fish_list = $(".fish-list");
+    var $fish_list = $(".fish-list-menu");
     if ($fish_list.length) {
         var pos = $fish_list.offset().top;
         var wid = $fish_list.outerWidth();

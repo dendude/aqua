@@ -232,6 +232,7 @@ $this->registerJs('
         image_class_list: [
             {title: "Без выравнивания", value: ""},
             {title: "Без выравнивания с границей", value: "image-bordered"},
+            {title: "Без выравнивания с наложением", value: "image-relative"},
             {title: "Влево", value: "pull-left"},
             {title: "Вправо", value: "pull-right"},
             {title: "По центру", value: "pull-center"},
@@ -246,13 +247,20 @@ $this->registerJs('
         fontsize_formats: "8px 10px 11px 12px 13px 14px 16px 18px 24px 36px",
         fullpage_default_fontsize: "14px",
 
+        extended_valid_elements: "script[charset|language|type|src]",
+
+        style_formats : [
+            {title : "Small text", inline : "small"},
+            {title : "Big text", inline : "big"},
+        ],
+
         templates: [
             {title: "Order button", description: "Стилизованная кнопка заказа", content: "<a href=\"#\" class=\"btn btn-primary btn-xs btn-order\">ЗАКАЗАТЬ</a>"},
             {title: "Separator line", description: "Разделительная линия", content: "<hr class=\"separator-line\" />"},
             {title: "Page H1", description: "Основной заголовок Н1 для статьи", content: "<h1 class=\"page-title\">Page H1</h1>"},
 
-            {title: "Blue Block Left 200px", description: "Синий вертикальный блок слева", content: "<div class=\"v-block v-left\">Text</div><p></p>"},
-            {title: "Blue Block Right 200px", description: "Синий вертикальный блок справа", content: "<div class=\"v-block v-right\">Text</div><p></p>"},
+            {title: "Blue Block Left 200px", description: "Синий вертикальный блок слева", content: "<div class=\"v-block v-left\"><p>Text</p></div><p></p>"},
+            {title: "Blue Block Right 200px", description: "Синий вертикальный блок справа", content: "<div class=\"v-block v-right\"><p>Text</p></div><p></p>"},
 
             {title: "Table Characters", description: "Заготовка таблицы для характеристик", url: "' . \yii\helpers\Url::to(['templates/table-characters']) . '"},
 
@@ -260,18 +268,18 @@ $this->registerJs('
             {title: "Blue H2", description: "Синий заголовок Н2", content: "<h2 class=\"page-title blue-title\">Blue H2</h2>"},
             {title: "Blue H3", description: "Синий заголовок Н3", content: "<h3 class=\"page-title blue-title\">Blue H3</h3>"},
 
-            {title: "Blue Message", description: "Синий блок-сообщение 100%", content: "<div class=\"blue-block\">text</div>"},
-            {title: "Blue Message Left", description: "Синий блок-сообщение слева", content: "<div class=\"blue-block left\">text</div>"},
-            {title: "Blue Message Left 40%", description: "Синий блок-сообщение слева 40% ширины", content: "<div class=\"blue-block left width40\">text</div>"},
-            {title: "Blue Message Right", description: "Синий блок-сообщение справа", content: "<div class=\"blue-block right\">text</div>"},
-            {title: "Blue Message Right 40%", description: "Синий блок-сообщение справа 40% ширины", content: "<div class=\"blue-block right width40\">text</div>"},
+            {title: "Blue Message", description: "Синий блок-сообщение 100%", content: "<div class=\"blue-block\"><p>Text</p></div>"},
+            {title: "Blue Message Left", description: "Синий блок-сообщение слева", content: "<div class=\"blue-block left\"><p>Text</p></div>"},
+            {title: "Blue Message Left 40%", description: "Синий блок-сообщение слева 40% ширины", content: "<div class=\"blue-block left width40\"><p>Text</p></div>"},
+            {title: "Blue Message Right", description: "Синий блок-сообщение справа", content: "<div class=\"blue-block right\"><p>Text</p></div>"},
+            {title: "Blue Message Right 40%", description: "Синий блок-сообщение справа 40% ширины", content: "<div class=\"blue-block right width40\"><p>Text</p></div>"},
 
-            {title: "Orange Message", description: "Оранжевый блок-сообщение", content: "<div class=\"orange-block\">text</div>"},
-            {title: "Orange Message Left", description: "Оранжевый блок-сообщение слева", content: "<div class=\"orange-block left\">text</div>"},
-            {title: "Orange Message Right", description: "Оранжевый блок-сообщение справа", content: "<div class=\"orange-block right\">text</div>"},
+            {title: "Orange Message", description: "Оранжевый блок-сообщение", content: "<div class=\"orange-block\"><p>Text</p></div>"},
+            {title: "Orange Message Left", description: "Оранжевый блок-сообщение слева", content: "<div class=\"orange-block left\"><p>Text</p></div>"},
+            {title: "Orange Message Right", description: "Оранжевый блок-сообщение справа", content: "<div class=\"orange-block right\"><p>Text</p></div>"},
 
-            {title: "Fish List", description: "Список, маркированный рыбками, в одну строку", content: "<ul class=\"fish-list bg-blue\"><li>item1</li><li>item2</li></ul>"},
-            {title: "Fish List Block", description: "Список, маркированный рыбками, построчно", content: "<ul class=\"fish-list block\"><li>item1</li><li>item2</li></ul>"},
+            {title: "Fish List", description: "Список, маркированный рыбками, в одну строку", content: "<table><tr><td><ul class=\"fish-list bg-blue\"><li>item1</li><li>item2</li></ul></td></tr></table>"},
+            {title: "Fish List Block", description: "Список, маркированный рыбками, построчно", content: "<table><tr><td><ul class=\"fish-list block\"><li>item1</li><li>item2</li></ul></td></tr></table>"},
         ],
 
         plugins: [
@@ -281,8 +289,8 @@ $this->registerJs('
             "template textcolor colorpicker textpattern image imagetools"
         ],
 
-        toolbar1: "code | insertfile undo redo | searchreplace | alignleft aligncenter alignright alignjustify | indent outdent | bullist numlist | styleselect | fullscreen",
-        toolbar2: "preview | bold italic underline strikethrough | removeformat | forecolor backcolor | anchor link insertfile image media"
+        toolbar1: "code | insertfile undo redo | searchreplace | alignleft aligncenter alignright alignjustify | indent outdent | bullist numlist | formatselect,fontselect,fontsizeselect,sub,sup",
+        toolbar2: "preview | bold italic underline strikethrough | removeformat | forecolor backcolor | anchor link insertfile image media | fullscreen"
     });
 ');
 ?>
