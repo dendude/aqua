@@ -240,6 +240,7 @@ $this->registerJs('
         image_list: [
             {title: "Памятный знак", value: "/news/ferplast.gif"},
             {title: "Памятный знак большой", value: "/images/ferplast.gif"},
+            {title: "Желтая рыбка", value: "/images/labelza7.gif"},
             {title: "Рыбка синяя мал", value: "/images/labelza9.gif"},
             {title: "Рыбка синяя средняя", value: "/images/fish2.gif"}
         ],
