@@ -262,8 +262,9 @@ $this->registerJs('
             {title: "Blue Block Left 200px", description: "Синий вертикальный блок слева", content: "<div class=\"v-block v-left\"><p>Text</p></div><p></p>"},
             {title: "Blue Block Right 200px", description: "Синий вертикальный блок справа", content: "<div class=\"v-block v-right\"><p>Text</p></div><p></p>"},
 
-            {title: "Table Aqua", description: "Заготовка таблицы для характеристик", url: "' . \yii\helpers\Url::to(['templates/table-aqua']) . '"},
-            {title: "Table Characters", description: "Заготовка таблицы для аквариумов", url: "' . \yii\helpers\Url::to(['templates/table-characters']) . '"},
+            {title: "Table Aqua", description: "Заготовка таблицы для аквариумов", url: "' . \yii\helpers\Url::to(['templates/table-aqua']) . '"},
+            {title: "Table Image-text", description: "Заготовка таблицы фото-текст", url: "' . \yii\helpers\Url::to(['templates/table-fill']) . '"},
+            {title: "Table Characters", description: "Заготовка таблицы для характеристик", url: "' . \yii\helpers\Url::to(['templates/table-characters']) . '"},
 
             {title: "Blue H1", description: "Синий заголовок Н1", content: "<h1 class=\"page-title blue-title\">Blue H1</h1>"},
             {title: "Blue H2", description: "Синий заголовок Н2", content: "<h2 class=\"page-title blue-title\">Blue H2</h2>"},

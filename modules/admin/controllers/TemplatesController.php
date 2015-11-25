@@ -13,4 +13,8 @@ class TemplatesController extends Controller
     public function actionTableAqua() {
         return $this->renderPartial('table-aqua');
     }
+
+    public function actionTableFill() {
+        return $this->renderPartial('table-fill');
+    }
 }
