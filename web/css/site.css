@@ -1086,6 +1086,20 @@ p big {
 .orange-block:first-child {
   margin-top: 0 !important;
 }
+.grad-bg {
+  min-height: 100px;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fcfebc+0,fbfee3+35,eefefe+65,c2fdfb+100 */
+  background: #fcfebc;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #fcfebc 0%, #fbfee3 35%, #eefefe 65%, #c2fdfb 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #fcfebc 0%, #fbfee3 35%, #eefefe 65%, #c2fdfb 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #fcfebc 0%, #fbfee3 35%, #eefefe 65%, #c2fdfb 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfebc', endColorstr='#c2fdfb', GradientType=0);
+  /* IE6-9 */
+}
 .v-block {
   width: 200px;
   border: 3px solid #09C;

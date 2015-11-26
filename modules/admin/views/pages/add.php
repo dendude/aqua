@@ -281,6 +281,8 @@ $this->registerJs('
             {title: "Blue H2", description: "Синий заголовок Н2", content: "<h2 class=\"page-title blue-title\">Blue H2</h2>"},
             {title: "Blue H3", description: "Синий заголовок Н3", content: "<h3 class=\"page-title blue-title\">Blue H3</h3>"},
 
+            {title: "Gradiend Background Yellow-Blue", description: "Желто-синий фоновый градиент", content: "<div class=\"grad-bg\"><p></p></div>"},
+
             {title: "Blue Message", description: "Синий блок-сообщение 100%", content: "<div class=\"blue-block\"><p>Text</p></div>"},
             {title: "Blue Message Left", description: "Синий блок-сообщение слева", content: "<div class=\"blue-block left\"><p>Text</p></div>"},
             {title: "Blue Message Left 40%", description: "Синий блок-сообщение слева 40% ширины", content: "<div class=\"blue-block left width40\"><p>Text</p></div>"},
