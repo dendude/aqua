@@ -47,9 +47,8 @@ echo Nav::widget([
     'items' => [
         ['label' => 'Меню','url' => ['menu/list']],
         ['label' => 'Страницы', 'url' => ['pages/list']],
-        ['label' => 'Наши работы','url' => ['photos/sections']],
-        ['label' => 'Другие виды деятельности','url' => ['news/list']],
-        ['label' => 'Новости','url' => '#','linkOptions' => ['class' => 'text-muted']],
+        ['label' => PhotosController::LIST_NAME,'url' => ['photos/sections']],
+        /*['label' => 'Новости','url' => '#','linkOptions' => ['class' => 'text-muted']],*/
     ],
     'options' => ['class' =>'nav nav-sidebar'], // set this to nav-tab to get tab-styled navigation
 ]);

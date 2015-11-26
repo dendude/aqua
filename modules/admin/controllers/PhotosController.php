@@ -13,7 +13,7 @@ use yii\web\UploadedFile;
 
 class PhotosController extends Controller
 {
-    const LIST_NAME = 'Фотогалерея';
+    const LIST_NAME = 'Баннеры';
     const LIST_SECTIONS = 'Фотоальбомы';
 
     public function beforeAction($action)

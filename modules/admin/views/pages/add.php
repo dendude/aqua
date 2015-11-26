@@ -284,8 +284,10 @@ $this->registerJs('
             {title: "Blue Message", description: "Синий блок-сообщение 100%", content: "<div class=\"blue-block\"><p>Text</p></div>"},
             {title: "Blue Message Left", description: "Синий блок-сообщение слева", content: "<div class=\"blue-block left\"><p>Text</p></div>"},
             {title: "Blue Message Left 40%", description: "Синий блок-сообщение слева 40% ширины", content: "<div class=\"blue-block left width40\"><p>Text</p></div>"},
+            {title: "Blue Message Left 60%", description: "Синий блок-сообщение слева 60% ширины", content: "<div class=\"blue-block left width60\"><p>Text</p></div>"},
             {title: "Blue Message Right", description: "Синий блок-сообщение справа", content: "<div class=\"blue-block right\"><p>Text</p></div>"},
             {title: "Blue Message Right 40%", description: "Синий блок-сообщение справа 40% ширины", content: "<div class=\"blue-block right width40\"><p>Text</p></div>"},
+            {title: "Blue Message Right 60%", description: "Синий блок-сообщение справа 60% ширины", content: "<div class=\"blue-block right width60\"><p>Text</p></div>"},
 
             {title: "Orange Message", description: "Оранжевый блок-сообщение", content: "<div class=\"orange-block\"><p>Text</p></div>"},
             {title: "Orange Message Left", description: "Оранжевый блок-сообщение слева", content: "<div class=\"orange-block left\"><p>Text</p></div>"},
