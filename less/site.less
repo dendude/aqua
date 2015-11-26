@@ -24,7 +24,8 @@ a {
 }
 
 a.aqua-slider {
-    display: block;
+    display: inline-block;
+    margin: 0 auto;
     position: relative;
 
     i {
@@ -45,6 +46,17 @@ a.aqua-slider {
         i {
             .opacity(100);
         }
+    }
+    &.pull-left {
+        margin: 0 20px 20px 0;
+    }
+    &.pull-right {
+        margin: 0 0 20px 20px;
+    }
+    &.pull-center {
+        clear: both;
+        margin: 0 auto;
+        text-align: center;
     }
 }
 

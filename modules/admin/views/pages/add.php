@@ -45,7 +45,7 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
             <? if ($model->id): ?>
                 <div class="form-group" style="margin: -10px 0 15px 0;">
                     <div class="col-xs-offset-4 col-xs-8">
-                        <a href="http://akvarium-moskva.ru/<?= $model->alias ?>.php" target="_blank">Ссылка на сайт-источник &raquo;</a>
+                        <a href="<?= \app\models\Pages::SITE_URL . '/' . trim($model->alias, '/') ?>.php" target="_blank">Ссылка на сайт-источник &raquo;</a>
                     </div>
                 </div>
             <? endif; ?>

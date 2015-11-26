@@ -37,6 +37,7 @@ use yii\web\UploadedFile;
 class Pages extends \yii\db\ActiveRecord
 {
     const SEARCH_ID = 191;
+    const SITE_URL = 'http://akvarium-moskva.ru';
 
     public $aliases = [];
 
@@ -127,8 +128,13 @@ class Pages extends \yii\db\ActiveRecord
 
                 // документы пропускаем
                 if (preg_match('/(\.xlsx?|\.docx?|\.pdf|\.xml)$/', $a->href)) continue;
-                // якоря пропускаем
-                if (empty($a->href) || strpos($a->href, '#') === 0) continue;
+                // пропускаем пустые, якоря, отправку писем
+                if (empty($a->href) || strpos($a->href, '#') === 0 || strpos($a->href, 'mailto:') === 0) continue;
+
+                // удаляем полную ссылку
+                $a->href = str_replace(self::SITE_URL, '', $a->href);
+                // предваряем слешем
+                $a->href = '/' . trim($a->href, '/');
 
                 // убираем суффикс
                 $a->href = trim(str_replace($suffixes, '', $a->href), '/');
@@ -138,6 +144,17 @@ class Pages extends \yii\db\ActiveRecord
 
             // обработка фоток для увеличения по клику
             foreach ($dom->find('img') AS $img) {
+
+                $parent = $img->parent();
+                if (isset($parent->href)) {
+                    // пропускаем фото, обёрнутую в ссылку
+                    continue;
+                }
+
+                // удаляем полную ссылку
+                $img->src = str_replace(self::SITE_URL, '', $img->src);
+                // предваряем слешем
+                $img->src = '/' . trim($img->src, '/');
 
                 // не обрабатываем фото, которые не должны увеличиваться
                 if (strpos($img->src, 'lowfoto') === false) continue;
@@ -152,7 +169,7 @@ class Pages extends \yii\db\ActiveRecord
                 // фото физически не найдено
                 if (!file_exists(Yii::getAlias('@app/web' . $big_photo))) continue;
 
-                $img->outertext = Html::a($img->outertext . '<i></i>', $big_photo, ['title' => Html::decode($img->alt), 'class' => 'aqua-slider']);
+                $img->outertext = Html::a($img->outertext . '<i></i>', $big_photo, ['title' => Html::decode($img->alt), 'class' => 'aqua-slider ' . $img->class]);
             }
 
             $this->content = $dom->outertext;
@@ -207,6 +224,9 @@ class Pages extends \yii\db\ActiveRecord
         }
 
         if ($this->is_auto) $this->is_shared = 0;
+
+        // заменяем полную ссылку на слеш
+        $this->content = str_replace(self::SITE_URL . '/', '/', $this->content);
 
         return parent::beforeSave($insert);
     }

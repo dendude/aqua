@@ -7,6 +7,7 @@ use app\models\Menu;
 use yii\helpers\Url;
 use app\helpers\Normalize;
 use app\models\Pages;
+use \app\models\Users;
 
 AppAsset::register($this);
 
@@ -57,8 +58,13 @@ $footer_menu = Menu::find()->active()->footer()->all();
                         <? foreach ($top_menu1 AS $mk => $menu_item): ?>
                             <? $link = $menu_item->page ? Url::to([Normalize::fixAlias($menu_item->page->alias)]) : '#'; ?>
                             <li><a href="<?= $link ?>"><?= Html::encode($menu_item->menu_name) ?></a></li>
-                            <? if (($mk+1) < count($top_menu1)): ?><li>|</li><? endif; ?>
+                            <? if (($mk+1) < count($top_menu1) || Users::isManager()): ?><li>|</li><? endif; ?>
                         <? endforeach; ?>
+                        <? if (Users::isAdmin()): ?>
+                            <li><a href="<?= Url::to(['admin/pages/list']) ?>">Admin</a></li>
+                        <? elseif (Users::isManager()): ?>
+                            <li><a href="<?= Url::to(['admin/pages/list']) ?>">Manager</a></li>
+                        <? endif; ?>
                     </ul>
                     <? endif; ?>
                 </div>
