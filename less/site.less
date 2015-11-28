@@ -23,11 +23,29 @@ a {
     }
 }
 
-img.top-banner {
+.top-banner {
     display: block;
     margin: 0 auto;
     max-width: 1100px;
+    height: 135px;
+    position: relative;
+    overflow: hidden;
     .border-radius(3px);
+
+    .top-banner-inner {
+        display: block;
+        width: 1200px;
+        height: 135px;
+        position: absolute;
+        left: -50px;
+        top: 0;
+        text-align: center;
+
+        img {
+            max-width: 1200px;
+            margin: 0;
+        }
+    }
 }
 
 a.aqua-slider {

@@ -115,7 +115,11 @@ $footer_menu = Menu::find()->active()->footer()->all();
         </nav>
 
         <? if (!empty($this->params['banner_name'])): ?>
-            <?= Html::img(Pages::TOP_BANNERS_PATH . $this->params['banner_name'], ['class' => 'top-banner']) ?>
+            <div class="top-banner">
+                <span class="top-banner-inner">
+                    <?= Html::img(Pages::TOP_BANNERS_PATH . $this->params['banner_name']) ?>
+                </span>
+            </div>
         <? endif; ?>
 
         <div class="main-container">
