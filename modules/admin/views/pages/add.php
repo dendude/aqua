@@ -270,8 +270,8 @@ $this->registerJs('
             {title: "Separator line", description: "Разделительная линия", content: "<hr class=\"separator-line\" />"},
             {title: "Page H1", description: "Основной заголовок Н1 для статьи", content: "<h1 class=\"page-title\">Page H1</h1>"},
 
-            {title: "Blue Block Left 200px", description: "Синий вертикальный блок слева", content: "<div class=\"v-block v-left\"><p>Text</p></div><p></p>"},
-            {title: "Blue Block Right 200px", description: "Синий вертикальный блок справа", content: "<div class=\"v-block v-right\"><p>Text</p></div><p></p>"},
+            {title: "Blue Block Left 200px", description: "Синий вертикальный блок слева", url: "' . \yii\helpers\Url::to(['templates/blue-block-left']) . '"},
+            {title: "Blue Block Right 200px", description: "Синий вертикальный блок справа", url: "' . \yii\helpers\Url::to(['templates/blue-block-right']) . '"},
 
             {title: "Table Aqua", description: "Заготовка таблицы для аквариумов", url: "' . \yii\helpers\Url::to(['templates/table-aqua']) . '"},
             {title: "Table Image-text", description: "Заготовка таблицы фото-текст", url: "' . \yii\helpers\Url::to(['templates/table-fill']) . '"},
@@ -281,8 +281,8 @@ $this->registerJs('
             {title: "Blue H2", description: "Синий заголовок Н2", content: "<h2 class=\"page-title blue-title\">Blue H2</h2>"},
             {title: "Blue H3", description: "Синий заголовок Н3", content: "<h3 class=\"page-title blue-title\">Blue H3</h3>"},
 
-            {title: "Table Content Left", description: "Таблица в контент слева", content: "<table class=\"table-text left\"><tbody><tr><td><p></p></td></tr></tbody></table>"},
-            {title: "Table Content Right", description: "Таблица в контент справа", content: "<table class=\"table-text right\"><tbody><tr><td><p></p></td></tr></tbody></table>"},
+            {title: "Table Content Left", description: "Таблица в контент слева", content: "<table class=\"table-text left\"><tbody><tr><td><p>image<br/>text</p></td></tr></tbody></table>"},
+            {title: "Table Content Right", description: "Таблица в контент справа", content: "<table class=\"table-text right\"><tbody><tr><td><p>image<br/>text</p></td></tr></tbody></table>"},
 
             {title: "Gradiend Background Yellow-Blue", description: "Желто-синий фоновый градиент", content: "<div class=\"grad-bg\"><p></p></div>"},
 
