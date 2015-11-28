@@ -1087,6 +1087,10 @@ p big {
   height: 400px;
   overflow: hidden;
 }
+.page-content .page-slider-cont #page_slider ul {
+  margin: 0!important;
+  padding: 0!important;
+}
 .page-content .page-slider-cont #page_slider .sm_prev,
 .page-content .page-slider-cont #page_slider .sm_next {
   display: none;
