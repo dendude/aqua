@@ -84,7 +84,7 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
                                 </td>
                                 <td style="padding: 0 3px">
                                     <p class="form-control-static">
-                                        <label for="banner_off" class="cur-p">Не использовать баннер (будет шапка как на главной)</label>
+                                        <label for="banner_off" class="cur-p">Не использовать баннер</label>
                                     </p>
                                 </td>
                             </tr>
@@ -325,6 +325,8 @@ $this->registerJs('
             {title: "Table Aqua", description: "Заготовка таблицы для аквариумов", url: "' . \yii\helpers\Url::to(['templates/table-aqua']) . '"},
             {title: "Table Image-text", description: "Заготовка таблицы фото-текст", url: "' . \yii\helpers\Url::to(['templates/table-fill']) . '"},
             {title: "Table Characters", description: "Заготовка таблицы для характеристик", url: "' . \yii\helpers\Url::to(['templates/table-characters']) . '"},
+
+            {title: "Photo Slider", description: "Слайдер фотографий для страниц", content: "<div class=\"page-slider-cont\"><div id=\"page_slider\"><ul><li><img/></li></ul></div></div>"},
 
             {title: "Blue H1", description: "Синий заголовок Н1", content: "<h1 class=\"page-title blue-title\">Blue H1</h1>"},
             {title: "Blue H2", description: "Синий заголовок Н2", content: "<h2 class=\"page-title blue-title\">Blue H2</h2>"},

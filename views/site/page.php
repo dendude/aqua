@@ -90,7 +90,10 @@ if (isset($matches[1])) {
 <?
 $this->registerJsFile('/lib/colorbox/jquery.colorbox.js', ['depends' => [\app\assets\AppAsset::className()]]);
 $this->registerCssFile('/lib/colorbox/example3/colorbox.css');
+
 $this->registerJs('
+    $("#page_slider").smSlider({autoPlay : true, delay: 5000});
+
     if ($(".aqua-slider").length) {
         $(".aqua-slider").colorbox({
             rel: "group",

@@ -1075,6 +1075,47 @@ p big {
 .page-content .page-menu > li > ul li a:hover {
   color: #006699;
 }
+.page-content .page-slider-cont {
+  width: 800px;
+  height: 434px;
+  margin: 0 auto;
+  padding-bottom: 34px;
+  position: relative;
+}
+.page-content .page-slider-cont #page_slider {
+  width: 800px;
+  height: 400px;
+  overflow: hidden;
+}
+.page-content .page-slider-cont #page_slider .sm_prev,
+.page-content .page-slider-cont #page_slider .sm_next {
+  display: none;
+}
+.page-content .page-slider-cont #page_slider .sm_nav {
+  margin: 0;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  left: auto;
+}
+.page-content .page-slider-cont #page_slider .sm_nav .sm_nav-item:last-child {
+  margin-right: 0!important;
+}
+.page-content .page-slider-cont #page_slider .sm_slide {
+  width: 800px;
+  height: 400px;
+  overflow: hidden;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -html-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+}
+.page-content .page-slider-cont #page_slider .sm_slide img {
+  width: 800px;
+  height: 400px;
+  margin: 0;
+}
 .page-content .page-container {
   margin-left: 260px;
   position: relative;

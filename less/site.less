@@ -1110,6 +1110,51 @@ p {
         }
     }
 
+    @page-slider-width: 800px;
+    @page-slider-height: 400px;
+    .page-slider-cont {
+        width: @page-slider-width;
+        height: @page-slider-height + 34;
+        margin: 0 auto;
+        padding-bottom: 34px;
+        position: relative;
+
+        #page_slider {
+            width: @page-slider-width;
+            height: @page-slider-height;
+            overflow: hidden;
+
+            .sm_prev,
+            .sm_next {
+                display: none;
+            }
+            .sm_nav {
+                margin: 0;
+                position: absolute;
+                right: 10px;
+                bottom: 10px;
+                left: auto;
+
+                .sm_nav-item:last-child {
+                    margin-right: 0!important;
+                }
+            }
+
+            .sm_slide {
+                width: @page-slider-width;
+                height: @page-slider-height;
+                overflow: hidden;
+                .border-radius(3px);
+
+                img {
+                    width: @page-slider-width;
+                    height: @page-slider-height;
+                    margin: 0;
+                }
+            }
+        }
+    }
+
     .page-container {
         margin-left: 260px;
         position: relative;
