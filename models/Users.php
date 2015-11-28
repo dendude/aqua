@@ -79,6 +79,8 @@ class Users extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface {
     }
 
     public static function isAdmin() {
+        if (Yii::$app->user->isGuest) return false;
+
         $self = self::findOne(Yii::$app->user->id);
         return ($self->role == self::ROLE_ADMIN);
     }

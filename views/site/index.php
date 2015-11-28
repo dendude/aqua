@@ -35,16 +35,19 @@ $faq = \app\models\Faq::find()
     ->orderBy(['ordering' => SORT_ASC, 'id' => SORT_DESC])
     ->limit(9)
     ->all();
+
+$banners = range(1,7);
+shuffle($banners);
 ?>
 <div class="site-index">
     <div class="index-banner">
         <div id="sm_slider2">
             <ul>
-                <? for ($i =1; $i <= 5; $i++): ?>
+                <? foreach ($banners AS $i): ?>
                 <li>
                     <img lowsrc="/img/banners/<?= $i ?>_low.jpg" src="/img/banners/<?= $i ?>.jpg" alt="<?= Html::encode($this->title) ?>" width="1100" height="600" />
                 </li>
-                <? endfor; ?>
+                <? endforeach; ?>
             </ul>
         </div>
     </div>
