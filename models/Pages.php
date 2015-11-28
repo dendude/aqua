@@ -38,6 +38,7 @@ class Pages extends \yii\db\ActiveRecord
 {
     const SEARCH_ID = 191;
     const SITE_URL = 'http://akvarium-moskva.ru';
+    const DEV_URL = 'http://aqua.test3w.ru';
     const TOP_BANNERS_PATH = '/img/top-banners/';
 
     public $aliases = [];
@@ -134,6 +135,7 @@ class Pages extends \yii\db\ActiveRecord
 
                 // удаляем полную ссылку
                 $a->href = str_replace(self::SITE_URL, '', $a->href);
+                $a->href = str_replace(self::DEV_URL, '', $a->href);
                 // предваряем слешем
                 $a->href = '/' . trim($a->href, '/');
 
