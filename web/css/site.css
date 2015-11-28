@@ -21,7 +21,12 @@ a:hover {
 img.top-banner {
   display: block;
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1100px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -html-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
 }
 a.aqua-slider {
   display: inline-block;

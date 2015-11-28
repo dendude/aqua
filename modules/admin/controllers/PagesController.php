@@ -72,7 +72,6 @@ class PagesController extends Controller
 
                 $model->load(Yii::$app->request->post());
                 if ($model->validate()) {
-
                     $model->save();
                     if (Yii::$app->request->post('refpage')) {
                         $this->redirect(Yii::$app->request->post('refpage'))->send();
