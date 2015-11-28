@@ -1262,7 +1262,7 @@ li {
 .table-bottom-line tr:last-child > td {
   padding-bottom: 10px;
 }
-.image-bordered {
+img.image-bordered {
   padding: 2px;
   box-shadow: 0 0 2px 1px #CECECE;
   -webkit-border-radius: 5px;
@@ -1271,7 +1271,7 @@ li {
   -ms-border-radius: 5px;
   border-radius: 5px;
 }
-.image-relative {
+img.image-relative {
   position: relative;
   top: -25px;
   margin-bottom: -25px !important;
