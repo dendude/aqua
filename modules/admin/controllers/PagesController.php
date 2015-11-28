@@ -74,7 +74,11 @@ class PagesController extends Controller
                 if ($model->validate()) {
 
                     $model->save();
-                    $this->redirect(['list'])->send();
+                    if (Yii::$app->request->post('refpage')) {
+                        $this->redirect(Yii::$app->request->post('refpage'))->send();
+                    } else {
+                        $this->redirect(['list'])->send();
+                    }
                 }
             }
 

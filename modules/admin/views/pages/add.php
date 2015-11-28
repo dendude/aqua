@@ -236,6 +236,7 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
         </div>
     </div>
 </div>
+<input type="hidden" value="<?= Yii::$app->request->referrer ?>" name="refpage"/>
 <?php ActiveForm::end() ?>
 <?
 $this->registerJs('
