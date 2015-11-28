@@ -105,6 +105,7 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
                             </tr>
                             <? endforeach; ?>
                         </table>
+                        <p>Баннеры хранятся в папке <strong>web<?= Pages::TOP_BANNERS_PATH ?></strong></p>
                     </div>
                 </div>
             </div>
