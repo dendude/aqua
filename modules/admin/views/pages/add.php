@@ -295,8 +295,9 @@ $this->registerJs('
             {title: "Orange Message Left", description: "Оранжевый блок-сообщение слева", content: "<div class=\"orange-block left\"><p>Text</p></div>"},
             {title: "Orange Message Right", description: "Оранжевый блок-сообщение справа", content: "<div class=\"orange-block right\"><p>Text</p></div>"},
 
-            {title: "Fish List", description: "Список, маркированный рыбками, в одну строку", content: "<table><tr><td><ul class=\"fish-list bg-blue\"><li>item1</li><li>item2</li></ul></td></tr></table>"},
-            {title: "Fish List Block", description: "Список, маркированный рыбками, построчно", content: "<table><tr><td><ul class=\"fish-list block\"><li>item1</li><li>item2</li></ul></td></tr></table>"},
+            {title: "Fish List", description: "Список, маркированный рыбками, в одну строку", content: "<table class=\"fish-list bg-blue\"><tr><td><ul><li>item1</li><li>item2</li></ul><span class=\"clearfix\"></span></td></tr></table>"},
+            {title: "Fish List Fixed", description: "Список, маркированный рыбками, в одну строку, с залипанием при прокрутке", content: "<table class=\"fish-list fish-list-menu bg-blue\"><tr><td><ul><li>item1</li><li>item2</li></ul><span class=\"clearfix\"></span></td></tr></table>"},
+            {title: "Fish List Block", description: "Список, маркированный рыбками, построчно", content: "<table class=\"fish-list block\"><tr><td><ul><li>item1</li><li>item2</li></ul></td></tr></table>"},
         ],
 
         plugins: [
