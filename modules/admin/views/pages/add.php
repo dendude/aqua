@@ -215,7 +215,12 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
             <?= $form->field($model, 'meta_t')->textarea(['rows' => 2, 'onkeyup' => 'charsCalculate(this)', 'maxlength' => true]) ?>
             <?= $form->field($model, 'meta_d')->textarea(['rows' => 2, 'onkeyup' => 'charsCalculate(this)', 'maxlength' => true]) ?>
             <?= $form->field($model, 'meta_k')->textarea(['rows' => 2, 'onkeyup' => 'charsCalculate(this)', 'maxlength' => true]) ?>
-
+            <div class="separator"></div>
+            <div class="form-group">
+                <div class="col-xs-offset-4 col-xs-2">
+                    <?= Html::submitButton('Сохранить', ['class' => 'btn btn-primary']) ?>
+                </div>
+            </div>
             <div id="pages_content" <?= $model->is_auto ? 'class="hidden"' : '' ?>>
                 <div class="separator"></div>
                 <?= $form->field($model, 'content', ['template' => '<div class="col-xs-12 text-left">{label}</div><br/><br/><div class="col-xs-12">{input}{error}</div>'])->textarea() ?>
