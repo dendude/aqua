@@ -18,6 +18,11 @@ a {
 a:hover {
   text-decoration: none;
 }
+img.top-banner {
+  display: block;
+  margin: 0 auto;
+  max-width: 1200px;
+}
 a.aqua-slider {
   display: inline-block;
   margin: 0 auto;

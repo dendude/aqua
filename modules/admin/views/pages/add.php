@@ -4,6 +4,7 @@ use yii\widgets\ActiveForm;
 use app\modules\admin\controllers\PagesController;
 use app\models\Menu;
 use yii\tinymce\TinyMceAsset;
+use \app\models\Pages;
 
 TinyMceAsset::register($this);
 
@@ -63,6 +64,53 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
                     <small class="text-muted">Подключенное меню стилизуется согласно дизайна</small>
                 </div>
             </div>
+            <div class="separator"></div>
+
+            <div class="form-group">
+                <label class="control-label col-xs-4">
+                    <?= $model->getAttributeLabel('banner_name') ?>
+                </label>
+                <div class="col-xs-8">
+                    <div class="banner-cont">
+                        <table>
+                            <tr>
+                                <td style="padding: 0 3px">
+                                    <p class="form-control-static">
+                                        <label for="banner_off">
+                                            <? $checked = empty($model->banner_name) ? 'checked="checked"' : ''; ?>
+                                            <input id="banner_off" name="<?= Html::getInputName($model, 'banner_name') ?>" <?= $checked ?> value="" type="radio"/>
+                                        </label>
+                                    </p>
+                                </td>
+                                <td style="padding: 0 3px">
+                                    <p class="form-control-static">
+                                        <label for="banner_off" class="cur-p">Не использовать баннер (будет шапка как на главной)</label>
+                                    </p>
+                                </td>
+                            </tr>
+                            <? foreach (scandir(Yii::getAlias('@app') . '/web/' . trim(Pages::TOP_BANNERS_PATH, '/')) AS $fk => $file_name): ?>
+                            <? if (preg_match('/^(\.|\.\.|.+_low\.jpg)$/i', $file_name)) continue; ?>
+                            <tr title="Выбрать баннер">
+                                <td style="padding: 3px">
+                                    <label for="banner_<?= $fk ?>">
+                                        <? $checked = $model->banner_name == $file_name ? 'checked="checked"' : ''; ?>
+                                        <input id="banner_<?= $fk ?>" name="<?= Html::getInputName($model, 'banner_name') ?>" <?= $checked ?> value="<?= $file_name ?>" type="radio"/>
+                                    </label>
+                                </td>
+                                <td style="padding: 3px">
+                                    <label for="banner_<?= $fk ?>" class="cur-p">
+                                        <img width="100%" src="<?= Pages::TOP_BANNERS_PATH . $file_name ?>" alt=""/>
+                                    </label>
+                                </td>
+                            </tr>
+                            <? endforeach; ?>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="separator"></div>
+
             <div class="separator"></div>
             <?= $form->field($model, 'is_shared')->checkbox(['label' => 'Показывать кнопки "Поделиться"']) ?>
             <?= $form->field($model, 'is_sitemap')->checkbox(['label' => 'Добавить страницу в карту сайта']) ?>

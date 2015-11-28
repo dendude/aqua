@@ -342,6 +342,7 @@ class SiteController extends Controller
             }
 
             if ($render_page) {
+
                 return $this->render($render_page, [
                     'model' => $page
                 ]);

@@ -10,6 +10,9 @@ a {
 .strong {
   font-weight: bold;
 }
+.cur-p {
+  cursor: pointer;
+}
 table.table th {
   font-weight: bold;
   text-align: center;

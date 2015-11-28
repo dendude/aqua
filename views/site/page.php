@@ -10,6 +10,7 @@ $this->params['meta_t'] = $model->meta_t;
 $this->params['meta_d'] = $model->meta_d;
 $this->params['meta_k'] = $model->meta_k;
 $this->params['breadcrumbs'] = $model->getBreadcrumbs();
+$this->params['banner_name'] = $model->banner_name;
 
 $content = $model->getFixLinksContent();
 preg_match('/{menu_(\d+)}/', $content, $matches);

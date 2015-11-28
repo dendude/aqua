@@ -114,6 +114,10 @@ $footer_menu = Menu::find()->active()->footer()->all();
             </ul>
         </nav>
 
+        <? if (!empty($this->params['banner_name'])): ?>
+            <?= Html::img(Pages::TOP_BANNERS_PATH . $this->params['banner_name'], ['class' => 'top-banner']) ?>
+        <? endif; ?>
+
         <div class="main-container">
             <?= Breadcrumbs::widget([
                 'homeLink' => ['url' => Yii::$app->homeUrl, 'label' => Yii::$app->vars->val(100)],

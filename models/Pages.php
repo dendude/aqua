@@ -38,6 +38,7 @@ class Pages extends \yii\db\ActiveRecord
 {
     const SEARCH_ID = 191;
     const SITE_URL = 'http://akvarium-moskva.ru';
+    const TOP_BANNERS_PATH = '/img/top-banners/';
 
     public $aliases = [];
 
@@ -71,7 +72,7 @@ class Pages extends \yii\db\ActiveRecord
 
             [['content'], 'string'],
 
-            [['alias', 'title', 'crumb'], 'string', 'max' => 200],
+            [['alias', 'title', 'crumb', 'banner_name'], 'string', 'max' => 200],
             [['meta_t', 'meta_k', 'meta_d'], 'string', 'max' => 250],
 
             [['vcrumbs', 'breadcrumbs'], 'safe'],
@@ -265,6 +266,7 @@ class Pages extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'menu_id' => 'Подключенное меню',
+            'banner_name' => 'Баннер в шапке страницы',
             'id_author' => 'Менеджер',
             'title' => 'Заголовок (Н1)',
             'alias' => 'Alias (URL)',
