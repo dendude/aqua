@@ -452,7 +452,7 @@ p big {
   display: table-cell;
   height: inherit;
   line-height: inherit;
-  min-width: 15%;
+  min-width: 140px;
   position: relative;
 }
 .navbar-main > ul > li > a {
