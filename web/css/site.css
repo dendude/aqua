@@ -1335,7 +1335,8 @@ li {
   padding-bottom: 10px;
 }
 img.image-shadow {
-  box-shadow: 4px 4px 4px 2px #CACACA;
+  box-shadow: 0 0 2px 1px #fff,
+                4px 4px 3px 2px #bebebe;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -html-border-radius: 5px;
