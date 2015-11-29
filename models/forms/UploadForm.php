@@ -48,8 +48,9 @@ class UploadForm extends Model
                 $this->imageFile->saveAs($result_path . 'original');
 
                 $this->resize($result_path . 'original', $result_path, 1200, 800);
+                sleep(1);
                 $this->resize($result_path . 'original', $path_img_mini, 400, 300);
-                
+
                 // удаляем
                 unlink($result_path . 'original');
 
