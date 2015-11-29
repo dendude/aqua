@@ -45,10 +45,14 @@ class UploadForm extends Model
                 $path_img_mini = str_replace('.' . $ext, '_min.' . $ext, $result_path);
 
                 // миниатюры для галереи
-                $this->imageFile->saveAs($result_path);
+                $this->imageFile->saveAs($result_path . 'original');
 
-                $this->resize($result_path, $result_path, 1200, 800);
-                $this->resize($result_path, $path_img_mini, 400, 300);
+                $this->resize($result_path . 'original', $result_path, 1200, 800);
+                $this->resize($result_path . 'original', $path_img_mini, 400, 300);
+                
+                // удаляем
+                unlink($result_path . 'original');
+
             } else {
                 $this->imageFile->saveAs($result_path);
             }
