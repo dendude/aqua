@@ -126,12 +126,21 @@ class Pages extends \yii\db\ActiveRecord
             // преобразование ссылок в контенте, вдруг сохранены неправильно
             $dom = new simple_html_dom();
             $dom->load($this->content);
+
             foreach ($dom->find('a') AS $a) {
 
                 // документы пропускаем
                 if (preg_match('/(\.xlsx?|\.docx?|\.pdf|\.xml)$/', $a->href)) continue;
-                // пропускаем пустые, якоря, отправку писем
-                if (empty($a->href) || strpos($a->href, '#') === 0 || strpos($a->href, 'mailto:') === 0) continue;
+
+                // пропускаем пустые, отправку писем
+                if (empty($a->href) || strpos($a->href, '#') === 0 || strpos($a->href, 'mailto:') === 0) {
+                    continue;
+                }
+
+                if (preg_match('/\.(jpe?g|gif|png)$/i', $a->href)) {
+                    $a->class .= ' aqua-slider';
+                    continue;
+                }
 
                 // удаляем полную ссылку
                 $a->href = str_replace(self::SITE_URL, '', $a->href);
