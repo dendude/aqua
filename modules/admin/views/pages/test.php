@@ -1,270 +1,559 @@
-<p><img class="pull-left" src="/madeaqua/lowfoto/stikkerournon.gif" alt="Нестандартные аквариумы - оригинальные конструкции по индивидуальным заказам." width="80" height="88" align="left" border="0" vspace="8" /> <strong>Нестандартные аквариумы</strong> - это аквариумы, в которых реализуются самые смелые решения (в рамках разумного). Каждый отдельный заказ - это произведение: оригинальных дизайнерских новаций, инженерных решений и мастерства непосредственных изготовителей. Все это у нас есть и требует воплощения своего потенциала. В силу того, что нестандартные аквариумы проектируются под конкретные условия размещения и обстановку, разработка часто происходит совместно с заказчиками и дизайнерами помещений. О том, что получается в результате, судить Вам, но наши клиенты остаются довольны. К группе нестандартных, можно было бы отнести и <a href="/madeaqua/index.php" target="_blank"><u>встроенные аквариумы</u></a>, но Вы лучше загляните на соответствующую страничку фотогалереи.</p>
-<p>На нестандартные аквариумы, как и на все изделия, фирма дает гарантию - 1 год. При заключении договора на абонентское обслуживание, гарантия от протечки продлевается до 5-ти лет. Сроки исполнения заказа на нестандартные аквариумы - от 30 рабочих дней. Вы можете посмотреть наши готовые изделия в офисе или рекламных торговых местах (см. "<a href="/adress.php" target="_blank"><u>Как нас найти</u></a>"), там же можно сделать заказ. Загляните в галерею сайта "<a href="/interior.php" target="_blank"><u>Аквариумы в интерьере</u></a>". Наши менеджеры с удовольствием ответят на все Ваши вопросы по телефонам: <strong> тел. +7(985)921-5206, тел-факс +7(495)755-7874.</strong></p>
-<table class="table-blue valign-top table-padding5" width="100%">
+<p><img class="pull-left" src="/madeaqua/lowfoto/stikkerarc.gif" alt="" width="70" height="50" align="left" border="0" vspace="8" /> <strong>Дуговые аквариумы</strong> - прямоугольной формы с выгнутым передним стеклом - один из самых популярных видов на сегодняшний день. Оптическое искажение (эффект лупы), фактически отсутствует - изгиб стекла не так уж велик, зато нетрадиционная непрямолинейная форма, воспринимается лучше - аквариум выглядит более декоративно.</p>
+<p>Дуговые аквариумы сложнее в изготовлении нежели прямоугольные, поэтому стоимость у них, как правило выше. По надежности они ничем не уступают классическому - прямоугольному варианту. Долговечность и практичность скорее зависят от других факторов: применяемых технологий, толщины и качества используемого стекла, надежности швов.</p>
+<p>Компания "Альфаро" предлагает импортные дуговые аквариумы (JUWEL - немецкая торговая марка, JEBO - Гонконг). Для изготовления аквариума, соответствующего Вашему интерьеру рекомендуем воспользоваться услугами нашего <a href="/factory.php" target="_blank"><u>производства</u></a>. Вы сможете свободно определять размеры изделия, отделку тумбы и крышки, соответствующим Вашей мебели и вкусу. На сайте представлены импортные и фирменные, разработанные модели в разделе <a href="/price.php" target="_blank">"<u>Цены на аквариумы</u>"</a>.</p>
+<p>Дуговые стекла <!--(см. таблицу <A href="/madeaqua/dugaglass.php" title="Таблица параметров силикатных гнутых стекол, используемых при изготовлении аквариумов." target="_blank"> &quot;<u>Силикатные гнутые стекла</u>&quot; </A>) --> часто используются в нестандартных, в том числе крупномерных изделиях на тонну и более, подобные варианты представлены на страничке<a href="/madeaqua/ournonstock.php" target="_blank"> "<u>Нестандартные аквариумы</u>"</a>.</p>
+<p>Гарантия на дуговые аквариумы - 1 год. При заключении договора на абонентское обслуживание, <strong>гарантия от протечки продлевается до 5-ти лет.</strong> Срок исполнения заказа на дуговой аквариум с тумбой и крышкой - 30 рабочих дней. Вы можете посмотреть наши готовые изделия в офисе или рекламных торговых местах (см. "<a href="/adress.php" target="_blank"><u>Как нас найти</u></a>"), там же можно сделать заказ. Загляните в галерею сайта "<a href="/interior.php" target="_blank"><u>Аквариумы в интерьере</u></a>". Наши менеджеры с удовольствием ответят на все Ваши вопросы по телефонам: <strong> тел. +7(985)921-5206, тел-факс +7(495)755-7874.</strong></p>
+<table class="table-blue valign-top table-padding5" width="100%" cellspacing="0" cellpadding="0">
     <tbody>
     <tr>
-        <td style="width: 200px; text-align: center;" rowspan="2" width="200">
-            <p><img src="/madeaqua/lowfoto/nonstock01.jpg" alt="Аквариум - барная стойка." width="150" height="100" hspace="12" vspace="7" /></p>
-            <p>Другие фото: 
-                <a href="/madeaqua/lowfoto/nonstock01ex2.jpg">&lt;1&gt;</a>, 
-                <a href="/madeaqua/lowfoto/nonstock01ex3.jpg">&lt;2&gt;</a>, 
-                <a href="/madeaqua/lowfoto/nonstock01ex4.jpg">&lt;3&gt;</a>.
-            </p>
+        <td width="50%">
+            <table width="100%" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr>
+                    <td style="width: 200px; text-align: center;" rowspan="3" width="200">&nbsp;<img src="/madeaqua/lowfoto/ark13.jpg" alt="Лагуна 260" width="97" height="130" hspace="13" vspace="10" /></td>
+                    <td>
+                        <h4>№1 <img src="/images/labelza7.gif" alt="" width="20" height="11" /> Дуговой аквариум - "Лагуна 260"</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Объем <strong>260</strong>л. Силикатное стекло. Отделка - мебельный ламинат. Псевдоморское оформление. Находится на обслуживании компании.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%">
+                            <tbody>
+                            <tr>
+                                <td align="left">
+                                    <p><a href="/price/alfarc.php#laguna260" target="_blank"><img src="/images/labelza9.gif" alt="" border="0" /> <u>Размеры и цены</u></a><u></u></p>
+                                    <p><img src="/images/color114.gif" alt="" width="5" height="5" align="absmiddle" /> Тумба со стеклянными матовыми дуговыми дверками.</p>
+                                </td>
+                                <td align="right">&nbsp;</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </td>
-        <td>
-            <h3>№1 <a name="nonstock01"></a><img src="/images/labelza7.gif" alt="" width="20" height="11" /> Аквариум - барная стойка</h3>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p>Объем 300л. Силикатное стекло. Стойка: массив дерева, шпонированная МДФ. Морское оформление. Находится на обслуживании компании.</p>
-            <p><img src="/images/color114.gif" alt="" width="5" height="5" align="absmiddle" /> Барная стойка отделяет пространство кухни от столовой. Массивные ножки позволяют нагружать столешницу без вреда для аквариума, который выполнен с использованием толстых дуговых стекол. Декорации морского оформления не перекрывают обзор, сохраняя прозрачность. Доступ к обслуживанию аквариума открывается через съемную столешницу. Система фильтрации, расположена у стены и скрыта за деревянной панелью. Во избежание оседания влаги и порчи дерева, внутри подобных конструкций, над аквариумом устанавливают герметичный пластиковый колпак либо покрывают внутреннюю поверхность дорогостоящим влагостойким лаком.</p>
+        <td width="50%">
+            <table width="100%" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr>
+                    <td style="width: 200px; text-align: center;" rowspan="3" width="200">&nbsp;<img src="/madeaqua/lowfoto/ark14.jpg" alt="Небольшой дуговой-угловой аквариум - Кариба" width="115" height="130" hspace="13" vspace="10" /></td>
+                    <td>
+                        <h4>№2 <img src="/images/labelza7.gif" alt="" width="20" height="11" /> "Кариба"</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Объем <strong>100</strong>л. Силикатное стекло. Отделка - массив дерева. Псевдоморское оформление. Находится на обслуживании компании.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%">
+                            <tbody>
+                            <tr>
+                                <td align="left">
+                                    <p><a href="/price/alfarcrec.php" target="_blank"><img src="/images/labelza9.gif" alt="" border="0" /> <u>Размеры и цены</u></a></p>
+                                    <p><img src="/images/color114.gif" alt="" width="5" height="5" align="absmiddle" /> Небольшой угловой-дуговой аквариум - "Кариба". Отделка выполнена из массива в стиле и цвете оформления помещения.</p>
+                                </td>
+                                <td align="right">&nbsp;</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </td>
     </tr>
     </tbody>
 </table>
 <p>&nbsp;</p>
-<table class="table-blue valign-top table-padding5" width="100%">
+<table class="table-blue valign-top table-padding5" width="100%" cellspacing="0" cellpadding="0">
     <tbody>
     <tr>
-        <td style="width: 200px; text-align: center;" rowspan="2" width="200">&nbsp;<img src="/madeaqua/lowfoto/nonstock09.jpg" alt="Аквариум -встроенный в стойку ресепшн." width="150" height="110" hspace="12" vspace="7" /></td>
-        <td>
-            <h3>№2 <img src="/images/labelza7.gif" alt="" width="20" height="11" /> Аквариум - стойка ресепшн</h3>
+        <td width="50%">
+            <table width="100%" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr>
+                    <td style="width: 200px; text-align: center;" rowspan="3" width="200">
+                        <p><img src="/madeaqua/lowfoto/ark01.jpg" alt="Дуговой аквариум - &quot;Лагуна 260&quot;." width="98" height="130" hspace="13" vspace="10" /></p>
+                        <p>
+                            Другие фото:
+                            <a href="/madeaqua/lowfoto/ark01ex2.jpg" title="Дуговой аквариум - &quot;Лагуна 260&quot;, 1">&lt;1&gt;</a>,
+                            <a href="/madeaqua/lowfoto/ark01ex3.jpg" title="Дуговой аквариум - &quot;Лагуна 260&quot;, 2">&lt;2&gt;</a>.
+                        </p>
+                    </td>
+                    <td>
+                        <h4>№3 <img src="/images/labelza7.gif" alt="" width="20" height="11" /> Дуговой аквариум - "Лагуна 260"</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Объем <strong>260</strong>л. Силикатное стекло. Отделка - мебельный ламинат. Морское оформление. Находится на обслуживании компании.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%">
+                            <tbody>
+                            <tr>
+                                <td align="left">
+                                    <p><a href="/price/alfarc.php#laguna260" target="_blank"><img src="/images/labelza9.gif" alt="" border="0" /> <u>Размеры и цены</u></a><u></u></p>
+                                    <p><img src="/images/color114.gif" alt="" width="5" height="5" align="absmiddle" /> В оформлении аквариума, фон из полимера - стадонта.</p>
+                                </td>
+                                <td align="right">&nbsp;</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </td>
-    </tr>
-    <tr>
-        <td>
-            <p>Объем 1400л. Силикатное стекло. Стойка: шпонированная МДФ. Морское оформление. Находится на обслуживании компании.</p>
-            <p><img src="/images/color114.gif" alt="" width="5" height="5" align="absmiddle" /> Аквариумы длиною 3 и более метров можно изготовить из силикатного стекла. Для очень длинных аквариумов (более 6м), фронтальные стекла склеиваются между собой. В больших аквариумах можно устроить морское или рифовое оформление, в небольших емкостях из-за риска отравления рыб нитритами, морские аквариумы не делают.</p>
+        <td width="50%">
+            <table width="100%" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr>
+                    <td style="width: 200px; text-align: center;" rowspan="3" width="200">
+                        <p><img src="/madeaqua/lowfoto/ark15.jpg" alt="&quot;Лагуна 260&quot; с комбинированной отделкой" width="110" height="130" hspace="13" vspace="10" /></p>
+                        <p>Другие фото: <a href="/madeaqua/lowfoto/ark15ex2.jpg" title="&quot;Лагуна 260&quot; с комбинированной отделкой, 1">&lt;1&gt;</a></p>
+                    </td>
+                    <td>
+                        <h4>№4 <img src="/images/labelza7.gif" alt="" width="20" height="11" /> "Лагуна 260"</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Объем <strong>260</strong>л. Силикатное стекло. Комбинированная отделка. Псевдоморское оформление. Находится на обслуживании компании.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%">
+                            <tbody>
+                            <tr>
+                                <td align="left">
+                                    <p><a href="/price/alfarc.php#laguna170" target="_blank"><img src="/images/labelza9.gif" alt="" border="0" /> <u>Размеры и цены</u></a></p>
+                                    <p><img src="/images/color114.gif" alt="" width="5" height="5" align="absmiddle" /> "Лагуна" - дуговой аквариум в классическом стиле с комбинированной отделкой (МДФ+массив).</p>
+                                </td>
+                                <td align="right">&nbsp;</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </td>
     </tr>
     </tbody>
 </table>
 <p>&nbsp;</p>
-<table class="table-blue valign-top table-padding5" width="100%">
+<table class="table-blue valign-top table-padding5" width="100%" cellspacing="0" cellpadding="0">
     <tbody>
     <tr>
-        <td style="width: 200px; text-align: center;" rowspan="2" width="200">&nbsp;<img src="/madeaqua/lowfoto/nonstock11.jpg" alt="" width="150" height="110" hspace="18" vspace="7" /></td>
-        <td>
-            <h3>№3 <img src="/images/labelza7.gif" alt="" width="20" height="11" /> Нестандартный аквариум со стеклянными полками</h3>
+        <td width="50%">
+            <table width="100%" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr>
+                    <td style="width: 200px; text-align: center;" rowspan="3" width="200">
+                        <p><img src="/madeaqua/lowfoto/ark04.jpg" alt="&quot;Лагуна 170&quot;" width="89" height="130" hspace="13" vspace="10" /></p>
+                        <p>
+                            Другие фото:
+                            <a href="/madeaqua/lowfoto/ark04ex2.jpg" title="&quot;Лагуна 170&quot;, 1">&lt;1&gt;</a>,
+                            <a href="/madeaqua/lowfoto/ark04ex3.jpg" title="&quot;Лагуна 170&quot;, 2">&lt;2&gt;</a>.
+                        </p>
+                    </td>
+                    <td>
+                        <h4>№5 <img src="/images/labelza7.gif" alt="" width="20" height="11" /> "Лагуна 170"</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Объем <strong>170</strong>л. Силикатное стекло. Отделка - мебельный ламинат. Оформление смешанного типа. Находится на обслуживании компании.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%">
+                            <tbody>
+                            <tr>
+                                <td align="left">
+                                    <p><a href="/price/alfarc.php#laguna170" target="_blank"><img src="/images/labelza9.gif" alt="" border="0" /> <u>Размеры и цены</u></a></p>
+                                    <p><img src="/images/color114.gif" alt="" width="5" height="5" align="absmiddle" /> Открытые полки и стеклянные дверки устанавливаются по желанию заказчика.</p>
+                                </td>
+                                <td align="right">&nbsp;</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </td>
-    </tr>
-    <tr>
-        <td>
-            <p>Объем 300л. Силикатное стекло. Отделка: декоративный мебельный пластик - серебристый металлик. Оформление - "Псевдоморе"</p>
-            <p><img src="/images/color114.gif" alt="" width="5" height="5" align="absmiddle" /> В данном случае, прозрачные полки, с дуговыми боковыми стеклами, визуально увеличивают объем аквриума - как бы являсь его продолжением. Верхние и нижние боковые-дуговые стекла открываются, как дверки. Мощный внешний фильтр скрыт в одной из тумб под аквариумом. Во второй тумбе может храниться оборудование, предметы ухода за аквариумом, сухие корма.</p>
+        <td width="50%">
+            <table width="100%" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr>
+                    <td style="width: 200px; text-align: center;" rowspan="3" width="200">
+                        <p><img src="/madeaqua/lowfoto/ark02.jpg" alt="&quot;Лагуна 260&quot; - золотистый металлик." width="109" height="130" hspace="13" vspace="10" /></p>
+                        <p>
+                            Другие фото:
+                            <a href="/madeaqua/lowfoto/ark02ex2.jpg" title="&quot;Лагуна 260&quot; - золотистый металлик, 1">&lt;1&gt;</a>,
+                            <a href="/madeaqua/lowfoto/ark02ex3.jpg" title="&quot;Лагуна 260&quot; - золотистый металлик, 2">&lt;2&gt;</a>.
+                        </p>
+                    </td>
+                    <td>
+                        <h4>№6 <img src="/images/labelza7.gif" alt="" width="20" height="11" /> "Лагуна 260"</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Объем <strong>260</strong>л. Силикатное стекло. Мебельный ламинат - "золотистый металлик". Морское оформление.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%">
+                            <tbody>
+                            <tr>
+                                <td align="left"><a href="/price/alfarc.php#laguna260" target="_blank"><img src="/images/labelza9.gif" alt="" border="0" />&nbsp;<u>Размеры и цены</u></a></td>
+                                <td align="right">&nbsp;</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </td>
     </tr>
     </tbody>
 </table>
 <p>&nbsp;</p>
-<table class="table-blue valign-top table-padding5" width="100%">
+<table class="table-blue valign-top table-padding5" width="100%" cellspacing="0" cellpadding="0">
     <tbody>
     <tr>
-        <td style="width: 200px; text-align: center;" rowspan="2" width="200">
-            <p><img src="/madeaqua/lowfoto/nonstock02.jpg" alt="Нестандартный аквариум, 800л, с дуговыми стеклами." width="123" height="108" hspace="18" vspace="7" /></p>
-            <p>Другие фото: <a href="#">&lt;1&gt;</a>, <a href="#">&lt;2&gt;</a>, <a href="#">&lt;3&gt;</a>.</p>
+        <td width="50%">
+            <table width="100%" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr>
+                    <td style="width: 200px; text-align: center;" rowspan="3" width="200">
+                        <p><img src="/madeaqua/lowfoto/ark05.jpg" alt="&quot;Лагуна&quot; нестандартная." width="90" height="130" hspace="13" vspace="10" /></p>
+                        <p>
+                            Другие фото:
+                            <a href="/madeaqua/lowfoto/ark05ex2.jpg" title="&quot;Лагуна&quot; нестандартная, 1">&lt;1&gt;</a>,
+                            <a href="/madeaqua/lowfoto/ark05ex3.jpg" title="&quot;Лагуна&quot; нестандартная, 2">&lt;2&gt;</a>.
+                        </p>
+                    </td>
+                    <td>
+                        <h4>№7 <a name="ark05"></a><img src="/images/labelza7.gif" alt="" width="20" height="11" /> "Лагуна" нестандартная.</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Объем <strong>300</strong>л. Силикатное стекло. Крышка - серебристый металлик, тумба - мебельный ламинат. Псевдоморское оформление. Находится на обслуживании компании.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%">
+                            <tbody>
+                            <tr>
+                                <td align="left"><a style="font-size: 14px; color: #23527c; outline-width: 0px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;" href="/price/alfarc.php" target="_blank"><img src="/images/labelza9.gif" alt="" border="0" />&nbsp;<u>Размеры и цены</u></a></td>
+                                <td align="right">&nbsp;</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </td>
-        <td>
-            <h3>№4 <a name="nonstock02"></a><img src="/images/labelza7.gif" alt="" width="20" height="11" /> Нестандартный, многолитражный аквариум с дуговыми стеклами</h3>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p>Объем 800л. Установлен в г. <strong>Орел</strong>. Силикатное стекло. Отделка: декоративный мебельный пластик - серебристый металлик. Морское оформление со стадонтовыми декорациями.</p>
-            <p><img src="/images/color114.gif" alt="" width="5" height="5" align="absmiddle" /> Аквариум расположен в стеновом проеме, разделяющим кабинет руководителя и комнату для переговоров. Открыт для обзора из обоих помещений, фронтальные стекла - дуговые. Аквариум высокий, емкий, давление воды большое, поэтому использованы очень толстые и прочные стекла. Конструкция тяжелая. В подобных случаях, подставка делается из металлического каркаса, обшитого декоративным материалом. Сверху (по высоте крышки) оставлено достаточно места для обслуживания глубокого аквариума. Основу морского оформления, составляет легкая, двухсторонняя искусственная скала из стадонта - материала, позволяющего создавать точные копии различных фактур: камней, кораллов и пр. Система жизнеобеспечения, фильтрации и регенерации воды, размещена в тумбе.</p>
+        <td width="50%">
+            <table width="100%" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr>
+                    <td style="width: 200px; text-align: center;" rowspan="3" width="200">
+                        <p><img src="/madeaqua/lowfoto/ark06.jpg" alt="&quot;Лагуна 170&quot; - черный глянец." width="90" height="130" hspace="13" vspace="10" /></p>
+                        <p>
+                            Другие фото:
+                            <a href="/madeaqua/lowfoto/ark06ex2.jpg" title="&quot;Лагуна 170&quot; - черный глянец, 1">&lt;1&gt;</a>,
+                            <a href="/madeaqua/lowfoto/ark06ex3.jpg" title="&quot;Лагуна 170&quot; - черный глянец, 2">&lt;2&gt;</a>.
+                        </p>
+                    </td>
+                    <td>
+                        <h4>№8 <img src="/images/labelza7.gif" alt="" width="20" height="11" /> "Лагуна 170"</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Объем <strong>170</strong>л. Силикатное стекло. Отделка - "черный глянец". Псевдоморское оформление.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%">
+                            <tbody>
+                            <tr>
+                                <td align="left"><a href="/price/alfarc.php#laguna170" target="_blank"><img src="/images/labelza9.gif" alt="" border="0" />&nbsp;<u>Размеры и цены</u></a></td>
+                                <td align="right">&nbsp;</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </td>
     </tr>
     </tbody>
 </table>
 <p>&nbsp;</p>
-<table class="table-blue valign-top table-padding5" width="100%">
+<table class="table-blue valign-top table-padding5" width="100%" cellspacing="0" cellpadding="0">
     <tbody>
     <tr>
-        <td style="width: 200px; text-align: center;" rowspan="2" width="200">
-            <p><img src="/madeaqua/lowfoto/nonstock13.jpg" alt="Галерея из однотипных аквариумов" width="150" height="110" hspace="12" vspace="7" /></p>
-            <p>Другие фото: <a href="#">&lt;1&gt;</a>, <a href="#">&lt;2&gt;</a>, <a href="#">&lt;3&gt;</a>.</p>
+        <td width="50%">
+            <table width="100%" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr>
+                    <td style="width: 200px; text-align: center;" rowspan="3" width="200">
+                        <p><img src="/madeaqua/lowfoto/ark11.jpg" alt="&quot;Лагуна 450&quot;" width="118" height="130" hspace="13" vspace="10" /></p>
+                        <p>
+                            Другие фото:
+                            <a href="/madeaqua/lowfoto/ark11ex2.jpg" title="&quot;Лагуна 450&quot;, 1">&lt;1&gt;</a>,
+                            <a href="/madeaqua/lowfoto/ark11ex3.jpg" title="&quot;Лагуна 450&quot;, 2">&lt;2&gt;</a>.
+                        </p>
+                    </td>
+                    <td>
+                        <h4>№9 <a name="ark11"></a><img src="/images/labelza7.gif" alt="" width="20" height="11" /> "Лагуна 600"</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Объем <strong>600</strong>л. Силикатное стекло. Отделка - мебельный ламинат - серебристый металлик. Псевдоморское оформление. Находится на обслуживании компании.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%">
+                            <tbody>
+                            <tr>
+                                <td align="left"><a href="/price/alfarc.php#laguna600" target="_blank"><img src="/images/labelza9.gif" alt="" border="0" />&nbsp;<u>Размеры и цены</u></a></td>
+                                <td align="right">&nbsp;</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </td>
-        <td>
-            <h3>№5 <img src="/images/labelza7.gif" alt="" width="20" height="11" /> Галерея аквариумов</h3>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p>Объем аквариумов по 400л. Силикатное стекло. Отделка: искусственный камень, массив дерева, МДФ. Псевдоморское оформление. Находится на обслуживании компании.</p>
-            <p><img src="/images/color114.gif" alt="" width="5" height="5" align="absmiddle" /> Галерея из нескольких ваквариумов, оформленных в едином стиле. Эффект одного большого водоема создается за счет искусно расположенных по бокам внутри каждого аквариума декораций из стадонта, имитирующих камень. Возможно изготовление больших аквариумов длиной до 3-х метров. Разделение на несколько аквариумов позволяет создать более крепкую, надежную конструкцию, неограниченную по длине и ширине. Кроме того в каждой отдельной "части" можно расселить рыб, порой несовместимых для проживания вместе. Галерея делит зал на две части и просматривается с двух сторон. С одной стороны помещение декорировано искусственным камнем, с другой - это классический стиль массива дерева с МДФ.</p>
+        <td width="50%">
+            <table width="100%" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr>
+                    <td style="width: 200px; text-align: center;" rowspan="3" width="200">
+                        <p><img src="/madeaqua/lowfoto/ark12.jpg" alt="Настольный дуговой аквариум - 60л." width="117" height="130" hspace="13" vspace="10" /></p>
+                        <p>Другие фото: <a href="/madeaqua/lowfoto/ark12ex2.jpg" title="Настольный дуговой аквариум - 60л, 1">&lt;1&gt;</a>.</p>
+                    </td>
+                    <td>
+                        <h4>№10 <img src="/images/labelza7.gif" alt="" width="20" height="11" /> Настольный дуговой аквариум</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Объем <strong>60</strong>л. Силикатное стекло. Мебельный ламинат.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%">
+                            <tbody>
+                            <tr>
+                                <td align="left"><a href="/price/alfarc.php" target="_blank"><img src="/images/labelza9.gif" alt="" border="0" />&nbsp;<u>Размеры и цены</u></a></td>
+                                <td align="right">&nbsp;</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </td>
     </tr>
     </tbody>
 </table>
 <p>&nbsp;</p>
-<table class="table-blue valign-top table-padding5" width="100%">
+<table class="table-blue valign-top table-padding5" width="100%" cellspacing="0" cellpadding="0">
     <tbody>
     <tr>
-        <td style="width: 200px; text-align: center;" rowspan="2" width="200">
-            <p><img src="/madeaqua/lowfoto/nonstock03.jpg" alt="Нестандартный аквариум цилиндрической формы." width="108" height="108" hspace="30" vspace="7" /></p>
-            <p>Другие фото:<a href="#"> &lt;1&gt;</a>.</p>
+        <td width="50%">
+            <table width="100%" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr>
+                    <td style="width: 200px; text-align: center;" rowspan="3" width="200">
+                        <p><img src="/madeaqua/lowfoto/ark07.jpg" alt="Угловой-дуговой аквариум - &quot;Кариба 220&quot;" width="107" height="130" hspace="13" vspace="10" /></p>
+                        <p>
+                            Другие фото:
+                            <a href="/madeaqua/lowfoto/ark07ex2.jpg" title="Угловой-дуговой аквариум - &quot;Кариба 220&quot;, 1">&lt;1&gt;</a>,
+                            <a href="/madeaqua/lowfoto/ark07ex3.jpg" title="Угловой-дуговой аквариум - &quot;Кариба 220&quot;, 2">&lt;2&gt;</a>.
+                        </p>
+                    </td>
+                    <td>
+                        <h4>№11 <a name="ark07"></a><img src="/images/labelza7.gif" alt="" width="20" height="11" /> Угловой-дуговой аквариум - "Кариба 220"</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Объем <strong>220</strong>л. Силикатное стекло. Отделка - черный ламинат, крышка - полистирол. Оформление смешанного типа. Находится на обслуживании компании.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%">
+                            <tbody>
+                            <tr>
+                                <td align="left"><a href="/price/alfarc.php" target="_blank"><img src="/images/labelza9.gif" alt="" border="0" />&nbsp;<u>Размеры и цены</u></a></td>
+                                <td align="right">&nbsp;</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </td>
-        <td>
-            <h3>№6 <img src="/images/labelza7.gif" alt="" width="20" height="11" /> Нестандартный аквариум цилиндрической формы&nbsp;</h3>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p>Объем 500л. Силикатное стекло. Отделка: нержавеющая сталь. Оформление смешанного типа.</p>
-            <p><img src="/images/color114.gif" alt="" width="5" height="5" align="absmiddle" /> Аквариум завершает барную стойку в ресторане японской кухни. За счет сильно изогнутого стекла и скрытой задней стенки, создается впечатление монолитной конструкции - без швов и стыков, имеющей продолжение в стойке бара. Под съемной столешницей расположен светильник. Все оборудование находится внутри барной стойки и доступно для обслуживания. Отделка из нержавеющей стали соответствует общему дизайну и очень практична в условиях проходной зоны ресторана. Оформление выдержано в спокойных тонах, не отвлекающее посетителей от трапезы.</p>
+        <td width="50%">
+            <table width="100%" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr>
+                    <td style="width: 200px; text-align: center;" rowspan="3" width="200">
+                        <p><img src="/madeaqua/lowfoto/ark08.jpg" alt="Угловой аквариум - &quot;Кариба 150&quot;." width="106" height="130" hspace="13" vspace="10" /></p>
+                        <p>
+                            Другие фото:
+                            <a href="/madeaqua/lowfoto/ark08ex2.jpg" title="Угловой аквариум - &quot;Кариба 150&quot;, 1">&lt;1&gt;</a>,
+                            <a href="/madeaqua/lowfoto/ark08ex3.jpg" title="Угловой аквариум - &quot;Кариба 150&quot;, 2">&lt;2&gt;</a>.
+                        </p>
+                    </td>
+                    <td>
+                        <h4>№12 <a name="ark08"></a><img src="/images/labelza7.gif" alt="" width="20" height="11" /> "Кариба 150"</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Объем <strong>150</strong>л. Силикатное стекло. Мебельный ламинат. Псевдоморское оформление. Находится на обслуживании компании.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%">
+                            <tbody>
+                            <tr>
+                                <td align="left"><a href="/price/alfarc.php" target="_blank"><img src="/images/labelza9.gif" alt="" border="0" />&nbsp;<u>Размеры и цены</u></a></td>
+                                <td align="right">&nbsp;</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </td>
     </tr>
     </tbody>
 </table>
 <p>&nbsp;</p>
-<table class="table-blue valign-top table-padding5" width="100%">
+<table class="table-blue valign-top table-padding5" width="100%" cellspacing="0" cellpadding="0">
     <tbody>
     <tr>
-        <td style="width: 200px; text-align: center;" rowspan="2" width="200">
-            <p><img src="/madeaqua/lowfoto/nonstock04.jpg" alt="Акулятник." width="150" height="100" hspace="12" vspace="7" /></p>
-            <p>Другие фото: <a href="#">&lt;1&gt;</a>, <a href="#">&lt;2&gt;</a>, <a href="#">&lt;3&gt;</a>.</p>
+        <td width="50%">
+            <table width="100%" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr>
+                    <td style="width: 200px; text-align: center;" rowspan="3" width="200">
+                        <p><img src="/madeaqua/lowfoto/ark09.jpg" alt="&quot;Кариба 150&quot;" width="93" height="130" hspace="13" vspace="10" /></p>
+                        <p>
+                            Другие фото:
+                            <a href="/madeaqua/lowfoto/ark09ex2.jpg" title="&quot;Кариба 150&quot;, 1">&lt;1&gt;</a>,
+                            <a href="/madeaqua/lowfoto/ark09ex3.jpg" title="&quot;Кариба 150&quot;, 2">&lt;2&gt;</a>.
+                        </p>
+                    </td>
+                    <td>
+                        <h4>№13 <a name="ark09"></a><img src="/images/labelza7.gif" alt="" width="20" height="11" /> "Кариба 150"</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Объем <strong>150</strong>л. Силикатное стекло. Отделка - мебельный ламинат - серебристый металлик. Морское оформление. Находится на обслуживании компании.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%">
+                            <tbody>
+                            <tr>
+                                <td align="left"><a href="/price/alfarcrec.php#kariba150" target="_blank"><img src="/images/labelza9.gif" alt="" border="0" />&nbsp;<u>Размеры и цены</u></a></td>
+                                <td align="right">&nbsp;</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </td>
-        <td>
-            <h3>№7 <a name="nonstock04"></a><img src="/images/labelza7.gif" alt="" width="20" height="11" /> Восьмигранный акулятник</h3>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p>Объем 700л. Силикатное стекло. Отделка: массив дерева, шпонированная МДФ. Морское оформление с акулой. Находится на обслуживании компании.</p>
-            <p><img src="/images/color114.gif" alt="" width="5" height="5" align="absmiddle" /> При разработке этого аквариума, наши специалисты исходили из дизайнерских задумок хозяев коттеджа и необходимых условий содержания черноперой рифовой акулы. Объем и мощная система фильтрации, позволили дополнительно поселить в водоеме, некоторых <a href="#"><u>обитателей рифов</u></a>. Посередине аквариума расположена сливная колонка внешнего фильтра, скрытая за "каменной" декорацией из стадонта. Система очистки воды находится в тумбе и герметично соединена с аквариумом через отверстия в дне. Тумба так же, как и крышка изготовлена из массива и сконструирована с учетом значительного веса аквариума. Акулятник размещен в проходной зоне, поэтому он спроектирован и располагается относительно высоко над полом, в результате чего, под ним образовалось место для дополнительных полочек под приятные мелочи и детские игрушки.</p>
+        <td width="50%">
+            <table width="100%" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr>
+                    <td style="width: 200px; text-align: center;" rowspan="3" width="200">
+                        <p><img src="/madeaqua/lowfoto/ark10.jpg" alt="Угловой аквариум  с живыми растениями &quot;Кариба 400&quot;." width="106" height="130" hspace="13" vspace="10" /></p>
+                        <p>
+                            Другие фото:
+                            <a href="/madeaqua/lowfoto/ark10ex2.jpg" title="Угловой аквариум  с живыми растениями &quot;Кариба 400&quot;, 1">&lt;1&gt;</a>,
+                            <a href="/madeaqua/lowfoto/ark10ex3.jpg" title="Угловой аквариум  с живыми растениями &quot;Кариба 400&quot;, 2">&lt;2&gt;</a>.
+                        </p>
+                    </td>
+                    <td>
+                        <h4>№14 <img src="/images/labelza7.gif" alt="" width="20" height="11" /> "Кариба 400"</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Объем <strong>400</strong>л. Силикатное стекло. Мебельный ламинат. Аквариум с живыми растениями.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%">
+                            <tbody>
+                            <tr>
+                                <td align="left"><a href="/price/alfarcrec.php#kariba150" target="_blank"><img src="/images/labelza9.gif" alt="" border="0" />&nbsp;<u>Размеры и цены</u></a></td>
+                                <td align="right">&nbsp;</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </td>
     </tr>
     </tbody>
 </table>
-<p>&nbsp;</p>
-<table class="table-blue valign-top table-padding5" width="100%">
+<table class="table-blue valign-top table-padding5" width="100%" cellspacing="0" cellpadding="0">
     <tbody>
     <tr>
-        <td style="width: 200px; text-align: center;" rowspan="2" width="200">&nbsp;<img src="/madeaqua/lowfoto/nonstock12.jpg" alt="Аквариум в барной стойке, имеющей каркас из нержавейки" width="150" height="110" hspace="12" vspace="7" /></td>
-        <td>
-            <h3>№8 <img src="/images/labelza7.gif" alt="" width="20" height="11" /> Барная стойка, с элементами из нержавеющей стали</h3>
+        <td width="50%">
+            <table width="100%" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr>
+                    <td style="width: 200px; text-align: center;" rowspan="3" width="200">
+                        <p><img src="/madeaqua/lowfoto/ark03.jpg" alt="&quot;Лагуна 100&quot;" width="92" height="130" hspace="13" vspace="10" /></p>
+                        <p>Другие фото: <a>&lt;1&gt;</a>, <a>&lt;2&gt;</a>.</p>
+                    </td>
+                    <td>
+                        <h4>№15 <a name="ark03"></a><img src="/images/labelza7.gif" alt="" width="20" height="11" /> "Лагуна 100"</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Объем <strong>100</strong>л. Силикатное стекло. Отделка - мебельный ламинат. Оформление - "Псевдоморе" Находится на обслуживании компании.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="100%">
+                            <tbody>
+                            <tr>
+                                <td align="left"><a href="/price/alfarcrec.php#kariba150" target="_blank"><img src="/images/labelza9.gif" alt="" border="0" />&nbsp;<u>Размеры и цены</u></a></td>
+                                <td align="right">&nbsp;</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </td>
-    </tr>
-    <tr>
-        <td>
-            <p>Объем 400л. Силикатное стекло. Отделка: нержавеющая сталь, пластик. Псевдоморское оформление. Находится на обслуживании компании.</p>
-            <p><img src="/images/color114.gif" alt="" width="5" height="5" align="absmiddle" /> В данной конструкции столешница барной стойки опирается на внешний декоративный каркас из труб нержавеющей стали. Часть столешницы снимается для доступа к аквариуму. <br /> Наша фирма производит подставки под аквариумы, крышки и декоративную аквариумную мебель из <strong>нержавеющей стали</strong>.</p>
-        </td>
-    </tr>
-    </tbody>
-</table>
-<p>&nbsp;</p>
-<table class="table-blue valign-top table-padding5" width="100%">
-    <tbody>
-    <tr>
-        <td style="width: 200px; text-align: center;" rowspan="2" width="200">&nbsp;<img src="/madeaqua/lowfoto/nonstock14.jpg" alt="Аквариум в кабинете руководителя" width="150" height="110" hspace="12" vspace="7" /></td>
-        <td>
-            <h3>№9 <img src="/images/labelza7.gif" alt="" width="20" height="11" /> Аквариум в кабинете руководителя</h3>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p>Объем 600л. Силикатное стекло. Отделка: пластик. Оформление смешанного типа. Находится на обслуживании компании.</p>
-            <p><img src="/images/color114.gif" alt="" width="5" height="5" align="absmiddle" /> Аквариум в кабинете руководителя. Большой аквариум представительского класса с богатым внутренним оформлением, в строгой светлой пластиковой отделке. Темный пластик смотрелся бы несколько громоздко в столь объемной конструкции. Вертикальный шов склейки массивных стекол закрыт уголком, который кроме декоративной функции предохраняет ребро от сколов. Доступ к обслуживанию обеспечивается через верхние съемные панели.</p>
-        </td>
-    </tr>
-    </tbody>
-</table>
-<p>&nbsp;</p>
-<table class="table-blue valign-top table-padding5" width="100%">
-    <tbody>
-    <tr>
-        <td style="width: 200px; text-align: center;" rowspan="2" width="200">
-            <p><img src="/madeaqua/lowfoto/nonstock05.jpg" alt="Нестандартный аквариум - витрина." width="116" height="108" hspace="24" vspace="7" /></p>
-            <p>Другие фото:<a href="#"> &lt;1&gt;</a>,<a href="#"> &lt;2&gt;</a>.</p>
-        </td>
-        <td>
-            <h3>№10 <img src="/images/labelza7.gif" alt="" width="20" height="11" /> Нестандартный аквариум - витрина</h3>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p>Объем 200л. Силикатное стекло. Отделка - шпон. Оформление смешанного типа.</p>
-            <p><img src="/images/color114.gif" alt="" width="5" height="5" align="absmiddle" /> За счет преломления света, содержимое аквариумов-витрин хорошо видно близко-стоящему человеку. Впрочем, перспектива обзора не нарушается и на уровне сидящего наблюдателя. Поэтому, витрины хорошо смотрятся и в условиях ограниченного пространства и в больших помещениях. Тумба аквариума с дугообразными вырезами вертикальных стоек, выполнена из влагостойкой фанеры и покрыта, как и вся конструкция - шпоном. Основу крышки-светильника составляет водостойкий полистирол. Матовый рисунок на стеклянных дверках соответствует аквариумной тематике.</p>
-        </td>
-    </tr>
-    </tbody>
-</table>
-<p>&nbsp;</p>
-<table class="table-blue valign-top table-padding5" width="100%">
-    <tbody>
-    <tr>
-        <td style="width: 200px; text-align: center;" rowspan="2" width="200">
-            <p><img src="/madeaqua/lowfoto/nonstock06.jpg" alt="Каскад." width="122" height="108" hspace="18" vspace="7" /></p>
-            <p>Другие фото: <a href="#"> &lt;1&gt;</a>, <a href="#"> &lt;2&gt;</a>.</p>
-        </td>
-        <td>
-            <h3>№11 <img src="/images/labelza7.gif" alt="" width="20" height="11" /> "Каскад"</h3>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p>Объем 180л. Силикатное стекло. Подставка - хромированный металл - "JOKER". Находится на обслуживании компании.</p>
-            <p><img src="/images/color114.gif" alt="" width="5" height="5" align="absmiddle" /> Аквариум "Каскад"- сложной геометрической формы. Подставкой служит металлический хромированный каркас - "JOKER". Для любых аквариумов, возможно, так же, изготовление комбинированных, частично закрытых тумб с применением декоративных стоек и открытых полок. Крышки-светильники для нестандартных аквариумов могут изготавливаться из мебельного пластика (например металлика) либо матового стекла с эффектом внешнего освещения. В данном случае обеспечена прозрачность и легкость всей конструкции. Фильтр для воды немецкой фирмы "EHEIM" выглядит аккуратно и декоративно. Его расположение в открытой подставке не ухудшает, а скорее служит экзотическим дополнением к необычному виду аквариума.</p>
-        </td>
-    </tr>
-    </tbody>
-</table>
-<p>&nbsp;</p>
-<table class="table-blue valign-top table-padding5" width="100%">
-    <tbody>
-    <tr>
-        <td style="width: 200px; text-align: center;" rowspan="2" width="200">
-            <p><img src="/madeaqua/lowfoto/nonstock07.jpg" alt="Нестандартный дуговой аквариум &quot;Карат 500&quot;." width="119" height="108" hspace="22" vspace="7" /></p>
-            <p>Другие фото: <a href="#"> &lt;1&gt;</a>, <a href="#"> &lt;2&gt;</a>.</p>
-        </td>
-        <td>
-            <h3>№12 <img src="/images/labelza7.gif" alt="" width="20" height="11" /> Нестандартный дуговой аквариум "Карат 500"</h3>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p>Объем 480л. Силикатное стекло. Отделка: декоративный мебельный пластик - металлик.</p>
-            <p><img src="/images/color114.gif" alt="" width="5" height="5" align="absmiddle" /> Фронтальная и боковые стенки "Карата 500" изготовлены из единого дугового силикатного стекла. Дверка тумбы, в которой находится система фильтрации, расположена сбоку. Аквариум будет удачно смотреться, примыкающим к колонне. Обычно толстые шланги фильтрующей системы, проходят вдоль задней стенки от тумбы к крышке. Для того, чтобы они не препятствовали примыканию аквариума к колонне, в стеклянном дне аквариума сверлятся отверстия и вставляются фитинги, позволяющие осуществлять свободное движение воды через фильтр. При этом обеспечивается надежное герметичное соединение, не требующее замены или ремонта за все время существования аквариума. Для установки посередине помещения и всестороннего обзора, возможно изготовление <a href="#"> <u>овального аквариума</u></a> из 2-х дуговых стекол.</p>
-        </td>
-    </tr>
-    </tbody>
-</table>
-<p>&nbsp;</p>
-<table class="table-blue valign-top table-padding5" width="100%">
-    <tbody>
-    <tr>
-        <td style="width: 200px; text-align: center;" rowspan="2" width="200">
-            <p><img src="/madeaqua/lowfoto/nonstock08.jpg" alt="Аквариум с отделкой из массива ценных пород дерева." width="131" height="108" hspace="12" vspace="7" /></p>
-            <p>Другие фото: <a href="#"> &lt;1&gt;</a>.</p>
-        </td>
-        <td>
-            <h3>№13 <img src="/images/labelza7.gif" alt="" width="20" height="11" /> Аквариум с отделкой из массива ценных пород дерева</h3>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p>Объем 240л. Силикатное стекло. Оформление - псевдоморе. Отделка - массив и шпон черешни.</p>
-            <p><img src="/images/color114.gif" alt="" width="5" height="5" align="absmiddle" /> Аквариумная мебель из массива должна соответствовать стилю интерьера. Для создания проекта, осуществляется выезд специалиста-краснодеревщика, который сделает замеры, снимет профили с багета и отделки, разработает и предложит подходящий вариант.</p>
-        </td>
-    </tr>
-    </tbody>
-</table>
-<p>&nbsp;</p>
-<table class="table-blue valign-top table-padding5" width="100%">
-    <tbody>
-    <tr>
-        <td style="width: 200px; text-align: center;" rowspan="2" width="200">&nbsp;<img src="/madeaqua/lowfoto/nonstock10.jpg" alt="Высокий дуговой аквариум." width="134" height="110" hspace="12" vspace="7" /></td>
-        <td>
-            <h3>№14 <img src="/images/labelza7.gif" alt="" width="20" height="11" /> Высокий дуговой аквариум</h3>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <p>Объем 450л. Силикатное стекло. Оформление - смешанного типа. Отделка - мебельный пластик.</p>
-            <p><img src="/images/color114.gif" alt="" width="5" height="5" align="absmiddle" /> Высокий аквариум из цельногнутого силикатного стекла. В оформлении использованы искусственные декорации: скала из стадонта и пластиковые растения.</p>
-        </td>
+        <td width="50%">&nbsp;</td>
     </tr>
     </tbody>
 </table>

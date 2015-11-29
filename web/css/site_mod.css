@@ -1334,6 +1334,14 @@ li {
 .table-bottom-line tr:last-child > td {
   padding-bottom: 10px;
 }
+img.image-shadow {
+  box-shadow: 4px 4px 4px 2px #CACACA;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -html-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+}
 img.image-bordered {
   padding: 2px;
   box-shadow: 0 0 2px 1px #CECECE;

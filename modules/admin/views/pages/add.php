@@ -294,6 +294,7 @@ $this->registerJs('
         image_class_list: [
             {title: "Без выравнивания", value: ""},
             {title: "Без выравнивания с границей", value: "image-bordered"},
+            {title: "Без выравнивания с тенью", value: "image-shadow"},
             {title: "Без выравнивания с наложением", value: "image-relative"},
             {title: "Влево", value: "pull-left"},
             {title: "Вправо", value: "pull-right"},
