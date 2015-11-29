@@ -550,6 +550,36 @@ p big {
   opacity: 1;
   height: auto;
 }
+.navbar-main.navbar-simple > ul {
+  text-align: right;
+}
+.navbar-main.navbar-simple > ul > li {
+  display: inline;
+}
+.navbar-main.navbar-simple > ul > li:after {
+  content: " | ";
+  line-height: inherit;
+}
+.navbar-main.navbar-simple > ul > li:last-child:after {
+  content: "";
+}
+.navbar-main.navbar-simple > ul > li:last-child a {
+  margin-right: 0;
+}
+.navbar-main.navbar-simple > ul > li > a {
+  display: inline-block;
+  background: none;
+  color: #006699;
+  border-color: transparent;
+  text-decoration: underline;
+  padding: 0;
+  margin: 0 8px;
+}
+.navbar-main.navbar-simple > ul > li:hover > ul {
+  filter: alpha(opacity=0);
+  opacity: 0;
+  height: 0;
+}
 .top-nav {
   background: #0074bc;
   height: 60px;

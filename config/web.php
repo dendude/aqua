@@ -73,6 +73,7 @@ $config = [
                 ],
 
                 '' => 'site/index',
+                'index' => 'site/index',
 
                 '<controller:(ajax|auth)>/<action:>/<id:\d+>' => '<controller>/<action>',
                 '<controller:(ajax|auth)>/<action:>' => '<controller>/<action>',

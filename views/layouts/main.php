@@ -90,7 +90,7 @@ $footer_menu = Menu::find()->active()->footer()->all();
             </div>
         </div>
 
-        <nav class="navbar-main">
+        <nav class="navbar-main <? if (!in_array(Yii::$app->request->url, ['/', '/index' . Yii::$app->urlManager->suffix], true)): ?>navbar-simple<? endif; ?>">
             <ul>
             <? if ($top_menu3): ?>
                 <? foreach ($top_menu3 AS $menu_item): ?>
