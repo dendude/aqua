@@ -536,6 +536,7 @@ p big {
 .navbar-main > ul > li > ul {
   position: absolute;
   z-index: 10;
+  right: 0;
   left: 0;
   top: 34px;
   padding-top: 2px;
@@ -617,6 +618,27 @@ p big {
   filter: alpha(opacity=50);
   opacity: 0;
   height: 0;
+.navbar-main.navbar-simple > ul > li > ul {
+  top: 26px;
+  background: #fff;
+  border: 1px solid #0074bc;
+  padding: 0;
+  box-shadow: 0 0 0 1px #fff;
+  -webkit-transition: none 400ms ease-in-out 0s;
+  -moz-transition: none 400ms ease-in-out 0s;
+  -ms-transition: none 400ms ease-in-out 0s;
+  -o-transition: none 400ms ease-in-out 0s;
+  transition: none 400ms ease-in-out 0s;
+}
+.navbar-main.navbar-simple > ul > li > ul li {
+  background: #fff;
+  border-bottom-color: #EAEAEA;
+}
+.navbar-main.navbar-simple > ul > li > ul li a {
+  color: #006699;
+}
+.navbar-main.navbar-simple > ul > li > ul li a:hover {
+  color: #0088cc;
 }
 .top-nav {
   background: #0074bc;
