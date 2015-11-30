@@ -498,7 +498,6 @@ p big {
 .navbar-main > ul > li > ul {
   position: absolute;
   z-index: 10;
-  right: 0;
   left: 0;
   top: 34px;
   padding-top: 2px;
