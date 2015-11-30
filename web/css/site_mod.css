@@ -498,6 +498,7 @@ p big {
 .navbar-main > ul > li > ul {
   position: absolute;
   z-index: 10;
+  right: 0;
   left: 0;
   top: 34px;
   padding-top: 2px;
@@ -579,9 +580,8 @@ p big {
   top: 26px;
   background: #fff;
   border: 1px solid #0074bc;
-  right: 0;
-  left: 0;
   padding: 0;
+  box-shadow: 0 0 0 1px #fff;
   -webkit-transition: none 400ms ease-in-out 0s;
   -moz-transition: none 400ms ease-in-out 0s;
   -ms-transition: none 400ms ease-in-out 0s;
