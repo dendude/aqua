@@ -575,10 +575,28 @@ p big {
   padding: 0;
   margin: 0 8px;
 }
-.navbar-main.navbar-simple > ul > li:hover > ul {
-  filter: alpha(opacity=0);
-  opacity: 0;
-  height: 0;
+.navbar-main.navbar-simple > ul > li > ul {
+  top: 26px;
+  background: #fff;
+  border: 1px solid #0074bc;
+  right: 0;
+  left: 0;
+  padding: 0;
+  -webkit-transition: none 400ms ease-in-out 0s;
+  -moz-transition: none 400ms ease-in-out 0s;
+  -ms-transition: none 400ms ease-in-out 0s;
+  -o-transition: none 400ms ease-in-out 0s;
+  transition: none 400ms ease-in-out 0s;
+}
+.navbar-main.navbar-simple > ul > li > ul li {
+  background: #fff;
+  border-bottom-color: #EAEAEA;
+}
+.navbar-main.navbar-simple > ul > li > ul li a {
+  color: #006699;
+}
+.navbar-main.navbar-simple > ul > li > ul li a:hover {
+  color: #0088cc;
 }
 .top-nav {
   background: #0074bc;

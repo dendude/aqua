@@ -553,32 +553,51 @@ p {
     &.navbar-simple {
         &>ul {
             text-align: right;
-        }
-        &>ul>li {
-            display: inline;
-            &:after {
-                content: " | ";
-                line-height: inherit;
+
+            &>li {
+                display: inline;
+                &:after {
+                    content: " | ";
+                    line-height: inherit;
+                }
+                &:last-child:after {
+                    content: "";
+                }
+                &:last-child a {
+                    margin-right: 0;
+                }
+
+                &>a {
+                    display: inline-block;
+                    background: none;
+                    color: @link-color;
+                    border-color: transparent;
+                    text-decoration: underline;
+                    padding: 0;
+                    margin: 0 8px;
+                }
+
+                &>ul {
+                    top: 26px;
+                    background: #fff;
+                    border: 1px solid @panel-color;
+                    right: 0;
+                    left: 0;
+                    padding: 0;
+                    .transition(none);
+
+                    li {
+                        background: #fff;
+                        border-bottom-color: #EAEAEA;
+                        a {
+                            color: @link-color;
+                            &:hover {
+                                color: lighten(@link-color, 10%);
+                            }
+                        }
+                    }
+                }
             }
-            &:last-child:after {
-                content: "";
-            }
-            &:last-child a {
-                margin-right: 0;
-            }
-        }
-        &>ul>li>a {
-            display: inline-block;
-            background: none;
-            color: @link-color;
-            border-color: transparent;
-            text-decoration: underline;
-            padding: 0;
-            margin: 0 8px;
-        }
-        &>ul>li:hover>ul {
-            .opacity(0);
-            height: 0;
         }
     }
 }
