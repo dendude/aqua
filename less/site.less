@@ -581,8 +581,11 @@ p {
                     top: 26px;
                     background: #fff;
                     border: 1px solid @panel-color;
-                    padding: 0;
                     box-shadow: 0 0 0 1px #fff;
+                    padding: 0;
+                    left: auto;
+                    right: -5px;
+                    min-width: 180px;
                     .transition(none);
 
                     li {
@@ -595,6 +598,9 @@ p {
                             }
                         }
                     }
+                }
+                &:last-child ul {
+                    right: 3px;
                 }
             }
         }

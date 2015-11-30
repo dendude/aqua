@@ -579,8 +579,11 @@ p big {
   top: 26px;
   background: #fff;
   border: 1px solid #0074bc;
-  padding: 0;
   box-shadow: 0 0 0 1px #fff;
+  padding: 0;
+  left: auto;
+  right: -5px;
+  min-width: 180px;
   -webkit-transition: none 400ms ease-in-out 0s;
   -moz-transition: none 400ms ease-in-out 0s;
   -ms-transition: none 400ms ease-in-out 0s;
@@ -596,6 +599,9 @@ p big {
 }
 .navbar-main.navbar-simple > ul > li > ul li a:hover {
   color: #0088cc;
+}
+.navbar-main.navbar-simple > ul > li:last-child ul {
+  right: 3px;
 }
 .top-nav {
   background: #0074bc;
