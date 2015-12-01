@@ -52,9 +52,9 @@ if (!empty($albums)) {
                 <a class="btn btn-sm btn-info" href="<?= Url::to(['section-edit', 'id' => $album->id]) ?>" title="Редактировать альбом">
                     <i class="glyphicon glyphicon-pencil"></i>
                 </a>
-                <a class="btn btn-sm btn-danger" href="<?= Url::to(['section-delete', 'id' => $album->id]) ?>" title="Удалить альбом">
+                <!--<a class="btn btn-sm btn-danger" href="<?/*= Url::to(['section-delete', 'id' => $album->id]) */?>" title="Удалить альбом">
                     <i class="glyphicon glyphicon-trash"></i>
-                </a>
+                </a>-->
             </span>
         </div>
 <?
