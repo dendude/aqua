@@ -88,24 +88,32 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
                                     </p>
                                 </td>
                             </tr>
-                            <? foreach (scandir(Yii::getAlias('@app') . '/web/' . trim(Pages::TOP_BANNERS_PATH, '/')) AS $fk => $file_name): ?>
-                            <? if (preg_match('/^(\.|\.\.|.+_low\.jpg)$/i', $file_name)) continue; ?>
+                            <?
+                            $top_banners = \app\models\Photos::find()
+                                ->where(['section_id' => \app\models\PhotoAlbums::ALBUM_BANNERS,
+                                             'status' => \app\helpers\Statuses::STATUS_ACTIVE])
+                                ->orderBy('ordering ASC')
+                                ->all();
+                            if ($top_banners):
+                                foreach ($top_banners AS $bk => $banner):
+                            ?>
                             <tr title="Выбрать баннер">
                                 <td style="padding: 3px">
-                                    <label for="banner_<?= $fk ?>">
-                                        <? $checked = $model->banner_name == $file_name ? 'checked="checked"' : ''; ?>
-                                        <input id="banner_<?= $fk ?>" name="<?= Html::getInputName($model, 'banner_name') ?>" <?= $checked ?> value="<?= $file_name ?>" type="radio"/>
+                                    <label for="banner_<?= $bk ?>">
+                                        <? $checked = $model->banner_name == $banner->img_big ? 'checked="checked"' : ''; ?>
+                                        <input id="banner_<?= $bk ?>" name="<?= Html::getInputName($model, 'banner_name') ?>" <?= $checked ?> value="<?= $banner->img_big ?>" type="radio"/>
                                     </label>
                                 </td>
                                 <td style="padding: 3px">
-                                    <label for="banner_<?= $fk ?>" class="cur-p">
-                                        <img width="100%" src="<?= Pages::TOP_BANNERS_PATH . $file_name ?>" alt=""/>
+                                    <label for="banner_<?= $bk ?>" class="cur-p">
+                                        <img width="100%" src="<?= \app\models\forms\UploadForm::getSrc($banner->img_big, \app\models\forms\UploadForm::TYPE_GALLERY) ?>" alt=""/>
                                     </label>
                                 </td>
                             </tr>
                             <? endforeach; ?>
+                            <? endif; ?>
                         </table>
-                        <p>Баннеры хранятся в папке <strong>web<?= Pages::TOP_BANNERS_PATH ?></strong></p>
+                        <p>Баннеры загружаются в <?= Html::a('этом разделе', ['photos/sections']) ?></p>
                     </div>
                 </div>
             </div>

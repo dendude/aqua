@@ -117,7 +117,7 @@ $footer_menu = Menu::find()->active()->footer()->all();
         <? if (!empty($this->params['banner_name'])): ?>
             <div class="top-banner">
                 <span class="top-banner-inner">
-                    <?= Html::img(Pages::TOP_BANNERS_PATH . $this->params['banner_name'], ['lowsrc' => Pages::TOP_BANNERS_PATH . str_replace('.jpg', '_low.jpg', $this->params['banner_name'])]) ?>
+                    <?= Html::img(\app\models\forms\UploadForm::getSrc($this->params['banner_name'], \app\models\forms\UploadForm::TYPE_GALLERY)) ?>
                 </span>
             </div>
         <? endif; ?>

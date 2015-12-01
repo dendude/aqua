@@ -12,7 +12,8 @@ $this->params['breadcrumbs'] = [
     ['label' => $action]
 ];
 
-echo Html::a('Добавить альбом', ['section-add'], ['class' => 'btn btn-primary btn-add']);
+/*echo Html::a('Добавить альбом', ['section-add'], ['class' => 'btn btn-primary btn-add']);
+*/
 echo '<div class="clearfix"></div>';
 
 // вывод сообщений если имеются

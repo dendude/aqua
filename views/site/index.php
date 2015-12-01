@@ -6,22 +6,24 @@ use app\models\Faq;
 use app\helpers\Normalize;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use app\models\Photos;
+use app\models\PhotoAlbums;
 
 $this->title = $model->title;
 
 $slider_photos = [];
-$slider_albums = \app\models\PhotoAlbums::find()
-    ->where(['status' => Statuses::STATUS_ACTIVE])
+$slider_items = Photos::find()
+    ->where(['section_id' => PhotoAlbums::ALBUM_OUR_JOBS,
+                 'status' => Statuses::STATUS_ACTIVE])
     ->orderBy(['ordering' => SORT_ASC])
     ->all();
 
-if ($slider_albums) {
-    foreach ($slider_albums AS $s_album) {
-        if ($s_album->photos) {
-            foreach ($s_album->photos AS $photo) {
-                if ($photo->status == Statuses::STATUS_ACTIVE) $slider_photos[] = $photo;
-            }
-        }
+if ($slider_items) {
+    foreach ($slider_items AS $photo) {
+        // если альбом скрыт - выбрасываем
+        if ($photo->section->status != Statuses::STATUS_ACTIVE) break;
+
+        $slider_photos[] = $photo;
     }
 }
 
@@ -36,21 +38,26 @@ $faq = \app\models\Faq::find()
     ->limit(9)
     ->all();
 
-$banners = range(1,7);
-shuffle($banners);
+$main_banners = \app\models\Photos::find()
+->where(['section_id' => PhotoAlbums::ALBUM_MAIN_BANNERS,
+             'status' => Statuses::STATUS_ACTIVE])
+->orderBy('ordering ASC')
+->all();
 ?>
 <div class="site-index">
+    <? if ($main_banners && $main_banners[0]->section->status == Statuses::STATUS_ACTIVE): ?>
     <div class="index-banner">
         <div id="sm_slider2">
             <ul>
-                <? foreach ($banners AS $i): ?>
+                <? foreach ($main_banners AS $bk => $banner): ?>
                 <li>
-                    <img lowsrc="/img/banners/<?= $i ?>_low.jpg" src="/img/banners/<?= $i ?>.jpg" alt="<?= Html::encode($this->title) ?>" width="1100" height="600" />
+                    <img src="<?= UploadForm::getSrc($banner->img_big, UploadForm::TYPE_GALLERY) ?>" alt="<?= Html::encode($this->title) ?>" width="1100" height="600" />
                 </li>
                 <? endforeach; ?>
             </ul>
         </div>
     </div>
+    <? endif; ?>
     <div class="index-content">
         <div class="index-infoblocks">
             <div class="infoblocks">

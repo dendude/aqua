@@ -16,7 +16,7 @@ $this->params['breadcrumbs'] = [
         <div class="well">
             <div class="row">
                 <label class="col-xs-6 text-right"><?= $model->getAttributeLabel('parent_id') ?></label>
-                <div class="col-xs-6"><?= $model->parent->menu_name ?></div>
+                <div class="col-xs-6"><?= $model->parent ? $model->parent->menu_name : 'root' ?></div>
             </div>
             <div class="separator"></div>
             <div class="row">

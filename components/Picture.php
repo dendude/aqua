@@ -51,26 +51,25 @@ class Picture extends \yii\base\Component {
     public function autoimageresize($new_w, $new_h) {
         $difference_w = 0;
         $difference_h = 0;
-        if($this->image_width < $new_w && $this->image_height < $new_h) {
-            $this->imageresize($this->image_width, $this->image_height);
-        }
-        else {
-            if($this->image_width > $new_w) {
-                $difference_w = $this->image_width - $new_w;
-            }
-            if($this->image_height > $new_h) {
-                $difference_h = $this->image_height - $new_h;
-            }
-            if($difference_w > $difference_h) {
-                $this->imageresizewidth($new_w);
-            }
-            elseif($difference_w < $difference_h) {
-                $this->imageresizeheight($new_h);
-            }
-            else {
-                $this->imageresize($new_w, $new_h);
+
+        // сохраняем размеры
+        $coef = 1;
+
+        if ($this->image_width > $new_w || $this->image_height > $new_h) {
+            // пропорциональное уменьшения
+            if ($this->image_width > $this->image_height) {
+                // по ширине
+                $coef = $new_w / $this->image_width;
+            } else {
+                // по высоте
+                $coef = $new_h / $this->image_height;
             }
         }
+
+        $new_w = $this->image_width * $coef;
+        $new_h = $this->image_height * $coef;
+
+        $this->imageresize($new_w, $new_h);
     }
 
     public function percentimagereduce($percent) {

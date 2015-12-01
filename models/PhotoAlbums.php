@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\helpers\Statuses;
 use Yii;
 use yii\helpers\ArrayHelper;
 
@@ -20,6 +21,9 @@ class PhotoAlbums extends \yii\db\ActiveRecord
 {
     const PAGE_ID = 140;
     const ALIAS_PREFIX = '/album';
+    const ALBUM_OUR_JOBS = 6;
+    const ALBUM_BANNERS = 11;
+    const ALBUM_MAIN_BANNERS = 12;
 
     /**
      * @inheritdoc
@@ -58,7 +62,13 @@ class PhotoAlbums extends \yii\db\ActiveRecord
     public function afterDelete()
     {
         // удаляем вложенные
-        Photos::deleteAll(['section_id' => $this->id]);
+        if ($this->photos) {
+            foreach ($this->photos AS $photo) {
+                // циклом чтобы выполнилось Photos::afterDelete
+                $photo->delete();
+            }
+        }
+
         parent::afterDelete();
     }
 
