@@ -1,0 +1,31 @@
+<? for ($i = 1; $i <= 20; $i++): ?>
+<table cellpadding="0" cellspacing="0" class="table-padding5" width="100%">
+    <tbody>
+        <tr>
+            <td style="vertical-align:top;text-align:center;width:160px"></td>
+            <td style="vertical-align:top;text-align:left">
+                <p><strong>Название</strong></p>
+                <table class="table-img-characters table-padding5">
+                    <tbody>
+                        <tr>
+                            <th width="30%">Описание</th>
+                            <th width="27%">Отделка</th>
+                            <th width="15%">Цена</th>
+                            <th width="18%">Где находится</th>
+                            <th>Столбец</th>
+                        </tr>
+                        <tr>
+                            <td>Отделка</td>
+                            <td style="text-align:center">Цена</td>
+                            <td style="text-align:center">Цена</td>
+                            <td style="text-align:center">Цена</td>
+                            <td style="text-align:center">Где находится</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+    <? if ($i < 20): ?><hr class="separator-line"/><? endif; ?>
+<? endfor; ?>
