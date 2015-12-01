@@ -73,16 +73,17 @@ function set_job_img(obj) {
     $new_img.attr('src', $obj.data('img'));
     $('body').append($new_img.outerHTML());
 
-    $img.animate({
-        opacity: 0.35
-    }, 750);
-
     setTimeout(function(){
         $(this).attr('src', $new_img.attr('src'));
+    }, 400);
+
+    $img.animate({
+        opacity: 0.30
+    }, 500, function(){
         $('.our-job-name').html($('.img-title', $obj).html());
         $('.our-job-about').html($('.img-about', $obj).html());
-        $(this).animate({opacity: 1},'normal');
-    }, 500);
+        $(this).animate({opacity: 1},'fast');
+    });
 }
 
 function show_answer(obj, event) {
