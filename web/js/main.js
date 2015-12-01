@@ -75,7 +75,7 @@ function set_job_img(obj) {
 
     setTimeout(function(){
         $img.attr('src', $new_img.attr('src'));
-    }, 400);
+    }, 490);
 
     $img.animate({
         opacity: 0.30

@@ -145,6 +145,10 @@ class Pages extends \yii\db\ActiveRecord
                 // удаляем полную ссылку
                 $a->href = str_replace(self::SITE_URL, '', $a->href);
                 $a->href = str_replace(self::DEV_URL, '', $a->href);
+
+                // ссылка на внешний ресурс
+                if (preg_match('/^https?:\/\/.+/', $a->href)) continue;
+
                 // предваряем слешем
                 $a->href = '/' . trim($a->href, '/');
 
