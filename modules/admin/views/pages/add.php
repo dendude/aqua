@@ -351,6 +351,8 @@ $this->registerJs('
             {title: "Table Content Left", description: "Таблица в контент слева", content: "<table class=\"table-text left\"><tbody><tr><td><p>image<br/>text</p></td></tr></tbody></table>"},
             {title: "Table Content Right", description: "Таблица в контент справа", content: "<table class=\"table-text right\"><tbody><tr><td><p>image<br/>text</p></td></tr></tbody></table>"},
 
+            {title: "Clearfix", description: "Сброс обтекания", content: "<div class=\"clearfix\"></div>"},
+
             {title: "Gradiend Background Yellow-Blue", description: "Желто-синий фоновый градиент", content: "<div class=\"grad-bg\"><p></p></div>"},
 
             {title: "Blue Message", description: "Синий блок-сообщение 100%", content: "<div class=\"blue-block\"><p>Text</p></div>"},
@@ -361,9 +363,13 @@ $this->registerJs('
             {title: "Blue Message Right 40%", description: "Синий блок-сообщение справа 40% ширины", content: "<div class=\"blue-block right width40\"><p>Text</p></div>"},
             {title: "Blue Message Right 60%", description: "Синий блок-сообщение справа 60% ширины", content: "<div class=\"blue-block right width60\"><p>Text</p></div>"},
 
-            {title: "Orange Message", description: "Оранжевый блок-сообщение", content: "<div class=\"orange-block\"><p>Text</p></div>"},
-            {title: "Orange Message Left", description: "Оранжевый блок-сообщение слева", content: "<div class=\"orange-block left\"><p>Text</p></div>"},
-            {title: "Orange Message Right", description: "Оранжевый блок-сообщение справа", content: "<div class=\"orange-block right\"><p>Text</p></div>"},
+            {title: "Orange Block OK", description: "Оранжевый блок со скрепкой", content: "<div class=\"orange-block orange-ok\"><p>Text</p></div>"},
+            {title: "Orange Block OK Left", description: "Оранжевый блок со скрепкой слева", content: "<div class=\"orange-block orange-ok left\"><p>Text</p></div>"},
+            {title: "Orange Block OK Right", description: "Оранжевый блок со скрепкой справа", content: "<div class=\"orange-block orange-ok right\"><p>Text</p></div>"},
+
+            {title: "Orange Block Attach", description: "Оранжевый блок с галочкой", content: "<div class=\"orange-block orange-attach\"><p>Text</p></div>"},
+            {title: "Orange Block Attach Left", description: "Оранжевый блок с галочкой слева", content: "<div class=\"orange-block orange-attach left\"><p>Text</p></div>"},
+            {title: "Orange Block Attach Right", description: "Оранжевый блок с галочкой справа", content: "<div class=\"orange-block orange-attach right\"><p>Text</p></div>"},
 
             {title: "Fish List", description: "Список, маркированный рыбками, в одну строку", content: "<table class=\"fish-list bg-blue\"><tr><td><ul><li>item1</li><li>item2</li></ul><span class=\"clearfix\"></span></td></tr></table>"},
             {title: "Fish List Fixed", description: "Список, маркированный рыбками, в одну строку, с залипанием при прокрутке", content: "<table class=\"fish-list fish-list-menu bg-blue\"><tr><td><ul><li>item1</li><li>item2</li></ul><span class=\"clearfix\"></span></td></tr></table>"},

@@ -15,13 +15,6 @@ $menu = Menu::find()->root()->orderBy('ordering ASC')->all();
 echo Html::a('Добавить', ['add'], ['class' => 'btn btn-primary btn-add']);
 echo '<div class="clearfix"></div>';
 
-?>
-    <div class="alert alert-info">
-        Для вставки меню на страницу, необходимо скопировать указатель на меню, например <strong>{menu_94}</strong>, и вставить его в контент страницы.<br/>
-        Меню будет стилизовано и выровнено автоматически согласно дизайна.
-    </div>
-<?
-
 // вывод сообщений если имеются
 \app\helpers\MHtml::alertMsg();
 
