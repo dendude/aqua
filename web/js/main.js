@@ -74,7 +74,7 @@ function set_job_img(obj) {
     $('body').append($new_img.outerHTML());
 
     setTimeout(function(){
-        $(this).attr('src', $new_img.attr('src'));
+        $img.attr('src', $new_img.attr('src'));
     }, 400);
 
     $img.animate({
