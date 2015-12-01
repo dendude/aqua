@@ -13,7 +13,7 @@ class PagesSearch extends Pages {
     public function rules()
     {
         return [
-            [['id', 'id_author', 'status'], 'required'],
+            [['id', 'id_author', 'status', 'menu_id'], 'integer'],
             [['is_sitemap', 'is_auto', 'is_shared'], 'boolean'],
             [['title', 'alias'], 'string'],
         ];
@@ -48,6 +48,9 @@ class PagesSearch extends Pages {
 
         // adjust the query by adding the filters
         $query->andFilterWhere(['id' => $this->id]);
+        if (is_numeric($this->menu_id)) {
+            $query->andWhere($this->menu_id ? 'menu_id > 0' : 'menu_id = 0');
+        }
         $query->andFilterWhere(['id_author' => $this->id_author]);
         $query->andFilterWhere(['status' => $this->status]);
         $query->andFilterWhere(['is_auto' => $this->is_auto]);

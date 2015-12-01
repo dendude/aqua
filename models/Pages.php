@@ -276,7 +276,7 @@ class Pages extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'menu_id' => 'Подключенное меню',
+            'menu_id' => 'Menu',
             'banner_name' => 'Баннер в шапке страницы',
             'id_author' => 'Менеджер',
             'title' => 'Заголовок (Н1)',

@@ -58,7 +58,7 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
                 </div>
             </div>
             <div class="separator"></div>
-            <?= $form->field($model, 'menu_id')->dropDownList($menu_filter, ['prompt' => '']) ?>
+            <?= $form->field($model, 'menu_id')->dropDownList($menu_filter, ['prompt' => ''])->label('Подключенное меню') ?>
             <div class="form-group">
                 <div class="col-xs-offset-4 col-xs-8">
                     <small class="text-muted">Подключенное меню стилизуется согласно дизайна</small>
@@ -334,6 +334,7 @@ $this->registerJs('
             {title: "Separator line", description: "Разделительная линия", content: "<hr class=\"separator-line\" />"},
             {title: "Page H1", description: "Основной заголовок Н1 для статьи", content: "<h1 class=\"page-title\">Page H1</h1>"},
 
+            {title: "Blue Block Horizontal", description: "Синий вертикальный горизонтальный блок", url: "' . \yii\helpers\Url::to(['templates/blue-block-horizontal']) . '"},
             {title: "Blue Block Left 200px", description: "Синий вертикальный блок слева", url: "' . \yii\helpers\Url::to(['templates/blue-block-left']) . '"},
             {title: "Blue Block Right 200px", description: "Синий вертикальный блок справа", url: "' . \yii\helpers\Url::to(['templates/blue-block-right']) . '"},
 

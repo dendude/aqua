@@ -25,4 +25,8 @@ class TemplatesController extends Controller
     public function actionBlueBlockRight() {
         return $this->renderPartial('blue-block-right');
     }
+
+    public function actionBlueBlockHorizontal() {
+        return $this->renderPartial('blue-block-horizontal');
+    }
 }

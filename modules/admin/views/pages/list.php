@@ -59,6 +59,17 @@ echo GridView::widget([
             ],
         ],
         [
+            'attribute' => 'menu_id',
+            'contentOptions' => [
+                'class' => 'text-center'
+            ],
+            'format' => 'raw',
+            'filter' => Statuses::statuses(Statuses::TYPE_YESNO),
+            'value' => function($model){
+                return Statuses::getFull((bool)$model->menu_id, Statuses::TYPE_YESNO);
+            },
+        ],
+        [
             'attribute' => 'is_shared',
             'filter' => Statuses::statuses(Statuses::TYPE_YESNO),
             'value' => function($model){
