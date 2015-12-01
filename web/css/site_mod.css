@@ -1248,12 +1248,18 @@ p big {
   padding: 20px;
   overflow: hidden;
 }
-.orange-block,
-.orange-block p {
+.orange-block h3 {
+  padding: 0;
   color: #b65626;
   font-size: 24px;
-  line-height: 30px;
-  text-align: center;
+  line-height: 26px;
+  margin-bottom: 3px;
+}
+.orange-block p {
+  color: #000;
+  font-size: 15px;
+  line-height: 17px;
+  margin-bottom: 6px;
 }
 .orange-block.orange-ok {
   background-image: url('/img/orange-block-ok.png');
