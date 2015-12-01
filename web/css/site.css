@@ -1368,6 +1368,9 @@ p big {
   /* IE6-9 */
 
 }
+.v-block.v-horizontal table {
+  clear: both;
+}
 .v-block small {
   display: block;
   line-height: 16px;
