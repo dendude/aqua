@@ -15,11 +15,11 @@
                             <th>Столбец</th>
                         </tr>
                         <tr>
-                            <td>Отделка</td>
-                            <td style="text-align:center">Цена</td>
-                            <td style="text-align:center">Цена</td>
-                            <td style="text-align:center">Цена</td>
-                            <td style="text-align:center">Где находится</td>
+                            <td></td>
+                            <td style="text-align:center"></td>
+                            <td style="text-align:center"></td>
+                            <td style="text-align:center"></td>
+                            <td style="text-align:center"></td>
                         </tr>
                     </tbody>
                 </table>
