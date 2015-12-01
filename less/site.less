@@ -1458,6 +1458,40 @@ table, tr, td, ul, ol ,li {
         }
     }
 }
+.table-img-characters {
+    width: 100%;
+    tr {
+        td, th {
+            padding: 5px 8px;
+            border: 1px solid #fff;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        &>th {
+            background: #80aac0;
+            font-weight: normal;
+            color: #fff;
+            text-align: center;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+        &>td {
+            color: #222;
+            vertical-align: top;
+
+            &:last-child {
+                width: auto;
+            }
+        }
+
+        &:nth-child(even) td {
+            background: #ebecec;
+        }
+        &:nth-child(odd) td {
+            background: #b7cbd8;
+        }
+    }
+}
 .table-bottom-line {
     border-bottom: 2px solid #35859a;
     tr:last-child>td {

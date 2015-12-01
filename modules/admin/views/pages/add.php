@@ -341,6 +341,7 @@ $this->registerJs('
             {title: "Table Aqua", description: "Заготовка таблицы для аквариумов", url: "' . \yii\helpers\Url::to(['templates/table-aqua']) . '"},
             {title: "Table Image-text", description: "Заготовка таблицы фото-текст", url: "' . \yii\helpers\Url::to(['templates/table-fill']) . '"},
             {title: "Table Characters", description: "Заготовка таблицы для характеристик", url: "' . \yii\helpers\Url::to(['templates/table-characters']) . '"},
+            {title: "Table Image Characters", description: "Заготовка таблицы для фото и характеристик", url: "' . \yii\helpers\Url::to(['templates/table-img-characters']) . '"},
 
             {title: "Photo Slider", description: "Слайдер фотографий для страниц", content: "<div class=\"page-slider-cont\"><div id=\"page_slider\"><ul><li><img/></li></ul></div></div>"},
 
