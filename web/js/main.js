@@ -75,11 +75,11 @@ function set_job_img(obj) {
 
     $img.animate({
         opacity: 0.35
-    }, 'normal', function(){
+    }, 'slow', function(){
         $(this).attr('src', $new_img.attr('src'));
         $('.our-job-name').html($('.img-title', $obj).html());
         $('.our-job-about').html($('.img-about', $obj).html());
-        $(this).animate({opacity: 1},'fast');
+        $(this).animate({opacity: 1},'normal');
     });
 }
 
