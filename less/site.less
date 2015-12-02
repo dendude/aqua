@@ -239,36 +239,55 @@ p {
 }
 
 .faq-section {
-    padding: 0;
-    margin: 0 20px 12px 10px;
+    padding: 0 !important;
+    margin: 0 20px 22px 0 !important;
     font-family: 'ALSStoryBold';
+    list-style: none!important;
 
-    .faq-questions {
-        padding: 5px 8px;
-        font-family: 'ALSStoryRegular';
-
-        li {
+    &>li {
+        &>a {
             display: block;
-            margin-bottom: 3px;
-
-            a {
-                border-bottom: 1px dashed @link-color;
-                &:hover {
-                    border-bottom-style: solid;
-                }
-            }
+            background: #80aac0;
+            font-weight: bold;
+            color: #fff;
+            padding: 5px 10px;
         }
 
-        .faq-answer {
-            display: none;
-            margin: 0 0 8px 0;
-            padding: 0;
+        @faq-bg-color: #ebecec;
+        .faq-questions {
+            padding: 5px 0 5px 10px;
+            font-family: 'ALSStoryRegular';
 
-            span {
+            li {
                 display: block;
-                margin: 6px 0 0 10px;
-                font-size: 14px;
-                line-height: 18px;
+                margin-bottom: 6px;
+
+                a {
+                    display: block;
+                    background: @faq-bg-color;
+                    padding: 4px 8px;
+                    color: #000;
+
+                    &:hover {
+                        background: darken(@faq-bg-color, 7%);
+                    }
+                }
+            }
+
+            .faq-answer {
+                display: none;
+                padding: 0;
+                margin: 0 0 15px 0;
+
+                span {
+                    display: block;
+                    background: #b7cbd8;
+                    margin: 6px 0 0 0;
+                    padding: 4px 8px;
+                    font-size: 14px;
+                    line-height: 18px;
+                    color: #000;
+                }
             }
         }
     }

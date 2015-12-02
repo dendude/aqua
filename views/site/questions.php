@@ -23,6 +23,7 @@ if (!empty($section_id)) {
 $sections = $query->all();
 
 $this->title = $model->title;
+$this->params['banner_name'] = $model->banner_name;
 
 if (!empty($check_section)) {
     $this->params['breadcrumbs'][] = ['url' => Url::to(['site/page', 'alias' => Pages::aliasById(Faq::PAGE_ID)]),
@@ -49,12 +50,8 @@ if (!empty($check_section)) {
                         <? foreach ($section->questions AS $question): ?>
                             <? if ($question->status != Statuses::STATUS_ACTIVE) continue; ?>
                             <li>
-                                <a href="<?= Url::to([Faq::ALIAS_PREFIX, 'id' => $question->id]) ?>" onclick="show_answer(this, event)">
-                                    <?= nl2br(Html::encode($question->question_text)) ?>
-                                </a>
-                                <p class="faq-answer">
-                                    <span><?= nl2br(Html::encode($question->answer_text)) ?></span>
-                                </p>
+                                <a href="<?= Url::to([Faq::ALIAS_PREFIX, 'id' => $question->id]) ?>" onclick="show_answer(this, event)"><?= nl2br(Html::encode($question->question_text)) ?></a>
+                                <p class="faq-answer"><span><strong>Ответ:</strong>&nbsp;<?= nl2br(Html::encode($question->answer_text)) ?></span></p>
                             </li>
                         <? endforeach; ?>
                     </ul>

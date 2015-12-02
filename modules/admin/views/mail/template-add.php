@@ -25,10 +25,31 @@ $form = ActiveForm::begin([
 
             <?= $form->field($model, 'content', ['template' => '<div class="col-xs-4 text-left">{label}</div><div class="col-xs-8">{error}</div>']) ?>
 
+            <!--<div class="clearfix"></div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <span class="btn btn-default" onclick="insertHtml()">Insert HTML</span>
+                </div>
+                <?/*
+                $this->registerJs("
+                    $('#" . Html::getInputId($model, 'content') . "').redactor({
+                        focus: true
+                    });
+                    function insertHtml() {
+                        var html = '<h3>INSERTED</h3>';
+                        $('#" . Html::getInputId($model, 'content') . "').redactor('insert.html', html);
+                    }
+                ");
+                */?>
+            </div>
+            <div class="clearfix"></div>-->
+
+
             <?= yii\imperavi\Widget::widget([
                 // You can either use it for model attribute
                 'model' => $model,
                 'attribute' => 'content',
+                'id' => Html::getInputId($model, 'content'),
 
                 // Some options, see http://imperavi.com/redactor/docs/
                 'options' => [
