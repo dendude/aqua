@@ -35,30 +35,6 @@ echo '</div>';
 ActiveForm::end();
 Modal::end();
 
-$this->registerJs("
-    $('#form_98,#form_99,#form_100,#form_" . Faq::PAGE_ADD_ID . "').bind('submit', function(e){
-        e.preventDefault();
-
-        setTimeout(function(){
-            var \$form = $(this);
-            if (\$form.validate()) {
-                console.log(e);
-                /*
-                $.ajax({
-                    url: \$form.attr('action'),
-                    beforeSend: function(){
-                        loader.show(\$form);
-                    },
-                    success: function(resp){
-                        console.log(resp);
-                    }
-                });*/
-            }
-        }, 100);
-    });
-");
-
-
 /** расчитать аквариум */
 
 $model = new \app\models\Calculate();
@@ -210,3 +186,21 @@ echo Html::tag('div', Html::submitButton(Yii::$app->vars->val(108), ['class' => 
 echo '</div>';
 ActiveForm::end();
 Modal::end();
+
+$this->registerJs("
+    $('#form_98,#form_99,#form_100,#form_" . Faq::PAGE_ADD_ID . "').on('beforeSubmit', function(){
+
+        var \$form = $(this);
+        $.ajax({
+            url: \$form.attr('action'),
+            beforeSend: function(){
+                loader.show(\$form);
+            },
+            success: function(resp){
+                console.log(resp);
+            }
+        });
+
+        return false;
+    });
+");

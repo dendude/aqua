@@ -26,7 +26,7 @@ jQuery.fn.outerHTML = function(s) {
 jQuery.fn.validate = function(f) {
     // вызов встроенных clientValidation методов
     // появились ли классы ошибок
-    return ($('.has-error', f).length === 0);
+    return ($('.has-success', f).length > 0 && $('.has-error', f).length === 0);
 };
 
 var loader = {
