@@ -36,11 +36,25 @@ ActiveForm::end();
 Modal::end();
 
 $this->registerJs("
-    $('#form_98,#form_99,#form_100,#form_" . Faq::PAGE_ADD_ID . "').on('submit', function(e){
+    $('#form_98,#form_99,#form_100,#form_" . Faq::PAGE_ADD_ID . "').bind('submit', function(e){
         e.preventDefault();
-        if ($(this).validate()) {
-            console.log($(this).attr('id'));
-        }
+
+        setTimeout(function(){
+            var \$form = $(this);
+            if (\$form.validate()) {
+                console.log(e);
+                /*
+                $.ajax({
+                    url: \$form.attr('action'),
+                    beforeSend: function(){
+                        loader.show(\$form);
+                    },
+                    success: function(resp){
+                        console.log(resp);
+                    }
+                });*/
+            }
+        }, 100);
     });
 ");
 
@@ -58,6 +72,8 @@ Modal::begin([
 ]);
 echo Html::tag('div', '', ['class' => 'alert hidden']);
 $form = ActiveForm::begin([
+    'id' => 'form_99',
+    'action' => ['/calculate'],
     'enableClientScript' => true,
     'enableClientValidation' => true,
     'fieldConfig' => [
@@ -147,6 +163,8 @@ Modal::begin([
 ]);
 echo Html::tag('div', '', ['class' => 'alert hidden']);
 $form = ActiveForm::begin([
+    'id' => 'form_100',
+    'action' => ['/callback'],
     'enableClientScript' => true,
     'enableClientValidation' => true,
 ]);
