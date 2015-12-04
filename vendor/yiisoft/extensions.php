@@ -102,4 +102,14 @@ return array (
                     '@yii/tinymce' => $vendorDir . '/yiisoft/yii2-tinymce',
                 ),
         ),
+
+    'yiisoft/yii2-ckeditor' =>
+        array (
+            'name' => 'yiisoft/yii2-ckeditor',
+            'version' => '4.5.5',
+            'alias' =>
+                array (
+                    '@yii/ckeditor' => $vendorDir . '/yiisoft/yii2-ckeditor',
+                ),
+        ),
 );

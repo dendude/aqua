@@ -55,11 +55,15 @@ class Calculate extends \yii\db\ActiveRecord
 
             [['email'], 'email'],
 
-            [['param_length', 'param_width', 'param_height'], 'required'],
-            [['param_length', 'param_width', 'param_height'], 'number'],
+            [['param_length', 'param_width', 'param_height'], 'required', 'message' => 'Обязательно для ввода'],
+            [['param_length', 'param_width', 'param_height'], 'filter', 'filter' => function($value){ return str_replace(',', '.', $value); }],
+            [['param_length', 'param_width', 'param_height'], 'number', 'min' => 10,
+                                                                    'message' => 'Введите число',
+                                                                   'tooSmall' => 'Введите число, не менее {min}',
+                                                              'numberPattern' => '/^\s*[-+]?[0-9]*[\.,]?[0-9]+([eE][-+]?[0-9]+)?\s*$/'],
+
             [['param_has_krishka', 'param_has_tumba', 'param_has_oborud'], 'boolean'],
             [['param_oform_type'], 'integer'],
-
 
             [['message', 'answer', 'params'], 'string'],
             [['message', 'answer', 'params'], 'default', 'value' => ''],
@@ -67,7 +71,7 @@ class Calculate extends \yii\db\ActiveRecord
             [['name', 'email'], 'string', 'max' => 100],
             [['name', 'email'], 'default', 'value' => ''],
 
-            [['phone'], 'string', 'max' => 20],
+            [['phone'], 'string', 'min' => 10, 'max' => 20],
             [['phone'], 'default', 'value' => ''],
         ];
     }
@@ -82,6 +86,7 @@ class Calculate extends \yii\db\ActiveRecord
             6 => 'Рифовое',
         ];
     }
+
     public static function getOformName($oform_type) {
         $list = self::getOformTypes();
         return isset($list[$oform_type]) ? $list[$oform_type] : 'not found';

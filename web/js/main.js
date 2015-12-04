@@ -23,6 +23,12 @@ jQuery.fn.outerHTML = function(s) {
         : jQuery("<p>").append(this.eq(0).clone()).html();
 };
 
+jQuery.fn.validate = function(f) {
+    // вызов встроенных clientValidation методов
+    // появились ли классы ошибок
+    return ($('.has-error', f).length === 0);
+};
+
 var loader = {
     show: function(selector) {
         var $selector = $(selector);

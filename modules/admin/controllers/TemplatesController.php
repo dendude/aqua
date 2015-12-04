@@ -33,4 +33,9 @@ class TemplatesController extends Controller
     public function actionBlueBlockHorizontal() {
         return $this->renderPartial('blue-block-horizontal');
     }
+
+    public function actionGetTemplate() {
+        $id = \Yii::$app->request->post('id');
+        return $this->renderPartial('full-template-' . $id);
+    }
 }

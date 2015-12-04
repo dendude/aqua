@@ -2,7 +2,7 @@
 use yii\bootstrap\Modal;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
+use app\models\Faq;
 
 /** бесплатный выезд специалиста */
 
@@ -16,6 +16,8 @@ Modal::begin([
 ]);
 echo Html::tag('div', '', ['class' => 'alert hidden']);
 $form = ActiveForm::begin([
+    'id' => 'form_98',
+    'action' => ['/free-travel'],
     'enableClientScript' => true,
     'enableClientValidation' => true,
 ]);
@@ -28,10 +30,19 @@ echo $form->field($model, 'phone')->label(Yii::$app->vars->val(110));
 echo $form->field($model, 'email')->label(Yii::$app->vars->val(111));
 echo $form->field($model, 'comment')->textarea()->label(Yii::$app->vars->val(112));
 echo '<div class="form-group">';
-echo Html::tag('div', Html::button(Yii::$app->vars->val(108), ['class' => 'btn btn-primary']), ['class' => 'col-xs-offset-4 col-xs-8']);
+echo Html::tag('div', Html::submitButton(Yii::$app->vars->val(108), ['class' => 'btn btn-primary']), ['class' => 'col-xs-offset-4 col-xs-8']);
 echo '</div>';
 ActiveForm::end();
 Modal::end();
+
+$this->registerJs("
+    $('#form_98,#form_99,#form_100,#form_" . Faq::PAGE_ADD_ID . "').on('submit', function(e){
+        e.preventDefault();
+        if ($(this).validate()) {
+            console.log($(this).attr('id'));
+        }
+    });
+");
 
 
 /** расчитать аквариум */
@@ -64,23 +75,26 @@ echo $form->field($model, 'phone')->label(Yii::$app->vars->val(131));
     <label class="control-label col-xs-4" for=""><?= Yii::$app->vars->val(128) ?></label>
     <div class="col-xs-7">
         <div class="row">
-            <div class="col-xs-4">
+            <div class="col-xs-4 field-<?= Html::getInputId($model, 'param_length') ?>">
                 <div class="input-group">
                     <?= Html::activeTextInput($model, 'param_length', ['class' => 'form-control', 'placeholder' => $model->getAttributeLabel('param_length')]) ?>
                     <span class="input-group-addon"><?= Yii::$app->vars->val(127) ?></span>
                 </div>
+                <?= $form->field($model, 'param_length', ['options' => ['class' => ''], 'template' => '{error}']) ?>
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-4 field-<?= Html::getInputId($model, 'param_width') ?>">
                 <div class="input-group">
                     <?= Html::activeTextInput($model, 'param_width', ['class' => 'form-control', 'placeholder' => $model->getAttributeLabel('param_width')]) ?>
                     <span class="input-group-addon"><?= Yii::$app->vars->val(127) ?></span>
                 </div>
+                <?= $form->field($model, 'param_width', ['options' => ['class' => ''], 'template' => '{error}']) ?>
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-4 field-<?= Html::getInputId($model, 'param_height') ?>">
                 <div class="input-group">
                     <?= Html::activeTextInput($model, 'param_height', ['class' => 'form-control', 'placeholder' => $model->getAttributeLabel('param_height')]) ?>
                     <span class="input-group-addon"><?= Yii::$app->vars->val(127) ?></span>
                 </div>
+                <?= $form->field($model, 'param_height', ['options' => ['class' => ''], 'template' => '{error}']) ?>
             </div>
         </div>
     </div>
@@ -89,29 +103,33 @@ echo $form->field($model, 'phone')->label(Yii::$app->vars->val(131));
 <div class="form-group">
     <label class="col-xs-4 text-right" for=""><?= Yii::$app->vars->val(126) ?></label>
     <div class="col-xs-7">
-        <div class="row">
-            <div class="col-xs-4">
-                <label for="<?= Html::getInputId($model, 'param_has_krishka') ?>">
-                    <?= Html::activeCheckbox($model, 'param_has_krishka', ['label' => Yii::$app->vars->val(134)]) ?>
-                </label>
-            </div>
-            <div class="col-xs-4">
-                <label for="<?= Html::getInputId($model, 'param_has_tumba') ?>">
-                    <?= Html::activeCheckbox($model, 'param_has_tumba', ['label' => Yii::$app->vars->val(135)]) ?>
-                </label>
-            </div>
-            <div class="col-xs-4">
-                <label for="<?= Html::getInputId($model, 'param_has_oborud') ?>">
-                    <?= Html::activeCheckbox($model, 'param_has_oborud', ['label' => Yii::$app->vars->val(136)]) ?>
-                </label>
-            </div>
-        </div>
+        <table>
+            <tr>
+                <td>
+                    <label class="cur-p" for="<?= Html::getInputId($model, 'param_has_krishka') ?>">
+                        <?= Html::activeCheckbox($model, 'param_has_krishka', ['label' => Yii::$app->vars->val(134)]) ?>
+                    </label>
+                </td>
+                <td width="50">&nbsp;</td>
+                <td>
+                    <label class="cur-p" for="<?= Html::getInputId($model, 'param_has_tumba') ?>">
+                        <?= Html::activeCheckbox($model, 'param_has_tumba', ['label' => Yii::$app->vars->val(135)]) ?>
+                    </label>
+                </td>
+                <td width="50">&nbsp;</td>
+                <td>
+                    <label class="cur-p" for="<?= Html::getInputId($model, 'param_has_oborud') ?>">
+                        <?= Html::activeCheckbox($model, 'param_has_oborud', ['label' => Yii::$app->vars->val(136)]) ?>
+                    </label>
+                </td>
+            </tr>
+        </table>
     </div>
 </div>
 <?
 echo $form->field($model, 'message')->textarea(['placeholder' => Yii::$app->vars->val(144)])->label(Yii::$app->vars->val(132));
 echo '<div class="form-group">';
-echo Html::tag('div', Html::button(Yii::$app->vars->val(108), ['class' => 'btn btn-primary']), ['class' => 'col-xs-offset-4 col-xs-7']);
+echo Html::tag('div', Html::submitButton(Yii::$app->vars->val(108), ['class' => 'btn btn-primary']), ['class' => 'col-xs-offset-4 col-xs-7']);
 echo '</div>';
 ActiveForm::end();
 Modal::end();
@@ -140,7 +158,7 @@ echo $form->field($model, 'name')->label(Yii::$app->vars->val(137));
 echo $form->field($model, 'phone')->label(Yii::$app->vars->val(139));
 echo $form->field($model, 'comment')->textarea(['placeholder' => Yii::$app->vars->val(141)])->label(Yii::$app->vars->val(140));
 echo '<div class="form-group">';
-echo Html::tag('div', Html::button(Yii::$app->vars->val(108), ['class' => 'btn btn-primary']), ['class' => 'col-xs-offset-4 col-xs-8']);
+echo Html::tag('div', Html::submitButton(Yii::$app->vars->val(108), ['class' => 'btn btn-primary']), ['class' => 'col-xs-offset-4 col-xs-8']);
 echo '</div>';
 ActiveForm::end();
 Modal::end();
@@ -150,7 +168,7 @@ Modal::end();
 
 $model = new \app\models\forms\QuestionForm();
 Modal::begin([
-    'id' => 'modal_form_' . \app\models\Faq::PAGE_ADD_ID,
+    'id' => 'modal_form_' . Faq::PAGE_ADD_ID,
     'header' => Html::tag('div', Yii::$app->vars->val(121), ['class' => 'modal-title']),
     'footer' => Html::tag('button', Yii::$app->vars->val(105), ['class' => 'btn btn-default', 'data-dismiss' => 'modal']),
     'closeButton' => ['label' => '&times;'],
@@ -158,6 +176,7 @@ Modal::begin([
 ]);
 echo Html::tag('div', '', ['class' => 'alert hidden']);
 $form = ActiveForm::begin([
+    'id' => 'form_' . Faq::PAGE_ADD_ID,
     'enableClientScript' => true,
     'enableClientValidation' => true,
 ]);
@@ -169,7 +188,7 @@ echo $form->field($model, 'email')->label(Yii::$app->vars->val(123));
 echo $form->field($model, 'section_id')->dropDownList(\app\models\FaqSections::getFilterList(true))->label(Yii::$app->vars->val(125));
 echo $form->field($model, 'question_text')->textarea()->label(Yii::$app->vars->val(124));
 echo '<div class="form-group">';
-echo Html::tag('div', Html::button(Yii::$app->vars->val(108), ['class' => 'btn btn-primary']), ['class' => 'col-xs-offset-4 col-xs-8']);
+echo Html::tag('div', Html::submitButton(Yii::$app->vars->val(108), ['class' => 'btn btn-primary']), ['class' => 'col-xs-offset-4 col-xs-8']);
 echo '</div>';
 ActiveForm::end();
 Modal::end();

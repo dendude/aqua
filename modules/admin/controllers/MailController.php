@@ -66,6 +66,27 @@ class MailController extends Controller
         );
     }
 
+    public function actionTemplateTest() {
+
+        $model = new EmailTemplates();
+
+        if (Yii::$app->request->post('EmailTemplates')) {
+
+            $model->load(Yii::$app->request->post());
+            if ($model->validate()) {
+
+                $model->save();
+                $this->redirect(['templates'])->send();
+            }
+        }
+
+        return $this->render(
+            'template-test', [
+                'model' => $model
+            ]
+        );
+    }
+
     public function actionTemplateEdit($id) {
 
         $model = EmailTemplates::findOne($id);
