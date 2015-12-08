@@ -139,6 +139,7 @@ class Pages extends \yii\db\ActiveRecord
 
                 if (preg_match('/\.(jpe?g|gif|png)$/i', $a->href)) {
                     $a->class .= ' aqua-slider';
+                    $a->innertext .= '<i></i>';
                     continue;
                 }
 

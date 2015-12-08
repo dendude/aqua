@@ -49,9 +49,6 @@ class Picture extends \yii\base\Component {
     }
 
     public function autoimageresize($new_w, $new_h) {
-        $difference_w = 0;
-        $difference_h = 0;
-
         // сохраняем размеры
         $coef = 1;
 
@@ -112,6 +109,31 @@ class Picture extends \yii\base\Component {
         if($image_permiss != '') {
             chmod($image_file, $image_permiss);
         }
+    }
+
+    public function watermark($stamp_path, $margin_right = 10, $margin_bottom = 10) {
+
+        $stamp = new self($stamp_path);
+
+        // Установка полей для штампа и получение высоты/ширины штампа
+        $sx = imagesx($stamp->image);
+        $sy = imagesy($stamp->image);
+
+        // если размер менее двукратного размера водяного знака - ничего не делаем
+        if ($this->image_width < $sx * 2 || $this->image_height < $sy * 2) return;
+
+        // Копирование изображения штампа на фотографию с помощью смещения края
+        // и ширины фотографии для расчета позиционирования штампа.
+        imagecopy(
+            $this->image,
+            $stamp->image,
+            imagesx($this->image) - $sx - $margin_right,
+            imagesy($this->image) - $sy - $margin_bottom,
+            0, 0,
+            imagesx($stamp->image),
+            imagesy($stamp->image)
+        );
+        $this->imagesave($this->image_type, $this->image_file);
     }
 
     public function imageout() {

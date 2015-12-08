@@ -59,10 +59,10 @@ class PhotosController extends Controller
         $this->redirect(['list'])->send();
     }
 
-    public function actionAdd() {
+    public function actionAdd($id = 0) {
 
         $model = new Photos();
-        $model->section_id = Yii::$app->request->get('section',0);
+        $model->section_id = $id;
 
         if (Yii::$app->request->post('Photos')) {
             $model->load(Yii::$app->request->post());

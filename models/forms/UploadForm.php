@@ -86,7 +86,6 @@ class UploadForm extends Model
         $src[] = $img_name;
 
        return '/' . implode('/', $src);
-
     }
 
     function resize($img_source, $img_dest, $w, $h) {
@@ -95,5 +94,10 @@ class UploadForm extends Model
         $new_image->autoimageresize($w, $h);
         $new_image->imagesave($new_image->image_type, $img_dest);
         $new_image->imageout();
+
+        $water_path = Yii::getAlias('@app') . '/web/img/watermark.png';
+        $water = new Picture($img_dest);
+        $water->watermark($water_path, 10, 10);
+        $water->imageout();
     }
 }
