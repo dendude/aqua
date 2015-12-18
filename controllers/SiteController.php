@@ -374,6 +374,14 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionError()
+    {
+        $exception = Yii::$app->errorHandler->exception;
+        if ($exception !== null) {
+            return $this->render('error', ['exception' => $exception]);
+        }
+    }
+
     public function actionSitemap() {
 
         $sitemap = new DSitemap();
