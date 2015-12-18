@@ -155,8 +155,13 @@ class Pages extends \yii\db\ActiveRecord
 
                 // убираем суффикс
                 $a->href = trim(str_replace($suffixes, '', $a->href), '/');
-                // получаем полную ссылку
-                $a->href = Url::to([Normalize::fixAlias($a->href)]);
+		if (strpos($a->href, '#')) {
+			$a_tmp = explode('#', $a->href);
+			$a->href = Url::to([Normalize::fixAlias($a_tmp[0]), '#' => $a_tmp[1]]);
+		} else {
+	                // получаем полную ссылку
+                	$a->href = Url::to([Normalize::fixAlias($a->href)]);
+		}
             }
 
             // обработка фоток для увеличения по клику
