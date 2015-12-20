@@ -4,6 +4,7 @@ namespace app\helpers;
 
 use app\components\idna_convert;
 use app\components\VK;
+use app\models\Pages;
 use Yii;
 use yii\helpers\Html;
 use \Exception;
@@ -21,6 +22,8 @@ class Normalize {
     }
 
     public static function fixAlias($alias, $arr = false) {
+
+        if (is_integer($alias)) $alias = Pages::aliasById($alias);
 
         if ($alias == 'index' && Yii::$app->controller->id != 'site') {
             return '/';

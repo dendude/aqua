@@ -53,12 +53,6 @@ echo GridView::widget([
             ],
         ],
         [
-            'attribute' => 'email',
-            'headerOptions' => [
-                'class' => 'text-left'
-            ],
-        ],
-        [
             'attribute' => 'phone',
             'contentOptions' => [
                 'class' => 'text-center'
@@ -66,12 +60,6 @@ echo GridView::widget([
             'value' => function($model){
                 return \app\helpers\Normalize::formatPhone($model->phone);
             },
-        ],
-        [
-            'attribute' => 'subject',
-            'headerOptions' => [
-                'class' => 'text-left'
-            ],
         ],
         [
             'attribute' => 'status',

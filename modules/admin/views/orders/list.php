@@ -2,10 +2,10 @@
 
 use yii\grid\GridView;
 use yii\helpers\Html;
-use \app\modules\admin\controllers\CalculateController;
+use \app\modules\admin\controllers\OrdersController;
 use app\helpers\Statuses;
 
-$action = CalculateController::LIST_NAME;
+$action = OrdersController::LIST_NAME;
 $this->title = $action;
 $this->params['breadcrumbs'] = [
     ['label' => $action]
@@ -68,21 +68,21 @@ echo GridView::widget([
             },
         ],
         [
-            'attribute' => 'message',
+            'attribute' => 'comment',
             'headerOptions' => [
                 'class' => 'text-left'
             ],
             'value' => function($model){
-                return $model->message ? mb_substr($model->message, 0, 50, Yii::$app->charset) . ' ...' : '';
+                return $model->comment ? mb_substr($model->comment, 0, 50, Yii::$app->charset) . ' ...' : '';
             },
         ],
         [
             'attribute' => 'status',
             'format' => 'html',
             'value' => function($model){
-                return Statuses::getFull($model->status, Statuses::TYPE_FEEDBACK);
+                return Statuses::getFull($model->status, Statuses::TYPE_PROCESSED);
             },
-            'filter' => Statuses::statuses(Statuses::TYPE_FEEDBACK),
+            'filter' => Statuses::statuses(Statuses::TYPE_PROCESSED),
             'headerOptions' => [
                 'width' => 100,
                 'class' => 'text-center'
@@ -107,11 +107,11 @@ echo GridView::widget([
             ]
         ],
         [
-            'attribute' => 'answered',
+            'attribute' => 'modified',
             'format' => 'html',
             'filter' => false,
             'value' => function($model){
-                return \app\helpers\Normalize::getFullDateByTime($model->answered, '<br/>');
+                return \app\helpers\Normalize::getFullDateByTime($model->modified, '<br/>');
             },
             'headerOptions' => [
                 'width' => 120,

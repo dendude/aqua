@@ -18,6 +18,14 @@ a {
 a:hover {
   text-decoration: none;
 }
+.separator {
+  height: 15px;
+}
+textarea {
+  resize: vertical;
+  min-height: 50px;
+  max-height: 350px;
+}
 .cur-p {
   cursor: pointer;
 }

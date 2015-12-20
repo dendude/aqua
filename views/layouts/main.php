@@ -151,6 +151,9 @@ $footer_menu = Menu::find()->active()->footer()->all();
 
     <?php $this->endBody() ?>
 
+    <input type="hidden" id="page_order_aqua" value="<?= Url::to([Normalize::fixAlias(Pages::ORDER_ID_AQUA)]) ?>" />
+    <input type="hidden" id="page_order_services" value="<?= Url::to([Normalize::fixAlias(Pages::ORDER_ID_SERVICES)]) ?>" />
+
     </body>
     </html>
 <?php $this->endPage() ?>

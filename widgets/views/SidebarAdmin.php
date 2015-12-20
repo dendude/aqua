@@ -8,8 +8,12 @@ use \app\modules\admin\controllers\PhotosController;
 use app\modules\admin\controllers\FreeTravelController;
 use app\modules\admin\controllers\CallbackController;
 use app\modules\admin\controllers\CalculateController;
+use app\modules\admin\controllers\OrdersController;
 
-$label_options = ['class' => 'label label-danger pull-right'];
+$label_options = ['class' => 'label label-success pull-right', 'style' => 'font-size: 12px; line-height: 14px;'];
+
+$new_orders_count = \app\models\Orders::find()->where(['status' => Statuses::STATUS_DISABLED])->count();
+$new_orders_label = $new_orders_count ? Html::tag('span', '+ ' . $new_orders_count, $label_options) : '';
 
 $new_travel_count = \app\models\FreeTravel::find()->where(['status' => Statuses::STATUS_DISABLED])->count();
 $new_travel_label = $new_travel_count ? Html::tag('span', '+ ' . $new_travel_count, $label_options) : '';
@@ -32,6 +36,7 @@ echo Nav::widget([
 
 echo Nav::widget([
     'items' => [
+        ['label' => $new_orders_label . OrdersController::LIST_NAME, 'url' => ['orders/list']],
         ['label' => $new_travel_label . FreeTravelController::LIST_NAME, 'url' => ['free-travel/list']],
         ['label' => $new_calculate_label . CalculateController::LIST_NAME, 'url' => ['calculate/list']],
         ['label' => $new_callback_label . CallbackController::LIST_NAME, 'url' => ['callback/list']],

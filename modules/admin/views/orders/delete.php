@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Html;
 use app\modules\admin\controllers\CalculateController;
+use app\models\Orders;
 
 $this->title = 'Удаление заявки на расчет аквариума';
 $this->params['breadcrumbs'] = [
@@ -21,53 +22,38 @@ $this->params['breadcrumbs'] = [
             <div class="separator"></div>
             <? endif; ?>
             <div class="row">
-                <label class="col-xs-6 text-right"><?= $model->getAttributeLabel('name') ?></label>
+                <label class="col-xs-6 text-right">Имя</label>
                 <div class="col-xs-6"><?= $model->name ?></div>
             </div>
             <div class="row">
-                <label class="col-xs-6 text-right"><?= $model->getAttributeLabel('email') ?></label>
+                <label class="col-xs-6 text-right">Email</label>
                 <div class="col-xs-6"><?= $model->email ?></div>
             </div>
-            <div class="separator"></div>
             <? if ($model->phone): ?>
             <div class="row">
-                <label class="col-xs-6 text-right"><?= $model->getAttributeLabel('phone') ?></label>
+                <label class="col-xs-6 text-right">Телефон</label>
                 <div class="col-xs-6"><?= \app\helpers\Normalize::formatPhone($model->phone) ?></div>
             </div>
             <? endif; ?>
-            <div class="separator"></div>
-            <? foreach ($model->dop_params AS $pk): ?>
-                <? if ($model->{$pk}): ?>
-                    <div class="row">
-                        <label class="col-xs-6 text-right"><?= $model->getAttributeLabel($pk) ?></label>
-                        <div class="col-xs-6">
-                        <?
-                        switch ($pk) {
-                            case 'param_oform_type':
-                                echo $model->getOformName($model->{$pk});
-                                break;
 
-                            case 'param_has_krishka':
-                            case 'param_has_tumba':
-                            case 'param_has_oborud':
-                                echo 'Да';
-                                break;
-
-                            default:
-                                echo $model->{$pk} . ' (см)';
-                        }
-                        ?>
-                        </div>
-                    </div>
-                <? endif; ?>
-            <? endforeach; ?>
-            <? if ($model->message): ?>
             <div class="separator"></div>
             <div class="row">
-                <label class="col-xs-6 text-right"><?= $model->getAttributeLabel('message') ?></label>
-                <div class="col-xs-6"><?= $model->message ?></div>
+                <label class="col-xs-6 text-right">Вариант отделки</label>
+                <div class="col-xs-6"><?= Orders::getViewName($model->view_type) ?></div>
+            </div>
+            <div class="row">
+                <label class="col-xs-6 text-right">Комплектация и услуги</label>
+                <div class="col-xs-6"><?= Orders::getServiceName($model->service_type) ?></div>
+            </div>
+
+            <? if ($model->comment): ?>
+            <div class="separator"></div>
+            <div class="row">
+                <label class="col-xs-6 text-right">Комментарий</label>
+                <div class="col-xs-6"><?= $model->comment ?></div>
             </div>
             <? endif; ?>
+
             <div class="separator"></div>
             <div class="row">
                 <label class="col-xs-6 text-right"><?= $model->getAttributeLabel('created') ?></label>

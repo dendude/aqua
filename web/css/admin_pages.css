@@ -18,6 +18,14 @@
 .redactor-editor a:hover {
   text-decoration: none;
 }
+.redactor-editor .separator {
+  height: 15px;
+}
+.redactor-editor textarea {
+  resize: vertical;
+  min-height: 50px;
+  max-height: 350px;
+}
 .redactor-editor .cur-p {
   cursor: pointer;
 }

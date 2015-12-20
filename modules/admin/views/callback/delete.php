@@ -25,25 +25,15 @@ $this->params['breadcrumbs'] = [
                 <div class="col-xs-6"><?= $model->name ?></div>
             </div>
             <div class="row">
-                <label class="col-xs-6 text-right"><?= $model->getAttributeLabel('email') ?></label>
-                <div class="col-xs-6"><?= $model->email ?></div>
-            </div>
-            <? if ($model->phone): ?>
-                <div class="row">
-                    <label class="col-xs-6 text-right"><?= $model->getAttributeLabel('phone') ?></label>
-                    <div class="col-xs-6"><?= \app\helpers\Normalize::formatPhone($model->phone) ?></div>
-                </div>
-            <? endif; ?>
-            <div class="separator"></div>
-            <div class="row">
-                <label class="col-xs-6 text-right"><?= $model->getAttributeLabel('subject') ?></label>
-                <div class="col-xs-6"><?= $model->subject ?></div>
+                <label class="col-xs-6 text-right"><?= $model->getAttributeLabel('phone') ?></label>
+                <div class="col-xs-6"><?= \app\helpers\Normalize::formatPhone($model->phone) ?></div>
             </div>
             <? if ($model->comment): ?>
-            <div class="row">
-                <label class="col-xs-6 text-right"><?= $model->getAttributeLabel('comment') ?></label>
-                <div class="col-xs-6"><?= $model->comment ?></div>
-            </div>
+                <div class="separator"></div>
+                <div class="row">
+                    <label class="col-xs-6 text-right"><?= $model->getAttributeLabel('comment') ?></label>
+                    <div class="col-xs-6"><?= $model->comment ?></div>
+                </div>
             <? endif; ?>
             <div class="separator"></div>
             <div class="row">

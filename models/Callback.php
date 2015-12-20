@@ -11,7 +11,6 @@ use Yii;
  * @property integer $id
  * @property integer $id_user
  * @property string $name
- * @property string $email
  * @property string $comment
  * @property integer $created
  * @property integer $status
@@ -36,15 +35,16 @@ class Callback extends \yii\db\ActiveRecord
         return [
             [['name', 'phone'], 'required'],
 
-            [['email'], 'email'],
-
             [['manager_id', 'created', 'modified', 'processed', 'status'], 'integer'],
             [['manager_id', 'created', 'modified', 'processed', 'status'], 'default', 'value' => 0],
 
-            [['comment', 'subject'], 'string'],
-            [['comment', 'subject'], 'default', 'value' => ''],
+            [['comment'], 'string'],
+            [['comment'], 'default', 'value' => ''],
 
-            [['name', 'email', 'phone', 'subject'], 'string', 'max' => 100]
+            [['name', 'phone'], 'string', 'max' => 100],
+
+            [['phone'], 'string', 'min' => 10, 'max' => 20],
+            [['phone'], 'default', 'value' => ''],
         ];
     }
 
@@ -80,9 +80,7 @@ class Callback extends \yii\db\ActiveRecord
             'id' => 'ID',
             'manager_id' => 'Менеджер',
             'name' => 'Имя',
-            'email' => 'Email',
             'phone' => 'Телефон',
-            'subject' => 'Тема',
             'comment' => 'Комментарий',
             'created' => 'Создан',
             'modified' => 'Изменен',

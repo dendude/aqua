@@ -20,6 +20,7 @@ $form = ActiveForm::begin([
     'action' => ['/free-travel'],
     'enableClientScript' => true,
     'enableClientValidation' => true,
+    'options' => ['class' => 'form-horizontal ajax-form'],
 ]);
 echo html::tag('div', Yii::$app->vars->val(113), ['class' => 'alert alert-info']);
 echo '<div class="form-group">';
@@ -52,6 +53,7 @@ $form = ActiveForm::begin([
     'action' => ['/calculate'],
     'enableClientScript' => true,
     'enableClientValidation' => true,
+    'options' => ['class' => 'form-horizontal ajax-form'],
     'fieldConfig' => [
         'template' => '<div class="col-xs-4 text-right">{label}</div><div class="col-xs-7">{input}{error}</div>'
     ],
@@ -143,6 +145,7 @@ $form = ActiveForm::begin([
     'action' => ['/callback'],
     'enableClientScript' => true,
     'enableClientValidation' => true,
+    'options' => ['class' => 'form-horizontal ajax-form'],
 ]);
 echo html::tag('div', Yii::$app->vars->val(142), ['class' => 'alert alert-info']);
 echo '<div class="form-group">';
@@ -173,6 +176,7 @@ $form = ActiveForm::begin([
     'id' => 'form_' . Faq::PAGE_ADD_ID,
     'enableClientScript' => true,
     'enableClientValidation' => true,
+    'options' => ['class' => 'form-horizontal ajax-form'],
 ]);
 echo '<div class="form-group">';
 echo Html::tag('div', '<label></label> - поля, обязательные для заполнения', ['class' => 'required col-xs-offset-4 col-xs-8']);
@@ -186,21 +190,3 @@ echo Html::tag('div', Html::submitButton(Yii::$app->vars->val(108), ['class' => 
 echo '</div>';
 ActiveForm::end();
 Modal::end();
-
-$this->registerJs("
-    $('#form_98,#form_99,#form_100,#form_" . Faq::PAGE_ADD_ID . "').on('beforeSubmit', function(){
-
-        var \$form = $(this);
-        $.ajax({
-            url: \$form.attr('action'),
-            beforeSend: function(){
-                loader.show(\$form);
-            },
-            success: function(resp){
-                console.log(resp);
-            }
-        });
-
-        return false;
-    });
-");

@@ -30,6 +30,8 @@ class Calculate extends \yii\db\ActiveRecord
     public $param_has_oborud;
     public $param_oform_type;
 
+    public $dop_params = ['param_length', 'param_width', 'param_height', 'param_has_krishka', 'param_has_tumba', 'param_has_oborud', 'param_oform_type'];
+
     const PAGE_ID = 183;
     /**
      * @inheritdoc
@@ -113,15 +115,10 @@ class Calculate extends \yii\db\ActiveRecord
 
     public function save($runValidation = true, $attributeNames = null)
     {
-        $params = ['param_length', 'param_width', 'param_height', 'param_has_krishka', 'param_has_tumba', 'param_has_oborud', 'param_oform_type'];
         $params_values = [];
-        foreach ($params AS $name) {
+        foreach ($this->dop_params AS $name) {
             if (!empty($this->$name)) {
-                if ($name == 'param_oform_type') {
-                    $params_values[$name] = self::getOformName($this->$name);
-                } else {
-                    $params_values[$name] = $this->$name;
-                }
+                $params_values[$name] = $this->$name;
             }
         }
 
@@ -145,6 +142,19 @@ class Calculate extends \yii\db\ActiveRecord
 
         return parent::save($runValidation, $attributeNames);
     }
+
+    public function afterFind()
+    {
+        if ($this->params) {
+            $params = unserialize($this->params);
+            foreach ($params AS $pk => $pv) {
+                $this->{$pk} = $pv;
+            }
+        }
+
+        parent::afterFind();
+    }
+
 
     /**
      * @inheritdoc

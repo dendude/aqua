@@ -25,10 +25,8 @@ $inputMiddle = ['inputOptions' => ['class' => 'form-control input-middle']];
         <? \app\helpers\MHtml::alertMsg(); ?>
         <div class="well">
             <?= $form->field($model, 'name', $inputMiddle) ?>
-            <?= $form->field($model, 'email', $inputMiddle) ?>
             <?= $form->field($model, 'phone', $inputMiddle) ?>
             <div class="separator"></div>
-            <?= $form->field($model, 'subject') ?>
             <?= $form->field($model, 'comment')->textarea(['rows' => 5]) ?>
             <div class="separator"></div>
             <? if ($model->id): ?>

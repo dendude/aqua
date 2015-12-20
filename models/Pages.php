@@ -37,6 +37,9 @@ use yii\web\UploadedFile;
 class Pages extends \yii\db\ActiveRecord
 {
     const SEARCH_ID = 191;
+    const ORDER_ID_AQUA = 212;
+    const ORDER_ID_SERVICES = 322;
+
     const SITE_URL = 'http://akvarium-moskva.ru';
     const DEV_URL = 'http://aqua.test3w.ru';
     const TOP_BANNERS_PATH = '/img/top-banners/';

@@ -21,16 +21,7 @@ $config = [
             'class' => 'yii\swiftmailer\Mailer',
         ],
 
-        'postman' => [
-            'class' => 'rmrevin\yii\postman\Component',
-            'driver' => 'smtp',
-            'default_from' => ['noreply@alfaro.ru', 'alfaro.ru'],
-            'subject_prefix' => null,
-            'subject_suffix' => null,
-            'table' => '{{%email_sent}}',
-            'view_path' => '/email',
-            // smtp_config sets in SmtpEmail.php
-        ],
+        'postman' => $params['postman'],
 
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -81,8 +72,7 @@ $config = [
                 '<module:(admin|manager)>/<controller:[\w\-]+>/<action:>/<id:\d+>' => '<module>/<controller>/<action>',
                 '<module:(admin|manager)>/<controller:[\w\-]+>/<action:>' => '<module>/<controller>/<action>',
 
-                //'news/<section:\d+>' => 'site/news',
-                //'new/<alias:[\w\-\/]+>' => 'site/new',
+                '<action:(free-travel|calculate|callback)>' => 'site/<action>',
 
                 'album/<id:[\w\-\/]+>' => 'site/album',
                 'answer/<id:[\w\-\/]+>' => 'site/answer',

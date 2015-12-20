@@ -1,3 +1,51 @@
+$(function(){
+    $('.ajax-form').on('beforeSubmit', function(){
+        formSend(this);
+        return false;
+    });
+
+    $('.btn-order').each(function(e){
+        var send_url = $('#page_order_aqua').val();
+        send_url += '?type=' + encodeURI($(this).data('order'));
+
+        $(this).attr('href', send_url);
+    });
+});
+
+function formSend(selector) {
+
+    var $form = $(selector);
+
+    $.ajax({
+        url: $form.attr('action'),
+        data: $form.serialize(),
+        beforeSend: function(){
+            $('.alert', $form).remove();
+            loader.show($form, 0, {'background-color': 'transparent'});
+        },
+        success: function(resp) {
+
+            if (resp.status == 1) {
+
+                $form.html('<div class="alert alert-success">' + resp.message + '</div>');
+
+            } else if (resp.error) {
+
+                var str = [];
+                if (typeof(resp.error) == 'string') {
+                    str.push(resp.error);
+                } else {
+                    for (var k in resp.error) {
+                        str.push(resp.error[k].join('<br />'));
+                    }
+                }
+                $form.prepend('<div class="alert alert-danger">' + str.join('<br />') + '</div>');
+
+            }
+        }
+    });
+}
+
 $.ajaxSetup({
     type: 'POST',
     dataType: 'JSON',

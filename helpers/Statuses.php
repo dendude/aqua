@@ -12,6 +12,9 @@ use yii\helpers\Html;
 
 class Statuses {
 
+    const STATUS_OK = 1;
+    const STATUS_ERROR = 0;
+
     const STATUS_DISABLED = 0;
     const STATUS_ACTIVE = 1;
     const STATUS_USED = 2;

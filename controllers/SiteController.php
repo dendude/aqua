@@ -13,6 +13,7 @@ use app\models\forms\QuestionForm;
 use app\models\forms\ReviewForm;
 use app\models\FreeTravel;
 use app\models\News;
+use app\models\Orders;
 use app\models\Pages;
 use app\models\PhotoAlbums;
 use app\models\Photos;
@@ -21,6 +22,7 @@ use app\models\Reviews;
 use Yii;
 use yii\data\Pagination;
 use yii\filters\AccessControl;
+use yii\helpers\Json;
 use yii\helpers\Url;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -138,6 +140,43 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionOrder() {
+
+        if (Yii::$app->request->isAjax) {
+            $model = new Orders();
+            $_RESULT = ['status' => Statuses::STATUS_ERROR];
+
+            if (Yii::$app->request->post('Orders')) {
+                $model->load(Yii::$app->request->post());
+
+                if ($model->validate()) {
+                    if ($model->save()) {
+                        $_RESULT['status'] = Statuses::STATUS_OK;
+                        $_RESULT['message'] = 'Ваш заказ принят на обработку. В ближайшее время мы свяжемся с Вами для уточнения деталей заказа';
+                    } else {
+                        $_RESULT['error'] = 'Ошибка сохранения заказа. Пожалуйста, попробуйте позже.';
+                    }
+                } else {
+                    $_RESULT['error'] = $model->getErrors();
+                }
+            }
+
+            echo Json::encode($_RESULT);
+        } else {
+            $page = Pages::findOne(Pages::ORDER_ID_AQUA);
+            return $this->render('order', [
+                'model' => $page
+            ]);
+        }
+    }
+
+    public function actionOrderServices() {
+        $page = Pages::findOne(Pages::ORDER_ID_SERVICES);
+        return $this->render('order_services', [
+            'model' => $page
+        ]);
+    }
+
     public function actionNews($section = 0) {
         $page = Pages::findOne(News::PAGE_ID);
         return $this->render('news', [
@@ -221,25 +260,76 @@ class SiteController extends Controller
         throw new NotFoundHttpException('Страница не найдена', 404);
     }
 
-    public function actionReviewAdd() {
+    public function actionFreeTravel() {
 
-        $page = Pages::findOne(Reviews::PAGE_ADD_ID);
-        $model = new ReviewForm();
-        $result = null;
+        $model = new FreeTravel();
 
-        if (Yii::$app->request->post('ReviewForm')) {
+        $_RESULT = ['status' => Statuses::STATUS_ERROR];
+
+        if (Yii::$app->request->post('FreeTravel')) {
             $model->load(Yii::$app->request->post());
 
-            if ($model->validate() && $model->send()) {
-                $result = Yii::$app->vars->val(53);
+            if ($model->validate()) {
+                if ($model->save()) {
+                    $_RESULT['status'] = Statuses::STATUS_OK;
+                    $_RESULT['message'] = 'Ваша заявка успешно принята';
+                } else {
+                    $_RESULT['error'] = 'Ошибка сохранения заявки. Попробуйте позже.';
+                }
+            } else {
+                $_RESULT['error'] = $model->getErrors();
             }
         }
 
-        return $this->render('review-add',[
-            'page' => $page,
-            'model' => $model,
-            'result' => $result
-        ]);
+        echo Json::encode($_RESULT);
+    }
+
+    public function actionCalculate() {
+
+        $model = new Calculate();
+
+        $_RESULT = ['status' => Statuses::STATUS_ERROR];
+
+        if (Yii::$app->request->post('Calculate')) {
+            $model->load(Yii::$app->request->post());
+
+            if ($model->validate()) {
+                if ($model->save()) {
+                    $_RESULT['status'] = Statuses::STATUS_OK;
+                    $_RESULT['message'] = 'Ваша заявка успешно принята';
+                } else {
+                    $_RESULT['error'] = 'Ошибка сохранения заявки. Попробуйте позже.';
+                }
+            } else {
+                $_RESULT['error'] = $model->getErrors();
+            }
+        }
+
+        echo Json::encode($_RESULT);
+    }
+
+    public function actionCallback() {
+
+        $model = new Callback();
+
+        $_RESULT = ['status' => Statuses::STATUS_ERROR];
+
+        if (Yii::$app->request->post('Callback')) {
+            $model->load(Yii::$app->request->post());
+
+            if ($model->validate()) {
+                if ($model->save()) {
+                    $_RESULT['status'] = Statuses::STATUS_OK;
+                    $_RESULT['message'] = 'Ваша заявка успешно принята';
+                } else {
+                    $_RESULT['error'] = 'Ошибка сохранения заявки. Попробуйте позже.';
+                }
+            } else {
+                $_RESULT['error'] = $model->getErrors();
+            }
+        }
+
+        echo Json::encode($_RESULT);
     }
 
     public function actionPage($alias, $id = 0) {
@@ -292,8 +382,13 @@ class SiteController extends Controller
                     case 176:
                         return $this->actionCalculator($id);
                         break;
-                    case 212:
-                        $render_page = 'order';
+
+                    case Pages::ORDER_ID_AQUA:
+                        return $this->actionOrder();
+                        break;
+
+                    case Pages::ORDER_ID_SERVICES:
+                        return $this->actionOrderServices();
                         break;
 
                     case Pages::SEARCH_ID :

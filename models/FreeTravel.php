@@ -43,8 +43,7 @@ class FreeTravel extends \yii\db\ActiveRecord
             [['manager_id', 'created', 'modified', 'processed', 'status'], 'integer'],
             [['manager_id', 'created', 'modified', 'processed', 'status'], 'default', 'value' => 0],
 
-            [['comment'], 'string'],
-            [['phone'], 'string', 'min' => 10, 'tooShort' => 'Введите не менее {min} символов'],
+            [['phone', 'comment'], 'string', 'min' => 10, 'tooShort' => 'Введите не менее {min} символов'],
             [['name', 'email', 'phone'], 'string', 'max' => 100]
         ];
     }
