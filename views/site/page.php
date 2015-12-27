@@ -96,9 +96,9 @@ $this->registerCssFile('/lib/colorbox/example3/colorbox.css');
 $this->registerJs('
     $("#page_slider").smSlider({autoPlay : true, delay: 5000});
 
-    var sum_height = 100;
+    var sum_height = 0;
     $(".page-menu>li").each(function(){
-        sum_height += (+$(this).height());
+        sum_height += (+$(this).outerHeight());
     });
 
     if ($(".page-content").height() < sum_height) {
