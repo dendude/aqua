@@ -45,7 +45,7 @@ $this->params['banner_name'] = $model->banner_name;
         </ul>
     <? endif; ?>
 
-    <div class="page-container page-simple">
+    <div class="page-container <?= $model->menu_id ? '' : 'page-simple' ?>">
         <h1 class="page-title"><?= $model->title ?></h1>
 
         <p>
