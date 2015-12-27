@@ -6,6 +6,8 @@ use yii\captcha\Captcha;
 use app\models\Pages;
 use app\helpers\Normalize;
 use app\models\Orders;
+use app\models\Menu;
+use yii\helpers\Url;
 
 $this->title = $model->title;
 $this->params['meta_t'] = $model->meta_t;
@@ -15,6 +17,34 @@ $this->params['breadcrumbs'] = $model->getBreadcrumbs();
 $this->params['banner_name'] = $model->banner_name;
 ?>
 <div class="page-content">
+
+    <? if (\app\models\Users::isManager()): ?>
+        <a class="act-btn btn btn-info btn-sm" title="Редактировать" href="<?= Url::to(['admin/pages/edit','id' => $model->id]) ?>" target="_blank">
+            <i class="glyphicon glyphicon-pencil"></i>
+        </a>
+    <? endif; ?>
+
+    <? if ($model->menu_id): ?>
+        <ul class="page-menu">
+            <? foreach (Menu::find()->sidebar($model->menu_id)->active()->all() AS $menu_item): ?>
+                <? $link = $menu_item->page ? Url::to([Normalize::fixAlias($menu_item->page->alias)]) : '#'; ?>
+                <? $active = $menu_item->page_id == $model->id ? 'class="active"' : ''; ?>
+                <li <?= $active ?>>
+                    <a href="<?= $link ?>"><?= Html::encode($menu_item->menu_name) ?></a>
+                    <? if ($menu_item->childs): ?>
+                        <ul class="page-submenu">
+                            <? foreach ($menu_item->childs AS $submenu_item): ?>
+                                <? $sublink = $submenu_item->page ? Url::to([Normalize::fixAlias($submenu_item->page->alias)]) : '#'; ?>
+                                <? $sub_active = $submenu_item->page_id == $model->id ? 'class="active"' : ''; ?>
+                                <li <?= $sub_active ?>><a href="<?= $sublink ?>"><?= Html::encode($submenu_item->menu_name) ?></a></li>
+                            <? endforeach; ?>
+                        </ul>
+                    <? endif; ?>
+                </li>
+            <? endforeach; ?>
+        </ul>
+    <? endif; ?>
+
     <div class="page-container page-simple">
         <h1 class="page-title"><?= $model->title ?></h1>
 

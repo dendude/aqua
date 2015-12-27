@@ -32,13 +32,15 @@ if (isset($matches[1])) {
         <ul class="page-menu">
             <? foreach (Menu::find()->sidebar($model->menu_id)->active()->all() AS $menu_item): ?>
                 <? $link = $menu_item->page ? Url::to([Normalize::fixAlias($menu_item->page->alias)]) : '#'; ?>
-                <li>
+                <? $active = $menu_item->page_id == $model->id ? 'class="active"' : ''; ?>
+                <li <?= $active ?>>
                     <a href="<?= $link ?>"><?= Html::encode($menu_item->menu_name) ?></a>
                     <? if ($menu_item->childs): ?>
                         <ul class="page-submenu">
                         <? foreach ($menu_item->childs AS $submenu_item): ?>
                             <? $sublink = $submenu_item->page ? Url::to([Normalize::fixAlias($submenu_item->page->alias)]) : '#'; ?>
-                            <li><a href="<?= $sublink ?>"><?= Html::encode($submenu_item->menu_name) ?></a></li>
+                            <? $sub_active = $submenu_item->page_id == $model->id ? 'class="active"' : ''; ?>
+                            <li <?= $sub_active ?>><a href="<?= $sublink ?>"><?= Html::encode($submenu_item->menu_name) ?></a></li>
                         <? endforeach; ?>
                         </ul>
                     <? endif; ?>

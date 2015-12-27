@@ -1165,6 +1165,12 @@ p {
             margin: 0 12px;
             border-bottom: 2px solid #35859a;
 
+            &.active {
+                &>a {
+                    border-bottom: 2px solid #005463;
+                }
+            }
+
             &>a {
                 display: block;
                 color: #005463;
@@ -1181,6 +1187,11 @@ p {
                 padding: 0;
                 color: #000;
                 li {
+                    &.active {
+                        a {
+                            border-bottom: 2px solid #005463;
+                        }
+                    }
                     &:before {
                         content: '• ';
                         line-height: 16px;
