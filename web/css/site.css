@@ -1143,10 +1143,14 @@ p big {
   padding: 0;
   color: #000;
 }
+.page-content .page-menu > li > ul li {
+  padding: 3px 0;
+}
 .page-content .page-menu > li > ul li:before {
-  content: '• ';
+  content: '•';
   line-height: 16px;
   float: left;
+  margin-right: 5px;
 }
 .page-content .page-menu > li > ul li a {
   display: block;
