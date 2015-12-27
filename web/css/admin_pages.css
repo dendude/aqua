@@ -1148,7 +1148,7 @@
   line-height: 16px;
 }
 .redactor-editor .page-content .page-menu > li > ul li a {
-  display: block;
+  display: inline-block;
   font-size: 14px;
   line-height: 16px;
   color: #000;
