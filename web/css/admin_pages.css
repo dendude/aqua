@@ -602,7 +602,6 @@
 .redactor-editor .navbar-main.navbar-simple > ul > li > ul {
   top: 26px;
   background: #fff;
-  border: 1px solid #0074bc;
   box-shadow: 0 0 0 1px #fff;
   padding: 0;
   left: auto;
@@ -626,6 +625,9 @@
 }
 .redactor-editor .navbar-main.navbar-simple > ul > li:last-child ul {
   right: 3px;
+}
+.redactor-editor .navbar-main.navbar-simple > ul > li:hover ul {
+  border: 1px solid #0074bc;
 }
 .redactor-editor .top-nav {
   background: #0074bc;
