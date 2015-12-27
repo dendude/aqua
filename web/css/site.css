@@ -1119,7 +1119,7 @@ p big {
   bottom: 0;
   padding: 3px 0 13px 0;
 }
-.page-content .page-menu li.active a {
+.page-content .page-menu li.active > a {
   color: #b65626;
 }
 .page-content .page-menu > li {

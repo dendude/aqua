@@ -1119,7 +1119,7 @@
   bottom: 0;
   padding: 3px 0 13px 0;
 }
-.redactor-editor .page-content .page-menu li.active a {
+.redactor-editor .page-content .page-menu li.active > a {
   color: #b65626;
 }
 .redactor-editor .page-content .page-menu > li {
