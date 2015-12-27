@@ -26,6 +26,8 @@ $this->params['breadcrumbs'][] = ['url' => Url::to(['site/page', 'alias' => $faq
 
 // вопрос
 $this->params['breadcrumbs'][] = $this->title;
+
+$this->params['banner_name'] = $faq_page->banner_name;
 ?>
 <div class="page-content">
     <div class="page-container page-simple">
