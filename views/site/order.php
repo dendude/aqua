@@ -62,7 +62,7 @@ $this->params['banner_name'] = $model->banner_name;
             'enableClientValidation' => true,
             'options' => ['class' => 'form-horizontal ajax-form'],
             'fieldConfig' => [
-                'template' => '<div class="col-xs-4 text-right">{label}</div><div class="col-xs-6">{input}{error}</div>'
+                'template' => '<div class="col-xs-4 text-right">{label}</div><div class="col-xs-7">{input}{error}</div>'
             ],
         ]);
         ?>
