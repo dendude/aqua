@@ -96,8 +96,13 @@ $this->registerCssFile('/lib/colorbox/example3/colorbox.css');
 $this->registerJs('
     $("#page_slider").smSlider({autoPlay : true, delay: 5000});
 
-    if ($(".page-content").height() < $(".page-menu").height()) {
-        $(".page-content").height($(".page-menu").height());
+    var sum_height = 0;
+    $(".page-menu li").each(function(){
+        sum_height += (+$(this).height());
+    });
+
+    if ($(".page-content").height() < sum_height) {
+        $(".page-content").height(sum_height + "px");
     }
 
     if ($(".aqua-slider").length) {
