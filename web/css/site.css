@@ -1146,9 +1146,10 @@ p big {
 .page-content .page-menu > li > ul li:before {
   content: '• ';
   line-height: 16px;
+  float: left;
 }
 .page-content .page-menu > li > ul li a {
-  display: inline-block;
+  display: block;
   font-size: 14px;
   line-height: 16px;
   color: #000;
