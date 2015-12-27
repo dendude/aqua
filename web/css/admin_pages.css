@@ -756,8 +756,12 @@
   line-height: 26px;
   padding-bottom: 3px;
 }
-.redactor-editor .table-blue td {
+.redactor-editor .table-blue td,
+.redactor-editor .table-padding5 td {
   vertical-align: middle!important;
+}
+.redactor-editor .table-blue .aqua-slider img {
+  box-shadow: 0 0 2px 1px #fff, 4px 4px 3px 2px #aadcff;
 }
 .redactor-editor .why-us {
   font-size: 22px;
