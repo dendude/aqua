@@ -776,6 +776,71 @@ p {
     }
 }
 
+.why-us {
+    font-size: 22px;
+    color: #231f20;
+    font-weight: normal;
+    margin: 27px 0 0 0;
+    text-align: center;
+}
+
+.why-us-items {
+    padding-top: 7px;
+
+    .why-us-point {
+        width: 240px;
+        height: 290px;
+        background: url('/img/why-us.png') no-repeat center bottom;
+        float: left;
+        margin: 10px 7px 0 0;
+        position: relative;
+        &.mr0 {
+            margin-right: 0;
+        }
+        &:nth-child(3n+1) {
+            clear: left;
+        }
+
+        .why-us-title {
+            position: absolute;
+            left: 22px;
+            top: 5px;
+            width: 220px;
+            height: 50px;
+            overflow: hidden;
+            font-size: 16px;
+            line-height: 22px;
+            color: #005463;
+            font-weight: bold;
+            text-shadow: 0 0 2px #fff;
+        }
+
+        .why-us-text {
+            display: block;
+            padding: 70px 15px 15px 22px;
+            font-size: 11px;
+            line-height: 15px;
+            color: #000;
+        }
+
+        .why-us-icons {
+            position: absolute;
+            right: 15px;
+            bottom: 15px;
+            width: 100px;
+            height: 150px;
+            background: no-repeat right bottom;
+
+            &.why-us-icon-1 {background-image: url('/img/why-us-1.png');}
+            &.why-us-icon-2 {background-image: url('/img/why-us-2.png');}
+            &.why-us-icon-3 {background-image: url('/img/why-us-3.png');}
+            &.why-us-icon-4 {background-image: url('/img/why-us-4.png');}
+            &.why-us-icon-5 {background-image: url('/img/why-us-5.png');}
+            &.why-us-icon-6 {background-image: url('/img/why-us-6.png');}
+        }
+    }
+}
+
 .site-index {
     .index-banner {
         padding-bottom: 40px;
@@ -906,68 +971,6 @@ p {
         .faq-all {
             display: block;
             line-height: 32px;
-        }
-    }
-
-    .why-us {
-        font-size: 22px;
-        color: #231f20;
-        font-weight: normal;
-        margin: 27px 0 0 0;
-        text-align: center;
-    }
-
-    .why-us-items {
-        padding-top: 7px;
-
-        .why-us-point {
-            width: 240px;
-            height: 290px;
-            background: url('/img/why-us.png') no-repeat center bottom;
-            float: left;
-            margin: 10px 7px 0 0;
-            position: relative;
-            &.mr0 {
-                margin-right: 0;
-            }
-
-            .why-us-title {
-                position: absolute;
-                left: 22px;
-                top: 5px;
-                width: 220px;
-                height: 50px;
-                overflow: hidden;
-                font-size: 16px;
-                line-height: 22px;
-                color: #005463;
-                font-weight: bold;
-                text-shadow: 0 0 2px #fff;
-            }
-
-            .why-us-text {
-                display: block;
-                padding: 70px 15px 15px 22px;
-                font-size: 11px;
-                line-height: 15px;
-                color: #000;
-            }
-
-            .why-us-icons {
-                position: absolute;
-                right: 15px;
-                bottom: 15px;
-                width: 100px;
-                height: 150px;
-                background: no-repeat right bottom;
-
-                &.why-us-icon-1 {background-image: url('/img/why-us-1.png');}
-                &.why-us-icon-2 {background-image: url('/img/why-us-2.png');}
-                &.why-us-icon-3 {background-image: url('/img/why-us-3.png');}
-                &.why-us-icon-4 {background-image: url('/img/why-us-4.png');}
-                &.why-us-icon-5 {background-image: url('/img/why-us-5.png');}
-                &.why-us-icon-6 {background-image: url('/img/why-us-6.png');}
-            }
         }
     }
 

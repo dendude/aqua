@@ -37,6 +37,7 @@ use yii\web\UploadedFile;
 class Pages extends \yii\db\ActiveRecord
 {
     const SEARCH_ID = 191;
+    const WHY_US_ID = 196;
     const ORDER_ID_AQUA = 212;
     const ORDER_ID_SERVICES = 322;
 

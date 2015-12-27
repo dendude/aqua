@@ -230,6 +230,13 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionWhyUs() {
+        $page = Pages::findOne(Pages::WHY_US_ID);
+        return $this->render('why-us', [
+            'model' => $page
+        ]);
+    }
+
     public function actionReviews() {
         $page = Pages::findOne(Reviews::PAGE_ID);
         return $this->render('reviews', [
@@ -381,6 +388,10 @@ class SiteController extends Controller
                         break;
                     case 176:
                         return $this->actionCalculator($id);
+                        break;
+
+                    case Pages::WHY_US_ID:
+                        return $this->actionWhyUs();
                         break;
 
                     case Pages::ORDER_ID_AQUA:

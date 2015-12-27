@@ -756,6 +756,76 @@ p big {
   line-height: 26px;
   padding-bottom: 3px;
 }
+.why-us {
+  font-size: 22px;
+  color: #231f20;
+  font-weight: normal;
+  margin: 27px 0 0 0;
+  text-align: center;
+}
+.why-us-items {
+  padding-top: 7px;
+}
+.why-us-items .why-us-point {
+  width: 240px;
+  height: 290px;
+  background: url('/img/why-us.png') no-repeat center bottom;
+  float: left;
+  margin: 10px 7px 0 0;
+  position: relative;
+}
+.why-us-items .why-us-point.mr0 {
+  margin-right: 0;
+}
+.why-us-items .why-us-point:nth-child(3n+1) {
+  clear: left;
+}
+.why-us-items .why-us-point .why-us-title {
+  position: absolute;
+  left: 22px;
+  top: 5px;
+  width: 220px;
+  height: 50px;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 22px;
+  color: #005463;
+  font-weight: bold;
+  text-shadow: 0 0 2px #fff;
+}
+.why-us-items .why-us-point .why-us-text {
+  display: block;
+  padding: 70px 15px 15px 22px;
+  font-size: 11px;
+  line-height: 15px;
+  color: #000;
+}
+.why-us-items .why-us-point .why-us-icons {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  width: 100px;
+  height: 150px;
+  background: no-repeat right bottom;
+}
+.why-us-items .why-us-point .why-us-icons.why-us-icon-1 {
+  background-image: url('/img/why-us-1.png');
+}
+.why-us-items .why-us-point .why-us-icons.why-us-icon-2 {
+  background-image: url('/img/why-us-2.png');
+}
+.why-us-items .why-us-point .why-us-icons.why-us-icon-3 {
+  background-image: url('/img/why-us-3.png');
+}
+.why-us-items .why-us-point .why-us-icons.why-us-icon-4 {
+  background-image: url('/img/why-us-4.png');
+}
+.why-us-items .why-us-point .why-us-icons.why-us-icon-5 {
+  background-image: url('/img/why-us-5.png');
+}
+.why-us-items .why-us-point .why-us-icons.why-us-icon-6 {
+  background-image: url('/img/why-us-6.png');
+}
 .site-index .index-banner {
   padding-bottom: 40px;
   position: relative;
@@ -871,73 +941,6 @@ p big {
 .site-index .infoblock-faq .faq-all {
   display: block;
   line-height: 32px;
-}
-.site-index .why-us {
-  font-size: 22px;
-  color: #231f20;
-  font-weight: normal;
-  margin: 27px 0 0 0;
-  text-align: center;
-}
-.site-index .why-us-items {
-  padding-top: 7px;
-}
-.site-index .why-us-items .why-us-point {
-  width: 240px;
-  height: 290px;
-  background: url('/img/why-us.png') no-repeat center bottom;
-  float: left;
-  margin: 10px 7px 0 0;
-  position: relative;
-}
-.site-index .why-us-items .why-us-point.mr0 {
-  margin-right: 0;
-}
-.site-index .why-us-items .why-us-point .why-us-title {
-  position: absolute;
-  left: 22px;
-  top: 5px;
-  width: 220px;
-  height: 50px;
-  overflow: hidden;
-  font-size: 16px;
-  line-height: 22px;
-  color: #005463;
-  font-weight: bold;
-  text-shadow: 0 0 2px #fff;
-}
-.site-index .why-us-items .why-us-point .why-us-text {
-  display: block;
-  padding: 70px 15px 15px 22px;
-  font-size: 11px;
-  line-height: 15px;
-  color: #000;
-}
-.site-index .why-us-items .why-us-point .why-us-icons {
-  position: absolute;
-  right: 15px;
-  bottom: 15px;
-  width: 100px;
-  height: 150px;
-  background: no-repeat right bottom;
-}
-.site-index .why-us-items .why-us-point .why-us-icons.why-us-icon-1 {
-  background-image: url('/img/why-us-1.png');
-}
-.site-index .why-us-items .why-us-point .why-us-icons.why-us-icon-2 {
-  background-image: url('/img/why-us-2.png');
-}
-.site-index .why-us-items .why-us-point .why-us-icons.why-us-icon-3 {
-  background-image: url('/img/why-us-3.png');
-}
-.site-index .why-us-items .why-us-point .why-us-icons.why-us-icon-4 {
-  background-image: url('/img/why-us-4.png');
-}
-.site-index .why-us-items .why-us-point .why-us-icons.why-us-icon-5 {
-  background-image: url('/img/why-us-5.png');
-}
-.site-index .why-us-items .why-us-point .why-us-icons.why-us-icon-6 {
-  background-image: url('/img/why-us-6.png');
 }
 .site-index .index-our-job {
   width: 1100px;
