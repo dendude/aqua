@@ -1159,20 +1159,20 @@ p {
         bottom: 0;
         padding: 3px 0 13px 0;
 
+        li.active {
+            a {
+                color: #b65626;
+            }
+        }
+
         &>li {
             display: block;
             padding: 14px 0;
             margin: 0 12px;
             border-bottom: 2px solid #35859a;
 
-            &.active {
-                &>a {
-                    border-bottom: 2px solid #005463;
-                }
-            }
-
             &>a {
-                display: block;
+                display: inline-block;
                 color: #005463;
                 line-height: 19px;
                 font-size: 15px;
@@ -1187,11 +1187,6 @@ p {
                 padding: 0;
                 color: #000;
                 li {
-                    &.active {
-                        a {
-                            border-bottom: 2px solid #005463;
-                        }
-                    }
                     &:before {
                         content: '• ';
                         line-height: 16px;
