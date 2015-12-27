@@ -770,7 +770,7 @@ p {
     .infoblock-title {
         border-bottom: 2px solid @line-color;
         color: @title-color;
-        font-size: 16px;
+        font-size: 20px;
         line-height: 26px;
         padding-bottom: 3px;
     }
@@ -941,12 +941,29 @@ p {
 
     .infoblock-faq {
         height: 574px;
+        position: relative;
 
         .faq-add {
             display: block;
-            float: right;
+            position: absolute;
             text-decoration: underline;
-            font-family: 'ALSStoryBold';
+            border: 1px solid #4ebef0;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 10px;
+            right: 10px;
+            bottom: 10px;
+
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#67d2ff+0,67d2ff+40,009de1+60,009de1+100 */
+            background: rgb(103,210,255); /* Old browsers */
+            background: -moz-linear-gradient(top,  rgba(103,210,255,1) 0%, rgba(103,210,255,1) 40%, rgba(0,157,225,1) 60%, rgba(0,157,225,1) 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(top,  rgba(103,210,255,1) 0%,rgba(103,210,255,1) 40%,rgba(0,157,225,1) 60%,rgba(0,157,225,1) 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom,  rgba(103,210,255,1) 0%,rgba(103,210,255,1) 40%,rgba(0,157,225,1) 60%,rgba(0,157,225,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#67d2ff', endColorstr='#009de1',GradientType=0 ); /* IE6-9 */
+
+            &:active {
+                background: rgba(0,157,225,1);
+            }
         }
 
         .faq-list {

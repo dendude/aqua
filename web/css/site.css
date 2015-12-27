@@ -752,7 +752,7 @@ p big {
 .infoblocks .infoblock-title {
   border-bottom: 2px solid #34859a;
   color: #238091;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 26px;
   padding-bottom: 3px;
 }
@@ -909,12 +909,32 @@ p big {
 }
 .site-index .infoblock-faq {
   height: 574px;
+  position: relative;
 }
 .site-index .infoblock-faq .faq-add {
   display: block;
-  float: right;
+  position: absolute;
   text-decoration: underline;
-  font-family: 'ALSStoryBold';
+  border: 1px solid #4ebef0;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 10px;
+  right: 10px;
+  bottom: 10px;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#67d2ff+0,67d2ff+40,009de1+60,009de1+100 */
+  background: #67d2ff;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #67d2ff 0%, #67d2ff 40%, #009de1 60%, #009de1 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #67d2ff 0%, #67d2ff 40%, #009de1 60%, #009de1 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #67d2ff 0%, #67d2ff 40%, #009de1 60%, #009de1 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#67d2ff', endColorstr='#009de1', GradientType=0);
+  /* IE6-9 */
+}
+.site-index .infoblock-faq .faq-add:active {
+  background: #009de1;
 }
 .site-index .infoblock-faq .faq-list {
   margin: 7px 0;

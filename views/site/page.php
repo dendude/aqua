@@ -101,6 +101,8 @@ $this->registerJs('
         sum_height += (+$(this).outerHeight());
     });
 
+    $("img[src=\'/selloff/lowfoto/struckoff.gif\']").css({"box-shadow": "none"});
+
     if ($(".page-content").height() < sum_height) {
         $(".page-content").height(sum_height + "px");
     }

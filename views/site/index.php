@@ -63,14 +63,13 @@ $main_banners = \app\models\Photos::find()
             <div class="infoblocks">
                 <div class="infoblock-title"><?= Yii::$app->vars->val(81) ?></div>
                 <div class="infoblock-content info-partners">
-                    <img src="/img/partners.png" alt="" width="316" height="198"/>
+                    <a href="<?= Url::to([Normalize::fixAlias(199)]) ?>">
+                        <img src="/img/partners.png" alt="" width="316" height="198"/>
+                    </a>
                 </div>
             </div>
             <div class="infoblocks infoblock-faq">
-                <div class="infoblock-title">
-                    <a class="faq-add"  data-target="#modal_form_<?= Faq::PAGE_ADD_ID ?>" data-toggle="modal"><?= Yii::$app->vars->val(103) ?></a>
-                    <?= Yii::$app->vars->val(82) ?>
-                </div>
+                <div class="infoblock-title"><?= Yii::$app->vars->val(82) ?></div>
                 <div class="infoblock-content">
                 <? if ($faq): ?>
                     <ul class="faq-list">
@@ -83,7 +82,10 @@ $main_banners = \app\models\Photos::find()
                         </li>
                     <? endforeach; ?>
                     </ul>
-                    <a class="faq-all" href="<?= Url::to([Normalize::fixAlias(Pages::aliasById(Faq::PAGE_ID))]) ?>"><?= Yii::$app->vars->val(101) ?></a>
+                    <a class="faq-add" data-target="#modal_form_<?= Faq::PAGE_ADD_ID ?>" data-toggle="modal">
+                        <?= Yii::$app->vars->val(103) ?>
+                    </a>
+                    <!--<a class="faq-all" href="<?/*= Url::to([Normalize::fixAlias(Pages::aliasById(Faq::PAGE_ID))]) */?>"><?/*= Yii::$app->vars->val(101) */?></a>-->
                 <? else: ?>
                     <p class="faq-empty"><?= Yii::$app->vars->val(102) ?></p>
                 <? endif; ?>
