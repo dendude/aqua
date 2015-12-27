@@ -96,6 +96,10 @@ $this->registerCssFile('/lib/colorbox/example3/colorbox.css');
 $this->registerJs('
     $("#page_slider").smSlider({autoPlay : true, delay: 5000});
 
+    if ($(".page-content").height() < $(".page-menu").height()) {
+        $(".page-content").height($(".page-menu").height());
+    }
+
     if ($(".aqua-slider").length) {
         $(".aqua-slider").colorbox({
             rel: "group",
