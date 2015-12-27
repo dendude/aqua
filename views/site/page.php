@@ -97,7 +97,7 @@ $this->registerJs('
     $("#page_slider").smSlider({autoPlay : true, delay: 5000});
 
     var sum_height = 0;
-    $(".page-menu li").each(function(){
+    $(".page-menu>li").each(function(){
         sum_height += (+$(this).height());
     });
 
