@@ -1113,10 +1113,9 @@ p big {
   width: 250px;
   min-height: 100%;
   background: #e5f5fe;
-  position: relative;
-  float: left;
-  left: -20px;
-  top: -15px;
+  position: absolute;
+  left: 0;
+  top: 0;
   bottom: 0;
   padding: 3px 0 13px 0;
 }
