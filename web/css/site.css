@@ -756,6 +756,9 @@ p big {
   line-height: 26px;
   padding-bottom: 3px;
 }
+.table-blue td {
+  vertical-align: middle!important;
+}
 .why-us {
   font-size: 22px;
   color: #231f20;

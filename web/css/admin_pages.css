@@ -756,6 +756,9 @@
   line-height: 26px;
   padding-bottom: 3px;
 }
+.redactor-editor .table-blue td {
+  vertical-align: middle!important;
+}
 .redactor-editor .why-us {
   font-size: 22px;
   color: #231f20;
