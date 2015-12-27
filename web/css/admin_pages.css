@@ -1129,7 +1129,7 @@
   border-bottom: 2px solid #35859a;
 }
 .redactor-editor .page-content .page-menu > li > a {
-  display: inline-block;
+  display: block;
   color: #005463;
   line-height: 19px;
   font-size: 15px;
