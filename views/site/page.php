@@ -84,12 +84,8 @@ if (isset($matches[1])) {
                 </div>
             </div>
         <? endif; ?>
-
-        <div class="clearfix"></div>
     </div>
-
-    <div class="clearfix"></div>
-</div>
+</div><div class="clearfix"></div>
 <?
 $this->registerJsFile('/lib/colorbox/jquery.colorbox.js', ['depends' => [\app\assets\AppAsset::className()]]);
 $this->registerCssFile('/lib/colorbox/example3/colorbox.css');
