@@ -1090,6 +1090,7 @@ p big {
   -ms-transition: all 400ms ease-in-out 0s;
   -o-transition: all 400ms ease-in-out 0s;
   transition: all 400ms ease-in-out 0s;
+  display: none;
 }
 .site-index .index-our-job-slider a:hover strong {
   background: rgba(0, 0, 0, 0.65);
