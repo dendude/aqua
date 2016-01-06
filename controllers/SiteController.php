@@ -267,6 +267,13 @@ class SiteController extends Controller
         throw new NotFoundHttpException('Страница не найдена', 404);
     }
 
+    public function actionSearch() {
+        $page = Pages::findOne(Pages::SEARCH_ID);
+        return $this->render('search', [
+            'model' => $page
+        ]);
+    }
+
     public function actionFreeTravel() {
 
         $model = new FreeTravel();
@@ -403,7 +410,7 @@ class SiteController extends Controller
                         break;
 
                     case Pages::SEARCH_ID :
-                        $render_page = 'search';
+                        return $this->actionSearch();
                         break;
 
                     case PhotoAlbums::PAGE_ID :

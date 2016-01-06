@@ -842,6 +842,23 @@
 .redactor-editor .why-us-items .why-us-point .why-us-icons.why-us-icon-6 {
   background-image: url('/img/why-us-6.png');
 }
+.redactor-editor .search-results form {
+  margin: 10px 0 15px 0;
+}
+.redactor-editor .search-results .search-items {
+  padding-left: 12px;
+}
+.redactor-editor .search-results .search-items a {
+  display: block;
+  margin-bottom: 7px;
+}
+.redactor-editor .search-results .search-items a:hover {
+  text-decoration: underline;
+}
+.redactor-editor .search-results .search-items a i {
+  position: relative;
+  left: 10px;
+}
 .redactor-editor .site-index .index-banner {
   padding-bottom: 40px;
   position: relative;

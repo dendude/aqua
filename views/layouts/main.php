@@ -40,7 +40,7 @@ $footer_menu = Menu::find()->active()->footer()->all();
     <div class="layout">
         <nav class="top-nav">
             <div class="top-container">
-                <form class="top-search" action="<?= Url::to([Normalize::fixAlias(Pages::aliasById(Pages::SEARCH_ID))]) ?>">
+                <form class="top-search" action="<?= Url::to([Normalize::fixAlias(Pages::SEARCH_ID)]) ?>">
                     <div class="input-search">
                         <input name="q" type="text" placeholder="<?= Yii::$app->vars->val(78, true) ?>" value="<?= Yii::$app->request->get('q','') ?>" />
                     </div>
