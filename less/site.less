@@ -1137,6 +1137,25 @@ p {
         }
     }
 
+    @other-job-width: 930px;
+
+    .other-job-articles {
+        width: @other-job-width;
+        margin: 20px auto;
+        text-align: center;
+        position: relative;
+        font-size: 16px;
+
+        &.m-t-none {
+            margin-top: 0;
+            top: -10px;
+        }
+        &.m-b-none {
+            margin-bottom: 0;
+            bottom: -10px;
+        }
+    }
+
     .index-other-job {
         width: @content-width;
         margin: 0 auto;
@@ -1151,7 +1170,7 @@ p {
         }
 
         .other-job-items {
-            width: 930px;
+            width: @other-job-width;
             margin: 0 auto;
 
             .other-job-point {

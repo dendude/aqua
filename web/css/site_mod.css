@@ -1096,6 +1096,21 @@ p big {
 .site-index .index-our-job-slider a:hover strong {
   background: rgba(0, 0, 0, 0.65);
 }
+.site-index .other-job-articles {
+  width: 930px;
+  margin: 20px auto;
+  text-align: center;
+  position: relative;
+  font-size: 16px;
+}
+.site-index .other-job-articles.m-t-none {
+  margin-top: 0;
+  top: -10px;
+}
+.site-index .other-job-articles.m-b-none {
+  margin-bottom: 0;
+  bottom: -10px;
+}
 .site-index .index-other-job {
   width: 1100px;
   margin: 0 auto;

@@ -189,6 +189,8 @@ foreach ($photos_for_mark AS $photo) {
         <div class="clearfix"></div>
         <? endif; ?>
 
+        <p class="other-job-articles m-b-none"><?= Yii::$app->vars->val(158) ?></p>
+
         <div class="index-other-job">
             <h2 class="other-job-title"><?= Yii::$app->vars->val(99) ?></h2>
             <div class="other-job-items">
@@ -209,6 +211,8 @@ foreach ($photos_for_mark AS $photo) {
                 <div class="clearfix"></div>
             </div>
         </div>
+
+        <p class="other-job-articles m-t-none"><?= Yii::$app->vars->val(159) ?></p>
     </div>
 </div>
 <?
