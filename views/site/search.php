@@ -60,11 +60,11 @@ $section = 0;
             }
 
             switch ($section) {
-                case 179:
+                case 277:
                     $results = Pages::find()->where(['is_auto' => Statuses::STATUS_DISABLED])->andWhere(['like', 'CONCAT(title, meta_t, meta_d, meta_k)', $q])->orderBy(['title' => SORT_ASC])->all();
                     break;
 
-                case 180:
+                case 278:
                     $results = Faq::find()->where(['status' => Statuses::STATUS_ACTIVE])->andWhere(['like', 'CONCAT(question_text, answer_text)', $q])->orderBy('modified DESC')->all();
                     break;
             }
@@ -84,7 +84,7 @@ $section = 0;
                 <p>Найдено записей: <strong><?= count($results) ?></strong></p>
                 <div class="search-items">
                     <? foreach ($results AS $res): ?>
-                        <? if ($section == 179): ?>
+                        <? if ($section == 277): ?>
                             <a href="<?= Url::to([Normalize::fixAlias($res->alias)]) ?>" target="_blank"><?= $res->title ?><i class="glyphicon glyphicon-share-alt"></i></a>
                         <? else: ?>
                             <a href="<?= Url::to(['site/answer', 'id' => $res->id]) ?>" target="_blank"><?= nl2br(Html::encode($res->question_text)) ?><i class="glyphicon glyphicon-share-alt"></i></a>
