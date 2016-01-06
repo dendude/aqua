@@ -46,15 +46,15 @@ $main_banners = \app\models\Photos::find()
 
 $photos_for_mark = Photos::find()->where(['section_id' => PhotoAlbums::ALBUM_OUR_JOBS])->all();
 foreach ($photos_for_mark AS $photo) {
+
+    if ($photo->img_big == 'gallery_565d468749bd4.jpg') continue;
+
     $full_path = Yii::getAlias('@app') . '/web' . UploadForm::getSrc($photo->img_big, UploadForm::TYPE_GALLERY);
     $water_path = Yii::getAlias('@app') . '/web/img/watermark.png';
 
     $picture = new \app\components\Picture($full_path);
     $picture->watermark($water_path, 10, 10);
     $picture->imageout();
-
-    echo $full_path;
-    break;
 }
 ?>
 <div class="site-index">
