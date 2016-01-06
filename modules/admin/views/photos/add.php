@@ -47,6 +47,15 @@ $inputMiddle = ['inputOptions' => ['class' => 'form-control input-middle']];
         <?= $form->errorSummary($model, ['class' => 'alert alert-danger']); ?>
         <? \app\helpers\MHtml::alertMsg(); ?>
         <div class="well">
+            <div class="form-group">
+                <div class="col-xs-offset-4 col-xs-8">
+                    Рекомендуемое разрешение для фотографий:<br/>
+                    - для альбома "Большие баннеры на главной": <strong>1100 х 600 пикс</strong><br/>
+                    - для альбома "Верхние полоски баннеров": <strong>1100 х 135 пикс</strong><br/>
+                    - для альбома "Наши работы для главной": <strong>1100 х 700 пикс</strong>
+                </div>
+            </div>
+            <div class="separator"></div>
             <?= $form->field($model, 'section_id', $inputMiddle)->dropDownList(\app\models\PhotoAlbums::getFilterList()) ?>
             <div class="separator"></div>
             <div class="form-group">
