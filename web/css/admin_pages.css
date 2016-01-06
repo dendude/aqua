@@ -1036,6 +1036,7 @@
   line-height: 24px;
 }
 .redactor-editor .site-index .index-our-job img {
+  height: 700px;
   max-width: 1100px;
   margin: 0;
 }
@@ -1069,7 +1070,7 @@
 }
 .redactor-editor .site-index .index-our-job-slider a span img {
   max-width: 270px;
-  max-height: 250px;
+  height: 250px;
 }
 .redactor-editor .site-index .index-our-job-slider a strong {
   display: block;
