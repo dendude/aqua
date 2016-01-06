@@ -115,9 +115,12 @@ $footer_menu = Menu::find()->active()->footer()->all();
         </nav>
 
         <? if (!empty($this->params['banner_name'])): ?>
+            <? $banner_model = \app\models\Photos::find()->where(['img_big' => $this->params['banner_name']])->one() ?>
             <div class="top-banner">
                 <span class="top-banner-inner">
-                    <?= Html::img(\app\models\forms\UploadForm::getSrc($this->params['banner_name'], \app\models\forms\UploadForm::TYPE_GALLERY)) ?>
+                    <? if (!empty($banner_model->page_id)): ?><a href="<?= Url::to([Normalize::fixAlias($banner_model->page_id)]) ?>"><? endif; ?>
+                        <?= Html::img(\app\models\forms\UploadForm::getSrc($this->params['banner_name'], \app\models\forms\UploadForm::TYPE_GALLERY), ['alt' => $banner_model->title]) ?>
+                    <? if (!empty($banner_model->page_id)): ?></a><? endif; ?>
                 </span>
             </div>
         <? endif; ?>

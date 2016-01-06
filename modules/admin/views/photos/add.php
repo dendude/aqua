@@ -75,6 +75,9 @@ $inputMiddle = ['inputOptions' => ['class' => 'form-control input-middle']];
             <?= Html::activeHiddenInput($model, 'img_big_arr[]') ?>
         </div>
         <div class="data-title">
+            <?= Html::activeDropDownList($model, 'page_arr[]', \app\models\Pages::getFilterList(), ['class' => 'form-control', 'placeholder' => 'Ссылка на страницу']) ?>
+        </div>
+        <div class="data-title">
             <?= Html::activeTextInput($model, 'title_arr[]', ['class' => 'form-control', 'placeholder' => 'Название']) ?>
         </div>
         <div class="data-about">

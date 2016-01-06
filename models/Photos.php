@@ -24,6 +24,7 @@ class Photos extends \yii\db\ActiveRecord
 {
     public $img_small_arr = [];
     public $img_big_arr = [];
+    public $page_arr = [];
     public $title_arr = [];
     public $about_arr = [];
     public $ordering_arr = [];
@@ -53,7 +54,10 @@ class Photos extends \yii\db\ActiveRecord
 
             [['title', 'img_small', 'img_big', 'about'], 'default', 'value' => ''],
 
-            [['title_arr', 'img_small_arr', 'img_big_arr', 'about_arr', 'ordering_arr'], 'safe'],
+            ['page_id', 'integer'],
+            ['page_id', 'default', 'value' => 0],
+
+            [['page_arr', 'title_arr', 'img_small_arr', 'img_big_arr', 'about_arr', 'ordering_arr'], 'safe'],
         ];
     }
 
@@ -102,6 +106,7 @@ class Photos extends \yii\db\ActiveRecord
             'id' => 'ID',
             'manager_id' => 'Менеджер',
             'section_id' => 'Альбом',
+            'page_id' => 'Ссылка на страницу',
             'title' => 'Заголовок',
             'about' => 'Описание',
             'img_small' => 'Img Small',

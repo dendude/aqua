@@ -383,6 +383,10 @@ a.btn-add {
   max-width: 340px;
   max-height: 280px;
 }
+.photo-item .photo-link {
+  display: block;
+  padding: 0 7px;
+}
 .photo-item .photo-title {
   display: block;
   padding: 0 7px;

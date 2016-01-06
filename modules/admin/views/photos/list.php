@@ -4,6 +4,7 @@ use app\modules\admin\controllers\PhotosController;
 use app\models\forms\UploadForm;
 use yii\helpers\Url;
 use app\helpers\Statuses;
+use app\helpers\Normalize;
 
 $this->title = $album->name;
 $this->params['breadcrumbs'] = [
@@ -28,6 +29,13 @@ if (isset($photos)) {
                     <span class="photo-cont">
                         <?= Html::img(UploadForm::getSrc($photo->img_small, UploadForm::TYPE_GALLERY)) ?>
                     </span>
+                </span>
+                <span class="photo-link">
+                    <? if ($photo->page_id): ?>
+                        <?= Html::a('Перейти на страницу &raquo;', [Normalize::fixAlias($photo->page_id)], ['target' => '_blank']) ?>
+                    <? else: ?>
+                        нет ссылки
+                    <? endif; ?>
                 </span>
                 <span class="photo-title"><?= Html::encode($photo->title) ?></span>
                 <span class="photo-about"><?= nl2br(Html::encode($photo->about)) ?></span>

@@ -27,6 +27,8 @@ $inputMiddle = ['inputOptions' => ['class' => 'form-control input-middle']];
         <div class="well">
             <?= $form->field($model, 'section_id', $inputMiddle)->dropDownList(\app\models\PhotoAlbums::getFilterList()) ?>
             <div class="separator"></div>
+            <?= $form->field($model, 'page_id', $inputMiddle)->dropDownList(\app\models\Pages::getFilterList(), ['prompt' => '']) ?>
+            <div class="separator"></div>
             <?= $form->field($model, 'title', $inputMiddle) ?>
             <?= $form->field($model, 'about', $inputMiddle)->textarea(['rows' => 3]) ?>
             <div class="separator"></div>

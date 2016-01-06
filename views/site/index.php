@@ -51,7 +51,9 @@ $main_banners = \app\models\Photos::find()
             <ul>
                 <? foreach ($main_banners AS $bk => $banner): ?>
                 <li>
-                    <img src="<?= UploadForm::getSrc($banner->img_big, UploadForm::TYPE_GALLERY) ?>" alt="<?= Html::encode($this->title) ?>" width="1100" height="600" />
+                    <? if ($banner->page_id): ?><a href="<?= Url::to([Normalize::fixAlias($banner->page_id)]) ?>"><? endif; ?>
+                        <img src="<?= UploadForm::getSrc($banner->img_big, UploadForm::TYPE_GALLERY) ?>" alt="<?= Html::encode($this->title) ?>" width="1100" height="600" />
+                    <? if ($banner->page_id): ?></a><? endif; ?>
                 </li>
                 <? endforeach; ?>
             </ul>
@@ -142,15 +144,16 @@ $main_banners = \app\models\Photos::find()
         </div>
 
         <? if (count($slider_photos)): ?>
-        <h2 class="why-us"><?= Yii::$app->vars->val(98) ?></h2>
+        <? /*<h2 class="why-us"><?/*= Yii::$app->vars->val(98)</h2>*/ ?>
         <div class="index-our-job">
             <img src="<?= UploadForm::getSrc($slider_photos[0]->img_big, UploadForm::TYPE_GALLERY) ?>" alt="<?= Html::encode($slider_photos[0]->title) ?>"/>
-            <? if($slider_photos[0]->title || $slider_photos[0]->about): ?>
+            <span class="our-jobs-default"><?= Yii::$app->vars->val(98) ?></span>
+            <? /*if($slider_photos[0]->title || $slider_photos[0]->about): ?>
             <span class="our-job-title">
                 <strong class="our-job-name"><?= Html::encode($slider_photos[0]->title) ?></strong>
                 <span class="our-job-about"><?= nl2br(Html::encode($slider_photos[0]->about)) ?></span>
             </span>
-            <? endif; ?>
+            <? endif;*/ ?>
         </div>
         <div class="index-our-job-slider">
             <div id="sm_slider">
