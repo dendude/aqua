@@ -133,7 +133,7 @@ function set_job_img(obj) {
 
     $img.animate({
         opacity: 0.30
-    }, 500, function(){
+    }, 300, function(){
         $('.our-job-name').html($('.img-title', $obj).html());
         $('.our-job-about').html($('.img-about', $obj).html());
         $(this).animate({opacity: 1},'fast');
