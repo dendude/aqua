@@ -2,8 +2,10 @@
 
 namespace app\models\forms;
 
+use app\components\ReCaptcha;
 use app\components\SmtpEmail;
 use app\models\Faq;
+use app\models\FaqSections;
 use app\models\Users;
 use Yii;
 use yii\base\ErrorException;
@@ -17,6 +19,7 @@ class QuestionForm extends Model
     public $email;
     public $section_id;
     public $question_text;
+    public $captcha;
 
     /**
      * @return array the validation rules.
@@ -30,7 +33,17 @@ class QuestionForm extends Model
             ['email', 'email'],
 
             [['question_text'], 'string', 'min' => 10, 'tooShort' => 'Введите не менее {min} символов'],
+
+            ['captcha', 'required', 'message' => 'Необходимо отметить поле "Я не робот"'],
+            ['captcha', 'checkCaptcha']
         ];
+    }
+    
+    public function checkCaptcha($attribute, $params) {
+        $re_captcha = new ReCaptcha($this->{$attribute});
+        if (!$re_captcha->validate()) {
+            $this->addError($attribute, 'Некорректное значение reCaptcha');
+        }
     }
 
     public function send()
@@ -41,7 +54,12 @@ class QuestionForm extends Model
         if ($question->save()) {
 
             $smtp = new SmtpEmail();
-            if ($smtp->sendEmailByType(SmtpEmail::TYPE_NEW_QUESTION, $question->email, $question->name, ['{question_text}' => $this->question_text])) {
+            $sent = $smtp->sendEmailByType(SmtpEmail::TYPE_QUESTION, $question->email, $question->name, [
+                '{section}' => FaqSections::getSectionName($this->section_id),
+                '{question}' => nl2br($this->question_text),
+            ]);
+
+            if ($sent) {
                 return true;
             } else {
                 $question->delete();

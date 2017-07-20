@@ -21,6 +21,14 @@ $inputMiddle = ['inputOptions' => ['class' => 'form-control input-middle']];
         <?= $form->errorSummary($model, ['class' => 'alert alert-danger']); ?>
         <? \app\helpers\MHtml::alertMsg(); ?>
         <div class="well">
+            <?= $form->field($model, 'recievers', $inputMiddle)->textarea(['rows' => 4]) ?>
+            <div class="form-group form-comment">
+                <div class="col-xs-offset-4 col-xs-8">
+                    <small class="text-muted">Введите получателей уведомлений с сайта. Один Email адрес на строку.</small>
+                </div>
+            </div>
+            <div class="separator"></div>
+            <div class="separator"></div>
             <?= $form->field($model, 'email_username', $inputMiddle) ?>
             <?= $form->field($model, 'email_password', $inputMiddle) ?>
             <div class="separator"></div>

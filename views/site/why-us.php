@@ -44,33 +44,33 @@ $this->params['banner_name'] = $model->banner_name;
     <div class="page-container <?= $model->menu_id ? '' : 'page-simple' ?>">
         <h1 class="page-title"><?= $model->title ?></h1>
         <div class="why-us-items">
-            <a href="<?= Yii::$app->vars->val(145, false, true) ?>" title="<?= Yii::$app->vars->val(151, true) ?>" class="why-us-point">
+            <a href="<?= Yii::$app->vars->val(145, false, true) ?>" title="<?= Yii::$app->vars->val(151, true) ?>" target="_blank" class="why-us-point">
                 <span class="why-us-title"><?= Yii::$app->vars->val(86) ?></span>
                 <span class="why-us-text"><?= Yii::$app->vars->val(87) ?></span>
                 <span class="why-us-icons why-us-icon-1"></span>
             </a>
-            <a href="<?= Yii::$app->vars->val(146, false, true) ?>" title="<?= Yii::$app->vars->val(152, true) ?>" class="why-us-point">
+            <a href="<?= Yii::$app->vars->val(146, false, true) ?>" title="<?= Yii::$app->vars->val(152, true) ?>" target="_blank" class="why-us-point">
                 <span class="why-us-title"><?= Yii::$app->vars->val(88) ?></span>
                 <span class="why-us-text"><?= Yii::$app->vars->val(89) ?></span>
                 <span class="why-us-icons why-us-icon-2"></span>
             </a>
-            <a href="<?= Yii::$app->vars->val(147, false, true) ?>" title="<?= Yii::$app->vars->val(153, true) ?>" class="why-us-point mr0">
+            <a href="<?= Yii::$app->vars->val(147, false, true) ?>" title="<?= Yii::$app->vars->val(153, true) ?>" target="_blank" class="why-us-point mr0">
                 <span class="why-us-title"><?= Yii::$app->vars->val(90) ?></span>
                 <span class="why-us-text"><?= Yii::$app->vars->val(91) ?></span>
                 <span class="why-us-icons why-us-icon-3"></span>
             </a>
 
-            <a href="<?= Yii::$app->vars->val(148, false, true) ?>" title="<?= Yii::$app->vars->val(154, true) ?>" class="why-us-point">
+            <a href="<?= Yii::$app->vars->val(148, false, true) ?>" title="<?= Yii::$app->vars->val(154, true) ?>" target="_blank" class="why-us-point">
                 <span class="why-us-title"><?= Yii::$app->vars->val(92) ?></span>
                 <span class="why-us-text"><?= Yii::$app->vars->val(93) ?></span>
                 <span class="why-us-icons why-us-icon-4"></span>
             </a>
-            <a href="<?= Yii::$app->vars->val(149, false, true) ?>" title="<?= Yii::$app->vars->val(155, true) ?>" class="why-us-point">
+            <a href="<?= Yii::$app->vars->val(149, false, true) ?>" title="<?= Yii::$app->vars->val(155, true) ?>" target="_blank" class="why-us-point">
                 <span class="why-us-title"><?= Yii::$app->vars->val(94) ?></span>
                 <span class="why-us-text"><?= Yii::$app->vars->val(95) ?></span>
                 <span class="why-us-icons why-us-icon-5"></span>
             </a>
-            <a href="<?= Yii::$app->vars->val(150, false, true) ?>" title="<?= Yii::$app->vars->val(156, true) ?>" class="why-us-point mr0">
+            <a href="<?= Yii::$app->vars->val(150, false, true) ?>" title="<?= Yii::$app->vars->val(156, true) ?>" target="_blank" class="why-us-point mr0">
                 <span class="why-us-title"><?= Yii::$app->vars->val(96) ?></span>
                 <span class="why-us-text"><?= Yii::$app->vars->val(97) ?></span>
                 <span class="why-us-icons why-us-icon-6"></span>

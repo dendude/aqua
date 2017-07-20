@@ -40,7 +40,8 @@ class Menu extends \yii\db\ActiveRecord
             [['id_author', 'menu_name', 'created'], 'required'],
             [['id_author', 'parent_id', 'page_id', 'ordering', 'status', 'created'], 'integer'],
             [['id_author', 'parent_id', 'page_id', 'ordering', 'status', 'created'], 'default', 'value' => 0],
-            [['menu_name', 'menu_title'], 'string', 'max' => 100]
+            [['menu_name', 'menu_title'], 'string', 'max' => 100],
+            [['menu_name', 'menu_title'], 'filter', 'filter' => 'trim'],
         ];
     }
 

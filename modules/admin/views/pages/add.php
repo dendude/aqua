@@ -5,6 +5,7 @@ use app\modules\admin\controllers\PagesController;
 use app\models\Menu;
 use yii\tinymce\TinyMceAsset;
 use \app\models\Pages;
+use yii\helpers\Url;
 
 TinyMceAsset::register($this);
 
@@ -119,11 +120,19 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
             </div>
 
             <div class="separator"></div>
-
             <div class="separator"></div>
+
             <?= $form->field($model, 'is_shared')->checkbox(['label' => 'Показывать кнопки "Поделиться"']) ?>
             <?= $form->field($model, 'is_sitemap')->checkbox(['label' => 'Добавить страницу в карту сайта']) ?>
             <?= $form->field($model, 'is_auto')->checkbox(['label' => 'Страница наполняется автоматически', 'onclick' => "set_auto_alias(this)"]) ?>
+            
+            <div class="separator"></div>
+    
+            <?= $form->field($model, 'is_first_article')->checkbox(['label' => 'Участвовать в первой статье блока "Полезные статьи" по новизне']) ?>
+            <?= $form->field($model, 'is_article')->checkbox(['label' => 'Разместить второй статьей в блоке "Полезные статьи"']) ?>
+
+            <?/*= $form->field($model, 'use_review_list')->checkbox(['label' => 'Прикрепить список отзывов']) */?><!--
+            --><?/*= $form->field($model, 'use_review_form')->checkbox(['label' => 'Прикрепить форму отзыва']) */?>
             <div class="form-group">
                 <div class="col-xs-offset-4 col-xs-8">
                     <small class="text-muted">Примеры автоматических страниц: форма обратной связи, список новостей, регистрация и т.п.</small>
@@ -254,8 +263,6 @@ $menu_filter = $root_menu ? \yii\helpers\ArrayHelper::map($root_menu, 'id', 'men
 <?php ActiveForm::end() ?>
 <?
 $this->registerJs('
-
-
     tinymce.init({
         selector: "#' . Html::getInputId($model, 'content') . '",
 
@@ -270,7 +277,7 @@ $this->registerJs('
 
         content_css: [
             "/lib/bootstrap/dist/css/bootstrap.min.css",
-            "/css/site_mod.css?' . time() . '"
+            "/css/site_mod.css?5"
         ],
 
         plugin_preview_width: 1050,
@@ -295,10 +302,8 @@ $this->registerJs('
             {title: "Стилизованная таблица для характеристик 100% ширина", value: "table-characters table-padding5 table-full"},
         ],
 
-        images_upload_url: "' . \yii\helpers\Url::to(['upload']) . '",
-        images_upload_base_path: "/images",
-        images_upload_credentials: true,
-        image_advtab: true,
+        img_path: "' . Url::to(['upload']) . '",
+
         image_class_list: [
             {title: "Без выравнивания", value: ""},
             {title: "Без выравнивания с границей", value: "image-bordered"},
@@ -322,7 +327,7 @@ $this->registerJs('
         fontsize_formats: "8px 10px 11px 12px 13px 14px 16px 18px 24px 36px",
         fullpage_default_fontsize: "14px",
 
-        extended_valid_elements: "script[charset|language|type|src]",
+        extended_valid_elements: "script[charset|language|type|src],a[onclick|href|title|target]",
 
         style_formats : [
             {title : "Small text", inline : "small"},
@@ -330,18 +335,20 @@ $this->registerJs('
         ],
 
         templates: [
+            {title: "Продано", description: "Аквариум продан", content: "<img src=\"/selloff/lowfoto/struckoff.gif\" alt=\"Аквариум продан\" />"},
+        
             {title: "Order button", description: "Стилизованная кнопка заказа", content: "<a href=\"#\" class=\"btn btn-primary btn-xs btn-order\">ЗАКАЗАТЬ</a>"},
             {title: "Separator line", description: "Разделительная линия", content: "<hr class=\"separator-line\" />"},
             {title: "Page H1", description: "Основной заголовок Н1 для статьи", content: "<h1 class=\"page-title\">Page H1</h1>"},
 
-            {title: "Blue Block Horizontal", description: "Синий вертикальный горизонтальный блок", url: "' . \yii\helpers\Url::to(['templates/blue-block-horizontal']) . '"},
-            {title: "Blue Block Left 200px", description: "Синий вертикальный блок слева", url: "' . \yii\helpers\Url::to(['templates/blue-block-left']) . '"},
-            {title: "Blue Block Right 200px", description: "Синий вертикальный блок справа", url: "' . \yii\helpers\Url::to(['templates/blue-block-right']) . '"},
+            {title: "Blue Block Horizontal", description: "Синий вертикальный горизонтальный блок", url: "' . Url::to(['templates/blue-block-horizontal']) . '"},
+            {title: "Blue Block Left 200px", description: "Синий вертикальный блок слева", url: "' . Url::to(['templates/blue-block-left']) . '"},
+            {title: "Blue Block Right 200px", description: "Синий вертикальный блок справа", url: "' . Url::to(['templates/blue-block-right']) . '"},
 
-            {title: "Table Aqua", description: "Заготовка таблицы для аквариумов", url: "' . \yii\helpers\Url::to(['templates/table-aqua']) . '"},
-            {title: "Table Image-text", description: "Заготовка таблицы фото-текст", url: "' . \yii\helpers\Url::to(['templates/table-fill']) . '"},
-            {title: "Table Characters", description: "Заготовка таблицы для характеристик", url: "' . \yii\helpers\Url::to(['templates/table-characters']) . '"},
-            {title: "Table Image Characters", description: "Заготовка таблицы для фото и характеристик", url: "' . \yii\helpers\Url::to(['templates/table-img-characters']) . '"},
+            {title: "Table Aqua", description: "Заготовка таблицы для аквариумов", url: "' . Url::to(['templates/table-aqua']) . '"},
+            {title: "Table Image-text", description: "Заготовка таблицы фото-текст", url: "' . Url::to(['templates/table-fill']) . '"},
+            {title: "Table Characters", description: "Заготовка таблицы для характеристик", url: "' . Url::to(['templates/table-characters']) . '"},
+            {title: "Table Image Characters", description: "Заготовка таблицы для фото и характеристик", url: "' . Url::to(['templates/table-img-characters']) . '"},
 
             {title: "Photo Slider", description: "Слайдер фотографий для страниц", content: "<div class=\"page-slider-cont\"><div id=\"page_slider\"><ul><li><img/></li></ul></div></div>"},
 
@@ -364,13 +371,13 @@ $this->registerJs('
             {title: "Blue Message Right 40%", description: "Синий блок-сообщение справа 40% ширины", content: "<div class=\"blue-block right width40\"><p>Text</p></div>"},
             {title: "Blue Message Right 60%", description: "Синий блок-сообщение справа 60% ширины", content: "<div class=\"blue-block right width60\"><p>Text</p></div>"},
 
-            {title: "Orange Block OK", description: "Оранжевый блок со скрепкой", content: "<div class=\"orange-block orange-ok\"><h3>Title</h3><p>Text</p></div>"},
-            {title: "Orange Block OK Left", description: "Оранжевый блок со скрепкой слева", content: "<div class=\"orange-block orange-ok left\"><h3>Title</h3><p>Text</p></div>"},
-            {title: "Orange Block OK Right", description: "Оранжевый блок со скрепкой справа", content: "<div class=\"orange-block orange-ok right\"><h3>Title</h3><p>Text</p></div>"},
+            {title: "Orange Block OK", description: "Оранжевый блок со скрепкой", content: "<div class=\"orange-block orange-ok\"><p>Text</p></div>"},
+            {title: "Orange Block OK Left", description: "Оранжевый блок со скрепкой слева", content: "<div class=\"orange-block orange-ok left\"><p>Text</p></div>"},
+            {title: "Orange Block OK Right", description: "Оранжевый блок со скрепкой справа", content: "<div class=\"orange-block orange-ok right\"><p>Text</p></div>"},
 
-            {title: "Orange Block Attach", description: "Оранжевый блок с галочкой", content: "<div class=\"orange-block orange-attach\"><h3>Title</h3><p>Text</p></div>"},
-            {title: "Orange Block Attach Left", description: "Оранжевый блок с галочкой слева", content: "<div class=\"orange-block orange-attach left\"><h3>Title</h3><p>Text</p></div>"},
-            {title: "Orange Block Attach Right", description: "Оранжевый блок с галочкой справа", content: "<div class=\"orange-block orange-attach right\"><h3>Title</h3><p>Text</p></div>"},
+            {title: "Orange Block Attach", description: "Оранжевый блок с галочкой", content: "<div class=\"orange-block orange-attach\"><p>Text</p></div>"},
+            {title: "Orange Block Attach Left", description: "Оранжевый блок с галочкой слева", content: "<div class=\"orange-block orange-attach left\"><p>Text</p></div>"},
+            {title: "Orange Block Attach Right", description: "Оранжевый блок с галочкой справа", content: "<div class=\"orange-block orange-attach right\"><p>Text</p></div>"},
 
             {title: "Fish List", description: "Список, маркированный рыбками, в одну строку", content: "<table class=\"fish-list bg-blue\"><tr><td><ul><li>item1</li><li>item2</li></ul><span class=\"clearfix\"></span></td></tr></table>"},
             {title: "Fish List Fixed", description: "Список, маркированный рыбками, в одну строку, с залипанием при прокрутке", content: "<table class=\"fish-list fish-list-menu bg-blue\"><tr><td><ul><li>item1</li><li>item2</li></ul><span class=\"clearfix\"></span></td></tr></table>"},
@@ -381,11 +388,10 @@ $this->registerJs('
             "advlist autolink lists link charmap hr print preview anchor autoresize",
             "searchreplace visualblocks code fullscreen wordcount",
             "insertdatetime media table contextmenu media directionality",
-            "template textcolor colorpicker textpattern image imagetools"
+            "template textcolor colorpicker textpattern image imagetools jbimages"
         ],
 
         toolbar1: "code | insertfile undo redo | searchreplace | alignleft aligncenter alignright alignjustify | indent outdent | bullist numlist | formatselect,fontselect,fontsizeselect,sub,sup",
-        toolbar2: "preview | bold italic underline strikethrough | removeformat | forecolor backcolor | anchor link insertfile image media | fullscreen"
+        toolbar2: "preview | bold italic underline strikethrough | removeformat | forecolor backcolor | anchor link insertfile image jbimages media | fullscreen"
     });
 ');
-?>

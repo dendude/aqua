@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\components\SmtpEmail;
 use Yii;
 
 /**
@@ -46,7 +47,7 @@ class Orders extends \yii\db\ActiveRecord
     }
     public static function getViewName($view_id) {
         $list = self::getViewTypes();
-        return isset($list[$view_id]) ? $list[$view_id] : 'не найден';
+        return isset($list[$view_id]) ? $list[$view_id] : 'Не найден';
     }
 
     public static function getServicesTypes() {
@@ -70,7 +71,7 @@ class Orders extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['aqua_type', 'name', 'email', 'created'], 'required'],
+            [['name', 'email', 'created'], 'required'],
 
             ['email', 'email'],
 
@@ -89,6 +90,16 @@ class Orders extends \yii\db\ActiveRecord
     {
         if ($this->isNewRecord) {
             $this->created = time();
+
+            $smtp = new SmtpEmail();
+            $smtp->sendEmailByType(SmtpEmail::TYPE_ORDER, $this->email, $this->name, [
+                '{type}' => $this->aqua_type,
+                '{phone}' => !empty($this->phone) ? $this->phone : 'Не указан',
+                '{view}' => !empty($this->view_type) ? self::getViewName($this->view_type) : 'Не указан',
+                '{services}' => !empty($this->service_type) ? self::getServiceName($this->service_type) : 'Не указан',
+                '{comment}' => !empty($this->comment) ? nl2br($this->comment) : 'Не указан',
+            ]);
+
         } else {
             $this->modified = time();
 

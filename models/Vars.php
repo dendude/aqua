@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\components\simple_html_dom;
 use app\helpers\Normalize;
 use Yii;
 use yii\helpers\ArrayHelper;
@@ -83,7 +84,11 @@ class Vars extends \yii\db\ActiveRecord
 
         if ($encode) $value = Html::encode($value);
         if ($url && strpos($value, '#') === false) $value = Url::to([Normalize::fixAlias(preg_replace('/(\.[a-z]+)$/', '', $value))]);
-
+	
+        if (strpos($value, 'href')) {
+            $value = str_replace(Yii::$app->urlManager->suffix . '"', '"', $value);
+            $value = preg_replace('/href="([a-z0-9-_\/]+)"/i', 'href="$1' . Yii::$app->urlManager->suffix . '"', $value);
+        }
         // учитывается режим показа названий переменных
         return Yii::$app->session->get(self::SESSION_NAME) ? 'Msg_' . sprintf('%04d', $id) : nl2br($value);
     }

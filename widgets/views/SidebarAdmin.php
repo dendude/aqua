@@ -1,6 +1,5 @@
 <?php
 use yii\bootstrap\Nav;
-use yii\bootstrap\Dropdown;
 use app\helpers\Statuses;
 use yii\helpers\Html;
 use \app\modules\admin\controllers\PhotosController;
@@ -9,6 +8,7 @@ use app\modules\admin\controllers\FreeTravelController;
 use app\modules\admin\controllers\CallbackController;
 use app\modules\admin\controllers\CalculateController;
 use app\modules\admin\controllers\OrdersController;
+use app\modules\admin\controllers\ReviewsController;
 
 $label_options = ['class' => 'label label-success pull-right', 'style' => 'font-size: 12px; line-height: 14px;'];
 
@@ -27,6 +27,9 @@ $new_callback_label = $new_callback_count ? Html::tag('span', '+ ' . $new_callba
 $new_question_count = \app\models\Faq::find()->where(['status' => Statuses::STATUS_DISABLED])->count();
 $new_question_label = $new_question_count ? Html::tag('span', '+ ' . $new_question_count, $label_options) : '';
 
+$new_reviews_count = \app\models\Reviews::find()->where(['status' => Statuses::STATUS_DISABLED])->count();
+$new_reviews_label = $new_reviews_count ? Html::tag('span', '+ ' . $new_reviews_count, $label_options) : '';
+
 echo Nav::widget([
     'items' => [
         ['label' => 'Главная','url' => ['default/index']],
@@ -40,6 +43,7 @@ echo Nav::widget([
         ['label' => $new_travel_label . FreeTravelController::LIST_NAME, 'url' => ['free-travel/list']],
         ['label' => $new_calculate_label . CalculateController::LIST_NAME, 'url' => ['calculate/list']],
         ['label' => $new_callback_label . CallbackController::LIST_NAME, 'url' => ['callback/list']],
+        ['label' => $new_reviews_label . ReviewsController::LIST_NAME , 'url' => ['reviews/list']],
         ['label' => $new_question_label . 'Вопросы и ответы', 'url' => ['faq/list']],
         ['label' => 'Разделы вопросов', 'url' => ['faq/sections']],
 

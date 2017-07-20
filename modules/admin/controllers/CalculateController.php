@@ -62,9 +62,12 @@ class CalculateController extends Controller
 
         if (Yii::$app->request->post('Calculate')) {
             $model->load(Yii::$app->request->post());
-            if ($model->save()) {
-                Yii::$app->session->setFlash('success', 'Запись успешно изменена');
-                $this->redirect(['list'])->send();
+
+            if ($model->validate()) {
+                if ($model->save()) {
+                    Yii::$app->session->setFlash('success', 'Запись успешно изменена');
+                    $this->redirect(['list'])->send();
+                }
             }
         }
 

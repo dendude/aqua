@@ -2,9 +2,11 @@
 
 namespace app\models;
 
+use app\components\ReCaptcha;
 use app\components\SmtpEmail;
 use app\helpers\Statuses;
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "{{%feedback}}".
@@ -19,8 +21,12 @@ use Yii;
  * @property integer $created
  * @property integer $status
  */
-class Calculate extends \yii\db\ActiveRecord
+class Calculate extends ActiveRecord
 {
+    const PAGE_ID = 183;
+    
+    const SCENARIO_SITE = 'site';
+    
     public $param_length;
     public $param_width;
     public $param_height;
@@ -31,29 +37,24 @@ class Calculate extends \yii\db\ActiveRecord
     public $param_oform_type;
 
     public $dop_params = ['param_length', 'param_width', 'param_height', 'param_has_krishka', 'param_has_tumba', 'param_has_oborud', 'param_oform_type'];
-
-    const PAGE_ID = 183;
-    /**
-     * @inheritdoc
-     */
+    
+    public $captcha;
+    
     public static function tableName()
     {
         return '{{%calculate}}';
     }
 
-    /**
-     * @inheritdoc
-     */
     public function rules()
     {
         return [
-            [['name', 'email', 'param_oform_type'], 'required'],
+            [['name', 'email'], 'required'],
             [['answer'], 'required', 'when' => function($model){
                 return $model->status == Statuses::STATUS_ACTIVE;
             }, 'message' => 'Чтобы отправить {attribute}, необходимо заполнить его'],
 
-            [['manager_id', 'created', 'modified', 'answered', 'status'], 'integer'],
-            [['manager_id', 'created', 'modified', 'answered', 'status'], 'default', 'value' => 0],
+            [['manager_id', 'created', 'modified', 'answered', 'status', 'param_oform_type'], 'integer'],
+            [['manager_id', 'created', 'modified', 'answered', 'status', 'param_oform_type'], 'default', 'value' => 0],
 
             [['email'], 'email'],
 
@@ -75,7 +76,17 @@ class Calculate extends \yii\db\ActiveRecord
 
             [['phone'], 'string', 'min' => 10, 'max' => 20],
             [['phone'], 'default', 'value' => ''],
+
+            ['captcha', 'required', 'message' => 'Необходимо отметить поле "Я не робот"', 'on' => self::SCENARIO_SITE],
+            ['captcha', 'checkCaptcha', 'on' => self::SCENARIO_SITE],
         ];
+    }
+    
+    public function checkCaptcha($attribute, $params) {
+        $re_captcha = new ReCaptcha($this->{$attribute});
+        if (!$re_captcha->validate()) {
+            $this->addError($attribute, 'Некорректное значение reCaptcha');
+        }
     }
 
     public static function getOformTypes() {
@@ -91,7 +102,7 @@ class Calculate extends \yii\db\ActiveRecord
 
     public static function getOformName($oform_type) {
         $list = self::getOformTypes();
-        return isset($list[$oform_type]) ? $list[$oform_type] : 'not found';
+        return isset($list[$oform_type]) ? $list[$oform_type] : 'Не найден';
     }
 
     public function getManager() {
@@ -116,25 +127,35 @@ class Calculate extends \yii\db\ActiveRecord
     public function save($runValidation = true, $attributeNames = null)
     {
         $params_values = [];
+        $params_names = [];
+
         foreach ($this->dop_params AS $name) {
             if (!empty($this->$name)) {
                 $params_values[$name] = $this->$name;
+                $params_names[] = $this->getAttributeLabel($name);
             }
         }
 
         if (count($params_values)) $this->params = serialize($params_values);
 
-        if ($this->isNewRecord) {
+        $mail_params = ['{name}' => $this->name,
+                        '{email}' => $this->email,
+                        '{phone}' => !empty($this->phone) ? $this->phone : 'Не указан',
+                        '{sizes}' => implode(' x ', array_slice($params_values, 0, 3)),
+                        '{view_type}' => $this->getOformName($this->param_oform_type),
+                        '{accessories}' => implode(', ', array_slice($params_names, 3)),
+                        '{comment}' => !empty($this->message) ? nl2br($this->message) : 'Не указан'];
 
+        if ($this->isNewRecord) {
+            $smtp = new SmtpEmail();
+            $smtp->sendEmailByType(SmtpEmail::TYPE_CALCULATE, $this->email, $this->name, $mail_params);
         } else {
             $self = self::findOne($this->id);
             // отправляем письмо один раз
             if ($this->status == Statuses::STATUS_ACTIVE) {
                 $smtp = new SmtpEmail();
-                $smtp->sendEmailByType(SmtpEmail::TYPE_ANSWER_QUESTION, $this->email, $this->name, [
-                    '{question_text}' => $this->message,
-                    '{answer_text}' => $this->answer,
-                ]);
+                $smtp->sendEmailByType(SmtpEmail::TYPE_CALCULATE_ANSWER, $this->email, $this->name,
+                                        array_merge($mail_params, ['{result}' => nl2br($this->answer)], false));
             } else {
                 $this->status = $self->status;
             }

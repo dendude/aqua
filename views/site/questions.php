@@ -36,6 +36,11 @@ if (!empty($check_section)) {
 ?>
 <div class="page-content">
     <div class="page-container page-simple">
+        <div class="pull-right">
+            <a class="page-question faq-add" data-target="#modal_form_<?= Faq::PAGE_ADD_ID ?>" data-toggle="modal">
+                <?= Yii::$app->vars->val(103) ?>
+            </a>
+        </div>
         <h1 class="page-title"><?= $this->title ?></h1>
         <? if ($sections): ?>
 
@@ -49,9 +54,21 @@ if (!empty($check_section)) {
                     <ul class="faq-questions">
                         <? foreach ($section->questions AS $question): ?>
                             <? if ($question->status != Statuses::STATUS_ACTIVE) continue; ?>
+
+                            <?
+                            $dom = new \app\components\simple_html_dom($question->answer_text);
+                            if ($dom->find('a')) {
+                                foreach ($dom->find('a') AS $a) {
+                                    if (empty($a->href)) continue;
+                                    $a->href = str_replace(['.html', '.php'], '', $a->href);
+                                    $a->href = Url::to([Normalize::fixAlias($a->href)]);
+                                }
+                            }
+                            ?>
+
                             <li>
                                 <a href="<?= Url::to([Faq::ALIAS_PREFIX, 'id' => $question->id]) ?>" onclick="show_answer(this, event)"><?= nl2br(Html::encode($question->question_text)) ?></a>
-                                <p class="faq-answer"><span><strong>Ответ:</strong>&nbsp;<?= nl2br(Html::encode($question->answer_text)) ?></span></p>
+                                <p class="faq-answer"><span><strong>Ответ:</strong>&nbsp;<?= nl2br($dom->outertext) ?></span></p>
                             </li>
                         <? endforeach; ?>
                     </ul>

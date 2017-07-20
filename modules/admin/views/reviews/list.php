@@ -4,6 +4,7 @@ use yii\grid\GridView;
 use yii\helpers\Html;
 use \app\modules\admin\controllers\ReviewsController;
 use app\helpers\Statuses;
+use app\models\forms\UploadForm;
 
 $action = ReviewsController::LIST_NAME;
 $this->title = $action;
@@ -33,6 +34,21 @@ echo GridView::widget([
             ]
         ],
         [
+            'attribute' => 'img_name',
+            'format' => 'html',
+            'value' => function($model){
+                $img_name = $model->img_name ? UploadForm::getSrc($model->img_name, UploadForm::TYPE_REVIEWS, '_min') : \app\models\Reviews::DEFAULT_FISH;
+                return Html::img($img_name, ['class' => 'img-cell']);
+            },
+            'headerOptions' => [
+                'class' => 'text-center',
+                'width' => 60,
+            ],
+            'contentOptions' => [
+                'class' => 'text-center'
+            ],
+        ],
+        [
             'attribute' => 'manager_id',
             'format' => 'text',
             'filter' => \app\models\Users::getManagers(),
@@ -47,6 +63,7 @@ echo GridView::widget([
             ],
         ],
         [
+            'label' => 'Имя',
             'attribute' => 'name',
             'headerOptions' => [
                 'class' => 'text-left'
@@ -74,21 +91,6 @@ echo GridView::widget([
             ],
         ],
         [
-            'attribute' => 'send_mail',
-            'format' => 'html',
-            'value' => function($model){
-                return Statuses::getFull($model->send_mail, Statuses::TYPE_YESNO);
-            },
-            'filter' => Statuses::statuses(Statuses::TYPE_YESNO),
-            'headerOptions' => [
-                'width' => 100,
-                'class' => 'text-center'
-            ],
-            'contentOptions' => [
-                'class' => 'text-center'
-            ]
-        ],
-        [
             'attribute' => 'status',
             'format' => 'html',
             'value' => function($model){
@@ -109,21 +111,6 @@ echo GridView::widget([
             'filter' => false,
             'value' => function($model){
                 return \app\helpers\Normalize::getFullDateByTime($model->created, '<br/>');
-            },
-            'headerOptions' => [
-                'width' => 120,
-                'class' => 'text-center'
-            ],
-            'contentOptions' => [
-                'class' => 'text-center'
-            ]
-        ],
-        [
-            'attribute' => 'published',
-            'format' => 'html',
-            'filter' => false,
-            'value' => function($model){
-                return \app\helpers\Normalize::getFullDateByTime($model->published, '<br/>');
             },
             'headerOptions' => [
                 'width' => 120,

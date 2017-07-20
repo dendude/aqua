@@ -28,6 +28,8 @@ $inputMiddle = ['inputOptions' => ['class' => 'form-control input-middle']];
             <div class="separator"></div>
             <?= $form->field($model, 'section_id')->dropDownList(\app\models\FaqSections::getFilterList()) ?>
             <div class="separator"></div>
+            <?= $form->field($model, 'bread_text') ?>
+            <div class="separator"></div>
             <?= $form->field($model, 'question_text')->textarea(['rows' => 3]) ?>
             <?= $form->field($model, 'answer_text')->textarea(['rows' => 5]) ?>
             <div class="separator"></div>

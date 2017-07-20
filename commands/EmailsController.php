@@ -1,9 +1,8 @@
 <?php
-
 namespace app\commands;
-use app\models\Settings;
 use rmrevin\yii\postman\models\LetterModel;
 use yii\console\Controller;
+use app\models\Settings;
 
 class EmailsController extends Controller
 {
@@ -17,12 +16,12 @@ class EmailsController extends Controller
             'host' => $settings->email_host,
             'port' => $settings->email_port,
             'default_from' => [$settings->email_username, $settings->email_fromname],
-            'secure' => 'tls',
+            'secure' => false,
             'debug' => false,
         ];
         \Yii::$app->postman->init();
 
         // рассылка писем
-        LetterModel::cron(10);
+        LetterModel::cron(50);
     }
 }

@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\components\DSitemap;
+use app\components\ReCaptcha;
 use app\helpers\Normalize;
 use app\helpers\Statuses;
 use app\models\Actions;
@@ -37,38 +38,11 @@ class SiteController extends Controller
     public $meta_d;
     public $meta_k;
 
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['logout'],
-                'rules' => [
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
-
     public function actions()
     {
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
-            ],
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
         ];
     }
@@ -152,7 +126,7 @@ class SiteController extends Controller
                 if ($model->validate()) {
                     if ($model->save()) {
                         $_RESULT['status'] = Statuses::STATUS_OK;
-                        $_RESULT['message'] = 'Ваш заказ принят на обработку. В ближайшее время мы свяжемся с Вами для уточнения деталей заказа';
+                        $_RESULT['message'] = Yii::$app->vars->val(160);
                     } else {
                         $_RESULT['error'] = 'Ошибка сохранения заказа. Пожалуйста, попробуйте позже.';
                     }
@@ -170,12 +144,12 @@ class SiteController extends Controller
         }
     }
 
-    public function actionOrderServices() {
+    /*public function actionOrderServices() {
         $page = Pages::findOne(Pages::ORDER_ID_SERVICES);
         return $this->render('order_services', [
             'model' => $page
         ]);
-    }
+    }*/
 
     public function actionNews($section = 0) {
         $page = Pages::findOne(News::PAGE_ID);
@@ -209,25 +183,30 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionQuestionAdd() {
-
-        $page = Pages::findOne(Faq::PAGE_ADD_ID);
+    public function actionQuestionAdd()
+    {
         $model = new QuestionForm();
-        $result = null;
+        
+        $_RESULT = ['status' => Statuses::STATUS_ERROR];
 
         if (Yii::$app->request->post('QuestionForm')) {
+            
             $model->load(Yii::$app->request->post());
+            $model->captcha = Yii::$app->request->post(ReCaptcha::FIELD_NAME);
 
-            if ($model->validate() && $model->send()) {
-                $result = Yii::$app->vars->val(52);
+            if ($model->validate()) {
+                if ($model->send()) {
+                    $_RESULT['status'] = Statuses::STATUS_OK;
+                    $_RESULT['message'] = Yii::$app->vars->val(52);
+                } else {
+                    $_RESULT['error'] = 'Ошибка сохранения вопроса. Попробуйте позже.';
+                }
+            } else {
+                $_RESULT['error'] = $model->getErrors();
             }
         }
 
-        return $this->render('question-add',[
-            'page' => $page,
-            'model' => $model,
-            'result' => $result
-        ]);
+        echo Json::encode($_RESULT);
     }
 
     public function actionWhyUs() {
@@ -238,7 +217,7 @@ class SiteController extends Controller
     }
 
     public function actionReviews() {
-        $page = Pages::findOne(Reviews::PAGE_ID);
+        $page = Pages::findOne(Pages::REVIEWS_ID);
         return $this->render('reviews', [
             'model' => $page
         ]);
@@ -274,22 +253,30 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionOurMade() {
+        $page = Pages::findOne(Pages::OUR_MADE_ID);
+        return $this->render('our-made', [
+            'model' => $page
+        ]);
+    }
+
     public function actionFreeTravel() {
 
         $model = new FreeTravel();
-
+        $model->setScenario(FreeTravel::SCENARIO_SITE);
+        
         $_RESULT = ['status' => Statuses::STATUS_ERROR];
 
         if (Yii::$app->request->post('FreeTravel')) {
+            
             $model->load(Yii::$app->request->post());
+            $model->captcha = Yii::$app->request->post(ReCaptcha::FIELD_NAME);
 
             if ($model->validate()) {
-                if ($model->save()) {
-                    $_RESULT['status'] = Statuses::STATUS_OK;
-                    $_RESULT['message'] = 'Ваша заявка успешно принята';
-                } else {
-                    $_RESULT['error'] = 'Ошибка сохранения заявки. Попробуйте позже.';
-                }
+                $model->save(false);
+                
+                $_RESULT['status'] = Statuses::STATUS_OK;
+                $_RESULT['message'] = Yii::$app->vars->val(161);
             } else {
                 $_RESULT['error'] = $model->getErrors();
             }
@@ -301,19 +288,20 @@ class SiteController extends Controller
     public function actionCalculate() {
 
         $model = new Calculate();
-
+        $model->setScenario(Calculate::SCENARIO_SITE);
+        
         $_RESULT = ['status' => Statuses::STATUS_ERROR];
 
         if (Yii::$app->request->post('Calculate')) {
+            
             $model->load(Yii::$app->request->post());
+            $model->captcha = Yii::$app->request->post(ReCaptcha::FIELD_NAME);
 
             if ($model->validate()) {
-                if ($model->save()) {
-                    $_RESULT['status'] = Statuses::STATUS_OK;
-                    $_RESULT['message'] = 'Ваша заявка успешно принята';
-                } else {
-                    $_RESULT['error'] = 'Ошибка сохранения заявки. Попробуйте позже.';
-                }
+                $model->save(false);
+                
+                $_RESULT['status'] = Statuses::STATUS_OK;
+                $_RESULT['message'] = Yii::$app->vars->val(162);
             } else {
                 $_RESULT['error'] = $model->getErrors();
             }
@@ -325,19 +313,20 @@ class SiteController extends Controller
     public function actionCallback() {
 
         $model = new Callback();
-
+        $model->setScenario(Callback::SCENARIO_SITE);
+        
         $_RESULT = ['status' => Statuses::STATUS_ERROR];
 
         if (Yii::$app->request->post('Callback')) {
+            
             $model->load(Yii::$app->request->post());
-
+            $model->captcha = Yii::$app->request->post(ReCaptcha::FIELD_NAME);
+    
             if ($model->validate()) {
-                if ($model->save()) {
-                    $_RESULT['status'] = Statuses::STATUS_OK;
-                    $_RESULT['message'] = 'Ваша заявка успешно принята';
-                } else {
-                    $_RESULT['error'] = 'Ошибка сохранения заявки. Попробуйте позже.';
-                }
+                $model->save(false);
+                
+                $_RESULT['status'] = Statuses::STATUS_OK;
+                $_RESULT['message'] = Yii::$app->vars->val(163);
             } else {
                 $_RESULT['error'] = $model->getErrors();
             }
@@ -352,12 +341,17 @@ class SiteController extends Controller
 
         if (!$page) {
             $page = Pages::find()->where(['alias_new' => $alias])->one();
-        }
-
-        if ($page) {
+        } else {
             // редирект на новую страницу
             if ($page->alias_new) {
                 $this->redirect([Normalize::fixAlias($page->alias_new)], 301);
+                Yii::$app->end();
+            }
+        }
+
+        if ($page) {
+            if (strpos(Yii::$app->request->url, '.php')) {
+                $this->redirect([Normalize::fixAlias($page->alias)], 301);
                 Yii::$app->end();
             }
 
@@ -393,20 +387,17 @@ class SiteController extends Controller
                     case 141:
                         $render_page = 'cosmetics';
                         break;
-                    case 176:
-                        return $this->actionCalculator($id);
-                        break;
 
                     case Pages::WHY_US_ID:
                         return $this->actionWhyUs();
                         break;
 
-                    case Pages::ORDER_ID_AQUA:
-                        return $this->actionOrder();
+                    case Pages::OUR_MADE_ID:
+                        return $this->actionOurMade();
                         break;
 
-                    case Pages::ORDER_ID_SERVICES:
-                        return $this->actionOrderServices();
+                    case Pages::ORDER_ID_AQUA:
+                        return $this->actionOrder();
                         break;
 
                     case Pages::SEARCH_ID :

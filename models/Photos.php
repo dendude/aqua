@@ -108,7 +108,7 @@ class Photos extends \yii\db\ActiveRecord
             'section_id' => 'Альбом',
             'page_id' => 'Ссылка на страницу',
             'title' => 'Заголовок',
-            'about' => 'Описание',
+            'about' => 'Описание (Img Alt)',
             'img_small' => 'Img Small',
             'img_big' => 'Img Big',
             'ordering' => 'Порядок',

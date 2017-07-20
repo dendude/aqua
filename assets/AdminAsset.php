@@ -24,5 +24,6 @@ class AdminAsset extends AssetBundle
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
         'yii\glyphicons\GlyphiconsAsset',
+        'app\assets\Select2Asset'
     ];
 }

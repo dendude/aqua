@@ -32,6 +32,11 @@ class MenuQuery extends ActiveQuery
         $this->andWhere(['parent_id' => Menu::TOP_MENU_3]);
         return $this;
     }
+    
+    public function byParent($parent_id) {
+        $this->andWhere(['parent_id' => $parent_id]);
+        return $this;
+    }
 
     public function sidebar($parent_id) {
         $this->andWhere(['parent_id' => $parent_id]);

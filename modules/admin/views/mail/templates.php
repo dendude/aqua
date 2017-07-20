@@ -87,10 +87,10 @@ echo GridView::widget([
             'header' => 'Действия',
             'format' => 'raw',
             'value' => function($model) {
-                return \app\helpers\ManageList::get($model, ['template-edit', 'template-delete'], ['edit','delete']);
+                return \app\helpers\ManageList::get($model, ['template-edit'], ['edit','delete']);
             },
             'headerOptions' => [
-                'width' => 120,
+                'width' => 100,
                 'class' => 'text-center'
             ],
             'contentOptions' => [

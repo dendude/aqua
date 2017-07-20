@@ -47,6 +47,10 @@ class Faq extends \yii\db\ActiveRecord
                 return ($model->status == Statuses::STATUS_ACTIVE || $model->send_answer);
             }, 'message' => 'Чтобы отправить/опубликовать {attribute}, необходимо заполнить его'],
 
+            [['bread_text'], 'required', 'when' => function($model){
+                return ($model->status == Statuses::STATUS_ACTIVE);
+            }, 'message' => 'Чтобы опубликовать вопрос, необходимо заполнить {attribute}'],
+
             [['email'], 'email'],
             [['section_id', 'manager_id', 'user_id', 'created', 'modified', 'published', 'ordering', 'status', 'views'], 'integer'],
             [['section_id', 'manager_id', 'user_id', 'created', 'modified', 'published', 'ordering', 'status', 'views'], 'default', 'value' => 0],
@@ -110,10 +114,10 @@ class Faq extends \yii\db\ActiveRecord
             // отправляем письмо один раз
             if ($this->send_answer) {
                 $smtp = new SmtpEmail();
-                $smtp->sendEmailByType(SmtpEmail::TYPE_ANSWER_QUESTION, $this->email, $this->name, [
-                    '{question_text}' => $this->question_text,
-                    '{answer_text}' => $this->answer_text,
-                ]);
+                $smtp->sendEmailByType(SmtpEmail::TYPE_ANSWER, $this->email, $this->name, [
+                    '{question}' => nl2br($this->question_text),
+                    '{answer}' => nl2br($this->answer_text),
+                ], false);
             } else {
                 $this->send_answer = $self->send_answer;
             }
@@ -142,6 +146,7 @@ class Faq extends \yii\db\ActiveRecord
             'ordering' => 'Порядок',
             'status' => 'Статус',
             'send_answer' => 'Отвечен',
+            'bread_text' => 'Текст хлебной крошки'
         ];
     }
 }

@@ -19,6 +19,17 @@ if (isset($matches[1])) {
     $content = str_replace($matches[0], '', $content);
 }
 
+$dom = new \app\components\simple_html_dom();
+$dom->load($content);
+
+if ($dom->find('.photo-slider')) {
+    foreach ($dom->find('.photo-slider') AS $img) {
+        $img->outertext = '<a class="photo-slider-link" rel="slider" href="' . $img->src . '" title="' . $img->alt . '">' . $img->outertext . '</a>';
+    }
+}
+
+$content = $dom->outertext;
+
 ?>
 <div class="page-content">
 
@@ -61,6 +72,10 @@ if (isset($matches[1])) {
             <? endif; ?>
         </div>
 
+        <? if ($model->id == Pages::REVIEWS_ID): ?>
+            <?= \app\widgets\ReviewsList::widget(); ?>
+        <? endif; ?>
+
         <? if (!empty($model->vcrumbs)): ?>
             <div class="v-crumbs">
                 <div xmlns:v="http://rdf.data-vocabulary.org/#">
@@ -96,15 +111,25 @@ $this->registerCssFile('/lib/colorbox/example3/colorbox.css');
 $this->registerJs('
     $("#page_slider").smSlider({autoPlay : true, delay: 5000});
 
+    if ($(".photo-slider-link").length) {
+        $(".photo-slider-link").colorbox({
+            height: 600,
+            width: 800,
+            maxHeight: "90%",
+            maxWidth: "80%",
+            rel: "slider"
+        });
+    }
+
     var sum_height = 0;
     $(".page-menu>li").each(function(){
         sum_height += (+$(this).outerHeight());
     });
 
-    $("img[src=\'/selloff/lowfoto/struckoff.gif\']").css({"box-shadow": "none"});
-
     if ($(".page-content").height() < sum_height) {
-        $(".page-content").height(sum_height + "px");
+        setTimeout(function(){
+            $(".page-content").height(sum_height + "px");
+        }, 500);
     }
 
     if ($(".aqua-slider").length) {

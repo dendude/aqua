@@ -33,7 +33,8 @@ class PagesSearch extends Pages {
             'query' => $query,
             'sort' => [
                 'defaultOrder' => [
-                    'id' => SORT_DESC,
+                    'modified' => SORT_DESC,
+                    'created' => SORT_DESC,
                 ],
             ],
             'pagination' => [

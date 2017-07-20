@@ -2,8 +2,11 @@
 
 namespace app\models;
 
+use app\components\ReCaptcha;
+use app\components\SmtpEmail;
 use app\helpers\Statuses;
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "{{%reviews}}".
@@ -15,9 +18,13 @@ use Yii;
  * @property integer $created
  * @property integer $status
  */
-class Callback extends \yii\db\ActiveRecord
+class Callback extends ActiveRecord
 {
     const PAGE_ID = 184;
+    
+    const SCENARIO_SITE = 'site';
+    
+    public $captcha;
 
     /**
      * @inheritdoc
@@ -45,7 +52,17 @@ class Callback extends \yii\db\ActiveRecord
 
             [['phone'], 'string', 'min' => 10, 'max' => 20],
             [['phone'], 'default', 'value' => ''],
+            
+            ['captcha', 'required', 'message' => 'Необходимо отметить поле "Я не робот"', 'on' => self::SCENARIO_SITE],
+            ['captcha', 'checkCaptcha', 'on' => self::SCENARIO_SITE],
         ];
+    }
+    
+    public function checkCaptcha($attribute, $params) {
+        $re_captcha = new ReCaptcha($this->{$attribute});
+        if (!$re_captcha->validate()) {
+            $this->addError($attribute, 'Некорректное значение reCaptcha');
+        }
     }
 
     public function getManager() {
@@ -70,6 +87,25 @@ class Callback extends \yii\db\ActiveRecord
         return parent::beforeValidate();
     }
 
+    public function save($runValidation = true, $attributeNames = null)
+    {
+        if ($this->isNewRecord) {
+            // отправка писем менеджерам
+            $settings = Settings::lastSettings();
+            $recievers = explode(PHP_EOL, $settings->recievers);
+
+            $params = ['{name}' => $this->name,
+                      '{phone}' => $this->phone,
+                    '{comment}' => nl2br($this->comment)];
+
+            $smtp = new SmtpEmail();
+            foreach ($recievers AS $r) {
+                $smtp->sendEmailByType(SmtpEmail::TYPE_CALLBACK, trim($r), 'Менеджер', $params, false);
+            }
+        }
+
+        return parent::save($runValidation, $attributeNames);
+    }
 
     /**
      * @inheritdoc

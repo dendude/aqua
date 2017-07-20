@@ -23,10 +23,13 @@ phpunit.phar
 # local phpunit config
 /phpunit.xml
 
-/web/images/*/
-/web/docs/
-
-/web/lib
+runtime
+vendor
+public_html/assets
+web/images
+web/docs
+public_html/lib
+node_modules
 
 # access, passwd etc
 .ht*

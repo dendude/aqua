@@ -4,6 +4,7 @@ namespace app\models;
 
 use app\components\simple_html_dom;
 use app\helpers\Normalize;
+use app\helpers\Statuses;
 use app\models\forms\UploadForm;
 use Yii;
 use yii\bootstrap\Html;
@@ -33,6 +34,9 @@ use yii\web\UploadedFile;
  * @property integer $status
  * @property integer $is_sitemap
  * @property integer $is_auto
+ * @property integer $is_article
+ * @property integer $is_first_article
+ * @property integer $is_shared
  */
 class Pages extends \yii\db\ActiveRecord
 {
@@ -40,6 +44,8 @@ class Pages extends \yii\db\ActiveRecord
     const WHY_US_ID = 196;
     const ORDER_ID_AQUA = 212;
     const ORDER_ID_SERVICES = 322;
+    const OUR_MADE_ID = 336;
+    const REVIEWS_ID = 339;
 
     const SITE_URL = 'http://akvarium-moskva.ru';
     const DEV_URL = 'http://aqua.test3w.ru';
@@ -71,14 +77,17 @@ class Pages extends \yii\db\ActiveRecord
 
             [['alias', 'alias_new'], 'unique', 'message' => 'Такая ссылка уже занята'],
 
-            [['id_author', 'created', 'modified', 'views', 'status', 'is_sitemap', 'is_auto', 'is_shared', 'menu_id'], 'integer'],
-            [['id_author', 'created', 'modified', 'views', 'status', 'is_sitemap', 'is_auto', 'is_shared', 'menu_id'], 'default', 'value' => 0],
+            [['id_author', 'created', 'modified', 'views', 'status', 'is_sitemap', 'is_auto', 'is_shared', 'is_article', 'is_first_article', 'menu_id'], 'integer'],
+            [['id_author', 'created', 'modified', 'views', 'status', 'is_sitemap', 'is_auto', 'is_shared', 'is_article', 'is_first_article', 'menu_id'], 'default', 'value' => 0],
             [['is_shared'], 'default', 'value' => 1], // по умолчанию есть кнопки "поделиться"
 
             [['content'], 'string'],
 
             [['alias', 'title', 'crumb', 'banner_name'], 'string', 'max' => 200],
             [['meta_t', 'meta_k', 'meta_d'], 'string', 'max' => 250],
+
+            [['alias', 'title', 'crumb', 'banner_name'], 'filter', 'filter' => 'trim'],
+            [['meta_t', 'meta_k', 'meta_d'], 'filter', 'filter' => 'trim'],
 
             [['vcrumbs', 'breadcrumbs'], 'safe'],
         ];
@@ -159,13 +168,13 @@ class Pages extends \yii\db\ActiveRecord
 
                 // убираем суффикс
                 $a->href = trim(str_replace($suffixes, '', $a->href), '/');
-		if (strpos($a->href, '#')) {
-			$a_tmp = explode('#', $a->href);
-			$a->href = Url::to([Normalize::fixAlias($a_tmp[0]), '#' => $a_tmp[1]]);
-		} else {
-	                // получаем полную ссылку
-                	$a->href = Url::to([Normalize::fixAlias($a->href)]);
-		}
+                if (strpos($a->href, '#')) {
+                    $a_tmp = explode('#', $a->href);
+                    $a->href = Url::to([Normalize::fixAlias($a_tmp[0]), '#' => $a_tmp[1]]);
+                } else {
+                    // получаем полную ссылку
+                    $a->href = Url::to([Normalize::fixAlias($a->href)]);
+                }
             }
 
             // обработка фоток для увеличения по клику
@@ -181,6 +190,15 @@ class Pages extends \yii\db\ActiveRecord
                 $img->src = str_replace(self::SITE_URL, '', $img->src);
                 // предваряем слешем
                 $img->src = '/' . trim($img->src, '/');
+
+                // для обработки клейма "продано"
+                if (in_array($img->src, ['/selloff/lowfoto/struckoff.gif', '/selloff/lowfoto/struckoff2.gif'])) {
+                    $pr = $img->parent();
+                    $pr->style .= "position: relative";
+
+                    $img->class = '';
+                    $img->style .= "position: absolute; top: 20px; left: 50%; margin: 0 0 0 -59px; box-shadow: none";
+                }
 
                 // не обрабатываем фото, которые не должны увеличиваться
                 if (strpos($img->src, 'lowfoto') === false) continue;
@@ -250,6 +268,9 @@ class Pages extends \yii\db\ActiveRecord
         }
 
         if ($this->is_auto) $this->is_shared = 0;
+        if ($this->is_article) {
+            self::updateAll(['is_article' => Statuses::STATUS_DISABLED], 'id <> :id', [':id' => (int)$this->id]);
+        }
 
         // заменяем полную ссылку на слеш
         $this->content = str_replace(self::SITE_URL . '/', '/', $this->content);
@@ -310,6 +331,8 @@ class Pages extends \yii\db\ActiveRecord
             'is_sitemap' => 'Sitemap',
             'is_auto' => 'Auto',
             'is_shared' => 'Shared',
+            'is_article' => 'Article',
+            'is_first_article' => 'First Article',
         ];
     }
 }

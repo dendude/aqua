@@ -28,7 +28,10 @@ $inputMiddle = ['inputOptions' => ['class' => 'form-control input-middle']];
             <?= $form->field($model, 'menu_name', $inputMiddle) ?>
             <?= $form->field($model, 'menu_title', $inputMiddle) ?>
             <div class="separator"></div>
-            <?= $form->field($model, 'page_id', $inputMiddle)->dropDownList(\app\models\Pages::getFilterList(), ['prompt' => '']) ?>
+            <?= $form->field($model, 'page_id', $inputMiddle)->dropDownList(\app\models\Pages::getFilterList(), [
+                'encode' => false,
+                'prompt' => '',
+            ]) ?>
             <div class="separator"></div>
             <?= $form->field($model, 'status')->checkbox() ?>
             <div class="separator"></div>

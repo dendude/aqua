@@ -39,6 +39,7 @@ use yii\base\InvalidConfigException;
  * ActiveQuery also provides the following additional query options:
  *
  * - [[with()]]: list of relations that this query should be performed with.
+ * - [[joinWith()]]: reuse a relation query definition to add a join to a query.
  * - [[indexBy()]]: the name of the column by which the query result should be indexed.
  * - [[asArray()]]: whether to return each record as an array.
  *
@@ -64,6 +65,8 @@ use yii\base\InvalidConfigException;
  * These methods may only be called in a relational context. Same is true for [[inverseOf()]], which
  * marks a relation as inverse of another relation and [[onCondition()]] which adds a condition that
  * is to be added to relational query join condition.
+ *
+ * @property string[] $tablesUsedInFrom Table names indexed by aliases. This property is read-only.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @author Carsten Brandt <mail@cebe.cc>
@@ -147,26 +150,12 @@ class ActiveQuery extends Query implements ActiveQueryInterface
         }
 
         if (empty($this->from)) {
-            /* @var $modelClass ActiveRecord */
-            $modelClass = $this->modelClass;
-            $tableName = $modelClass::tableName();
-            $this->from = [$tableName];
+            $this->from = [$this->getPrimaryTableName()];
         }
 
         if (empty($this->select) && !empty($this->join)) {
-            foreach ((array) $this->from as $alias => $table) {
-                if (is_string($alias)) {
-                    $this->select = ["$alias.*"];
-                } elseif (is_string($table)) {
-                    if (preg_match('/^(.*?)\s+({{\w+}}|\w+)$/', $table, $matches)) {
-                        $alias = $matches[2];
-                    } else {
-                        $alias = $table;
-                    }
-                    $this->select = ["$alias.*"];
-                }
-                break;
-            }
+            list(, $alias) = $this->getTableNameAndAlias();
+            $this->select = ["$alias.*"];
         }
 
         if ($this->primaryModel === null) {
@@ -224,6 +213,11 @@ class ActiveQuery extends Query implements ActiveQueryInterface
         if (!empty($this->with)) {
             $this->findWith($this->with, $models);
         }
+
+        if ($this->inverseOf !== null) {
+            $this->addInverseRelations($models);
+        }
+
         if (!$this->asArray) {
             foreach ($models as $model) {
                 $model->afterFind();
@@ -289,10 +283,10 @@ class ActiveQuery extends Query implements ActiveQueryInterface
 
     /**
      * Executes query and returns a single row of result.
-     * @param Connection $db the DB connection used to create the DB command.
-     * If null, the DB connection returned by [[modelClass]] will be used.
+     * @param Connection|null $db the DB connection used to create the DB command.
+     * If `null`, the DB connection returned by [[modelClass]] will be used.
      * @return ActiveRecord|array|null a single row of query result. Depending on the setting of [[asArray]],
-     * the query result may be either an array or an ActiveRecord object. Null will be returned
+     * the query result may be either an array or an ActiveRecord object. `null` will be returned
      * if the query results in nothing.
      */
     public function one($db = null)
@@ -308,8 +302,8 @@ class ActiveQuery extends Query implements ActiveQueryInterface
 
     /**
      * Creates a DB command that can be used to execute this query.
-     * @param Connection $db the DB connection used to create the DB command.
-     * If null, the DB connection returned by [[modelClass]] will be used.
+     * @param Connection|null $db the DB connection used to create the DB command.
+     * If `null`, the DB connection returned by [[modelClass]] will be used.
      * @return Command the created DB command instance.
      */
     public function createCommand($db = null)
@@ -335,14 +329,16 @@ class ActiveQuery extends Query implements ActiveQueryInterface
      */
     protected function queryScalar($selectExpression, $db)
     {
-        if ($this->sql === null) {
-            return parent::queryScalar($selectExpression, $db);
-        }
         /* @var $modelClass ActiveRecord */
         $modelClass = $this->modelClass;
         if ($db === null) {
             $db = $modelClass::getDb();
         }
+
+        if ($this->sql === null) {
+            return parent::queryScalar($selectExpression, $db);
+        }
+
         return (new Query)->select([$selectExpression])
             ->from(['c' => "({$this->sql})"])
             ->params($this->params)
@@ -357,7 +353,7 @@ class ActiveQuery extends Query implements ActiveQueryInterface
      * Based on the definition of the specified relation(s), the method will append one or multiple
      * JOIN statements to the current query.
      *
-     * If the `$eagerLoading` parameter is true, the method will also eager loading the specified relations,
+     * If the `$eagerLoading` parameter is true, the method will also perform eager loading for the specified relations,
      * which is equivalent to calling [[with()]] using the specified relations.
      *
      * Note that because a JOIN query will be performed, you are responsible to disambiguate column names.
@@ -365,26 +361,38 @@ class ActiveQuery extends Query implements ActiveQueryInterface
      * This method differs from [[with()]] in that it will build up and execute a JOIN SQL statement
      * for the primary table. And when `$eagerLoading` is true, it will call [[with()]] in addition with the specified relations.
      *
-     * @param string|array $with the relations to be joined. Each array element represents a single relation.
-     * The array keys are relation names, and the array values are the corresponding anonymous functions that
-     * can be used to modify the relation queries on-the-fly. If a relation query does not need modification,
-     * you may use the relation name as the array value. Sub-relations can also be specified (see [[with()]]).
-     * For example,
+     * @param string|array $with the relations to be joined. This can either be a string, representing a relation name or
+     * an array with the following semantics:
+     *
+     * - Each array element represents a single relation.
+     * - You may specify the relation name as the array key and provide an anonymous functions that
+     *   can be used to modify the relation queries on-the-fly as the array value.
+     * - If a relation query does not need modification, you may use the relation name as the array value.
+     *
+     * The relation name may optionally contain an alias for the relation table (e.g. `books b`).
+     *
+     * Sub-relations can also be specified, see [[with()]] for the syntax.
+     *
+     * In the following you find some examples:
      *
      * ```php
      * // find all orders that contain books, and eager loading "books"
      * Order::find()->joinWith('books', true, 'INNER JOIN')->all();
      * // find all orders, eager loading "books", and sort the orders and books by the book names.
      * Order::find()->joinWith([
-     *     'books' => function ($query) {
+     *     'books' => function (\yii\db\ActiveQuery $query) {
      *         $query->orderBy('item.name');
      *     }
      * ])->all();
+     * // find all orders that contain books of the category 'Science fiction', using the alias "b" for the books table
+     * Order::find()->joinWith(['books b'], true, 'INNER JOIN')->where(['b.category' => 'Science fiction'])->all();
      * ```
      *
-     * @param boolean|array $eagerLoading whether to eager load the relations specified in `$with`.
+     * The alias syntax is available since version 2.0.7.
+     *
+     * @param bool|array $eagerLoading whether to eager load the relations specified in `$with`.
      * When this is a boolean, it applies to all relations specified in `$with`. Use an array
-     * to explicitly list which relations in `$with` need to be eagerly loaded.
+     * to explicitly list which relations in `$with` need to be eagerly loaded. Defaults to `true`.
      * @param string|array $joinType the join type of the relations specified in `$with`.
      * When this is a string, it applies to all relations specified in `$with`. Use an array
      * in the format of `relationName => joinType` to specify different join types for different relations.
@@ -392,8 +400,33 @@ class ActiveQuery extends Query implements ActiveQueryInterface
      */
     public function joinWith($with, $eagerLoading = true, $joinType = 'LEFT JOIN')
     {
-        $this->joinWith[] = [(array) $with, $eagerLoading, $joinType];
+        $relations = [];
+        foreach ((array) $with as $name => $callback) {
+            if (is_int($name)) {
+                $name = $callback;
+                $callback = null;
+            }
 
+            if (preg_match('/^(.*?)(?:\s+AS\s+|\s+)(\w+)$/i', $name, $matches)) {
+                // relation is defined with an alias, adjust callback to apply alias
+                list(, $relation, $alias) = $matches;
+                $name = $relation;
+                $callback = function ($query) use ($callback, $alias) {
+                    /** @var $query ActiveQuery */
+                    $query->alias($alias);
+                    if ($callback !== null) {
+                        call_user_func($callback, $query);
+                    }
+                };
+            }
+
+            if ($callback === null) {
+                $relations[] = $name;
+            } else {
+                $relations[$name] = $callback;
+            }
+        }
+        $this->joinWith[] = [$relations, $eagerLoading, $joinType];
         return $this;
     }
 
@@ -402,9 +435,10 @@ class ActiveQuery extends Query implements ActiveQueryInterface
         $join = $this->join;
         $this->join = [];
 
+        $model = new $this->modelClass;
         foreach ($this->joinWith as $config) {
             list ($with, $eagerLoading, $joinType) = $config;
-            $this->joinWithRelations(new $this->modelClass, $with, $joinType);
+            $this->joinWithRelations($model, $with, $joinType);
 
             if (is_array($eagerLoading)) {
                 foreach ($with as $name => $callback) {
@@ -442,8 +476,8 @@ class ActiveQuery extends Query implements ActiveQueryInterface
      * Inner joins with the specified relations.
      * This is a shortcut method to [[joinWith()]] with the join type set as "INNER JOIN".
      * Please refer to [[joinWith()]] for detailed usage of this method.
-     * @param string|array $with the relations to be joined with
-     * @param boolean|array $eagerLoading whether to eager loading the relations
+     * @param string|array $with the relations to be joined with.
+     * @param bool|array $eagerLoading whether to eager loading the relations.
      * @return $this the query object itself
      * @see joinWith()
      */
@@ -518,18 +552,16 @@ class ActiveQuery extends Query implements ActiveQueryInterface
 
     /**
      * Returns the table name and the table alias for [[modelClass]].
-     * @param ActiveQuery $query
      * @return array the table name and the table alias.
+     * @internal
      */
-    private function getQueryTableName($query)
+    private function getTableNameAndAlias()
     {
-        if (empty($query->from)) {
-            /* @var $modelClass ActiveRecord */
-            $modelClass = $query->modelClass;
-            $tableName = $modelClass::tableName();
+        if (empty($this->from)) {
+            $tableName = $this->getPrimaryTableName();
         } else {
             $tableName = '';
-            foreach ($query->from as $alias => $tableName) {
+            foreach ($this->from as $alias => $tableName) {
                 if (is_string($alias)) {
                     return [$tableName, $alias];
                 } else {
@@ -570,8 +602,8 @@ class ActiveQuery extends Query implements ActiveQueryInterface
             return;
         }
 
-        list ($parentTable, $parentAlias) = $this->getQueryTableName($parent);
-        list ($childTable, $childAlias) = $this->getQueryTableName($child);
+        list ($parentTable, $parentAlias) = $parent->getTableNameAndAlias();
+        list ($childTable, $childAlias) = $child->getTableNameAndAlias();
 
         if (!empty($child->link)) {
 
@@ -632,9 +664,14 @@ class ActiveQuery extends Query implements ActiveQueryInterface
      * ```php
      * public function getActiveUsers()
      * {
-     *     return $this->hasMany(User::className(), ['id' => 'user_id'])->onCondition(['active' => true]);
+     *     return $this->hasMany(User::className(), ['id' => 'user_id'])
+     *                 ->onCondition(['active' => true]);
      * }
      * ```
+     *
+     * Note that this condition is applied in case of a join as well as when fetching the related records.
+     * Thus only fields of the related table can be used in the condition. Trying to access fields of the primary
+     * record will cause an error in a non-join-query.
      *
      * @param string|array $condition the ON condition. Please refer to [[Query::where()]] on how to specify this parameter.
      * @param array $params the parameters (name => value) to be bound to the query.
@@ -725,5 +762,122 @@ class ActiveQuery extends Query implements ActiveQueryInterface
         }
 
         return $this;
+    }
+
+    /**
+     * Define an alias for the table defined in [[modelClass]].
+     *
+     * This method will adjust [[from]] so that an already defined alias will be overwritten.
+     * If none was defined, [[from]] will be populated with the given alias.
+     *
+     * @param string $alias the table alias.
+     * @return $this the query object itself
+     * @since 2.0.7
+     */
+    public function alias($alias)
+    {
+        if (empty($this->from) || count($this->from) < 2) {
+            list($tableName, ) = $this->getTableNameAndAlias();
+            $this->from = [$alias => $tableName];
+        } else {
+            $tableName = $this->getPrimaryTableName();
+
+            foreach ($this->from as $key => $table) {
+                if ($table === $tableName) {
+                    unset($this->from[$key]);
+                    $this->from[$alias] = $tableName;
+                }
+            }
+        }
+        return $this;
+    }
+
+    /**
+     * Returns table names used in [[from]] indexed by aliases.
+     * Both aliases and names are enclosed into {{ and }}.
+     * @return string[] table names indexed by aliases
+     * @throws \yii\base\InvalidConfigException
+     * @since 2.0.12
+     */
+    public function getTablesUsedInFrom()
+    {
+        if (empty($this->from)) {
+            $tableNames = [$this->getPrimaryTableName()];
+        } elseif (is_array($this->from)) {
+            $tableNames = $this->from;
+        } elseif (is_string($this->from)) {
+            $tableNames = preg_split('/\s*,\s*/', trim($this->from), -1, PREG_SPLIT_NO_EMPTY);
+        } else {
+            throw new InvalidConfigException(gettype($this->from) . ' in $from is not supported.');
+        }
+
+        // Clean up table names and aliases
+        $cleanedUpTableNames = [];
+        foreach ($tableNames as $alias => $tableName) {
+            if (!is_string($alias)) {
+                $pattern = <<<PATTERN
+~
+^
+\s*
+(
+    (?:['"`\[]|{{)
+    .*?
+    (?:['"`\]]|}})
+    |
+    .*?
+)
+(?:
+    (?:
+        \s+
+        (?:as)?
+        \s*
+    )
+    (
+       (?:['"`\[]|{{)
+        .*?
+        (?:['"`\]]|}})
+        |
+        .*?
+    )
+)?
+\s*
+$
+~iux
+PATTERN;
+                if (preg_match($pattern, $tableName, $matches)) {
+                    if (isset($matches[1])) {
+                        if (isset($matches[2])) {
+                            list(, $tableName, $alias) = $matches;
+                        } else {
+                            $tableName = $alias = $matches[1];
+                        }
+                        if (strncmp($alias, '{{', 2) !== 0) {
+                            $alias = '{{' . $alias . '}}';
+                        }
+                        if (strncmp($tableName, '{{', 2) !== 0) {
+                            $tableName = '{{' . $tableName . '}}';
+                        }
+                    }
+                }
+            }
+
+            $tableName = str_replace(["'", '"', '`', '[', ']'], '', $tableName);
+            $alias = str_replace(["'", '"', '`', '[', ']'], '', $alias);
+
+            $cleanedUpTableNames[$alias] = $tableName;
+        }
+
+        return $cleanedUpTableNames;
+    }
+
+    /**
+     * @return string primary table name
+     * @since 2.0.12
+     */
+    protected function getPrimaryTableName()
+    {
+        /* @var $modelClass ActiveRecord */
+        $modelClass = $this->modelClass;
+        return $modelClass::tableName();
     }
 }

@@ -7,12 +7,7 @@
 			{
 				var items = [
 					['Lorem ipsum...', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'],
-					['Blue Block', '<span class="blue-block">Text</span>'],
-                    ['Blue Block Left', '<span class="blue-block left">Text</span>'],
-                    ['Blue Block Right', '<span class="blue-block right">Text</span>'],
-                    ['Orange Block', '<span class="orange-block">Text</p>'],
-                    ['Orange Block Left', '<span class="orange-block left">Text</span>'],
-                    ['Orange Block Right', '<span class="orange-block right">Text</span>'],
+					['Red label', '<span class="label-red">Label</span>']
 				];
 
 				this.clips.template = $('<ul id="redactor-modal-list">');
@@ -30,13 +25,13 @@
 
 				this.modal.addTemplate('clips', '<section>' + this.utils.getOuterHtml(this.clips.template) + '</section>');
 
-				var button = this.button.add('clips', 'Заготовки');
+				var button = this.button.add('clips', 'Clips');
 				this.button.addCallback(button, this.clips.show);
 
 			},
 			show: function()
 			{
-				this.modal.load('clips', 'Вставка заготовок', 400);
+				this.modal.load('clips', 'Insert Clips', 400);
 
 				this.modal.createCancelButton();
 

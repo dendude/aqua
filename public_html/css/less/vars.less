@@ -1,0 +1,54 @@
+@page-width: 1200px;
+@content-width: 1100px;
+@panel-color: #0074bc;
+@title-color: #238091;
+@line-color: #34859a;
+@link-color: #069;
+@field-req-color: #D33;
+
+// mixins
+.transition(@property:all, @score:400ms, @style:ease-in-out) {
+
+    -webkit-transition: @property @score @style 0s;
+    -moz-transition: @property @score @style 0s;
+    -ms-transition: @property @score @style 0s;
+    -o-transition: @property @score @style 0s;
+    transition: @property @score @style 0s;
+}
+
+.opacity(@value:100) {
+
+    filter: alpha(opacity=@value);
+    opacity: @value/100;
+}
+
+.border-radius(@radius: 2px) {
+
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    -html-border-radius: @radius;
+    -ms-border-radius: @radius;
+    border-radius: @radius;
+}
+
+/** styles */
+.m-a {margin: auto;}
+.m-none {margin: 0;}
+
+/** цикл для генерации стилей */
+.myLoop (@prefix, @attr, @from, @to, @step) when (@from <= @to) {
+    // печатается стиль, +0px для простановки измерения
+    &.@{prefix}-@{from} {@{attr}: (@from + 0px)!important;}
+    // выполняем слудующую итерацию рекурсивно
+    .myLoop (@prefix, @attr, (@from + @step), @to, @step);
+}
+
+// ex: .h-200 {min-height: 200px;}
+.myLoop (h, min-height, 200, 800, 50);
+.myLoop (w, max-width, 100, 1200, 50);
+
+// ex: .m-t-10 {margin-top: 10px;}
+.myLoop (m-t, margin-top, 5, 300, 5);
+.myLoop (m-b, margin-bottom, 5, 100, 5);
+.myLoop (m-r, margin-right, 5, 100, 5);
+.myLoop (m-l, margin-left, 5, 100, 5);

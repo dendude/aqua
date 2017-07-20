@@ -36,7 +36,8 @@ class Settings extends \yii\db\ActiveRecord
             [['id_author', 'email_username', 'email_password', 'email_host', 'email_port', 'email_fromname', 'email_sign', 'created'], 'required'],
             [['id_author', 'email_port', 'created'], 'integer'],
             [['email_username', 'email_password', 'email_host', 'email_fromname'], 'string', 'max' => 100],
-            [['email_sign'], 'string']
+            [['email_sign'], 'string'],
+            [['recievers'], 'string', 'max' => 1000]
         ];
     }
 
@@ -60,6 +61,7 @@ class Settings extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'recievers' => 'Получатели писем с сайта',
             'id_author' => 'Id Author',
             'email_username' => 'Email-пользователь',
             'email_password' => 'Email-пароль',

@@ -1,0 +1,1649 @@
+админские сообщения
+
+CREATE TABLE IF NOT EXISTS `rtl_admin_messages` (
+`id` int(10) unsigned NOT NULL,
+  `id_client` tinyint(3) unsigned NOT NULL COMMENT 'ид партнера',
+  `title` varchar(100) NOT NULL COMMENT 'тема',
+  `message` varchar(250) NOT NULL COMMENT 'сообщение',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `showed` int(10) unsigned NOT NULL COMMENT 'просмотрено'
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_api_methods`
+--
+
+апи методы
+
+CREATE TABLE IF NOT EXISTS `rtl_api_methods` (
+`id` int(10) unsigned NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8 DEFAULT NULL COMMENT 'краткое описание',
+  `method` varchar(250) CHARACTER SET utf8 NOT NULL COMMENT 'имя метода',
+  `published` tinyint(1) unsigned NOT NULL COMMENT 'публикация',
+  `ordering` tinyint(4) NOT NULL COMMENT 'порядок'
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_api_sets`
+--
+
+апи настройки
+
+CREATE TABLE IF NOT EXISTS `rtl_api_sets` (
+`id` int(10) unsigned NOT NULL,
+  `id_client` int(10) unsigned NOT NULL COMMENT 'ид партнера',
+  `id_method` int(10) unsigned NOT NULL COMMENT 'ид метода',
+  `method` varchar(100) NOT NULL COMMENT 'имя метода'
+) ENGINE=InnoDB AUTO_INCREMENT=132 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_auth`
+--
+
+авторизация на сайте
+
+CREATE TABLE IF NOT EXISTS `rtl_auth` (
+`id` int(10) unsigned NOT NULL,
+  `email` varchar(100) NOT NULL COMMENT 'емайл',
+  `mobile` bigint(20) unsigned NOT NULL COMMENT 'телефон',
+  `auth_type` tinyint(1) NOT NULL COMMENT 'тип авторизации',
+  `auth_conf` tinyint(3) unsigned NOT NULL COMMENT 'кол-во подтвреждений номера',
+  `uip` bigint(20) unsigned NOT NULL COMMENT 'ип адрес',
+  `status` tinyint(3) unsigned NOT NULL COMMENT '0 - новый, 1 - подтверждён',
+  `created` int(10) unsigned NOT NULL COMMENT 'создан',
+  `modified` int(10) unsigned NOT NULL COMMENT 'попытка подтверждения',
+  `confirmed` int(10) unsigned NOT NULL COMMENT 'подтверждено'
+) ENGINE=InnoDB AUTO_INCREMENT=189 DEFAULT CHARSET=utf8 COMMENT='таблица запросов на СМС/пароль для авторизации';
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_auth_sms`
+--
+
+авторизация по СМС
+
+CREATE TABLE IF NOT EXISTS `rtl_auth_sms` (
+`id` int(10) unsigned NOT NULL,
+  `ref_id` varchar(20) NOT NULL COMMENT 'ид сообщения',
+  `mobile` bigint(20) unsigned NOT NULL COMMENT 'телефон',
+  `code` int(10) unsigned NOT NULL COMMENT 'код авторизации',
+  `created` int(10) unsigned NOT NULL COMMENT 'создан',
+  `confirmed` int(10) unsigned NOT NULL COMMENT 'подтвержден',
+  `status` tinyint(3) unsigned NOT NULL COMMENT 'статус записи'
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8 COMMENT='таблица авторизации по СМС коду';
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_card_orders`
+--
+
+заказы карт
+
+CREATE TABLE IF NOT EXISTS `rtl_card_orders` (
+`id` int(10) unsigned NOT NULL,
+  `want_free` tinyint(1) NOT NULL COMMENT 'хочу бесплатно',
+  `email` varchar(100) NOT NULL COMMENT 'емайл',
+  `mobile` bigint(20) unsigned NOT NULL COMMENT 'телефон',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `status` tinyint(3) unsigned NOT NULL COMMENT 'статус'
+) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_cars`
+--
+
+марки автомобилей
+
+CREATE TABLE IF NOT EXISTS `rtl_cars` (
+`id` smallint(5) unsigned NOT NULL,
+  `id_field` smallint(5) unsigned NOT NULL COMMENT 'тип автомобиля',
+  `name` char(100) NOT NULL COMMENT 'марка',
+  `ordering` tinyint(4) NOT NULL COMMENT 'порядок'
+) ENGINE=MyISAM AUTO_INCREMENT=1480 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_changes_email`
+--
+
+изменение емайла
+
+CREATE TABLE IF NOT EXISTS `rtl_changes_email` (
+`id` int(10) unsigned NOT NULL,
+  `id_user` int(10) unsigned NOT NULL COMMENT 'пользователь',
+  `id_client` int(10) unsigned NOT NULL COMMENT 'партнер',
+  `email_old` varchar(100) NOT NULL COMMENT 'старый емайл',
+  `email_new` varchar(100) NOT NULL COMMENT 'новый емайл',
+  `conf_code` varchar(100) NOT NULL COMMENT 'код подтвреждения',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `confirmed` int(10) unsigned NOT NULL COMMENT 'подтверждено'
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_changes_mobile`
+--
+
+изменение телефона
+
+CREATE TABLE IF NOT EXISTS `rtl_changes_mobile` (
+`id` int(10) unsigned NOT NULL,
+  `id_user` int(10) unsigned NOT NULL COMMENT 'пользователь',
+  `mobile_old` bigint(20) unsigned NOT NULL COMMENT 'старый телефон',
+  `mobile_new` bigint(20) unsigned NOT NULL COMMENT 'новый телефон',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `conf_reqs` tinyint(3) unsigned NOT NULL COMMENT 'кол-во запросов на подтверждение',
+  `conf_last` int(10) unsigned NOT NULL COMMENT 'последний запрос на подтвреждение',
+  `confirmed` int(10) unsigned NOT NULL COMMENT 'подтверждено'
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_changes_password`
+--
+
+изменение пароля
+
+CREATE TABLE IF NOT EXISTS `rtl_changes_password` (
+`id` int(10) unsigned NOT NULL,
+  `email` varchar(100) NOT NULL COMMENT 'емайл',
+  `conf_code` varchar(50) NOT NULL COMMENT 'код подтверждения',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `confirmed` int(10) unsigned NOT NULL COMMENT 'подтвреждено'
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_chat`
+--
+
+чат
+
+CREATE TABLE IF NOT EXISTS `rtl_chat` (
+`id` int(10) unsigned NOT NULL,
+  `user_from` int(10) unsigned NOT NULL COMMENT 'отправитель',
+  `user_to` int(10) unsigned NOT NULL COMMENT 'получатель',
+  `msg` varchar(250) NOT NULL COMMENT 'сообщение',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `status` tinyint(3) unsigned NOT NULL COMMENT 'статус'
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_clients`
+--
+
+партнеры
+
+CREATE TABLE IF NOT EXISTS `rtl_clients` (
+`id` int(10) unsigned NOT NULL,
+  `role` enum('partner','discount') NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `pass` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `sname` varchar(100) NOT NULL,
+  `tname` varchar(100) NOT NULL,
+  `phone` varchar(100) NOT NULL,
+  `company` varchar(100) NOT NULL,
+  `company_alias` varchar(100) NOT NULL,
+  `merchant_id` int(10) unsigned NOT NULL,
+  `manager_id` int(10) unsigned NOT NULL,
+  `api_name` varchar(100) NOT NULL,
+  `api_pass` varchar(100) NOT NULL,
+  `api_mx_name` varchar(100) NOT NULL,
+  `api_mx_pass` varchar(100) NOT NULL,
+  `i_address` varchar(100) NOT NULL,
+  `i_index` varchar(100) NOT NULL,
+  `i_prof` varchar(100) NOT NULL,
+  `i_gender` tinyint(3) unsigned NOT NULL,
+  `i_region` int(10) unsigned NOT NULL,
+  `i_city` int(10) unsigned NOT NULL,
+  `city_name` varchar(150) NOT NULL,
+  `img_name` varchar(50) NOT NULL,
+  `img_x1` int(10) unsigned NOT NULL,
+  `img_y1` int(10) unsigned NOT NULL,
+  `img_x2` int(10) unsigned NOT NULL,
+  `img_y2` int(10) unsigned NOT NULL,
+  `img_admin` varchar(50) NOT NULL,
+  `i_site` varchar(100) NOT NULL,
+  `i_fb` varchar(100) NOT NULL,
+  `i_vk` varchar(100) NOT NULL,
+  `i_tw` varchar(250) NOT NULL,
+  `i_od` varchar(100) NOT NULL,
+  `i_gg` varchar(100) NOT NULL,
+  `i_ut` varchar(100) NOT NULL,
+  `cash_back` tinyint(3) unsigned NOT NULL,
+  `points_reviews_act` tinyint(3) unsigned NOT NULL,
+  `points_subscribes_act` tinyint(3) unsigned NOT NULL,
+  `points_socials_act` tinyint(3) unsigned NOT NULL,
+  `phones` text NOT NULL,
+  `emails` text NOT NULL,
+  `id_cat` int(10) unsigned NOT NULL,
+  `is_ex` tinyint(1) NOT NULL COMMENT 'эксклюзивный партнёр',
+  `about` text NOT NULL,
+  `about_dop` text NOT NULL,
+  `birth_day` date NOT NULL,
+  `conf_code` varchar(100) NOT NULL,
+  `confirmed` int(10) unsigned NOT NULL,
+  `created` int(10) unsigned NOT NULL,
+  `modified` int(10) unsigned NOT NULL,
+  `status` tinyint(4) NOT NULL COMMENT '0 - waiting, 1 -active, 2 -blocked'
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_clients_actions`
+--
+
+действия партнеров
+
+CREATE TABLE IF NOT EXISTS `rtl_clients_actions` (
+`id` int(10) unsigned NOT NULL,
+  `id_user` int(10) unsigned NOT NULL COMMENT 'ид пользователя',
+  `id_client` int(10) unsigned NOT NULL COMMENT 'ид клиента',
+  `id_cat` int(10) unsigned NOT NULL COMMENT 'категория',
+  `id_type` int(10) unsigned NOT NULL COMMENT 'тип',
+  `title` varchar(100) NOT NULL COMMENT 'заголовок',
+  `about` varchar(250) NOT NULL COMMENT 'описание',
+  `content` text NOT NULL COMMENT 'содержание',
+  `img_name` varchar(50) NOT NULL COMMENT 'фото',
+  `img_x1` int(10) unsigned NOT NULL COMMENT 'координаты вырезанного фото',
+  `img_y1` int(10) unsigned NOT NULL COMMENT 'координаты вырезанного фото',
+  `img_x2` int(10) unsigned NOT NULL COMMENT 'координаты вырезанного фото',
+  `img_y2` int(10) unsigned NOT NULL COMMENT 'координаты вырезанного фото',
+  `act_from` date NOT NULL COMMENT 'действует с',
+  `act_to` date NOT NULL COMMENT 'действует по',
+  `opts` varchar(50) NOT NULL COMMENT 'опции',
+  `sopts` varchar(50) NOT NULL COMMENT 'социальные опции',
+  `for_public` tinyint(1) NOT NULL COMMENT 'для сайта/рассылок',
+  `for_act_review` tinyint(1) NOT NULL COMMENT 'за отзыв',
+  `for_act_subscribe` tinyint(1) NOT NULL COMMENT 'за подписку',
+  `for_act_social` tinyint(1) NOT NULL COMMENT 'за вступление в сообщество',
+  `for_act_levels` tinyint(1) NOT NULL COMMENT 'за достигнутый уровень',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `modified` int(10) unsigned NOT NULL COMMENT 'изменено',
+  `status` tinyint(1) NOT NULL COMMENT '0 - waiting, 1 - active, 2 - break, 3 - deleted',
+  `published` tinyint(1) NOT NULL COMMENT 'публикация',
+  `comment` varchar(250) NOT NULL COMMENT 'комментарий',
+  `views` int(10) unsigned NOT NULL COMMENT 'просмотров'
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_clients_actions_opts`
+--
+
+опции для спецпредложений
+
+CREATE TABLE IF NOT EXISTS `rtl_clients_actions_opts` (
+`id` int(10) unsigned NOT NULL,
+  `id_parent` int(10) unsigned NOT NULL COMMENT 'родитель',
+  `name` varchar(100) NOT NULL COMMENT 'название',
+  `for_gift` tinyint(1) NOT NULL COMMENT 'за вознаграждение',
+  `ordering` tinyint(4) NOT NULL COMMENT 'порядок'
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_clients_addresses`
+--
+
+адреса партнеров
+
+CREATE TABLE IF NOT EXISTS `rtl_clients_addresses` (
+`id` int(10) unsigned NOT NULL,
+  `id_client` int(10) unsigned NOT NULL COMMENT 'партнер',
+  `id_shop` int(10) unsigned NOT NULL COMMENT 'магазин',
+  `address` varchar(100) CHARACTER SET utf8 NOT NULL COMMENT 'адрес',
+  `about` varchar(250) CHARACTER SET utf8 NOT NULL COMMENT 'описание',
+  `coord_lat` float NOT NULL COMMENT 'координаты',
+  `coord_lng` float NOT NULL COMMENT 'координаты',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `confirmed` int(10) unsigned NOT NULL COMMENT 'подтвреждено'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_clients_calendar`
+--
+
+календарь рекламных кампаний
+
+CREATE TABLE IF NOT EXISTS `rtl_clients_calendar` (
+`id` int(10) unsigned NOT NULL,
+  `name` varchar(100) NOT NULL COMMENT 'название',
+  `id_manager` int(10) unsigned NOT NULL COMMENT 'мендежер',
+  `id_client` int(10) unsigned NOT NULL COMMENT 'партнер',
+  `specials` text NOT NULL COMMENT 'спецпредложения',
+  `scribes` text NOT NULL COMMENT 'подписки',
+  `date_from` date NOT NULL COMMENT 'действует С',
+  `date_to` date NOT NULL COMMENT 'действует По',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `status` tinyint(4) NOT NULL COMMENT 'статус'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_clients_cats`
+--
+
+категории партнеров
+
+CREATE TABLE IF NOT EXISTS `rtl_clients_cats` (
+`id` int(10) unsigned NOT NULL,
+  `name_ru` varchar(100) NOT NULL COMMENT 'название рус',
+  `name_ua` varchar(100) NOT NULL COMMENT 'название укр',
+  `name_en` varchar(100) NOT NULL COMMENT 'название анг',
+  `img_name` varchar(50) NOT NULL COMMENT 'иконка',
+  `ordering` tinyint(4) NOT NULL COMMENT 'порядок',
+  `is_active` tinyint(1) NOT NULL COMMENT 'публикация'
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_clients_contacts`
+--
+
+контакты партнеров
+
+CREATE TABLE IF NOT EXISTS `rtl_clients_contacts` (
+`id` int(10) unsigned NOT NULL,
+  `id_client` int(10) unsigned NOT NULL COMMENT 'партнер',
+  `merchant_id` int(10) unsigned NOT NULL COMMENT 'мерчант ид',
+  `api_name` varchar(100) CHARACTER SET utf8 NOT NULL COMMENT 'апи имя',
+  `api_pass` varchar(100) CHARACTER SET utf8 NOT NULL COMMENT 'апи пароль',
+  `api_mx_name` varchar(100) CHARACTER SET utf8 NOT NULL COMMENT 'апи имя манекси',
+  `api_mx_pass` varchar(100) CHARACTER SET utf8 NOT NULL COMMENT 'апи пароль манекси',
+  `id_region` int(10) unsigned NOT NULL COMMENT 'регион',
+  `id_city` int(10) unsigned NOT NULL COMMENT 'город',
+  `coord1` float NOT NULL COMMENT 'координаты',
+  `coord2` float NOT NULL COMMENT 'координаты',
+  `czoom` tinyint(4) NOT NULL COMMENT 'зум карты',
+  `address` varchar(250) CHARACTER SET utf8 NOT NULL COMMENT 'адрес',
+  `phones` text CHARACTER SET utf8 NOT NULL COMMENT 'телефоны',
+  `emails` text CHARACTER SET utf8 NOT NULL COMMENT 'емайлы',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `status` tinyint(1) NOT NULL COMMENT 'статус'
+) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_clients_gifts`
+--
+
+вознаграждения
+
+CREATE TABLE IF NOT EXISTS `rtl_clients_gifts` (
+`id` int(10) unsigned NOT NULL,
+  `id_type` tinyint(3) unsigned NOT NULL COMMENT 'тип',
+  `id_user` int(10) unsigned NOT NULL COMMENT 'пользователь',
+  `id_client` int(10) unsigned NOT NULL COMMENT 'партнер',
+  `id_gift` int(10) unsigned NOT NULL COMMENT 'подарок',
+  `comment` varchar(250) NOT NULL COMMENT 'комментарий',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `status` tinyint(3) unsigned NOT NULL COMMENT 'статус'
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_clients_scribes`
+--
+
+рассылки партнеров
+
+CREATE TABLE IF NOT EXISTS `rtl_clients_scribes` (
+`id` int(10) unsigned NOT NULL,
+  `id_user` int(10) unsigned NOT NULL COMMENT 'пользователь',
+  `id_client` int(10) unsigned NOT NULL COMMENT 'партнер',
+  `id_template` int(10) unsigned NOT NULL COMMENT 'шаблон',
+  `id_language` int(10) unsigned NOT NULL COMMENT 'язык',
+  `id_group` int(10) unsigned NOT NULL COMMENT 'группа участников',
+  `send_type` tinyint(1) NOT NULL COMMENT '0 - email, 1 - sms',
+  `name` varchar(100) NOT NULL COMMENT 'название',
+  `subject` varchar(100) NOT NULL COMMENT 'тема',
+  `content` varchar(250) NOT NULL COMMENT 'содержание',
+  `act_ids` varchar(50) NOT NULL COMMENT 'спецпредложения',
+  `img_name` varchar(50) NOT NULL COMMENT 'фото',
+  `img_x1` smallint(5) unsigned NOT NULL COMMENT 'координаты вырезанного фото',
+  `img_y1` smallint(5) unsigned NOT NULL COMMENT 'координаты вырезанного фото',
+  `img_x2` smallint(5) unsigned NOT NULL COMMENT 'координаты вырезанного фото',
+  `img_y2` smallint(5) unsigned NOT NULL COMMENT 'координаты вырезанного фото',
+  `start_date` date NOT NULL COMMENT 'дата старта',
+  `start_time` tinyint(3) unsigned NOT NULL COMMENT 'время старта',
+  `start_use` tinyint(1) NOT NULL COMMENT 'запустить сразу после модерации',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `modified` int(10) unsigned NOT NULL COMMENT 'изменено',
+  `utime_start` int(10) unsigned NOT NULL COMMENT 'старт по уникс времени',
+  `utime_finish` int(10) unsigned NOT NULL COMMENT 'время финиша рассылки',
+  `amount_total` int(10) unsigned NOT NULL COMMENT 'всего разослать',
+  `amount_process` int(10) unsigned NOT NULL COMMENT 'разослано',
+  `amount_sent` int(10) unsigned NOT NULL COMMENT 'отправлено',
+  `amount_done` int(10) unsigned NOT NULL COMMENT 'доставлено',
+  `amount_open` int(10) unsigned NOT NULL COMMENT 'открыто',
+  `status` tinyint(3) unsigned NOT NULL COMMENT '0 - новый, 1 - готов, 2 - отправляется, 3 - отправлено, 4 - отменён, 10 - удалён',
+  `comment` varchar(100) NOT NULL COMMENT 'комментарий'
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COMMENT='Список рассылок';
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_clients_scribes_sms_sent`
+--
+
+отправленные СМС через партнеров по рассылке
+
+CREATE TABLE IF NOT EXISTS `rtl_clients_scribes_sms_sent` (
+`id` int(10) unsigned NOT NULL,
+  `id_client` int(10) unsigned NOT NULL COMMENT 'партнер',
+  `id_user` int(10) unsigned NOT NULL COMMENT 'пользователь',
+  `mobile` bigint(20) unsigned NOT NULL COMMENT 'телефон',
+  `content` varchar(250) NOT NULL COMMENT 'содержание',
+  `created` datetime NOT NULL COMMENT 'сооздано',
+  `success` tinyint(4) NOT NULL COMMENT 'успешно'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_clients_scribes_templates`
+--
+
+шаблоны рассылок
+
+CREATE TABLE IF NOT EXISTS `rtl_clients_scribes_templates` (
+`id` int(10) unsigned NOT NULL,
+  `name_ru` varchar(100) DEFAULT NULL COMMENT 'название рус',
+  `name_ua` varchar(100) NOT NULL COMMENT 'название укр',
+  `name_en` varchar(100) NOT NULL COMMENT 'название анг',
+  `content` text COMMENT 'содержание',
+  `content_send` text NOT NULL COMMENT 'содержание для отправки',
+  `content_row` text NOT NULL COMMENT 'содержание в столбец',
+  `ordering` tinyint(4) NOT NULL COMMENT 'порядок',
+  `is_active` tinyint(4) NOT NULL COMMENT 'публикация'
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_clients_shops`
+--
+
+магазины партнеров
+
+CREATE TABLE IF NOT EXISTS `rtl_clients_shops` (
+`id` int(10) unsigned NOT NULL,
+  `id_client` int(10) unsigned NOT NULL COMMENT 'партнер',
+  `id_region` int(10) unsigned NOT NULL COMMENT 'регион',
+  `id_city` int(10) unsigned NOT NULL COMMENT 'город',
+  `agent_name` varchar(100) NOT NULL COMMENT 'имя менеджера',
+  `img_name` varchar(50) NOT NULL COMMENT 'фото',
+  `shop_name` varchar(100) NOT NULL COMMENT 'название магазина',
+  `shop_about` varchar(250) NOT NULL COMMENT 'описание магазина',
+  `shop_text` text NOT NULL COMMENT 'текст магазина',
+  `address` varchar(250) NOT NULL COMMENT 'адрес',
+  `phones` text NOT NULL COMMENT 'телефоны',
+  `emails` text NOT NULL COMMENT 'емайлы',
+  `created` datetime NOT NULL COMMENT 'создано',
+  `modified` int(10) unsigned NOT NULL COMMENT 'изменено',
+  `status` tinyint(1) NOT NULL COMMENT 'статус'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_clients_stat`
+--
+
+статистика партнеров
+
+CREATE TABLE IF NOT EXISTS `rtl_clients_stat` (
+`id` int(10) unsigned NOT NULL,
+  `id_client` int(10) unsigned NOT NULL COMMENT 'партнер',
+  `merchant_id` int(10) unsigned NOT NULL COMMENT 'мерчант ид',
+  `d_month` tinyint(3) unsigned NOT NULL COMMENT 'номер месяца',
+  `d_year` smallint(5) unsigned NOT NULL COMMENT 'номер года',
+  `b_paytype` tinyint(4) NOT NULL COMMENT 'тип оплаты',
+  `b_sum` float NOT NULL COMMENT 'сумма',
+  `created` datetime NOT NULL COMMENT 'создано'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_clients_stat_days`
+--
+
+статистика партнеров по дням
+
+CREATE TABLE IF NOT EXISTS `rtl_clients_stat_days` (
+`id` int(10) unsigned NOT NULL,
+  `id_client` int(10) unsigned NOT NULL COMMENT 'ид партнера',
+  `merchant_id` int(10) unsigned NOT NULL COMMENT 'мерчант ид',
+  `d_date` date DEFAULT NULL COMMENT 'дата',
+  `b_paytype` tinyint(4) NOT NULL COMMENT 'тип оплаты',
+  `b_sum` float NOT NULL COMMENT 'сумма',
+  `created` datetime NOT NULL COMMENT 'создано'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_clients_stat_hours`
+--
+
+статистика партнеров по часам
+
+CREATE TABLE IF NOT EXISTS `rtl_clients_stat_hours` (
+`id` int(10) unsigned NOT NULL,
+  `id_client` int(10) unsigned NOT NULL COMMENT 'ид партнера',
+  `merchant_id` int(10) unsigned NOT NULL COMMENT 'мерчант ид',
+  `d_date` datetime NOT NULL COMMENT 'дата',
+  `b_paytype` tinyint(4) NOT NULL COMMENT 'тип оплаты',
+  `b_sum` float NOT NULL COMMENT 'сумма',
+  `created` datetime NOT NULL COMMENT 'создано'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_email_sent`
+--
+
+отправленные емайлы
+
+CREATE TABLE IF NOT EXISTS `rtl_email_sent` (
+`id` int(10) unsigned NOT NULL,
+  `email` varchar(100) NOT NULL COMMENT 'емайл',
+  `ehash` varchar(100) NOT NULL COMMENT 'хэш',
+  `name` varchar(100) NOT NULL COMMENT 'имя',
+  `subject` varchar(250) NOT NULL COMMENT 'тема',
+  `content` text NOT NULL COMMENT 'содержание',
+  `id_type` int(10) unsigned NOT NULL COMMENT 'тип',
+  `id_user` int(10) unsigned NOT NULL COMMENT 'пользователь',
+  `id_client` int(10) unsigned NOT NULL COMMENT 'партнер',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `sent` int(10) unsigned NOT NULL COMMENT 'отправлено',
+  `status` tinyint(3) unsigned NOT NULL COMMENT 'статус'
+) ENGINE=MyISAM AUTO_INCREMENT=405 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_email_templates`
+--
+
+шаблоны писем
+
+CREATE TABLE IF NOT EXISTS `rtl_email_templates` (
+`id` int(10) unsigned NOT NULL,
+  `id_type` tinyint(3) unsigned NOT NULL COMMENT 'тип',
+  `subject` varchar(200) NOT NULL COMMENT 'тема',
+  `content` text NOT NULL COMMENT 'содержание',
+  `act_amount` tinyint(3) unsigned NOT NULL COMMENT 'использовано раз',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `modified` int(10) unsigned NOT NULL COMMENT 'изменено'
+) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_events`
+--
+
+типы действий/событий
+
+CREATE TABLE IF NOT EXISTS `rtl_events` (
+`id` int(10) unsigned NOT NULL,
+  `id_type` tinyint(4) NOT NULL COMMENT 'тип',
+  `points` int(11) NOT NULL COMMENT 'баллов за событие',
+  `name` varchar(100) NOT NULL COMMENT 'название'
+) ENGINE=MyISAM AUTO_INCREMENT=86 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_events_admins`
+--
+
+действия админов
+
+CREATE TABLE IF NOT EXISTS `rtl_events_admins` (
+`id` int(10) unsigned NOT NULL,
+  `id_type` int(10) unsigned NOT NULL COMMENT 'тип',
+  `id_admin` int(10) unsigned NOT NULL COMMENT 'ид админа',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано'
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_events_clients`
+--
+
+действия партнеров
+
+CREATE TABLE IF NOT EXISTS `rtl_events_clients` (
+`id` int(10) unsigned NOT NULL,
+  `id_client` int(10) unsigned NOT NULL COMMENT 'партенр',
+  `id_type` tinyint(3) unsigned NOT NULL COMMENT 'тип',
+  `id_det` int(10) unsigned NOT NULL COMMENT 'детали',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано'
+) ENGINE=MyISAM AUTO_INCREMENT=542 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_events_users`
+--
+
+действия пользователей
+
+CREATE TABLE IF NOT EXISTS `rtl_events_users` (
+`id` int(10) unsigned NOT NULL,
+  `id_type` int(10) unsigned NOT NULL COMMENT 'тип',
+  `id_user` int(10) unsigned NOT NULL COMMENT 'пользователь',
+  `id_det` int(10) unsigned NOT NULL COMMENT 'детали',
+  `comment` varchar(150) NOT NULL COMMENT 'комментарий',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано'
+) ENGINE=MyISAM AUTO_INCREMENT=1910 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_languages`
+--
+
+языки сайта
+
+CREATE TABLE IF NOT EXISTS `rtl_languages` (
+`id` int(10) unsigned NOT NULL,
+  `abr` varchar(2) NOT NULL COMMENT 'аббревиатура',
+  `name` varchar(100) NOT NULL COMMENT 'название',
+  `img_name` varchar(100) NOT NULL COMMENT 'иконка',
+  `is_active` tinyint(1) NOT NULL COMMENT 'активность',
+  `ordering` tinyint(4) NOT NULL COMMENT 'порядок'
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_loc_cities`
+--
+
+города
+
+CREATE TABLE IF NOT EXISTS `rtl_loc_cities` (
+`id` smallint(5) unsigned NOT NULL,
+  `id_region` smallint(5) unsigned NOT NULL COMMENT 'регион',
+  `abr_code` varchar(20) NOT NULL COMMENT 'аббревиатура',
+  `name_ru` varchar(100) NOT NULL COMMENT 'название рус',
+  `name_ua` varchar(100) NOT NULL COMMENT 'название укр',
+  `name_en` varchar(100) NOT NULL COMMENT 'название анг',
+  `ordering` tinyint(4) NOT NULL COMMENT 'порядок'
+) ENGINE=MyISAM AUTO_INCREMENT=3686 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_loc_regions`
+--
+
+регионы
+
+CREATE TABLE IF NOT EXISTS `rtl_loc_regions` (
+`id` smallint(5) unsigned NOT NULL,
+  `abr_code` varchar(20) NOT NULL COMMENT 'аббревиатура',
+  `name_ru` varchar(100) NOT NULL COMMENT 'название рус',
+  `name_ua` varchar(100) NOT NULL COMMENT 'название укр',
+  `name_en` varchar(100) NOT NULL COMMENT 'название анг',
+  `ordering` tinyint(4) NOT NULL COMMENT 'порядок'
+) ENGINE=MyISAM AUTO_INCREMENT=143 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_logins_mobile`
+--
+
+авторизация по телефону
+
+CREATE TABLE IF NOT EXISTS `rtl_logins_mobile` (
+`id` int(10) unsigned NOT NULL,
+  `uip` bigint(20) unsigned NOT NULL COMMENT 'ип пользователя',
+  `mobile` bigint(20) unsigned NOT NULL COMMENT 'телефон',
+  `uip_full` varchar(20) NOT NULL COMMENT 'полный ип',
+  `uagent` varchar(250) NOT NULL COMMENT 'агент пользователя',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='попытки входа. Регистрируются ип адреса неудачных входов для блокировки';
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_news`
+--
+
+новости сайта
+
+CREATE TABLE IF NOT EXISTS `rtl_news` (
+`id` int(10) unsigned NOT NULL,
+  `id_user` int(10) unsigned NOT NULL COMMENT 'пользователь',
+  `is_about` tinyint(4) NOT NULL COMMENT 'о программе или новость',
+  `title` varchar(200) NOT NULL COMMENT 'заголовок',
+  `alias` varchar(100) NOT NULL COMMENT 'ссылка',
+  `about` text NOT NULL COMMENT 'краткое описание',
+  `img_name` varchar(50) NOT NULL COMMENT 'фото',
+  `img_x1` smallint(5) unsigned NOT NULL COMMENT 'координаты фото',
+  `img_y1` smallint(5) unsigned NOT NULL COMMENT 'координаты фото',
+  `img_x2` smallint(5) unsigned NOT NULL COMMENT 'координаты фото',
+  `img_y2` smallint(5) unsigned NOT NULL COMMENT 'координаты фото',
+  `content` text NOT NULL COMMENT 'полное содержание',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `created_dt` datetime NOT NULL COMMENT 'создано в формате датавремя',
+  `modified` int(10) unsigned NOT NULL COMMENT 'изменено',
+  `published` tinyint(1) NOT NULL COMMENT 'публикация',
+  `ordering` int(11) NOT NULL COMMENT 'порядок',
+  `views` int(10) unsigned NOT NULL COMMENT 'просмотров'
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COMMENT='новости сайта';
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_notifications`
+--
+
+уведомления
+
+CREATE TABLE IF NOT EXISTS `rtl_notifications` (
+`id` int(10) unsigned NOT NULL,
+  `id_type` int(10) unsigned NOT NULL COMMENT 'тип',
+  `id_user` int(10) unsigned NOT NULL COMMENT 'пользователь',
+  `id_action` int(10) unsigned NOT NULL COMMENT 'событие',
+  `readed` int(10) unsigned NOT NULL COMMENT 'прочтено',
+  `deleted` int(10) unsigned NOT NULL COMMENT 'удалено'
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_notif_types`
+--
+
+типы уведомлений
+
+CREATE TABLE IF NOT EXISTS `rtl_notif_types` (
+`id` int(10) unsigned NOT NULL,
+  `name` varchar(100) NOT NULL COMMENT 'название',
+  `ordering` tinyint(4) NOT NULL COMMENT 'порядок',
+  `published` tinyint(1) NOT NULL COMMENT 'публикация'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_sms_sent`
+--
+
+отправленные СМС
+
+CREATE TABLE IF NOT EXISTS `rtl_sms_sent` (
+`id` int(10) unsigned NOT NULL,
+  `mobile` bigint(20) unsigned NOT NULL COMMENT 'телефон',
+  `ref_id` varchar(20) NOT NULL COMMENT 'ид сообщения',
+  `text` varchar(200) NOT NULL COMMENT 'текст',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `status` tinyint(3) unsigned NOT NULL COMMENT 'статус'
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_support`
+--
+
+обращения в поддержку
+
+CREATE TABLE IF NOT EXISTS `rtl_support` (
+`id` int(10) unsigned NOT NULL,
+  `user_id` int(10) unsigned NOT NULL COMMENT 'автор вопроса',
+  `agent_id` int(10) unsigned NOT NULL COMMENT 'агент поддержки',
+  `category_id` tinyint(3) unsigned NOT NULL COMMENT 'категория вопроса',
+  `subject` varchar(100) NOT NULL COMMENT 'тема вопроса',
+  `question` text NOT NULL COMMENT 'вопрос',
+  `answer` text NOT NULL COMMENT 'ответ',
+  `status` tinyint(3) unsigned NOT NULL COMMENT 'статус',
+  `created` int(10) unsigned NOT NULL COMMENT 'создан',
+  `modified` int(10) unsigned NOT NULL COMMENT 'последняя активность',
+  `accepted` int(10) unsigned NOT NULL COMMENT 'принят',
+  `delegated` int(10) unsigned NOT NULL COMMENT 'делегирован',
+  `closed` int(10) unsigned NOT NULL COMMENT 'закрыт',
+  `deleted` int(10) unsigned NOT NULL COMMENT 'удалён'
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COMMENT='обращения в службу поддержки';
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_support_categories`
+--
+
+категории обращений
+
+CREATE TABLE IF NOT EXISTS `rtl_support_categories` (
+`id` int(10) unsigned NOT NULL,
+  `author_id` int(10) unsigned NOT NULL COMMENT 'автор',
+  `name` varchar(200) NOT NULL COMMENT 'название',
+  `ordering` tinyint(4) NOT NULL COMMENT 'порядок',
+  `status` int(11) NOT NULL COMMENT 'статус'
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='категории вопросов-ответов';
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_support_delegates`
+--
+
+делегирования обращений
+
+CREATE TABLE IF NOT EXISTS `rtl_support_delegates` (
+`id` int(10) unsigned NOT NULL,
+  `from_agent` int(10) unsigned NOT NULL COMMENT 'отправитель делегирования',
+  `support_id` int(10) unsigned NOT NULL COMMENT 'запись запроса в поддержку',
+  `department_id` tinyint(3) unsigned NOT NULL COMMENT 'ид отдела, куда был перенаправлен вопрос',
+  `specialist_id` int(10) unsigned NOT NULL COMMENT 'ид специалиста, принявшего вопрос',
+  `comment` text NOT NULL COMMENT 'комментарий-ответ специалиста',
+  `created` int(10) unsigned NOT NULL COMMENT 'создан',
+  `accepted` int(10) unsigned NOT NULL COMMENT 'принят',
+  `closed` int(10) unsigned NOT NULL COMMENT 'закрыт',
+  `delegated` int(10) unsigned NOT NULL COMMENT 'делегирован',
+  `status` tinyint(3) unsigned NOT NULL COMMENT 'статус делегирования'
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COMMENT='делегирование запроса техподдержки';
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_support_delegates_msg`
+--
+
+сообщения в делегировании
+
+CREATE TABLE IF NOT EXISTS `rtl_support_delegates_msg` (
+`id` int(10) unsigned NOT NULL,
+  `support_id` int(10) unsigned NOT NULL COMMENT 'ид обращения',
+  `agent_id` int(10) unsigned NOT NULL COMMENT 'ид агента',
+  `message` text NOT NULL COMMENT 'сообщение',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано'
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COMMENT='сообщения делегирований';
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_support_hash`
+--
+
+хеши для прямого входа в кабинет поддержки
+
+CREATE TABLE IF NOT EXISTS `rtl_support_hash` (
+`id` int(10) unsigned NOT NULL,
+  `agent_id` int(10) unsigned NOT NULL COMMENT 'агент',
+  `support_id` int(10) unsigned NOT NULL COMMENT 'ид обращения',
+  `hash` varchar(200) NOT NULL COMMENT 'хеш прямого доступа',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `used` int(10) unsigned NOT NULL COMMENT 'использовано'
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 COMMENT='таблица хешей для автовхода в кабинет по ссылке из емайла-уведомления о тикете';
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_support_knowbase`
+--
+
+база знаний поддержки
+
+CREATE TABLE IF NOT EXISTS `rtl_support_knowbase` (
+`id` int(10) unsigned NOT NULL,
+  `category_id` tinyint(3) unsigned NOT NULL COMMENT 'ид категории вопроса',
+  `agent_id` int(10) unsigned NOT NULL COMMENT 'ид агента поддержки, предложившего внести в базу',
+  `question` text NOT NULL COMMENT 'вопрос',
+  `answer` text NOT NULL COMMENT 'ответ',
+  `labels` text NOT NULL COMMENT 'ключевые слова',
+  `created` int(10) unsigned NOT NULL COMMENT 'создан',
+  `modified` int(10) unsigned NOT NULL COMMENT 'изменён',
+  `ordering` int(11) NOT NULL COMMENT 'порядок',
+  `status` tinyint(3) unsigned NOT NULL COMMENT 'статус'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_support_messages`
+--
+
+сообщения по тикетам
+
+CREATE TABLE IF NOT EXISTS `rtl_support_messages` (
+`id` int(10) unsigned NOT NULL,
+  `support_id` int(10) unsigned NOT NULL COMMENT 'ид обращения',
+  `user_id` int(10) unsigned NOT NULL COMMENT 'ид пользователя',
+  `message` text NOT NULL COMMENT 'сообщение',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано'
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_trans`
+--
+
+транзакции запросов на оплату от терминалов партнеров
+
+CREATE TABLE IF NOT EXISTS `rtl_trans` (
+`id` int(10) unsigned NOT NULL,
+  `is_real` tinyint(1) NOT NULL,
+  `method_id` tinyint(3) unsigned NOT NULL COMMENT 'ид метода из таблицы _api_methods',
+  `from_card` int(10) unsigned NOT NULL COMMENT 'карта отправителя',
+  `to_card` int(10) unsigned NOT NULL COMMENT 'карта получателя',
+  `user_prepaid` bigint(20) unsigned NOT NULL COMMENT 'код препейд карты Штука',
+  `user_mobile` bigint(20) unsigned NOT NULL COMMENT 'телефона пользователя',
+  `user_id` int(10) unsigned NOT NULL COMMENT 'ид пользователя из таблицы _users',
+  `client_id` smallint(5) unsigned NOT NULL COMMENT 'ид бизнес партнёра таблицы _clients',
+  `shop_id` smallint(5) unsigned NOT NULL COMMENT 'ид магазина из client_contacts',
+  `term_id` varchar(50) NOT NULL COMMENT 'ид терминала в магазине',
+  `agent_id` int(10) unsigned NOT NULL COMMENT 'ид кассира/продавца',
+  `pay_id` int(10) unsigned NOT NULL COMMENT 'ид платежа MoneXy',
+  `trans_id` int(10) unsigned NOT NULL COMMENT 'ид транзакции MoneXy',
+  `subtrans_id` int(10) unsigned NOT NULL COMMENT 'ид обратной транзакции MoneXy',
+  `trans_date` bigint(20) unsigned NOT NULL COMMENT 'время транзакции, передаваемое торговцу',
+  `subtrans_date` bigint(20) unsigned NOT NULL COMMENT 'время транзакции, передаваемое торговцу, подтверждения платежа',
+  `order_id` bigint(20) unsigned NOT NULL COMMENT 'ид платежа торговца',
+  `pay_sum` float NOT NULL COMMENT 'сумма платежа',
+  `pay_pers` float NOT NULL COMMENT 'скидка',
+  `pay_bonus` float NOT NULL COMMENT 'бонусы на зачисление',
+  `pay_type` tinyint(4) NOT NULL COMMENT 'тип платежа: 0 - простой(пополнение, перевод), 1 - бонусный; 2 - оплата ЭД и бонус',
+  `pay_desc` varchar(250) NOT NULL COMMENT 'назначение платежа',
+  `pay_date` bigint(20) unsigned NOT NULL COMMENT 'дата и время оплаты торговца',
+  `pay_details` smallint(5) unsigned NOT NULL,
+  `pay_success` tinyint(1) NOT NULL COMMENT 'успешность платежа',
+  `pay_error_id` int(10) unsigned NOT NULL,
+  `pay_error_desc` varchar(250) NOT NULL,
+  `created` int(10) unsigned NOT NULL COMMENT 'дата создания записи',
+  `confirmed` int(10) unsigned NOT NULL COMMENT 'дата подтверждения'
+) ENGINE=MyISAM AUTO_INCREMENT=243080 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_trans_details`
+--
+
+детали платежей, раскрытый чек
+
+CREATE TABLE IF NOT EXISTS `rtl_trans_details` (
+`id` int(10) unsigned NOT NULL,
+  `id_trans` int(10) unsigned NOT NULL COMMENT 'ид из таблицы _trans',
+  `prod_cat` varchar(100) CHARACTER SET utf8 NOT NULL COMMENT 'категория товара у торговца',
+  `prod_code` varchar(100) CHARACTER SET utf8 NOT NULL COMMENT 'код товара',
+  `prod_name` varchar(250) CHARACTER SET utf8 NOT NULL COMMENT 'наименование',
+  `prod_price` float unsigned NOT NULL COMMENT 'цена товара',
+  `prod_amount` float unsigned NOT NULL COMMENT 'кол-во товара',
+  `prod_sum` float unsigned NOT NULL COMMENT 'сумма за товар'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_trans_notifs`
+--
+
+уведомления об операциях на POS-терминалах
+
+CREATE TABLE IF NOT EXISTS `rtl_trans_notifs` (
+`id` int(10) unsigned NOT NULL,
+  `partner_id` smallint(5) unsigned NOT NULL COMMENT 'ид партнера',
+  `method_id` tinyint(3) unsigned NOT NULL COMMENT 'ид метода',
+  `is_real` tinyint(1) NOT NULL COMMENT 'реальный платеж',
+  `is_sync` tinyint(1) NOT NULL COMMENT 'синхронизирующий запрос',
+  `user_prepaid` bigint(20) unsigned NOT NULL COMMENT 'препейд карта покупателя',
+  `user_phone` bigint(20) unsigned NOT NULL COMMENT 'телефон покупателя',
+  `mx_shop_card` int(10) unsigned NOT NULL COMMENT 'мерчант ид партенра',
+  `mx_trans_id` int(10) unsigned NOT NULL COMMENT 'ид транзакции манекси',
+  `order_id` varchar(100) NOT NULL COMMENT 'номер заказа',
+  `order_sum` float unsigned NOT NULL COMMENT 'сумма',
+  `order_desc` varchar(250) NOT NULL COMMENT 'описание',
+  `order_date` bigint(20) unsigned NOT NULL COMMENT 'дата платежа',
+  `upc_pan` varchar(16) NOT NULL COMMENT 'данные УПЦ',
+  `upc_merchant_id` varchar(100) NOT NULL COMMENT 'данные УПЦ',
+  `upc_merchant_name` varchar(250) NOT NULL COMMENT 'данные УПЦ',
+  `upc_term_id` varchar(100) NOT NULL COMMENT 'данные УПЦ',
+  `upc_mcc` smallint(5) unsigned NOT NULL COMMENT 'данные УПЦ',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='таблица уведомлений об операциях по препейд карте';
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_trans_notifs_sync`
+--
+
+синхронизация уведомлений об оплате на POS-темриналах
+
+CREATE TABLE IF NOT EXISTS `rtl_trans_notifs_sync` (
+`id` int(10) unsigned NOT NULL,
+  `sync_date` date NOT NULL COMMENT 'дата синхронизации',
+  `amount_sync` int(10) unsigned NOT NULL COMMENT 'кол-во записей',
+  `amount_success` int(10) unsigned NOT NULL COMMENT 'кол-во успешных',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_trans_pays`
+--
+
+сводки о платежах
+
+CREATE TABLE IF NOT EXISTS `rtl_trans_pays` (
+`id` int(10) unsigned NOT NULL,
+  `mobile` bigint(20) unsigned NOT NULL COMMENT 'телефон',
+  `pays_amount` smallint(5) unsigned NOT NULL COMMENT 'кол-во',
+  `pays_sum` float unsigned NOT NULL COMMENT 'сумма',
+  `pays_bonuses` float unsigned NOT NULL COMMENT 'бонусов',
+  `paydate` date NOT NULL COMMENT 'дата',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='данные о покупках по партнёрам';
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_trans_pays_details`
+--
+
+детали платежей
+
+CREATE TABLE IF NOT EXISTS `rtl_trans_pays_details` (
+`id` int(10) unsigned NOT NULL,
+  `id_pays` int(10) unsigned NOT NULL COMMENT 'ид платежа',
+  `id_client` smallint(5) unsigned NOT NULL COMMENT 'ид партнера',
+  `pays_amount` smallint(5) unsigned NOT NULL COMMENT 'кол-во',
+  `pays_sum` float unsigned NOT NULL COMMENT 'сумма',
+  `pays_bonuses` float unsigned NOT NULL COMMENT 'бонусов'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='детали статистики покупок';
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_trans_rfm`
+--
+
+RFM анализ покупок
+
+CREATE TABLE IF NOT EXISTS `rtl_trans_rfm` (
+`id` int(10) unsigned NOT NULL,
+  `mobile` bigint(20) unsigned NOT NULL COMMENT 'телефон',
+  `id_client` smallint(5) unsigned NOT NULL COMMENT 'партнер',
+  `pay_amount` smallint(5) unsigned NOT NULL COMMENT 'кол-во покупок',
+  `pay_sum` float unsigned NOT NULL COMMENT 'сумма покупок',
+  `pay_min` float unsigned NOT NULL COMMENT 'мин покупка, сумма',
+  `pay_max` float unsigned NOT NULL COMMENT 'макс покупка, сумма',
+  `pay_firstdate` int(10) unsigned NOT NULL COMMENT 'первая покупка, дата',
+  `pay_lastdate` int(10) unsigned NOT NULL COMMENT 'последняя покупка, дата',
+  `rfm_r` tinyint(3) unsigned NOT NULL COMMENT 'число R',
+  `rfm_f` tinyint(3) unsigned NOT NULL COMMENT 'число F',
+  `rfm_m` tinyint(3) unsigned NOT NULL COMMENT 'число M',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `modified` int(10) unsigned NOT NULL COMMENT 'пересчитано'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='данные для RFM анализа';
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_trans_rfm_groups`
+--
+
+группы RFM анализа
+
+CREATE TABLE IF NOT EXISTS `rtl_trans_rfm_groups` (
+`id` int(10) unsigned NOT NULL,
+  `id_author` int(10) unsigned NOT NULL COMMENT 'автор',
+  `name` varchar(200) NOT NULL COMMENT 'название',
+  `filters` text NOT NULL COMMENT 'фильтры',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='сохранение групп рфм анализа';
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_trans_rfm_history`
+--
+
+история изменений показателей RFM
+
+CREATE TABLE IF NOT EXISTS `rtl_trans_rfm_history` (
+`id` int(10) unsigned NOT NULL,
+  `mobile` bigint(20) unsigned NOT NULL COMMENT 'телефон',
+  `rfm_r` tinyint(3) unsigned NOT NULL COMMENT 'число R',
+  `rfm_f` tinyint(3) unsigned NOT NULL COMMENT 'число F',
+  `rfm_m` tinyint(3) unsigned NOT NULL COMMENT 'число M',
+  `change_date` int(10) unsigned NOT NULL COMMENT 'дата изменения RFM',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_trans_stat`
+--
+
+статистика транзакций
+
+CREATE TABLE IF NOT EXISTS `rtl_trans_stat` (
+`id` int(10) unsigned NOT NULL,
+  `id_client` int(10) unsigned NOT NULL COMMENT 'партнёр',
+  `count_period` enum('hours','days','months') NOT NULL COMMENT 'отчетный период',
+  `count_time` int(10) unsigned NOT NULL COMMENT 'отчётная дата',
+  `count_date` datetime NOT NULL COMMENT 'отчётная дата в явном виде',
+  `amount_new` int(10) unsigned NOT NULL COMMENT 'новых покупателей',
+  `amount_total` int(10) unsigned NOT NULL COMMENT 'всего покупателей',
+  `created` int(10) unsigned NOT NULL COMMENT 'дата пересчёта'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='таблица статистики';
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_users`
+--
+
+пользователи
+
+CREATE TABLE IF NOT EXISTS `rtl_users` (
+`id` int(10) unsigned NOT NULL,
+  `role` enum('user','editor','manager','admin','banned','support') NOT NULL COMMENT 'права пользователя',
+  `department_id` int(10) unsigned NOT NULL,
+  `paid_card` bigint(20) unsigned NOT NULL,
+  `paid_want` tinyint(1) NOT NULL,
+  `mobile` bigint(20) unsigned NOT NULL,
+  `bcode` varchar(50) NOT NULL,
+  `card_id` int(10) unsigned NOT NULL,
+  `token` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `code` varchar(50) NOT NULL,
+  `pass` varchar(100) NOT NULL,
+  `apass` varchar(100) NOT NULL,
+  `temp_pass` varchar(100) NOT NULL,
+  `conf_reqs` tinyint(3) unsigned NOT NULL,
+  `conf_last` int(10) unsigned NOT NULL,
+  `confirmed` int(10) unsigned NOT NULL,
+  `email_confirmed` int(10) unsigned NOT NULL,
+  `n_emails` tinyint(1) NOT NULL DEFAULT '1',
+  `n_sms` tinyint(1) NOT NULL DEFAULT '1',
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `birth_day` date NOT NULL,
+  `img_name` varchar(50) NOT NULL,
+  `photo` varchar(250) NOT NULL,
+  `photo2` varchar(250) NOT NULL,
+  `photo_big` varchar(250) NOT NULL,
+  `id_region` int(10) unsigned NOT NULL,
+  `id_city` int(10) unsigned NOT NULL,
+  `know_rules` tinyint(1) NOT NULL,
+  `want_post` tinyint(1) NOT NULL,
+  `loc_rayon` varchar(100) NOT NULL,
+  `loc_index` varchar(20) NOT NULL,
+  `street_type` tinyint(4) NOT NULL,
+  `street_text` varchar(200) NOT NULL,
+  `loc_house` varchar(20) NOT NULL,
+  `loc_korpus` varchar(20) NOT NULL,
+  `loc_flat` varchar(20) NOT NULL,
+  `gender` tinyint(4) NOT NULL COMMENT '1 - m, 2 - w',
+  `work_status` tinyint(3) unsigned NOT NULL,
+  `family_stat` tinyint(3) unsigned NOT NULL,
+  `childrens` tinyint(3) unsigned NOT NULL,
+  `child_age1` tinyint(3) unsigned NOT NULL,
+  `child_age2` tinyint(3) unsigned NOT NULL,
+  `child_age3` tinyint(3) unsigned NOT NULL,
+  `has_auto` tinyint(1) NOT NULL,
+  `auto_car` int(10) unsigned NOT NULL,
+  `created` int(10) unsigned NOT NULL,
+  `modified` int(10) unsigned NOT NULL,
+  `last_login` int(10) unsigned NOT NULL,
+  `last_action` int(10) unsigned NOT NULL,
+  `blocked` tinyint(1) NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_users_activates`
+--
+
+активации учетных записей
+
+CREATE TABLE IF NOT EXISTS `rtl_users_activates` (
+`id` int(10) unsigned NOT NULL,
+  `id_user` int(10) unsigned NOT NULL,
+  `uip` varchar(20) NOT NULL,
+  `mobile` bigint(20) unsigned NOT NULL,
+  `sent_sms` tinyint(3) unsigned NOT NULL,
+  `paid_want` tinyint(1) NOT NULL,
+  `created` int(10) unsigned NOT NULL,
+  `confirmed` int(10) unsigned NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=cp1251;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_users_cards`
+--
+
+карты пользователей
+
+CREATE TABLE IF NOT EXISTS `rtl_users_cards` (
+`id` int(10) unsigned NOT NULL,
+  `id_user` int(10) unsigned NOT NULL COMMENT 'пользователь',
+  `mobile` bigint(20) unsigned NOT NULL COMMENT 'телефон',
+  `paid_card` bigint(20) unsigned NOT NULL COMMENT 'код препейд карты',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `confirmed` int(10) unsigned NOT NULL COMMENT 'подтвреждено'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_users_fast_enter`
+--
+
+сквозная авторизация через АПИ
+
+CREATE TABLE IF NOT EXISTS `rtl_users_fast_enter` (
+`id` int(10) unsigned NOT NULL,
+  `mobile` bigint(20) unsigned NOT NULL COMMENT 'телефон',
+  `code` varchar(100) NOT NULL COMMENT 'код авторизации',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `status` tinyint(3) unsigned NOT NULL COMMENT 'статус'
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='таблица сквозной авторизации на сайте';
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_users_groups`
+--
+
+группы пользователей
+
+CREATE TABLE IF NOT EXISTS `rtl_users_groups` (
+`id` int(10) unsigned NOT NULL,
+  `id_user` int(10) unsigned NOT NULL COMMENT 'автор',
+  `name` varchar(200) NOT NULL COMMENT 'название',
+  `comment` text NOT NULL COMMENT 'комментарий',
+  `params` text NOT NULL COMMENT 'параметры',
+  `is_rfm` tinyint(1) NOT NULL COMMENT 'RFM фильтры или обычный',
+  `amount` int(10) unsigned NOT NULL COMMENT 'кол-во найденных',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `status` tinyint(3) unsigned NOT NULL COMMENT 'статус'
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_users_last_pays`
+--
+
+последние покупки
+
+CREATE TABLE IF NOT EXISTS `rtl_users_last_pays` (
+`id` int(10) unsigned NOT NULL,
+  `id_user` int(10) unsigned NOT NULL COMMENT 'пользователь',
+  `merchant_id` int(10) unsigned NOT NULL COMMENT 'мерчант ид',
+  `last_pay` date NOT NULL COMMENT 'посл платеж'
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_users_logins`
+--
+
+входы пользователей
+
+CREATE TABLE IF NOT EXISTS `rtl_users_logins` (
+`id` int(10) unsigned NOT NULL,
+  `uip` varchar(20) NOT NULL COMMENT 'ип пользователя',
+  `uagent` varchar(250) NOT NULL COMMENT 'агент пользователя',
+  `mobile` bigint(20) unsigned NOT NULL COMMENT 'телефон',
+  `id_user` int(10) unsigned NOT NULL COMMENT 'ид пользователя',
+  `user_check` tinyint(3) unsigned NOT NULL COMMENT 'проверка',
+  `sms_amount` tinyint(3) unsigned NOT NULL COMMENT 'кол-во СМС',
+  `sms_check` tinyint(3) unsigned NOT NULL COMMENT 'кол-во проверок смс',
+  `pass_amount` tinyint(3) unsigned NOT NULL COMMENT 'кол-во проверок пароля',
+  `pass_check` tinyint(3) unsigned NOT NULL COMMENT 'попыток входа',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `confirmed` int(10) unsigned NOT NULL COMMENT 'подтверждено'
+) ENGINE=MyISAM AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_users_messages`
+--
+
+сообщения пользователей
+
+CREATE TABLE IF NOT EXISTS `rtl_users_messages` (
+`id` int(10) unsigned NOT NULL,
+  `id_user` int(10) unsigned NOT NULL COMMENT 'ид пользователя',
+  `id_client` int(10) unsigned NOT NULL COMMENT 'ид партнера',
+  `id_shop` int(10) unsigned NOT NULL COMMENT 'ид магазина',
+  `user_email` varchar(100) NOT NULL COMMENT 'емайл пользователя',
+  `title` varchar(100) CHARACTER SET utf8 NOT NULL COMMENT 'заголовок',
+  `message` varchar(250) CHARACTER SET utf8 NOT NULL COMMENT 'сообщение',
+  `is_answer` tinyint(1) NOT NULL COMMENT 'вопрос',
+  `tvector` tinyint(1) NOT NULL COMMENT 'направление сообщения',
+  `created` datetime NOT NULL COMMENT 'создано',
+  `deleted` tinyint(1) NOT NULL COMMENT 'удалено'
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_users_registers`
+--
+
+регистрации пользователей
+
+CREATE TABLE IF NOT EXISTS `rtl_users_registers` (
+`id` int(10) unsigned NOT NULL,
+  `uip` varchar(20) NOT NULL COMMENT 'ип пользователя',
+  `uagent` varchar(250) NOT NULL COMMENT 'агент пользователя',
+  `uname` varchar(100) NOT NULL COMMENT 'имя пользователя',
+  `uemail` varchar(100) NOT NULL COMMENT 'емайл',
+  `mobile` bigint(20) unsigned NOT NULL COMMENT 'телефон',
+  `id_user` int(10) unsigned NOT NULL COMMENT 'ид пользователя',
+  `user_check` tinyint(3) unsigned NOT NULL COMMENT 'запросов',
+  `sms_amount` tinyint(3) unsigned NOT NULL COMMENT 'кол-во смс',
+  `sms_check` tinyint(3) unsigned NOT NULL COMMENT 'проверок',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `confirmed` int(10) unsigned NOT NULL COMMENT 'подтверждено'
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_users_reviews`
+--
+
+отзывы пользователей
+
+CREATE TABLE IF NOT EXISTS `rtl_users_reviews` (
+`id` int(10) unsigned NOT NULL,
+  `id_user` int(10) unsigned NOT NULL COMMENT 'ид пользователя',
+  `id_client` int(10) unsigned NOT NULL COMMENT 'ид партнера',
+  `id_gift` int(10) unsigned NOT NULL COMMENT 'ид поощрения',
+  `comment` varchar(250) CHARACTER SET utf8 NOT NULL COMMENT 'комментарий',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `status` tinyint(3) unsigned NOT NULL COMMENT 'статус'
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_users_socials`
+--
+
+соцаккаунты пользователей
+
+CREATE TABLE IF NOT EXISTS `rtl_users_socials` (
+`id` int(10) unsigned NOT NULL,
+  `id_user` int(10) unsigned NOT NULL COMMENT 'ид пользователя',
+  `id_provider` tinyint(3) unsigned NOT NULL COMMENT 'ид соцсети',
+  `id_account` bigint(20) unsigned NOT NULL COMMENT 'ид аккаунта соцсети',
+  `email` varchar(100) NOT NULL COMMENT 'емайл',
+  `first_name` varchar(100) NOT NULL COMMENT 'имя',
+  `last_name` varchar(100) NOT NULL COMMENT 'фамилия',
+  `birth_day` date NOT NULL COMMENT 'день рождения',
+  `gender` tinyint(4) NOT NULL COMMENT 'пол',
+  `photo` varchar(250) NOT NULL COMMENT 'фото мал',
+  `photo2` varchar(250) NOT NULL COMMENT 'фото бол',
+  `photo_big` varchar(250) NOT NULL COMMENT 'фото макс',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `modified` int(10) unsigned NOT NULL COMMENT 'изменено'
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_users_socials_providers`
+--
+
+соцсети для авторизации на сайте
+
+CREATE TABLE IF NOT EXISTS `rtl_users_socials_providers` (
+`id` int(10) unsigned NOT NULL,
+  `page_add` varchar(100) NOT NULL COMMENT 'страница добавления соцсети в кабинете пользователя',
+  `page_del` varchar(50) NOT NULL COMMENT 'страница удаления соцаккаунта',
+  `page_login` varchar(100) NOT NULL COMMENT 'страница входа через соцсеть',
+  `name` varchar(100) NOT NULL COMMENT 'название',
+  `name_msg` varchar(20) NOT NULL COMMENT 'краткое название',
+  `name_class` varchar(50) NOT NULL COMMENT 'стилевой класс',
+  `abr` varchar(2) NOT NULL COMMENT 'аббревиатура',
+  `title` varchar(30) NOT NULL COMMENT 'заголовок',
+  `app_id` varchar(100) NOT NULL COMMENT 'ид приложения',
+  `app_key` varchar(100) NOT NULL COMMENT 'ключ приложения',
+  `img_name` varchar(50) NOT NULL COMMENT 'иконка',
+  `nlink` varchar(50) NOT NULL COMMENT 'ссылка на соцсеть',
+  `ulink` varchar(100) NOT NULL COMMENT 'префикс ссылки аккаунта',
+  `ordering` tinyint(4) NOT NULL COMMENT 'порядок'
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_users_subscribes`
+--
+
+подписки пользователей
+
+CREATE TABLE IF NOT EXISTS `rtl_users_subscribes` (
+`id` int(10) unsigned NOT NULL,
+  `id_user` int(10) unsigned NOT NULL COMMENT 'ид пользователя',
+  `id_client` int(10) unsigned NOT NULL COMMENT 'ид партнера',
+  `id_shop` int(10) unsigned NOT NULL COMMENT 'ид магазина',
+  `created` datetime NOT NULL COMMENT 'создано',
+  `created_unix` int(10) unsigned NOT NULL COMMENT 'создано уникс',
+  `cdate` date NOT NULL COMMENT 'дата',
+  `deleted` tinyint(1) NOT NULL COMMENT 'удалено',
+  `deleted_unix` int(10) unsigned NOT NULL COMMENT 'удалено уникс',
+  `is_new` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'новое ли'
+) ENGINE=MyISAM AUTO_INCREMENT=55 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `rtl_users_waiting`
+--
+
+ожидают старта программы
+
+CREATE TABLE IF NOT EXISTS `rtl_users_waiting` (
+`id` int(10) unsigned NOT NULL,
+  `id_sent` int(10) unsigned NOT NULL COMMENT 'ид отправленного письма из таблицы emails_sent',
+  `name` varchar(100) NOT NULL COMMENT 'имя',
+  `email` varchar(100) NOT NULL COMMENT 'емайл',
+  `ehash` varchar(100) NOT NULL COMMENT 'хеш',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `status` tinyint(3) unsigned NOT NULL COMMENT 'статус'
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `_variables_alt`
+--
+
+текстовые переменные сайта
+
+CREATE TABLE IF NOT EXISTS `_variables_alt` (
+`id` int(10) unsigned NOT NULL,
+  `value_ru` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'значение рус',
+  `value_en` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'значение анг',
+  `value_ua` text NOT NULL COMMENT 'значение укр',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `modified` int(10) unsigned NOT NULL COMMENT 'изменено'
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `_variables_api`
+--
+
+текстовые переменные сайта
+
+CREATE TABLE IF NOT EXISTS `_variables_api` (
+`id` int(10) unsigned NOT NULL,
+  `value_ru` text NOT NULL COMMENT 'значение рус',
+  `value_en` text NOT NULL COMMENT 'значение анг',
+  `value_ua` text NOT NULL COMMENT 'значение укр',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `modified` int(10) unsigned NOT NULL COMMENT 'изменено'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `_variables_button`
+--
+
+текстовые переменные сайта
+
+CREATE TABLE IF NOT EXISTS `_variables_button` (
+`id` int(10) unsigned NOT NULL,
+  `value_ru` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'значение рус',
+  `value_en` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'значение анг',
+  `value_ua` text NOT NULL COMMENT 'значение укр',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `modified` int(10) unsigned NOT NULL COMMENT 'изменено'
+) ENGINE=MyISAM AUTO_INCREMENT=77 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `_variables_date`
+--
+
+текстовые переменные сайта
+
+CREATE TABLE IF NOT EXISTS `_variables_date` (
+`id` int(10) unsigned NOT NULL,
+  `value_ru` text NOT NULL COMMENT 'значение рус',
+  `value_en` text NOT NULL COMMENT 'значение анг',
+  `value_ua` text NOT NULL COMMENT 'значение укр',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `modified` int(10) unsigned NOT NULL COMMENT 'изменено'
+) ENGINE=MyISAM AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `_variables_error`
+--
+
+текстовые переменные сайта
+
+CREATE TABLE IF NOT EXISTS `_variables_error` (
+`id` int(10) unsigned NOT NULL,
+  `value_ru` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'значение рус',
+  `value_en` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'значение анг',
+  `value_ua` text NOT NULL COMMENT 'значение укр',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `modified` int(10) unsigned NOT NULL COMMENT 'изменено'
+) ENGINE=MyISAM AUTO_INCREMENT=140 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `_variables_label`
+--
+
+текстовые переменные сайта
+
+CREATE TABLE IF NOT EXISTS `_variables_label` (
+`id` int(10) unsigned NOT NULL,
+  `value_ru` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'значение рус',
+  `value_en` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'значение анг',
+  `value_ua` text NOT NULL COMMENT 'значение укр',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `modified` int(10) unsigned NOT NULL COMMENT 'изменено'
+) ENGINE=MyISAM AUTO_INCREMENT=150 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `_variables_msg`
+--
+
+текстовые переменные сайта
+
+CREATE TABLE IF NOT EXISTS `_variables_msg` (
+`id` int(10) unsigned NOT NULL,
+  `value_ru` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'значение рус',
+  `value_en` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'значение анг',
+  `value_ua` text NOT NULL COMMENT 'значение укр',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `modified` int(10) unsigned NOT NULL COMMENT 'изменено'
+) ENGINE=MyISAM AUTO_INCREMENT=1635 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `_variables_payment`
+--
+
+текстовые переменные сайта
+
+CREATE TABLE IF NOT EXISTS `_variables_payment` (
+`id` int(10) unsigned NOT NULL,
+  `value_ru` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'значение рус',
+  `value_en` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'значение анг',
+  `value_ua` text NOT NULL COMMENT 'значение укр',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `modified` int(10) unsigned NOT NULL COMMENT 'изменено'
+) ENGINE=MyISAM AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `_variables_title`
+--
+
+текстовые переменные сайта
+
+CREATE TABLE IF NOT EXISTS `_variables_title` (
+`id` int(10) unsigned NOT NULL,
+  `value_ru` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'значение рус',
+  `value_en` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'значение анг',
+  `value_ua` text NOT NULL COMMENT 'значение укр',
+  `created` int(10) unsigned NOT NULL COMMENT 'создано',
+  `modified` int(10) unsigned NOT NULL COMMENT 'изменено'
+) ENGINE=MyISAM AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;

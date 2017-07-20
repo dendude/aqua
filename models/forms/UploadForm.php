@@ -20,6 +20,7 @@ class UploadForm extends Model
     const TYPE_RESULTS = 'results';
     const TYPE_EMAILS = 'emails';
     const TYPE_GALLERY = 'gallery';
+    const TYPE_REVIEWS = 'reviews';
 
     const UPLOAD_DIR = 'web/images';
     const VIEW_DIR = 'images';
@@ -47,14 +48,39 @@ class UploadForm extends Model
                 // миниатюры для галереи
                 $this->imageFile->saveAs($result_path . 'original');
 
-                $this->resize($result_path . 'original', $result_path, 1200, 800);
+                $this->resize($result_path . 'original', $result_path, 1200, 2000);
                 $this->resize($result_path . 'original', $path_img_mini, 400, 300);
 
                 // удаляем
                 unlink($result_path . 'original');
 
+            } elseif ($type == self::TYPE_REVIEWS) {
+
+                $path_img_mini = str_replace('.' . $ext, '_min.' . $ext, $result_path);
+                $path_img_maxi = str_replace('.' . $ext, '_max.' . $ext, $result_path);
+
+                // миниатюры для галереи
+                $this->imageFile->saveAs($result_path . 'original');
+
+                $this->resize($result_path . 'original', $path_img_maxi, 1200, 1200);
+                $this->resize($result_path . 'original', $result_path, 200, 200);
+                $this->resize($result_path . 'original', $path_img_mini, 50, 50);
+
+                // удаляем
+                unlink($result_path . 'original');
+
             } else {
+                
                 $this->imageFile->saveAs($result_path);
+    
+                $m200 = str_replace('.' . $ext, '_m200.' . $ext, $result_path);
+                $m400 = str_replace('.' . $ext, '_m400.' . $ext, $result_path);
+                
+                usleep(250000);
+    
+                // миниатюры
+                $this->resize($result_path, $m200, 200, 200);
+                $this->resize($result_path, $m400, 400, 400);
             }
 
             $this->imagePath = '/' . self::VIEW_DIR . '/' . $type . '/' . $name;
@@ -79,11 +105,11 @@ class UploadForm extends Model
         return $img_path;
     }
 
-    public static function getSrc($img_name, $type = self::TYPE_PAGES) {
+    public static function getSrc($img_name, $type = self::TYPE_PAGES, $suffix = '') {
 
         $src = [self::VIEW_DIR];
         $src[] = $type;
-        $src[] = $img_name;
+        $src[] = str_replace('.jpg', "{$suffix}.jpg", $img_name);
 
        return '/' . implode('/', $src);
     }

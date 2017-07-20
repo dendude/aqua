@@ -65,6 +65,11 @@ class FaqSections extends \yii\db\ActiveRecord
         return $list ? ArrayHelper::map($list, 'id', 'name') : [];
     }
 
+    public static function getSectionName($section_id) {
+        $list = self::getFilterList();
+        return isset($list[$section_id]) ? $list[$section_id] : 'Не найден';
+    }
+
     public function afterDelete()
     {
         // удаляем вложенные вопросы

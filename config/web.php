@@ -17,14 +17,10 @@ $config = [
         ],
     ],
     'components' => [
-        'mailer' => [
-            'class' => 'yii\swiftmailer\Mailer',
+        'assetManager' => [
+            'linkAssets' => true,
         ],
-
-        'postman' => $params['postman'],
-
         'request' => [
-            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'ewrgn349gb34go93bgio39gblo3i4geigkn',
             'enableCookieValidation' => true,
             'enableCsrfCookie' => true,
@@ -62,6 +58,11 @@ $config = [
                     'route' => 'site/sitemap',
                     'suffix' => '.xml',
                 ],
+		[
+                    'pattern' => '<alias:[\w\-\/]+>',
+                    'route' => 'site/page',
+                    'suffix' => '.php',
+                ],
 
                 '' => 'site/index',
                 'index' => 'site/index',
@@ -72,7 +73,7 @@ $config = [
                 '<module:(admin|manager)>/<controller:[\w\-]+>/<action:>/<id:\d+>' => '<module>/<controller>/<action>',
                 '<module:(admin|manager)>/<controller:[\w\-]+>/<action:>' => '<module>/<controller>/<action>',
 
-                '<action:(free-travel|calculate|callback)>' => 'site/<action>',
+                '<action:(free-travel|calculate|callback|question-add)>' => 'site/<action>',
 
                 'album/<id:[\w\-\/]+>' => 'site/album',
                 'answer/<id:[\w\-\/]+>' => 'site/answer',
@@ -91,6 +92,21 @@ $config = [
                     'class' => 'yii\log\FileTarget',
                     'levels' => ['error', 'warning'],
                 ],
+                [
+                    'class' => 'yii\log\EmailTarget',
+                    'levels' => ['error', 'warning'],
+                    'except' => [
+                        'yii\web\HttpException:404',
+                        'yii\web\HttpException:400',
+                        'yii\debug\*',
+                    ],
+                    'message' => [
+                        'from' => ['error@akvarium-moskva.ru' => 'Alfaro'],
+                        'to' => [$params['adminEmail']],
+                        'subject' => 'Site error',
+                    ],
+                    'logVars' => ['_SERVER'],
+                ],
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
@@ -104,7 +120,8 @@ if (YII_ENV_DEV) {
     $config['modules']['debug'] = 'yii\debug\Module';
 
     $config['bootstrap'][] = 'gii';
-    $config['modules']['gii'] = 'yii\gii\Module';
+    $config['modules']['gii'] = ['class' => 'yii\gii\Module',
+                                 'allowedIPs' => ['::1','127.0.0.1','94.19.219.69']];
 }
 
 \Yii::$container->set('yii\grid\GridView', [
