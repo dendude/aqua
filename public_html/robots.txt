@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Host: akvarium-moskva.ru
-Sitemap: http://akvarium-moskva.ru/sitemap.xml
+Host: https://akvarium-moskva.ru
+Sitemap: https://akvarium-moskva.ru/sitemap.xml

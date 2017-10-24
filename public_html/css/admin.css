@@ -504,6 +504,11 @@ table.table td.section-icons i.glyphicons {
   font-size: 24px;
   color: #006699;
 }
+textarea {
+  resize: vertical;
+  min-height: 50px;
+  max-height: 300px;
+}
 div.mce-fullscreen {
   z-index: 9999;
 }
@@ -524,6 +529,52 @@ h1.page-title {
 }
 .m-b-xs {
   margin-bottom: 5px;
+}
+.videos-container {
+  display: flex;
+  margin: 20px 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.videos-container .video-item {
+  width: 300px;
+  margin: 0 30px 30px 0;
+}
+.videos-container .video-item .video-item__preview {
+  height: 200px;
+  background: rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.videos-container .video-item .video-item__preview img {
+  display: block;
+  width: 100%;
+}
+.videos-container .video-item .video-item__status {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.videos-container .video-item .video-item__content {
+  margin-top: 10px;
+  height: 40px;
+}
+.videos-container .video-item .video-item__content .video-item__ordering {
+  font-size: 12px;
+  line-height: 14px;
+}
+.videos-container .video-item .video-item__content .video-item__title {
+  font-size: 14px;
+  line-height: 16px;
+  min-height: 32px;
+  margin-top: 10px;
+}
+.videos-container .video-item .video-item__content .video-item__actions {
+  margin-top: 10px;
 }
 /* list grid */
 div.grid-view div.grid-summary {
@@ -918,6 +969,10 @@ a.btn-add {
   position: absolute;
   top: 5px;
   right: 5px;
+}
+.form-info {
+  position: relative;
+  bottom: 15px;
 }
 /* forms */
 div.separator {

@@ -26,8 +26,8 @@ phpunit.phar
 runtime
 vendor
 public_html/assets
-web/images
-web/docs
+public_html/images
+public_html/docs
 public_html/lib
 node_modules
 

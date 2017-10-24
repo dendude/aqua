@@ -9,10 +9,18 @@ use yii\helpers\Url;
 use app\models\Photos;
 use app\models\PhotoAlbums;
 
+/**
+ * @var $this \yii\web\View
+ * @var $model Pages
+ * @var $videoSlider \app\models\Videos[]
+ */
+
 $this->title = $model->title;
 $this->params['meta_t'] = $model->meta_t;
 $this->params['meta_d'] = $model->meta_d;
 $this->params['meta_k'] = $model->meta_k;
+
+$videoSlider = \app\models\Videos::find()->active()->ordering()->all();
 
 $slider_photos = [];
 $slider_items = Photos::find()
@@ -33,6 +41,7 @@ if ($slider_items) {
 $this->registerJs("
     $('.sm_slider').smSlider({autoPlay : true, delay: 8000});
     $('#sm_slider2').smSlider({autoPlay : true, delay: 7000});
+    $('#sm_slider3').smSlider({autoPlay : true, delay: 10000});
 ");
 
 $faq = \app\models\Faq::find()
@@ -207,49 +216,77 @@ $main_banners = \app\models\Photos::find()
         </div>
 
         <? if (count($slider_photos)): ?>
-        <div class="index-our-job">
-            <img src="<?= UploadForm::getSrc($slider_photos[0]->img_big, UploadForm::TYPE_GALLERY) ?>" alt="<?= Html::encode($slider_photos[0]->title) ?>"/>
-            <span class="our-jobs-default"><?= Yii::$app->vars->val(98) ?></span>
-        </div>
-        <div class="index-our-job-slider">
-            <div class="hidden-xs">
-                <div class="sm_slider">
-                    <ul>
+            <div class="index-our-job">
+                <img src="<?= UploadForm::getSrc($slider_photos[0]->img_big, UploadForm::TYPE_GALLERY) ?>" alt="<?= Html::encode($slider_photos[0]->title) ?>"/>
+                <span class="our-jobs-default"><?= Yii::$app->vars->val(98) ?></span>
+            </div>
+            <div class="index-our-job-slider">
+                <div class="hidden-xs">
+                    <div class="sm_slider">
+                        <ul>
+                            <? foreach ($slider_photos AS $pk => $photo_info): ?>
+                                <? if ($pk%4 == 0): ?><li><? endif; ?>
+                                    <a onclick="set_job_img(this)" data-img="<?= UploadForm::getSrc($photo_info->img_big, UploadForm::TYPE_GALLERY) ?>">
+                                        <span>
+                                            <img src="<?= UploadForm::getSrc($photo_info->img_small, UploadForm::TYPE_GALLERY) ?>" alt="<?= Html::encode($photo_info->about) ?>"/>
+                                        </span>
+                                        <strong class="img-title"><?= Html::encode($photo_info->title) ?></strong>
+                                        <strong class="img-about hidden"><?= nl2br(Html::encode($photo_info->about)) ?></strong>
+                                    </a>
+                                <? if ($pk%4 == 3): ?></li><? endif; ?>
+                            <? endforeach; ?>
+                            <? if (count($slider_photos) % 4 != 0): ?></li><? endif; ?>
+                        </ul>
+                    </div>
+                </div>
+                <div class="hidden visible-xs">
+                    <div class="sm_slider">
+                        <ul>
                         <? foreach ($slider_photos AS $pk => $photo_info): ?>
-                            <? if ($pk%4 == 0): ?><li><? endif; ?>
+                            <li>
                                 <a onclick="set_job_img(this)" data-img="<?= UploadForm::getSrc($photo_info->img_big, UploadForm::TYPE_GALLERY) ?>">
                                     <span>
-                                        <img src="<?= UploadForm::getSrc($photo_info->img_small, UploadForm::TYPE_GALLERY) ?>" alt="<?= Html::encode($photo_info->about) ?>"/>
+                                        <img src="<?= UploadForm::getSrc($photo_info->img_small, UploadForm::TYPE_GALLERY) ?>"
+                                             alt="<?= Html::encode($photo_info->about) ?>"/>
                                     </span>
                                     <strong class="img-title"><?= Html::encode($photo_info->title) ?></strong>
                                     <strong class="img-about hidden"><?= nl2br(Html::encode($photo_info->about)) ?></strong>
                                 </a>
-                            <? if ($pk%4 == 3): ?></li><? endif; ?>
-                        <? endforeach; ?>
-                        <? if (count($slider_photos) % 4 != 0): ?></li><? endif; ?>
-                    </ul>
+                            </li>
+                            <? endforeach; ?>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="hidden visible-xs">
-                <div class="sm_slider">
+            <div class="clearfix"></div>
+        <? endif; ?>
+    
+        <? if (!empty($videoSlider)): ?>
+            <h3 class="index-video-title">Наши видеозаписи</h3>
+            <div class="index-video-slider">
+                <div id="sm_slider3">
                     <ul>
-                    <? foreach ($slider_photos AS $pk => $photo_info): ?>
-                        <li>
-                            <a onclick="set_job_img(this)" data-img="<?= UploadForm::getSrc($photo_info->img_big, UploadForm::TYPE_GALLERY) ?>">
-                                <span>
-                                    <img src="<?= UploadForm::getSrc($photo_info->img_small, UploadForm::TYPE_GALLERY) ?>"
-                                         alt="<?= Html::encode($photo_info->about) ?>"/>
+                        <? $vk = 0; ?>
+                        <? foreach ($videoSlider AS $vk => $vm): ?>
+                            <? if ($vk++ == 0): ?><li><? endif; ?>
+                                <span class="video-preview">
+                                    <? preg_match('/^http\:\/\/img\.youtube\.com\/vi\/(\w+)\/0\.jpg/i', $vm->preview_url, $matches); ?>
+                                    <a href="<?= $matches[1] ?>" title="Смотреть: <?= Html::encode($vm->title) ?>" class="colorbox-video">
+                                        <img src="<?= $vm->preview_url ?>" alt="<?= Html::encode($vm->title) ?>"/>
+                                    </a>
+                                    <span class="video-about"><?= nl2br(Html::encode($vm->about)) ?></span>
                                 </span>
-                                <strong class="img-title"><?= Html::encode($photo_info->title) ?></strong>
-                                <strong class="img-about hidden"><?= nl2br(Html::encode($photo_info->about)) ?></strong>
-                            </a>
-                        </li>
+                            <? if ($vk % 2 == 0): ?></li><? endif; ?>
                         <? endforeach; ?>
+                        <? if ($vk % 3 != 2): ?></li><? endif; ?>
                     </ul>
                 </div>
             </div>
-        </div>
-        <div class="clearfix"></div>
+            <? $this->registerJs("
+                $('.colorbox-video').colorbox({innerWidth: 560, innerHeight: 315, scrolling: false, html: function(){
+                    return \"<iframe width='560' height='315' src='https://www.youtube.com/embed/\" + $(this).attr('href') + \"' frameborder='0' allowfullscreen></iframe>\";
+                }});
+            "); ?>
         <? endif; ?>
         
         <div class="hidden-xs">

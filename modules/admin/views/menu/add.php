@@ -34,6 +34,9 @@ $inputMiddle = ['inputOptions' => ['class' => 'form-control input-middle']];
             ]) ?>
             <div class="separator"></div>
             <?= $form->field($model, 'status')->checkbox() ?>
+            <? if ($model->isNewRecord): ?>
+                <?= $form->field($model, 'addInTop')->checkbox() ?>
+            <? endif; ?>
             <div class="separator"></div>
             <div class="form-group">
                 <div class="col-xs-offset-4 col-xs-2">

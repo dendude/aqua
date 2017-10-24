@@ -1,4 +1,8 @@
-<? for ($i = 1; $i <= 20; $i++): ?>
+<?php
+$rows = Yii::$app->request->get('rows', 10);
+?>
+
+<? for ($i = 1; $i <= $rows; $i++): ?>
 <table cellpadding="0" cellspacing="0" class="table-padding5" width="100%">
     <tbody>
         <tr>
@@ -27,5 +31,5 @@
         </tr>
     </tbody>
 </table>
-    <? if ($i < 20): ?><hr class="separator-line"/><? endif; ?>
+    <? if ($i < $rows): ?><hr class="separator-line"/><? endif; ?>
 <? endfor; ?>

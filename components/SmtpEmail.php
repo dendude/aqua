@@ -68,11 +68,15 @@ class SmtpEmail extends Mailer {
             $recipients = explode(PHP_EOL, $settings->recievers);
             
             foreach ($recipients AS $email_item) {
+                
+                usleep(500000);
+                $email = trim($email_item);
+                
                 try {
                     $this->compose(null)
                         ->setHtmlBody($content)
                         ->setFrom([$settings->email_username => $settings->email_fromname])
-                        ->setTo([$email_item => 'Администратор'])
+                        ->setTo([$email => 'Администратор'])
                         ->setSubject($subject)
                         ->send();
                 } catch (\Exception $e) {}

@@ -9,6 +9,7 @@ use app\modules\admin\controllers\CallbackController;
 use app\modules\admin\controllers\CalculateController;
 use app\modules\admin\controllers\OrdersController;
 use app\modules\admin\controllers\ReviewsController;
+use app\modules\admin\controllers\VideosController;
 
 $label_options = ['class' => 'label label-success pull-right', 'style' => 'font-size: 12px; line-height: 14px;'];
 
@@ -57,7 +58,7 @@ echo Nav::widget([
         ['label' => 'Меню','url' => ['menu/list']],
         ['label' => 'Страницы', 'url' => ['pages/list']],
         ['label' => PhotosController::LIST_NAME,'url' => ['photos/sections']],
-        /*['label' => 'Новости','url' => '#','linkOptions' => ['class' => 'text-muted']],*/
+        ['label' => VideosController::LIST_NAME,'url' => ['videos/list']],
     ],
     'options' => ['class' =>'nav nav-sidebar'], // set this to nav-tab to get tab-styled navigation
 ]);

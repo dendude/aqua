@@ -349,6 +349,7 @@ $this->registerJs('
             {title: "Table Image-text", description: "Заготовка таблицы фото-текст", url: "' . Url::to(['templates/table-fill']) . '"},
             {title: "Table Characters", description: "Заготовка таблицы для характеристик", url: "' . Url::to(['templates/table-characters']) . '"},
             {title: "Table Image Characters", description: "Заготовка таблицы для фото и характеристик", url: "' . Url::to(['templates/table-img-characters']) . '"},
+            {title: "Table Image Characters 1 row", description: "Заготовка таблицы для фото и характеристик 1 строка", url: "' . Url::to(['templates/table-img-characters', 'rows' => 1]) . '"},
 
             {title: "Photo Slider", description: "Слайдер фотографий для страниц", content: "<div class=\"page-slider-cont\"><div id=\"page_slider\"><ul><li><img/></li></ul></div></div>"},
 

@@ -1,215 +1,85 @@
 <?php
-
 namespace app\modules\admin\controllers;
 
-use app\models\forms\UploadForm;
-use app\models\search\PhotoAlbumsSearch;
+use app\helpers\Statuses;
+use app\models\Videos;
 use Yii;
-use yii\helpers\Json;
+use yii\data\Pagination;
 use yii\web\Controller;
-use yii\web\UploadedFile;
 
 class VideosController extends Controller
 {
-    const LIST_NAME = 'Видеолекции';
-    const LIST_SECTIONS = 'Разделы видеолекций';
+    const LIST_NAME = 'Видеослайдер';
 
-    public function beforeAction($action)
-    {
-        if ($action->id == 'upload') {
-            Yii::$app->request->enableCsrfValidation = false;
-        }
-        return parent::beforeAction($action);
-    }
-
-    protected function notFound($message = 'Видеолекция не найдена') {
+    protected function notFound($message = 'Видеозапись не найдена') {
         Yii::$app->session->setFlash('error', $message);
-        $this->redirect(['list'])->send();
+        return $this->redirect(['sections']);
     }
 
-    public function actionList()
-    {
-        /*$query = Results::find()->where(['status' => Statuses::STATUS_ACTIVE])->orderBy($orderBy);
-        if (!empty($section_id)) {
-            $query->andWhere(['section_id' => $section_id]);
-            $query->andWhere(['section_id' => $section_id]);
-        }
+    public function actionList() {
+        $query = Videos::find()->manage()->ordering();
 
         $countQuery = clone $query;
-        $pages = new \yii\data\Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 5]);
+        $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 10]);
+    
+        $videos = $query->offset($pages->offset)->limit($pages->limit)->all();
 
-        $total_results = $query->offset($pages->offset)->limit($pages->limit)->all();*/
-
-
-
+        return $this->render('list', [
+            'pages' => $pages,
+            'videos' => $videos,
+        ]);
     }
-
+    
     public function actionAdd() {
-
-        $model = new News();
-
-        if (Yii::$app->request->post('News')) {
-
+        
+        $model = new Videos();
+        
+        if (Yii::$app->request->post('Videos')) {
             $model->load(Yii::$app->request->post());
-            if ($model->validate()) {
-
-                $model->save();
-                $this->redirect(['list'])->send();
+            if ($model->save()) {
+                return $this->redirect(['list']);
             }
         }
-
-        return $this->render(
-            'add', [
-                'model' => $model
-            ]
-        );
+        
+        return $this->render('add', [
+            'model' => $model
+        ]);
     }
-
+    
     public function actionEdit($id) {
-
-        $model = News::findOne($id);
-        if ($model) {
-
-            if (Yii::$app->request->post('News')) {
-
-                $model->load(Yii::$app->request->post());
-                if ($model->validate()) {
-
-                    $model->save();
-                    $this->redirect(['list'])->send();
-                }
-            }
-
-            return $this->render(
-                'add', [
-                    'model' => $model
-                ]
-            );
-
-        } else {
-            $this->notFound();
-        }
-    }
-
-    public function actionDelete($id)
-    {
-        $model = News::findOne($id);
-
-        if (!$model) $this->notFound();
-
-        return $this->render(
-            'delete', [
-                'model' => $model
-            ]
-        );
-    }
-
-    public function actionTrash($id)
-    {
-        $model = News::findOne($id);
-
-        if (!$model) $this->notFound();
-
-        Yii::$app->session->setFlash('success', 'Видеолекция успешно удалена');
-
-        $model->delete();
-        $this->redirect(['list'])->send();
-    }
-
-    public function actionShow($id)
-    {
-        $model = News::findOne($id);
-
-        if (!$model) $this->notFound();
-
-        Yii::$app->response->redirect([News::ALIAS_PREFIX . $model->alias])->send();
-    }
-
-    public function actionUpload() {
-
-        $upload_form = new UploadForm();
-        $upload_form->imageFile = UploadedFile::getInstance($upload_form, 'imageFile');
-        if ($upload_form->upload(UploadForm::TYPE_NEWS)) {
-            echo Json::encode(['filelink' => $upload_form->getImagePath()]);
-        } else {
-            echo Json::encode($upload_form->getErrors());
-        }
-    }
-
-    public function actionSections()
-    {
-        $searchModel = new PhotoAlbumsSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->get());
-
-        return $this->render(
-            'sections', [
-                'dataProvider' => $dataProvider,
-                'searchModel' => $searchModel,
-            ]
-        );
-    }
-
-    public function actionSectionAdd() {
-        $model = new NewsSections();
-
-        if (Yii::$app->request->post('NewsSections')) {
+        
+        $model = Videos::findOne($id);
+        if (!$model) return $this->notFound();
+        
+        if (Yii::$app->request->post('Videos')) {
             $model->load(Yii::$app->request->post());
             if ($model->save()) {
-                Yii::$app->session->setFlash('success', 'Раздел видеолекций успешно сохранен');
-                $this->redirect(['sections'])->send();
+                return $this->redirect(['list']);
             }
         }
-
-        return $this->render(
-            'section-add', [
-                'model' => $model
-            ]
-        );
+        
+        return $this->render('add', [
+            'model' => $model
+        ]);
     }
-
-    public function actionSectionEdit($id)
-    {
-        $model = NewsSections::findOne($id);
-
-        if (!$model) $this->notFound('Раздел не найден');
-
-        if (Yii::$app->request->post('NewsSections')) {
-            $model->load(Yii::$app->request->post());
-            if ($model->save()) {
-                Yii::$app->session->setFlash('success', 'Раздел видеолекций успешно изменен');
-                $this->redirect(['sections'])->send();
-            }
+    
+    public function actionDelete($id, $confirmed = false) {
+        
+        $model = Videos::findOne($id);
+        if (!$model) $this->notFound();
+        
+        if ($confirmed) {
+            $model->updateAttributes(['status' => Statuses::STATUS_REMOVED]);
+            Yii::$app->session->setFlash('success', 'Новость успешно удалена');
+            return $this->redirect(['list']);
         }
-
-        return $this->render(
-            'section-add', [
-                'model' => $model
-            ]
-        );
+        
+        return $this->render('delete', [
+            'model' => $model
+        ]);
     }
-
-    public function actionSectionDelete($id)
-    {
-        $model = NewsSections::findOne($id);
-
-        if (!$model) $this->notFound('Раздел не найден');
-
-        return $this->render(
-            'section-delete', [
-                'model' => $model
-            ]
-        );
-    }
-
-    public function actionSectionTrash($id)
-    {
-        $model = NewsSections::findOne($id);
-
-        if (!$model) $this->notFound('Раздел не найден');
-
-        Yii::$app->session->setFlash('success', 'Раздел видеолекций успешно удален');
-
-        $model->delete();
-        $this->redirect(['sections'])->send();
+    
+    public function actionTrash($id) {
+        $this->actionDelete($id, true);
     }
 }
