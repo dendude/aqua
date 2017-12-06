@@ -51,9 +51,9 @@ class Videos extends ActiveRecord
             // https://youtu.be/mpMBiEUwKLk или https://www.youtube.com/watch?v=mpMBiEUwKLk
             
             if (preg_match('/^https\:\/\/youtu\.be\/(\w+)$/i', $this->video_url, $matches)) {
-                $this->preview_url = "http://img.youtube.com/vi/{$matches[1]}/0.jpg";
+                $this->preview_url = "https://img.youtube.com/vi/{$matches[1]}/0.jpg";
             } elseif (preg_match('/^https\:\/\/www\.youtube\.com\/watch\?v\=(\w+)$/i', $this->video_url, $matches)) {
-                $this->preview_url = "http://img.youtube.com/vi/{$matches[1]}/0.jpg";
+                $this->preview_url = "https://img.youtube.com/vi/{$matches[1]}/0.jpg";
             } else {
                 $this->addError('video_url', 'Неверный формат ссылки на видеозапись YouTube');
             }

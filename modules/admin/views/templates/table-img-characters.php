@@ -12,15 +12,13 @@ $rows = Yii::$app->request->get('rows', 10);
                 <table class="table-img-characters table-padding5">
                     <tbody>
                         <tr>
-                            <th width="30%">Описание</th>
+                            <th>Описание</th>
                             <th width="27%">Отделка</th>
                             <th width="15%">Цена</th>
                             <th width="18%">Где находится</th>
-                            <th>Столбец</th>
                         </tr>
                         <tr>
                             <td></td>
-                            <td style="text-align:center"></td>
                             <td style="text-align:center"></td>
                             <td style="text-align:center"></td>
                             <td style="text-align:center"></td>

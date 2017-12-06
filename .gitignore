@@ -25,10 +25,10 @@ phpunit.phar
 
 runtime
 vendor
-public_html/assets
-public_html/images
-public_html/docs
-public_html/lib
+web/assets
+web/images
+web/docs
+web/lib
 node_modules
 
 # access, passwd etc

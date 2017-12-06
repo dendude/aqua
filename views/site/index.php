@@ -267,16 +267,17 @@ $main_banners = \app\models\Photos::find()
                 <div id="sm_slider3">
                     <ul>
                         <? $vk = 0; ?>
-                        <? foreach ($videoSlider AS $vk => $vm): ?>
-                            <? if ($vk++ == 0): ?><li><? endif; ?>
-                                <span class="video-preview">
-                                    <? preg_match('/^http\:\/\/img\.youtube\.com\/vi\/(\w+)\/0\.jpg/i', $vm->preview_url, $matches); ?>
-                                    <a href="<?= $matches[1] ?>" title="Смотреть: <?= Html::encode($vm->title) ?>" class="colorbox-video">
-                                        <img src="<?= $vm->preview_url ?>" alt="<?= Html::encode($vm->title) ?>"/>
-                                    </a>
-                                    <span class="video-about"><?= nl2br(Html::encode($vm->about)) ?></span>
-                                </span>
-                            <? if ($vk % 2 == 0): ?></li><? endif; ?>
+                        <? foreach ($videoSlider AS $vm): ?>
+                            <? if ($vk % 3 == 0): ?><li><? endif; ?>
+                            <span class="video-preview">
+                                <? preg_match('/^https?\:\/\/img\.youtube\.com\/vi\/(\w+)\/0\.jpg/i', $vm->preview_url, $matches); ?>
+                                <a href="<?= $matches[1] ?>" title="Смотреть: <?= Html::encode($vm->title) ?>" class="colorbox-video" target="_blank">
+                                    <img src="<?= $vm->preview_url ?>" alt="<?= Html::encode($vm->title) ?>"/>
+                                </a>
+                                <span class="video-about"><?= nl2br(Html::encode($vm->about)) ?></span>
+                            </span>
+                            <? if ($vk % 3 == 2): ?></li><? endif; ?>
+                            <? $vk++; ?>
                         <? endforeach; ?>
                         <? if ($vk % 3 != 2): ?></li><? endif; ?>
                     </ul>

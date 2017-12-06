@@ -16,7 +16,7 @@ class UploadFileForm extends Model
     public $docPath;
 
     const UPLOAD_DIR = 'web/docs';
-сщтые МШУЦ_ВШК = эвщсыэж
+    const VIEW_DIR = 'docs';
 
     public function rules()
     {
