@@ -1,3 +1,22 @@
+# aqua
+Проект сайта akvarium-moskva.ru.
+Перереботан со старой версии сайта, в которой не было управления контентом.
+На данный момент контент управляется из админки. Для html-редактора yii2-imperavi-redactor созданы шаблоны для быстрой вставки элементов: рыбки, таблицы, строки, кнопки продажи.
+
+## Технологии
+
+1. Yii2 (Widgets/Modules/Helpers/AdminPanel/Components)
+1. Mysql/ActiveRecord
+1. Bootstrap3
+1. LESS/CSS
+
+## Текстовые редакторы
+
+1. [yii2-imperavi-redactor](https://packagist.org/packages/asofter/yii2-imperavi-redactor)
+1. [tinymce](https://packagist.org/packages/tinymce/tinymce)
+
+------------
+
 Yii 2 Basic Project Template
 ============================
 
